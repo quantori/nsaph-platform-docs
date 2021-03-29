@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gridmet_ds_def &#8212; Gridmet Computational Utilities 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for gridmet_ds_def</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span><span class="p">,</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">nsaph_utils.utils.context</span> <span class="kn">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Argument</span><span class="p">,</span> <span class="n">Cardinality</span>
+
+<span class="n">var_doc_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">        Gridmet bands or variables. </span>
+<span class="s2">        :ref: `doc/bands`</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Geography"><a class="viewcode-back" href="../doc/geo.html#gridmet_ds_def.Geography">[docs]</a><span class="k">class</span> <span class="nc">Geography</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Type of geography&quot;&quot;&quot;</span>
+
+    <span class="nb">zip</span> <span class="o">=</span> <span class="s2">&quot;zip&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Zip Code Area&quot;&quot;&quot;</span>
+    <span class="n">county</span> <span class="o">=</span> <span class="s2">&quot;county&quot;</span>
+    <span class="sd">&quot;&quot;&quot;County&quot;&quot;&quot;</span>
+    <span class="n">custom</span> <span class="o">=</span> <span class="s2">&quot;custom&quot;</span>
+    <span class="sd">&quot;&quot;&quot;User custom&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="Shape"><a class="viewcode-back" href="../doc/shapes.html#gridmet_ds_def.Shape">[docs]</a><span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Type of shape&quot;&quot;&quot;</span>
+
+    <span class="n">point</span> <span class="o">=</span> <span class="s2">&quot;point&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Point&quot;&quot;&quot;</span>
+    <span class="n">polygon</span> <span class="o">=</span> <span class="s2">&quot;polygon&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Polygon&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="RasterizationStrategy"><a class="viewcode-back" href="../doc/strategy.html#gridmet_ds_def.RasterizationStrategy">[docs]</a><span class="k">class</span> <span class="nc">RasterizationStrategy</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rasterization Strategy, see details at</span>
+<span class="sd">    https://pythonhosted.org/rasterstats/manual.html#rasterization-strategy</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The default strategy is to include all pixels along the line render path</span>
+<span class="sd">    (for lines), or cells where the center point is within the polygon</span>
+<span class="sd">    (for polygons). </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">all_touched</span> <span class="o">=</span> <span class="s2">&quot;all_touched&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Alternate, all_touched strategy, rasterizes the geometry</span>
+<span class="sd">    by including all pixels that it touches.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">combined</span> <span class="o">=</span> <span class="s2">&quot;combined&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate statistics using both default and all_touched strategy and</span>
+<span class="sd">    combine results, e.g. using arithmetic means </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">downscale</span> <span class="o">=</span> <span class="s2">&quot;downscale&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Use disaggregate with factor = 5&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="GridmetVariable"><a class="viewcode-back" href="../doc/bands.html#gridmet_ds_def.GridmetVariable">[docs]</a><span class="k">class</span> <span class="nc">GridmetVariable</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    `Gridmet Bands &lt;https://gee.stac.cloud/WUtw2spmec7AM9rk6xMXUtStkMtbviDtHK?t=bands&gt;`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bi</span> <span class="o">=</span> <span class="s2">&quot;bi&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Burning index: NFDRS fire danger index&quot;&quot;&quot;</span>
+    <span class="n">erc</span> <span class="o">=</span> <span class="s2">&quot;erc&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Energy release component: NFDRS fire danger index&quot;&quot;&quot;</span>
+    <span class="n">etr</span> <span class="o">=</span> <span class="s2">&quot;etr&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Daily reference evapotranspiration: Alfalfa, mm&quot;&quot;&quot;</span>
+    <span class="n">fm100</span> <span class="o">=</span> <span class="s2">&quot;fm100&quot;</span>
+    <span class="sd">&quot;&quot;&quot;100-hour dead fuel moisture: %&quot;&quot;&quot;</span>
+    <span class="n">fm1000</span> <span class="o">=</span> <span class="s2">&quot;fm1000&quot;</span>
+    <span class="sd">&quot;&quot;&quot;1000-hour dead fuel moisture: %&quot;&quot;&quot;</span>
+    <span class="n">pet</span> <span class="o">=</span> <span class="s2">&quot;pet&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Potential evapotranspiration&quot;&quot;&quot;</span>
+    <span class="n">pr</span> <span class="o">=</span> <span class="s2">&quot;pr&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Precipitation amount: mm, daily total &quot;&quot;&quot;</span>
+    <span class="n">rmax</span> <span class="o">=</span> <span class="s2">&quot;rmax&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Maximum relative humidity: %&quot;&quot;&quot;</span>
+    <span class="n">rmin</span> <span class="o">=</span> <span class="s2">&quot;rmin&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Minimum relative humidity: %&quot;&quot;&quot;</span>
+    <span class="n">sph</span> <span class="o">=</span> <span class="s2">&quot;sph&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Specific humididy: kg/kg&quot;&quot;&quot;</span>
+    <span class="n">srad</span> <span class="o">=</span> <span class="s2">&quot;srad&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Surface downward shortwave radiation: W/m^2&quot;&quot;&quot;</span>
+    <span class="n">th</span> <span class="o">=</span> <span class="s2">&quot;th&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Wind direction: Degrees clockwise from North&quot;&quot;&quot;</span>
+    <span class="n">tmmn</span> <span class="o">=</span> <span class="s2">&quot;tmmn&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Minimum temperature: K&quot;&quot;&quot;</span>
+    <span class="n">tmmx</span> <span class="o">=</span> <span class="s2">&quot;tmmx&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Maximum temperature: K&quot;&quot;&quot;</span>
+    <span class="n">vpd</span> <span class="o">=</span> <span class="s2">&quot;vpd&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Mean vapor pressure deficit: kPa&quot;&quot;&quot;</span>
+    <span class="n">vs</span> <span class="o">=</span> <span class="s2">&quot;vs&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Wind velocity at 10m: m/s&quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="GridmetContext"><a class="viewcode-back" href="../doc/gridmet_ds_def.html#gridmet_ds_def.GridmetContext">[docs]</a><span class="k">class</span> <span class="nc">GridmetContext</span><span class="p">(</span><span class="n">Context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Defines a context for running a gridmet pipeline.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_variables</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;variables&quot;</span><span class="p">,</span>
+                          <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Gridmet bands or variables&quot;</span><span class="p">,</span>
+                          <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;var&quot;</span><span class="p">],</span>
+                          <span class="n">cardinality</span><span class="o">=</span><span class="n">Cardinality</span><span class="o">.</span><span class="n">multiple</span><span class="p">,</span>
+                          <span class="n">valid_values</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">GridmetVariable</span><span class="p">])</span>
+    <span class="n">_strategy</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;strategy&quot;</span><span class="p">,</span>
+                         <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">],</span>
+                         <span class="n">default</span><span class="o">=</span><span class="n">RasterizationStrategy</span><span class="o">.</span><span class="n">default</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Rasterization Strategy&quot;</span><span class="p">,</span>
+                         <span class="n">valid_values</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">RasterizationStrategy</span><span class="p">])</span>
+    <span class="n">_destination</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;destination&quot;</span><span class="p">,</span>
+                            <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;dest&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">],</span>
+                            <span class="n">cardinality</span><span class="o">=</span><span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span><span class="p">,</span>
+                            <span class="n">default</span><span class="o">=</span><span class="s2">&quot;data/processed&quot;</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Destination directory for the processed files&quot;</span>
+                            <span class="p">)</span>
+    <span class="n">_raw_downloads</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;raw_downloads&quot;</span><span class="p">,</span>
+                              <span class="n">cardinality</span><span class="o">=</span><span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span><span class="p">,</span>
+                              <span class="n">default</span><span class="o">=</span><span class="s2">&quot;data/downloads&quot;</span><span class="p">,</span>
+                              <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Directory for downloaded raw files&quot;</span>
+                            <span class="p">)</span>
+    <span class="n">_geography</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;geography&quot;</span><span class="p">,</span>
+                          <span class="n">cardinality</span> <span class="o">=</span> <span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span><span class="p">,</span>
+                          <span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span>
+                          <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;The type of geographic area over &quot;</span>
+                                 <span class="o">+</span> <span class="s2">&quot;which we aggregate data&quot;</span>
+                          <span class="p">)</span>
+    <span class="n">_shapes_dir</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;shapes_dir&quot;</span><span class="p">,</span>
+                           <span class="n">default</span><span class="o">=</span><span class="s2">&quot;shapes&quot;</span><span class="p">,</span>
+                           <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Directory containing shape files for&quot;</span>
+                            <span class="o">+</span> <span class="s2">&quot; geographies. Directory structure is&quot;</span>
+                            <span class="o">+</span> <span class="s2">&quot; expected to be: &quot;</span>
+                            <span class="o">+</span> <span class="s2">&quot;.../$</span><span class="si">{year}</span><span class="s2">/$</span><span class="si">{geo_type}</span><span class="s2">/{point|polygon}/&quot;</span><span class="p">)</span>
+    <span class="n">_shapes</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;shapes&quot;</span><span class="p">,</span>
+                       <span class="n">cardinality</span><span class="o">=</span><span class="n">Cardinality</span><span class="o">.</span><span class="n">multiple</span><span class="p">,</span>
+                       <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="n">Shape</span><span class="o">.</span><span class="n">polygon</span><span class="o">.</span><span class="n">value</span><span class="p">],</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Type of shapes to aggregate over&quot;</span><span class="p">)</span>
+    <span class="n">_points</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;points&quot;</span><span class="p">,</span>
+                       <span class="n">cardinality</span><span class="o">=</span><span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span><span class="p">,</span>
+                       <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to CSV file containing points&quot;</span><span class="p">)</span>
+    <span class="n">_coordinates</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;coordinates&quot;</span><span class="p">,</span>
+                            <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="s2">&quot;coord&quot;</span><span class="p">],</span>
+                            <span class="n">cardinality</span><span class="o">=</span><span class="n">Cardinality</span><span class="o">.</span><span class="n">multiple</span><span class="p">,</span>
+                            <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Column names for coordinates&quot;</span><span class="p">)</span>
+    <span class="n">_metadata</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">,</span>
+                            <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;meta&quot;</span><span class="p">],</span>
+                            <span class="n">cardinality</span><span class="o">=</span><span class="n">Cardinality</span><span class="o">.</span><span class="n">multiple</span><span class="p">,</span>
+                            <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Column names for metadata&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor</span>
+<span class="sd">        :param doc: Optional argument, specifying what to print as documentation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">variables</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Gridmet bands or variables :type: `GridmetVariable` &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Rasterization strategy&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Destination directory for the processed files&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_downloads</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Directory for downloaded raw files&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geography</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;The type of geographic area over which we aggregate data&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shapes_dir</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Directory containing shape files for geographies&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shapes</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Type of shapes to aggregate over, e.g. points, polygons&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Path to CSV file containing points&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Column names for coordinates&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39;Column names for metadata&#39;&#39;&#39;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">GridmetContext</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">GridmetVariable</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shapes</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">Shape</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geography</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Geography</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">RasterizationStrategy</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">value</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Gridmet Computational Utilities</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">NSAPH gridMET Read Me First</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/classes.html">Main Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/enums.html">Parameters (Enums)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc/gridmet_tools.html">Tools and Utilities</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Harvard University.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rasterization Strategy &#8212; Gridmet Computational Utilities 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tools and Utilities" href="gridmet_tools.html" />
+    <link rel="prev" title="Types of Shape" href="shapes.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rasterization-strategy">
+<h1>Rasterization Strategy<a class="headerlink" href="#rasterization-strategy" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="gridmet_ds_def.RasterizationStrategy">
+<em class="property">class </em><code class="sig-name descname">RasterizationStrategy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_ds_def.html#RasterizationStrategy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rasterization Strategy, see details at
+<a class="reference external" href="https://pythonhosted.org/rasterstats/manual.html#rasterization-strategy">https://pythonhosted.org/rasterstats/manual.html#rasterization-strategy</a></p>
+<dl class="py attribute">
+<dt id="gridmet_ds_def.RasterizationStrategy.default">
+<code class="sig-name descname">default</code><em class="property"> = 'default'</em><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy.default" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default strategy is to include all pixels along the line render path
+(for lines), or cells where the center point is within the polygon
+(for polygons).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="gridmet_ds_def.RasterizationStrategy.all_touched">
+<code class="sig-name descname">all_touched</code><em class="property"> = 'all_touched'</em><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy.all_touched" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alternate, all_touched strategy, rasterizes the geometry
+by including all pixels that it touches.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="gridmet_ds_def.RasterizationStrategy.combined">
+<code class="sig-name descname">combined</code><em class="property"> = 'combined'</em><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy.combined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate statistics using both default and all_touched strategy and
+combine results, e.g. using arithmetic means</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="gridmet_ds_def.RasterizationStrategy.downscale">
+<code class="sig-name descname">downscale</code><em class="property"> = 'downscale'</em><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy.downscale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use disaggregate with factor = 5</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Gridmet Computational Utilities</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">NSAPH gridMET Read Me First</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Main Classes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="enums.html">Parameters (Enums)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bands.html">Bands (Gridmet Variables)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geo.html">Types of Geography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shapes.html">Types of Shape</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Rasterization Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gridmet_tools.html">Tools and Utilities</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="enums.html">Parameters (Enums)</a><ul>
+      <li>Previous: <a href="shapes.html" title="previous chapter">Types of Shape</a></li>
+      <li>Next: <a href="gridmet_tools.html" title="next chapter">Tools and Utilities</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Harvard University.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/doc/strategy.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

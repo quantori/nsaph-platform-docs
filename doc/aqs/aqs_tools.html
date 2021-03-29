@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internal scripts used for download tasks &#8212; EPA 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Configuration Object for EPA AQS Package" href="aqs_ds_def.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-aqs_tools">
+<span id="internal-scripts-used-for-download-tasks"></span><h1>Internal scripts used for download tasks<a class="headerlink" href="#module-aqs_tools" title="Permalink to this headline">¶</a></h1>
+<p>Python module to download EPA AQS Data hosted at <a class="reference external" href="https://www.epa.gov/aqs">https://www.epa.gov/aqs</a></p>
+<p>The module can be used as a library of functions
+to be called from other python scripts.</p>
+<p>The data is downloaded from <a class="reference external" href="https://aqs.epa.gov/aqsweb/airdata/download_files.html">https://aqs.epa.gov/aqsweb/airdata/download_files.html</a></p>
+<p>The tool adds a column containing a uniquely generated Monitor Key</p>
+<p>Probably the only method useful to external user is <code class="xref py py-func docutils literal notranslate"><span class="pre">download_aqs_data()</span></code></p>
+<dl class="py function">
+<dt id="aqs_tools.add_monitor_key">
+<code class="sig-prename descclassname"><span class="pre">aqs_tools.</span></code><code class="sig-name descname"><span class="pre">add_monitor_key</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs_tools.html#add_monitor_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs_tools.add_monitor_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internal method to generate and add unique Monitor Key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>row</strong> – a row of AQS CSV file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Nothing, modifies the given row in place</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="aqs_tools.collect_annual_downloads">
+<code class="sig-prename descclassname"><span class="pre">aqs_tools.</span></code><code class="sig-name descname"><span class="pre">collect_annual_downloads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contiguous_year_segment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">nsaph_utils.utils.io_utils.DownloadTask</span><a class="reference internal" href="_modules/aqs_tools.html#collect_annual_downloads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs_tools.collect_annual_downloads" title="Permalink to this definition">¶</a></dt>
+<dd><p>A utility method to collect all URLs that should be downloaded for a given
+list of years and EPA AQS parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination</strong> – Destination directory for downloads</p></li>
+<li><p><strong>path</strong> – path element</p></li>
+<li><p><strong>contiguous_year_segment</strong> – a list of contiguous years taht can be
+saved in the same file</p></li>
+<li><p><strong>parameters</strong> – List of EPA AQS Parameter codes</p></li>
+<li><p><strong>downloads</strong> – The resulting collection of downloads that have to
+be performed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>downloads list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="aqs_tools.collect_aqs_download_tasks">
+<code class="sig-prename descclassname"><span class="pre">aqs_tools.</span></code><code class="sig-name descname"><span class="pre">collect_aqs_download_tasks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="aqs_ds_def.html#aqs_ds_def.AQSContext" title="aqs_ds_def.AQSContext"><span class="pre">aqs_ds_def.AQSContext</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs_tools.html#collect_aqs_download_tasks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs_tools.collect_aqs_download_tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main entry into teh library</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>aggregation</strong> – Type of time aggregation: annual or daily</p></li>
+<li><p><strong>years</strong> – a list of years to include, if None - then all
+years are included</p></li>
+<li><p><strong>destination</strong> – Destination Directory</p></li>
+<li><p><strong>parameters</strong> – List of EPA AQS Parameter codes. For annual
+aggregation can be empty, in which case all data is downloaded.
+Required for daily aggregation. Can contain either integer codes, or
+mnemonic instanced of Parameter Enum or both.</p></li>
+<li><p><strong>merge_years</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="aqs_tools.collect_daily_downloads">
+<code class="sig-prename descclassname"><span class="pre">aqs_tools.</span></code><code class="sig-name descname"><span class="pre">collect_daily_downloads</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contiguous_year_segment</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">nsaph_utils.utils.io_utils.DownloadTask</span><a class="reference internal" href="_modules/aqs_tools.html#collect_daily_downloads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs_tools.collect_daily_downloads" title="Permalink to this definition">¶</a></dt>
+<dd><p>A utility method to collect all URLs that should be downloaded for a given
+list of years and EPA AQS parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination</strong> – Destination directory for downloads</p></li>
+<li><p><strong>ylabel</strong> – a label to use for years in teh destination path</p></li>
+<li><p><strong>contiguous_year_segment</strong> – a list of contiguous years taht can be
+saved in the same file</p></li>
+<li><p><strong>parameters</strong> – List of EPA AQS Parameter codes</p></li>
+<li><p><strong>downloads</strong> – The resulting collection of downloads that have to
+be performed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>downloads list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="aqs_tools.destination_path">
+<code class="sig-prename descclassname"><span class="pre">aqs_tools.</span></code><code class="sig-name descname"><span class="pre">destination_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/aqs_tools.html#destination_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs_tools.destination_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>A utility method to construct destination file path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>destination</strong> – Destination directory</p></li>
+<li><p><strong>path</strong> – Source path in URL</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Path on a file system</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="aqs_tools.download_data">
+<code class="sig-prename descclassname"><span class="pre">aqs_tools.</span></code><code class="sig-name descname"><span class="pre">download_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">nsaph_utils.utils.io_utils.DownloadTask</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs_tools.html#download_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs_tools.download_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>A utility method to download the content of given URL to the given file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> – Source URL</p></li>
+<li><p><strong>target</strong> – Target file path</p></li>
+<li><p><strong>parameters</strong> – An optional list of EPA AQS Parameter codes to include
+in the output</p></li>
+<li><p><strong>append</strong> – whether to append to an existing file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="aqs_tools.transfer">
+<code class="sig-prename descclassname"><span class="pre">aqs_tools.</span></code><code class="sig-name descname"><span class="pre">transfer</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reader</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">csv.DictReader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">csv.DictWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs_tools.html#transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs_tools.transfer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific for EPA AQS Data</p>
+<p>Rewrites the CSV content adding Monitor Key and optionally
+filtering rows by a provided list of parameter codes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reader</strong> – Input data as an instance of csv.DictReader</p></li>
+<li><p><strong>writer</strong> – Output source should be provided as csv.DictWriter</p></li>
+<li><p><strong>flt</strong> – Optionally, a callable function returning True
+for rows that should be written to the output and False for those
+that should be omitted</p></li>
+<li><p><strong>header</strong> – whether to first write header row</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-nsaph_utils.utils.io_utils"></span><dl class="py function">
+<dt id="nsaph_utils.utils.io_utils.as_csv_reader">
+<code class="sig-prename descclassname"><span class="pre">nsaph_utils.utils.io_utils.</span></code><code class="sig-name descname"><span class="pre">as_csv_reader</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nsaph_utils/utils/io_utils.html#as_csv_reader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.io_utils.as_csv_reader" title="Permalink to this definition">¶</a></dt>
+<dd><p>An utility method to return the CSV content of the URL as CSVReader</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> – URL</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an instance of csv.DictReader</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nsaph_utils.utils.io_utils.as_stream">
+<code class="sig-prename descclassname"><span class="pre">nsaph_utils.utils.io_utils.</span></code><code class="sig-name descname"><span class="pre">as_stream</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'.csv'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nsaph_utils/utils/io_utils.html#as_stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.io_utils.as_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns teh content of URL as a stream. In case the content is in zip
+format (excluding gzip) creates a temporary file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> – URL</p></li>
+<li><p><strong>extension</strong> – optional, when the content is zip-encoded, the extension
+of the zip entry to return</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Content of the URL or a zip entry</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nsaph_utils.utils.io_utils.check_http_response">
+<code class="sig-prename descclassname"><span class="pre">nsaph_utils.utils.io_utils.</span></code><code class="sig-name descname"><span class="pre">check_http_response</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">requests.models.Response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nsaph_utils/utils/io_utils.html#check_http_response"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.io_utils.check_http_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>An internal method raises an exception of HTTP response is not OK</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>r</strong> – Response</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>nothing, raises an exception if response is not OK</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nsaph_utils.utils.io_utils.download">
+<code class="sig-prename descclassname"><span class="pre">nsaph_utils.utils.io_utils.</span></code><code class="sig-name descname"><span class="pre">download</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">IO</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nsaph_utils/utils/io_utils.html#download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.io_utils.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>An utility method to download large binary data to a file-like object</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nsaph_utils.utils.io_utils.fopen">
+<code class="sig-prename descclassname"><span class="pre">nsaph_utils.utils.io_utils.</span></code><code class="sig-name descname"><span class="pre">fopen</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nsaph_utils/utils/io_utils.html#fopen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.io_utils.fopen" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper to open various types of files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – Path to file</p></li>
+<li><p><strong>mode</strong> – Opening mode</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>file-like object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nsaph_utils.utils.io_utils.is_downloaded">
+<code class="sig-prename descclassname"><span class="pre">nsaph_utils.utils.io_utils.</span></code><code class="sig-name descname"><span class="pre">is_downloaded</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_size</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="reference internal" href="_modules/nsaph_utils/utils/io_utils.html#is_downloaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.io_utils.is_downloaded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the same data has already been downloaded</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>check_size</strong> – Use default value (0) if target size should be equal
+to source size. If several urls are combined when downloaded
+then specify a positive integer to check that destination file
+size is greater than the specified value. Specifying negative
+value will disable size check</p></li>
+<li><p><strong>url</strong> – URL with data</p></li>
+<li><p><strong>target</strong> – Destination of teh downloads</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the destination file exists and is newer than
+URL content</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="nsaph_utils.utils.io_utils.write_csv">
+<code class="sig-prename descclassname"><span class="pre">nsaph_utils.utils.io_utils.</span></code><code class="sig-name descname"><span class="pre">write_csv</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reader</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">csv.DictReader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">csv.DictWriter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">write_header</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nsaph_utils/utils/io_utils.html#write_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.io_utils.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rewrites the CSV content optionally transforming and
+filtering rows</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>transformer</strong> – An optional callable that tranmsforms a row in place</p></li>
+<li><p><strong>reader</strong> – Input data as an instance of csv.DictReader</p></li>
+<li><p><strong>writer</strong> – Output source should be provided as csv.DictWriter</p></li>
+<li><p><strong>filter</strong> – Optionally, a callable function returning True
+for rows that should be written to the output and False for those
+that should be omitted</p></li>
+<li><p><strong>write_header</strong> – whether to first write header row</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">EPA</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">EPA AQS Toolkit Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Internal scripts used for download tasks</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="aqs_ds_def.html" title="previous chapter">Configuration Object for EPA AQS Package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Harvard University.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/aqs_tools.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
