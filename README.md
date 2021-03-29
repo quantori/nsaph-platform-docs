@@ -1,12 +1,4 @@
 # NSAPH Data Ingestion Pipelines
-# User and Development Documentation
 
-Gridmet Pipelines
-=================
-
-[Gridmet package](doc/gridmet)
-
-EPA AQS Pipelines
-=================
-
-[AQS package](doc/aqs/index.html)
+This repository contains pipelines for preprocessing data 
+to make it available to NSPAH projects
