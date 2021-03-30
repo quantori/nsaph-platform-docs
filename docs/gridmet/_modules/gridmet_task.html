@@ -384,7 +384,7 @@
 
     <span class="k">def</span> <span class="nf">execute_parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">days</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
-        <span class="n">max_len</span> <span class="o">=</span> <span class="mi">10000</span>
+        <span class="n">max_len</span> <span class="o">=</span> <span class="mi">50000</span>
         <span class="n">max_tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">workers</span> <span class="o">*</span> <span class="mi">2</span>
         <span class="n">tasks</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="k">with</span> <span class="n">fopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">points_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">points_file</span><span class="p">,</span> \
