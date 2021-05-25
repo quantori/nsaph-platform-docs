@@ -53,12 +53,14 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Main class, describes the whole download job</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">AQSContext</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new instance</span>
 <span class="sd">        :param context: An optional AQSContext object, if not specified,</span>
-<span class="sd">            then it is constructed from the command line arguments</span>
+<span class="sd">        then it is constructed from the command line arguments</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        
         <span class="k">if</span> <span class="ow">not</span> <span class="n">context</span><span class="p">:</span>
             <span class="n">context</span> <span class="o">=</span> <span class="n">AQSContext</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">context</span> <span class="o">=</span> <span class="n">context</span>
@@ -68,16 +70,20 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructs a list of all download tasks necessary to execute to</span>
 <span class="sd">        download all the data defined in the configuration ()</span>
+<span class="sd">        </span>
 <span class="sd">        :return: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">download_tasks</span> <span class="o">=</span> <span class="n">collect_aqs_download_tasks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="AQS.is_downloaded"><a class="viewcode-back" href="../aqs.html#aqs.AQS.is_downloaded">[docs]</a>    <span class="k">def</span> <span class="nf">is_downloaded</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if there anything remains to be downloaded or if all</span>
 <span class="sd">        files are up to date</span>
+
 <span class="sd">        :return: True if everything is up to date, False otherwise</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_tasks</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">collect_downloads</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_tasks</span><span class="p">:</span>
@@ -90,6 +96,7 @@
 <span class="sd">        Removes all previously downloaded data from the local storage</span>
 <span class="sd">        :return: Nothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_tasks</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">collect_downloads</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">download_tasks</span><span class="p">:</span>
@@ -140,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../aqs.html">Main Class for EPA AQS Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../airnow_downloader.html">Downloader for AirNow</a></li>
 </ul>
 
 <div class="relations">
@@ -177,7 +185,7 @@
       &copy;2021, Harvard University.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
     </div>

@@ -42,8 +42,35 @@ and some instructions how to format output</p>
 <p>The tool also adds a column containing a uniquely generated Monitor Key</p>
 <dl class="py class">
 <dt id="aqs.AQS">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">aqs.</span></code><code class="sig-name descname"><span class="pre">AQS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aqs_ds_def.html#aqs_ds_def.AQSContext" title="aqs_ds_def.AQSContext"><span class="pre">aqs_ds_def.AQSContext</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs.html#AQS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs.AQS" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">AQS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aqs_ds_def.html#aqs_ds_def.AQSContext" title="aqs_ds_def.AQSContext"><span class="pre">aqs_ds_def.AQSContext</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs.html#AQS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs.AQS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main class, describes the whole download job</p>
+<p>Creates a new instance
+:param context: An optional AQSContext object, if not specified,
+then it is constructed from the command line arguments</p>
+<dl class="py method">
+<dt id="aqs.AQS.collect_downloads">
+<code class="sig-name descname"><span class="pre">collect_downloads</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs.html#AQS.collect_downloads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs.AQS.collect_downloads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a list of all download tasks necessary to execute to
+download all the data defined in the configuration ()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="aqs.AQS.is_downloaded">
+<code class="sig-name descname"><span class="pre">is_downloaded</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs.html#AQS.is_downloaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs.AQS.is_downloaded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if there anything remains to be downloaded or if all
+files are up to date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if everything is up to date, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="aqs.AQS.clear">
 <code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs.html#AQS.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs.AQS.clear" title="Permalink to this definition">¶</a></dt>
@@ -52,26 +79,10 @@ and some instructions how to format output</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="aqs.AQS.collect_downloads">
-<code class="sig-name descname"><span class="pre">collect_downloads</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs.html#AQS.collect_downloads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs.AQS.collect_downloads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructs a list of all download tasks necessary to execute to
-download all the data defined in the configuration ()
-:return: Nothing</p>
-</dd></dl>
-
-<dl class="py method">
 <dt id="aqs.AQS.download">
 <code class="sig-name descname"><span class="pre">download</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs.html#AQS.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs.AQS.download" title="Permalink to this definition">¶</a></dt>
 <dd><p>Downloads all remaining data absent or not up to date)
 :return: Nothing</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="aqs.AQS.is_downloaded">
-<code class="sig-name descname"><span class="pre">is_downloaded</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/aqs.html#AQS.is_downloaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#aqs.AQS.is_downloaded" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if there anything remains to be downloaded or if all
-files are up to date
-:return: True if everything is up to date, False otherwise</p>
 </dd></dl>
 
 </dd></dl>
@@ -100,7 +111,10 @@ files are up to date
 <li class="toctree-l1"><a class="reference internal" href="usage.html">EPA AQS Toolkit Usage</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Main Class for EPA AQS Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow.html">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow_ds_def.html">Configuration Object for EPA AirNow Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow_downloader.html">Downloader for AirNow</a></li>
 </ul>
 
 <div class="relations">
@@ -138,7 +152,7 @@ files are up to date
       &copy;2021, Harvard University.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
