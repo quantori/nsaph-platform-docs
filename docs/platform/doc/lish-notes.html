@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building a Level 3 VM with PostgreSQL and Apache Superset &#8212; NSAPH Data Platform 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <hr class="docutils" />
+<div class="section" id="building-a-level-3-vm-with-postgresql-and-apache-superset">
+<h1>Building a Level 3 VM with PostgreSQL and Apache Superset<a class="headerlink" href="#building-a-level-3-vm-with-postgresql-and-apache-superset" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="add-dns-records">
+<h1>Add DNS Records<a class="headerlink" href="#add-dns-records" title="Permalink to this headline">¶</a></h1>
+<p>Follow <a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/ops/dns">FAS RC DNS Documentation</a>
+to add  DNS data.</p>
+<p>If you are installing Apache Airflow, Apache Superset or any other
+tool that uses Flask and gunicorn for Web Interface, you need to create
+virtual hosts for every service.</p>
+<p>Therefore, add CNAME record for every virtual host below your A record. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lish</span>                <span class="n">A</span>   <span class="mf">10.31</span><span class="o">.</span><span class="mf">26.13</span>    
+<span class="n">lish</span><span class="o">-</span><span class="n">superset</span>       <span class="n">CNAME</span> <span class="n">lish</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-vm-in-opennebula">
+<h1>Create A VM in OpenNebula<a class="headerlink" href="#create-a-vm-in-opennebula" title="Permalink to this headline">¶</a></h1>
+<p>Follow <a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/common/cloud-docs/-/blob/master/opennebula_new_vm_on_rc_puppet.md">this document</a>
+to create a VM. Follow <a class="reference external" href="https://docs-int.rc.fas.harvard.edu/puppet-certificate-signing-process/">Puppet Certificate Signing</a>.
+To log in to puppetmaster, ssh there as root. This is important, only root user can see the certificate signing requests.</p>
+<p>For vlan, use prod2448.</p>
+<p>NSAPH VMs managed on https://cloud-int-holy.rc.fas.harvard.edu</p>
+</div>
+<div class="section" id="create-and-attach-a-disk-for-data">
+<h1>Create and attach a disk for data<a class="headerlink" href="#create-and-attach-a-disk-for-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-disk-in-opennebula">
+<h2>Create disk in OpenNebula<a class="headerlink" href="#create-disk-in-opennebula" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Go to Storage -&gt; Images tab</p></li>
+<li><p>Click green “+” icon</p></li>
+<li><p>Fill in the name</p></li>
+<li><p>Select:</p>
+<ul>
+<li><p>Type: Generic storage datablock</p></li>
+<li><p>Datastore (I used nese for my servers)</p></li>
+<li><p>Image location: empty disk image. Selecting this option will make visible “Size” field</p></li>
+<li><p>Fill in the required size</p></li>
+</ul>
+</li>
+<li><p>Click green “Create” button</p></li>
+<li><p>Go to the Instances -&gt; VM Tab and attach the newly created disk</p></li>
+</ul>
+</div>
+<div class="section" id="attach-file-system-to-the-vm">
+<h2>Attach file system to the VM<a class="headerlink" href="#attach-file-system-to-the-vm" title="Permalink to this headline">¶</a></h2>
+<p>On the VM:</p>
+<ul class="simple">
+<li><p>Make sure the disk is physically attached by running <code class="docutils literal notranslate"><span class="pre">lsblk</span></code></p></li>
+<li><p>Start <code class="docutils literal notranslate"><span class="pre">parted</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">(parted)</span> <span class="pre">mklabel</span> <span class="pre">gpt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(parted)</span> <span class="pre">print</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(parted)</span> <span class="pre">mkpart</span></code></p>
+<ul>
+<li><p>name</p></li>
+<li><p>File system type? xfs</p></li>
+<li><p>Start? 0% ## It is important to use “%”</p></li>
+<li><p>End? 100%</p></li>
+</ul>
+</li>
+<li><p>Quit parted</p></li>
+</ul>
+</li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">fdisk</span> <span class="pre">-l</span></code> to ensure changes</p></li>
+<li><p>[Optionally] Change file system type from
+‘Microsoft basic data’ to ‘Linux filesystem’</p>
+<ul>
+<li><p>fdisk</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">20</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Create File system: <code class="docutils literal notranslate"><span class="pre">mkfs.xfs</span> <span class="pre">/dev/vdb1</span></code></p></li>
+<li><p>Note UUID of the disk</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">fdisk</span> <span class="pre">-l</span></code></p></li>
+<li><p>Or <code class="docutils literal notranslate"><span class="pre">ll</span> <span class="pre">/dev/disk/by-uuid/</span></code></p></li>
+<li><p>Or <code class="docutils literal notranslate"><span class="pre">lsblk</span> <span class="pre">-f</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="create-and-sign-ssl-certificate">
+<h1>Create and Sign SSL Certificate<a class="headerlink" href="#create-and-sign-ssl-certificate" title="Permalink to this headline">¶</a></h1>
+<p>Follow the <a class="reference external" href="https://docs-int.rc.fas.harvard.edu/generate-csr-and-ssl-cert/">instructions</a></p>
+<p>Because we are creating virtual hosts we need to generate a multi-domain CSR</p>
+</div>
+<div class="section" id="puppet-host-file">
+<h1>Puppet Host File<a class="headerlink" href="#puppet-host-file" title="Permalink to this headline">¶</a></h1>
+<p>You need to create a host file here:
+https://gitlab-int.rc.fas.harvard.edu/puppet/puppet/-/tree/production/hieradata%2Fhosts</p>
+<p>Include all Level 3 stuff as described
+<a class="reference external" href="https://docs-int.rc.fas.harvard.edu/security-tooling-overview/#Auditbeat">here</a>.
+In particular, remember Level 3 block, CrowdStrike and Auditbeat.</p>
+<div class="section" id="host-file-general">
+<h2>Host File General<a class="headerlink" href="#host-file-general" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="roles-and-classes">
+<h3>Roles and Classes<a class="headerlink" href="#roles-and-classes" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">role</span><span class="p">:</span> <span class="n">roles</span><span class="p">::</span><span class="n">service</span><span class="p">::</span><span class="n">docker</span><span class="p">::</span><span class="n">web</span>
+<span class="n">mount_staff_nfs_vol</span><span class="p">:</span> <span class="n">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="proxies">
+<h3>Proxies<a class="headerlink" href="#proxies" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum_proxy</span><span class="p">:</span> <span class="s1">&#39;http://holyyumproxy:8123&#39;</span>
+</pre></div>
+</div>
+<p>For HTTP proxies, use Environment:
+Environment=”HTTP_PROXY=http://rcproxy.rc.fas.harvard.edu:3128”
+Environment=”HTTPS_PROXY=http://rcproxy.rc.fas.harvard.edu:3128”</p>
+</div>
+</div>
+<div class="section" id="firewall">
+<h2>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h2>
+<p>We need to add rules to:</p>
+<ul class="simple">
+<li><p>Allow HTTPS (TCP 443) traffic at least from HPRC VPN
+realm (10.255.12.0/26) (or wider)</p></li>
+<li><p>Allow access to PostgreSQL (TCP 5432) from Docker containers (172.17.0.0/8)</p></li>
+</ul>
+</div>
+<div class="section" id="fas-rc-resources">
+<h2>FAS RC Resources<a class="headerlink" href="#fas-rc-resources" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="files">
+<h3>Files<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="miscellaneous">
+<h4>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Docker requires setting up HTTP proxies,
+this is done in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/docker.service.d/http-proxy.conf</span></code></p></li>
+<li><p>Nginx restart (I am personally unsure)</p></li>
+<li><p>PostgreSQL custom configuration should be placed in
+<code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/postgresql-13.service.d/override.conf</span></code> file.
+We will be changing location of the database (essential for large
+databases that can be much larger than system drive). Our solution
+is to mount database drive on /data, hence we are setting <code class="docutils literal notranslate"><span class="pre">PGDATA</span></code>
+to <code class="docutils literal notranslate"><span class="pre">/data/pgsql/13/data/</span></code> To enforce some consistency, this is done
+using local variable
+<code class="docutils literal notranslate"><span class="pre">local::postgres::pgdata:</span> <span class="pre">'/data/pgsql/13/data/'</span></code>
+which is referenced where needed. <a class="reference external" href="https://pgstef.github.io/2018/02/28/custom_pgdata_with_systemd.html">More Information</a></p></li>
+<li><p>Actual directory /data/pgsql/13</p></li>
+</ul>
+<p>####Apache Superset</p>
+<p>Puppet creates the following files required for Apache Superset:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker-compose.yml</td>
+<td>Docker-compose file, contains the majority of all settings</td>
+</tr>
+<tr>
+<td>superset/superset-config.py</td>
+<td>Script that doecker executes within teh container</td>
+</tr>
+<tr>
+<td>superset/postresql/init/db-init.sql</td>
+<td>database definitions</td>
+</tr>
+<tr>
+<td>startup.sh</td>
+<td>script that can be used either to install and initialize Superset or as a list of commands that should be manually executed</td>
+</tr>
+</tbody>
+</table><p>Puppet does not initialize Superset, it should be done manually using the<br /><code class="docutils literal notranslate"><span class="pre">startup.sh</span></code> script</p>
+</div>
+</div>
+<div class="section" id="exec">
+<h3>Exec<a class="headerlink" href="#exec" title="Permalink to this headline">¶</a></h3>
+<p>We use exec resource in Puppet to install additional software.</p>
+<div class="section" id="installing-docker-compose">
+<h4>Installing docker-compose<a class="headerlink" href="#installing-docker-compose" title="Permalink to this headline">¶</a></h4>
+<p>Installation of docker-compose is described <a class="reference external" href="https://docs.docker.com/compose/install/">here</a>.</p>
+<p>In host file this is done in <code class="docutils literal notranslate"><span class="pre">'/usr/local/bin/docker-compose'</span></code> section</p>
+</div>
+<div class="section" id="installing-the-latest-version-of-postgresql">
+<h4>Installing the latest version of PostgreSQL<a class="headerlink" href="#installing-the-latest-version-of-postgresql" title="Permalink to this headline">¶</a></h4>
+<p>The procedure is described in <a class="reference external" href="https://www.postgresql.org/download/linux/redhat/">PostgreSQL Documentation</a></p>
+<p>We do it in <code class="docutils literal notranslate"><span class="pre">'Installs</span> <span class="pre">PostgreSQL</span> <span class="pre">13'</span></code> section</p>
+</div>
+</div>
+<div class="section" id="setting-system-wide-http-proxy">
+<h3>Setting system-wide HTTP proxy<a class="headerlink" href="#setting-system-wide-http-proxy" title="Permalink to this headline">¶</a></h3>
+<p>We are setting system-wide environment variable to define HTTP proxy.
+See <code class="docutils literal notranslate"><span class="pre">'Set</span> <span class="pre">HTTP</span> <span class="pre">Proxy'</span></code> section.</p>
+</div>
+<div class="section" id="memory-configuration-for-postgresql">
+<h3>Memory configuration for PostgreSQL<a class="headerlink" href="#memory-configuration-for-postgresql" title="Permalink to this headline">¶</a></h3>
+<p>Most memory configuration parameters are defined in the file <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code>
+located in the PostgreSQL data directory. We override the default location of
+data directory, hence we are placing the new configuration in the location
+defined by <code class="docutils literal notranslate"><span class="pre">local::postgres::pgdata</span></code>.</p>
+<p>The necessary memory configuration is defined in the section:
+<code class="docutils literal notranslate"><span class="pre">local::postgres::conf</span></code></p>
+<p>Memory parameters are described in
+<a class="reference external" href="https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-MEMORY">PostgreSQL Resource Documentation</a></p>
+<p>If the database is used for data exploration, then <code class="docutils literal notranslate"><span class="pre">work_mem</span></code> is the most important
+parameter as it is responsible for resources allocated for aggregation and sorting
+and can make a difference of several orders of magnitude in time required
+to execute an aggregate query.</p>
+<p>Another important parameter is <code class="docutils literal notranslate"><span class="pre">maintenance_work_mem</span></code>, responsible for the speed of
+data ingestion and for operations such as building indices.</p>
+<p>Another set of parameters worth keeping in mind are those responsible for
+<a class="reference external" href="https://www.postgresql.org/docs/current/wal-configuration.html">Write Ahead Log</a>.
+They are most important for handling transactions and might be less so
+for Information Systems. More information can be found in
+<a class="reference external" href="https://www.postgresql.org/docs/current/runtime-config-wal.html">PostgreSQL Documentation</a></p>
+<p>All the rest parameters are set to default values, therefore we can
+simply replace the original <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code> with our custom one.</p>
+</div>
+<div class="section" id="authentication-configuration-for-postgresql">
+<h3>Authentication Configuration for PostgreSQL<a class="headerlink" href="#authentication-configuration-for-postgresql" title="Permalink to this headline">¶</a></h3>
+<p>One parameter in <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code> must be changed if any access, other than local
+via unix sockets is required: <code class="docutils literal notranslate"><span class="pre">listen_addresses</span></code>. This is almost always the case
+as any third-party database tool or driver would need TCP/IP access besides
+raw sockets. Though this parameter is set to “*” in the example, the actual control is
+defined by firewall rules and in the file <code class="docutils literal notranslate"><span class="pre">pg_hba.conf</span></code>. The original version
+of <code class="docutils literal notranslate"><span class="pre">pg_hba.conf</span></code> contains some important settings, therefore we add to the
+original copy rather than overriding it as we do with <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code>. The
+content to be added is defined in <code class="docutils literal notranslate"><span class="pre">local::postgres::pg_hba</span></code>.</p>
+<p>If Apache SUperset i sused, or any other tool that is installed as a
+docker container, then, at the very minimum, we shoudl allow access
+from docker networks (172.17.0.0/16 and 172.18.0.0/16 ).</p>
+</div>
+<div class="section" id="possible-issue-with-postgresql-client">
+<h3>Possible issue with PostgreSQL Client<a class="headerlink" href="#possible-issue-with-postgresql-client" title="Permalink to this headline">¶</a></h3>
+<p>PostgreSQL client is an executable called psql. Once PostgreSQL is installed,
+one should be able to run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">postgres</span> <span class="pre">psql</span></code></p>
+<p>If the executable not found, then it means that the package <code class="docutils literal notranslate"><span class="pre">postgresql13</span></code>
+is not installed. If you see an error:</p>
+<p><code class="docutils literal notranslate"><span class="pre">psql:</span> <span class="pre">symbol</span> <span class="pre">lookup</span> <span class="pre">error:</span> <span class="pre">psql:</span> <span class="pre">undefined</span> <span class="pre">symbol:</span> <span class="pre">PQsetErrorContextVisibility</span></code></p>
+<p>the most probable reason is that libraries from an older version of PostgreSQL
+are installed. Run the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">list</span> <span class="pre">installed</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">postg</span></code></p>
+<p>And if you see any packages without the latest version (13) - remove them and
+reinstall from latest version.
+For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@lish</span> <span class="o">~</span><span class="p">]</span><span class="c1"># yum list installed | grep postg</span>
+<span class="n">postgresql</span><span class="o">-</span><span class="n">libs</span><span class="o">.</span><span class="n">x86_64</span>              <span class="mf">9.2</span><span class="o">.</span><span class="mi">24</span><span class="o">-</span><span class="mf">4.</span><span class="n">el7_8</span>             <span class="nd">@centos</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">base</span>   
+<span class="n">postgresql13</span><span class="o">.</span><span class="n">x86_64</span>                 <span class="mf">13.1</span><span class="o">-</span><span class="mi">3</span><span class="n">PGDG</span><span class="o">.</span><span class="n">rhel7</span>           <span class="nd">@pgdg13</span>          
+<span class="n">postgresql13</span><span class="o">-</span><span class="n">libs</span><span class="o">.</span><span class="n">x86_64</span>            <span class="mf">13.1</span><span class="o">-</span><span class="mi">3</span><span class="n">PGDG</span><span class="o">.</span><span class="n">rhel7</span>           <span class="nd">@pgdg13</span>          
+<span class="n">postgresql13</span><span class="o">-</span><span class="n">server</span><span class="o">.</span><span class="n">x86_64</span>          <span class="mf">13.1</span><span class="o">-</span><span class="mi">3</span><span class="n">PGDG</span><span class="o">.</span><span class="n">rhel7</span>           <span class="nd">@pgdg13</span>          
+<span class="p">[</span><span class="n">root</span><span class="nd">@lish</span> <span class="o">~</span><span class="p">]</span><span class="c1"># yum autoremove postgresql-libs</span>
+<span class="o">...</span>
+<span class="p">[</span><span class="n">root</span><span class="nd">@lish</span> <span class="o">~</span><span class="p">]</span><span class="c1"># yum reinstall  postgresql13-libs</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>Note, that all libraries should be in <code class="docutils literal notranslate"><span class="pre">/usr/pgsql-13/lib/</span></code> directory, not
+<code class="docutils literal notranslate"><span class="pre">/lib64</span></code></p>
+<p>Wrong:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@lish</span> <span class="o">~</span><span class="p">]</span><span class="c1"># ldd /usr/pgsql-13/bin/psql </span>
+	<span class="n">libpq</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mi">5</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">libpq</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mi">5</span> <span class="p">(</span><span class="mh">0x00007fcc80494000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Right:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@lish</span> <span class="o">~</span><span class="p">]</span><span class="c1"># ldd /usr/pgsql-13/bin/psql </span>
+	<span class="n">libpq</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mi">5</span> <span class="o">=&gt;</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">pgsql</span><span class="o">-</span><span class="mi">13</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libpq</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mi">5</span> <span class="p">(</span><span class="mh">0x00007efeb84b4000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="nginx">
+<h2>Nginx<a class="headerlink" href="#nginx" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-server-setup">
+<h3>General Server Setup<a class="headerlink" href="#general-server-setup" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Set Nginx to true</p></li>
+<li><p>Define actual virtual hosts in <code class="docutils literal notranslate"><span class="pre">nginx::nginx_vhosts</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="ssl-setup">
+<h3>SSL Setup<a class="headerlink" href="#ssl-setup" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs-int.rc.fas.harvard.edu/generate-csr-and-ssl-cert/">FAS RC SSL Documentation</a>
+describes how to put the certificates. Put them for each of teh virtual hosts</p>
+<ul class="simple">
+<li><p>Define certificates for virtual hosts in <code class="docutils literal notranslate"><span class="pre">profiles::web::ssl::certs</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="setting-up-proxy-servers-for-flask-gunicorn-applications">
+<h3>Setting up proxy servers for Flask Gunicorn Applications<a class="headerlink" href="#setting-up-proxy-servers-for-flask-gunicorn-applications" title="Permalink to this headline">¶</a></h3>
+<p>Applications such as <a class="reference external" href="https://airflow.apache.org/docs/apache-airflow/stable/">Apache Airflow</a>
+or <a class="reference external" href="https://superset.apache.org/">Apache Superset</a> are using
+<a class="reference external" href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> running on
+<a class="reference external" href="https://gunicorn.org/">Gunicorn</a>. This setup is described in a
+few documents on the net (e.g. https://medium.com/faun/deploy-flask-app-with-nginx-using-gunicorn-7fda4f50066a
+or https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04)</p>
+<p>We nned to configure nginx to be a proxy server for them. The configuration
+is doen in <code class="docutils literal notranslate"><span class="pre">location</span></code> block. Common options are defined in
+<code class="docutils literal notranslate"><span class="pre">local::nginx::proxy:</span> <span class="pre">&amp;proxy_pass</span></code> and specific proxy settings in
+<code class="docutils literal notranslate"><span class="pre">nginx::nginx_locations</span></code></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">NSAPH Data Platform</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Datamodels.html">Data Modelling for NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Harvard University.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/doc/lish-notes.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
