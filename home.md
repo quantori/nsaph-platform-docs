@@ -1,0 +1,26 @@
+# NSAPH Data Platform
+ **User and Development Documentation**
+                     
+## Core Platform
+
+[Package Description](platform)
+
+   
+## Data Ingestion and Processing Pipelines
+
+### CMS Pipelines
+
+[CMS](pipelines/cms)
+
+### Gridmet Pipelines
+
+[Gridmet package](pipelines/gridmet)
+
+### EPA AQS Pipelines
+
+[EPA Pipelines](pipelines/epa)
+
+### Census Pipelines
+
+[Census](pipelines/census)
+

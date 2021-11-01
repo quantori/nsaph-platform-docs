@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Modelling for NSAPH Data Platform" href="doc/Datamodels.html" />
-    <link rel="prev" title="Welcome to NSAPH Data Platform" href="index.html" />
+    <link rel="prev" title="NSAPH Core Data Platform" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -48,6 +48,8 @@
 <li><p><a class="reference external" href="#database-connection-wrapper">Database Connection Wrapper</a></p></li>
 <li><p><a class="reference external" href="#nsaphloader">nsaph.loader</a></p></li>
 <li><p><a class="reference external" href="#nsaphrequests">nsaph.requests</a></p></li>
+<li><p><a class="reference external" href="#nsaphutil">nsaph.util</a></p></li>
+<li><p><a class="reference external" href="#nsaphtools">nsaph.tools</a></p></li>
 </ul>
 </li>
 </ul>
@@ -67,16 +69,16 @@ DBMS (version 13 or later) and CWL runtime environment.</p>
 <p>Examples of tools included in this package are:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="doc/Datamodels.html"><span class="doc">Universal Data Loader</span></a></p></li>
-<li><p>A <a class="reference external" href="src/python/nsaph/index.py">utility to monitor progress of long-running database</a>
+<li><p>A <a class="reference external" href="doc/members/index.html">utility to monitor progress of long-running database</a>
 processes like indexing.</p></li>
-<li><p>A <a class="reference external" href="src/python/nsaph/analyze.py">utility to infer database schema and generate DDL</a>
+<li><p>A <a class="reference external" href="doc/members/analyze.html">utility to infer database schema and generate DDL</a>
 from a CSV file</p></li>
-<li><p>A <a class="reference external" href="src/python/nsaph/link_gis.py">utility to link a table to GIS</a>
+<li><p>A <a class="reference external" href="doc/members/link_gis.html">utility to link a table to GIS</a>
 from a CSV file</p></li>
 <li><p>A <a class="reference external" href="#database-connection-wrapper">wrapper around database connection to PostgreSQL</a></p></li>
-<li><p>A <a class="reference external" href="src/python/nsaph/link_gis.py">utility to import/export JSONLines</a>
+<li><p>A <a class="reference external" href="doc/members/pg_json_dump.html">utility to import/export JSONLines</a>
 files into/from PostgreSQL</p></li>
-<li><p>An <a class="reference external" href="src/python/util/executors.py">Executor with a bounded queue</a></p></li>
+<li><p>An <a class="reference external" href="doc/members/executors.html">Executor with a bounded queue</a></p></li>
 </ul>
 <p>The package is under intensive development, therefore its
 development branches contain some obsolete modules and utilities.
@@ -103,7 +105,7 @@ See details in <a class="reference external" href="#software-sources">Software S
 <h3>Software Sources<a class="headerlink" href="#software-sources" title="Permalink to this headline">¶</a></h3>
 <p>The directories under sources are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">airflow</span>
-<span class="o">-</span> <span class="n">cwl</span>
+<span class="o">-</span> <span class="n">commonwl</span>
 <span class="o">-</span> <span class="n">html</span>
 <span class="o">-</span> <span class="n">plpgsql</span>
 <span class="o">-</span> <span class="n">python</span>
@@ -120,7 +122,7 @@ Most of the content is deprecated as it is now transferred
 to the deployment package or the specific pipelines. However,
 this directory is intended to contain Airflow plugins that are
 generic for all NSAPH pipelines</p></li>
-<li><p><strong><em>cwl</em></strong> contains reusable workflows, packaged as tools
+<li><p><strong><em>commonwl</em></strong> contains reusable workflows, packaged as tools
 that can and should be used by
 all NSAPH pipelines. Examples of such tools
 are: introspection of CSV files, indexing tables, linking
@@ -154,14 +156,14 @@ actual processing. The main concept is a knowledge domain, or
 just a domain. Domain model is define in a YAML file as
 described in the <a class="reference internal" href="doc/Datamodels.html"><span class="doc">documentation</span></a>. The main
 module that processes the YAML definition of the domain
-is <a class="reference external" href="src/python/nsaph/data_model/domain.py">domain.py</a>. Another
-module, <a class="reference external" href="src/python/nsaph/data_model/inserter.py">inserter</a>
+is <a class="reference external" href="doc/members/domain.html">domain.py</a>. Another
+module, <a class="reference external" href="doc/members/inserter.html">inserter</a>
 handles parallel insertion of the data into domain tables.</p>
 <p>Auxiliary modules perform various maintenance tasks.
-Module <a class="reference external" href="src/python/nsaph/data_model/index2.py">index2</a>
+Module <a class="reference external" href="doc/members/index_builder.html">index2</a>
 builds indices for a given tables or for all
 tables within a domain.
-Module <a class="reference external" href="src/python/nsaph/data_model/utils.py">utils</a>
+Module <a class="reference external" href="doc/members/utils.html">utils</a>
 provides convenience function wrappers and defines
 class DataReader that abstracts reading CSV and FST files.
 In other words, DataReader provides uniform interface
@@ -170,45 +172,51 @@ different formats.</p>
 </div>
 <div class="section" id="database-connection-wrapper">
 <h5>Database Connection Wrapper<a class="headerlink" href="#database-connection-wrapper" title="Permalink to this headline">¶</a></h5>
-<p>Module <a class="reference external" href="src/python/nsaph/db.py">db</a> is a PostgreSQL
+<p>Module <a class="reference external" href="doc/members/db.html">db</a> is a PostgreSQL
 connection wrapper. It reads connection parameters from
 an <code class="docutils literal notranslate"><span class="pre">ini</span></code> file and connects to the database. It can
 transparently connect over <em><strong>ssh tunnel</strong></em> when required.</p>
 </div>
 <div class="section" id="nsaph-loader">
 <h5>nsaph.loader<a class="headerlink" href="#nsaph-loader" title="Permalink to this headline">¶</a></h5>
-<p>Incomplete package, a wrapper around the
-<a class="reference internal" href="doc/Datamodels.html"><span class="doc">Universal Data Loader</span></a>. To be completed
-ASAP.</p>
+<p>A wrapper around the
+<a class="reference internal" href="doc/Datamodels.html"><span class="doc">Universal Data Loader</span></a>.</p>
 </div>
 <div class="section" id="nsaph-requests">
 <h5>nsaph.requests<a class="headerlink" href="#nsaph-requests" title="Permalink to this headline">¶</a></h5>
 <p>Package nsaph.requests contains some code that is
 intended to be used for fulfilling user requests. Its
 development is currently put on hold.</p>
-<p>Module <a class="reference external" href="src/python/nsaph/requests/hdf5_export.py">hdf5_export</a> exports
+<p>Module <a class="reference external" href="doc/members/hdf5_export.html">hdf5_export</a> exports
 result of SQL query as an HDF5 file. The structure of the HDF5 is
 described by a YAML request definition.</p>
-<p>Module <a class="reference external" href="src/python/nsaph/requests/query.py">query</a> generates SQL query
+<p>Module <a class="reference external" href="doc/members/query.html">query</a> generates SQL query
 from a YAML request definition.</p>
 </div>
-<div class="section" id="nsaph-cms">
-<h5>nsaph.cms<a class="headerlink" href="#nsaph-cms" title="Permalink to this headline">¶</a></h5>
-<p>This sub-package contains modules to generate YAML schema for CMS
-data from FTS files provided with CMS medicaid and medicare
-export (raw data).</p>
-<p>Module <a class="reference external" href="src/python/nsaph/cms/fts2yaml.py">fts2yaml</a> is a generic
-parser for FTS format for both Medicaid and Medicare.</p>
-<p>File transfer summary (FTS) document contains information about
-the data extract. These are plain text files containing
-information such as the number of
-columns in the data extract, number of rows and the size of the
-data file. The FTS document provides the
-starting positions, the length and the generic format of
-each of the column (such as character, numeric or date)</p>
-<p>Module <a class="reference external" href="src/python/nsaph/cms/medicaid.py">medicaid</a> generates YAML
-schema for CMS medicaid and places it into the registry described
-in <a class="reference external" href="#yaml-files">YAML Files</a> section.</p>
+<div class="section" id="nsaph-util">
+<h5>nsaph.util<a class="headerlink" href="#nsaph-util" title="Permalink to this headline">¶</a></h5>
+<p>Package nsaph.util contains:</p>
+<ul class="simple">
+<li><p>Support for packaging <a class="reference external" href="#resources">resources</a>
+in two modules <a class="reference external" href="doc/members/resources.html">resources</a>
+and <a class="reference external" href="doc/members/pg_json_dump.html">pg_json_dump</a>. The
+latter module imports and exports PostgreSQL (pg) tables
+as JSONLines format.</p></li>
+<li><p>Module <a class="reference external" href="doc/members/net.html">net</a> contains
+one method resolving host to <code class="docutils literal notranslate"><span class="pre">localhost</span></code>. This method is
+required by Airflow.</p></li>
+<li><p>Module <a class="reference external" href="doc/members/executors.html">executors</a>
+implements a<br /><a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor">ThreadPoolExecutor</a>
+with a bounded queue. It is used to prevent out of memory (OOM)
+errors when processing huge files (to prevent loading
+the whole file into memory before dispatching it for processing).</p></li>
+</ul>
+</div>
+<div class="section" id="nsaph-tools">
+<h5>nsaph.tools<a class="headerlink" href="#nsaph-tools" title="Permalink to this headline">¶</a></h5>
+<p>This package contains code that was written to try to extract
+corrupted medicare data for 2015. Ultimately, this attempt
+was unsuccessful.</p>
 </div>
 </div>
 </div>
@@ -227,12 +235,12 @@ into corresponding pipeline repositories.</p></li>
 <li><p>Sample user requests for future downstream pipelines
 that create user workspaces from the database. File
 <a class="reference external" href="src/yml/example_request.yaml">example_request.yml</a> is used by
-<a class="reference external" href="src/python/nsaph/requests/hdf5_export.py">sample request handler</a></p></li>
+<a class="reference external" href="doc/members/hdf5_export.html">sample request handler</a></p></li>
 </ul>
 </div>
 <div class="section" id="resources">
 <h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
-<p>Resources are organized in teh following way:</p>
+<p>Resources are organized in the following way:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- ${database schema}/
     - ddl file for ${resource1}
     - content of ${resource1} in JSON Lines format (*.json.gz)
@@ -240,12 +248,14 @@ that create user workspaces from the database. File
     - content of ${resource2} in JSON Lines format (*.json.gz)
 </pre></div>
 </div>
-<p>consists of the following components:</p>
-<ul class="simple">
-<li><p>Python code to load data into PostgreSQL</p></li>
-<li><p>Support for CWL workflows</p></li>
-<li><p>Code for data mdoelling of CMS (Medicaid/Medicare) data</p></li>
-</ul>
+<p>Resources can be packaged when a
+<a class="reference external" href="https://pythonwheels.com/">wheel</a>
+is built. Support for packaging resources during development and
+after a package is deployed is provided by
+<a class="reference external" href="doc/members/resources.html">resources</a> module.</p>
+<p>Another module, <a class="reference external" href="doc/members/pg_json_dump.html">pg_json_dump</a>,
+provides support for packaging tables as resources in JSONLines
+format. This format is used natively by some DBMSs.</p>
 </div>
 </div>
 </div>
@@ -271,18 +281,27 @@ that create user workspaces from the database. File
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">NSAPH Data Platform</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#software-sources">Software Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-packages">Python packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nsaph-package">NSAPH Package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#yaml-files">YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">Resources</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="doc/Datamodels.html">Data Modelling for NSAPH Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/UserRequests.html">Preliminary Considerations for Handling User Requests</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to NSAPH Data Platform</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">NSAPH Core Data Platform</a></li>
       <li>Next: <a href="doc/Datamodels.html" title="next chapter">Data Modelling for NSAPH Data Platform</a></li>
   </ul></li>
 </ul>

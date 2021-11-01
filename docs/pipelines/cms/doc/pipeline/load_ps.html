@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Summary Loader &#8212; NSAPH CMS Data Processing Package 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_paramlinks.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="patient-summary-loader">
+<h1>Patient Summary Loader<a class="headerlink" href="#patient-summary-loader" title="Permalink to this headline">¶</a></h1>
+<p><strong>Tool</strong> 	<a class="reference external" href="../../../platform/doc/members/data_loader.html">nsaph.loader.data_loader</a></p>
+<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/load_ps.cwl">load_ps.cwl</a></p>
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#description">Description</a></p></li>
+<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
+<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
+</ul>
+<!-- tocstop --><div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This tool loads patient summary data into a database.
+It should be run after the data is inspected and
+data model is created from FTS files</p>
+</div>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>registry</td>
+<td>File</td>
+<td></td>
+<td>A path to the data model file</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>string</td>
+<td><code>cms</code></td>
+<td>the name of the domain</td>
+</tr>
+<tr>
+<td>table</td>
+<td>string</td>
+<td><code>ps</code></td>
+<td>the name of the table being populated</td>
+</tr>
+<tr>
+<td>database</td>
+<td>File</td>
+<td></td>
+<td>Path to database connection file, usually database.ini</td>
+</tr>
+<tr>
+<td>connection_name</td>
+<td>string</td>
+<td></td>
+<td>The name of the section in the database.ini file</td>
+</tr>
+<tr>
+<td>incremental</td>
+<td>boolean</td>
+<td></td>
+<td>if defined, then the data ingestion is incremental. Transactions are committed after every file is processed and files that have already been processed are skipped</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Directory</td>
+<td></td>
+<td>A path to directory, containing unpacked CMS files. The tool will recursively look for data files according to provided pattern</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>string</td>
+<td><code>**/maxdata_*_ps_*.csv*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>threads</td>
+<td>int</td>
+<td><code>4</code></td>
+<td>number of threads, concurrently writing into the database</td>
+</tr>
+<tr>
+<td>page_size</td>
+<td>int</td>
+<td><code>1000</code></td>
+<td>explicit page size for the database</td>
+</tr>
+<tr>
+<td>log_frequency</td>
+<td>long</td>
+<td><code>100000</code></td>
+<td>informational logging occurs every specified number of records</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>long</td>
+<td></td>
+<td>if specified, the process will stop after ingesting the specified number of records</td>
+</tr>
+<tr>
+<td>depends_on</td>
+<td>File</td>
+<td></td>
+<td>a special field used to enforce dependencies and execution order</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log</td>
+<td>File</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">NSAPH CMS Data Processing Package</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medicaid.html">Full Medicaid Processing Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Also:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Harvard University.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/doc/pipeline/load_ps.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

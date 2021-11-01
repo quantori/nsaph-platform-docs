@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preliminary Considerations for Handling User Requests &#8212; NSAPH Data Platform 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx_paramlinks.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Data Modelling for NSAPH Data Platform" href="Datamodels.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="preliminary-considerations-for-handling-user-requests">
+<h1>Preliminary Considerations for Handling User Requests<a class="headerlink" href="#preliminary-considerations-for-handling-user-requests" title="Permalink to this headline">¶</a></h1>
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
+<li><p><a class="reference external" href="#structure">Structure</a></p></li>
+</ul>
+<!-- tocstop --><div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This document describes some considerations and<br />a very preliminary format
+of a potential user request. It describes
+possible implementations of exporting and packaging
+data.</p>
+<p>A very crude and basic
+<a class="reference external" href="../src/yml/example_request.yaml">example</a>
+describes a request to export climate data for a set
+of places and dates.</p>
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>name</strong>. This is a name of the request</p></li>
+<li><p><strong>source</strong>. Source of the request, it can indicate
+a pipeline that has to be run to obtain the data
+or another way of building the data required for
+the request. Our software wil dispatch the actual
+reuqest based on this value. Each value has to be
+specifically implemented by us.</p></li>
+<li><p><strong>variables</strong>. List of variables that should be included
+in the package given to the user. Our software
+will figure out how to retrieve a specified variable.
+If a way to retrieve a variable cannot be determined,
+an error will be generated. Current prototype
+implementation searches for columns with appropriate
+names in the tables defined in the module specified
+in the <strong>source</strong> section.</p></li>
+<li><p><strong>restrict</strong>. This section specifies filters to restrict
+the data included in the package. Each filter is specified
+in the format <code class="docutils literal notranslate"><span class="pre">variable:</span> <span class="pre">value</span> <span class="pre">|</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">values</span></code>. If a
+variable contains sub-variables (e.g., date has years,
+months, days, etc.). Then sub-variables and their values
+can be specified. Variables used in <strong>restrict</strong> section
+do not necessarily be included in the <strong>variables</strong> section.</p></li>
+<li><p><strong>package</strong>.  This section defines how to package the data
+for the user. In the example we package it as HDF5,
+grouping by state and date. Grouping variables must be
+included iin the <strong>variables</strong> section.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">NSAPH Data Platform</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Datamodels.html">Data Modelling for NSAPH Data Platform</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Preliminary Considerations for Handling User Requests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure">Structure</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Datamodels.html" title="previous chapter">Data Modelling for NSAPH Data Platform</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Harvard University.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/doc/UserRequests.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

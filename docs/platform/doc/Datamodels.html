@@ -15,7 +15,7 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Handling Medicaid data" href="Medicaid.html" />
+    <link rel="next" title="Preliminary Considerations for Handling User Requests" href="UserRequests.html" />
     <link rel="prev" title="NSAPH Data Platform" href="../README.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -36,7 +36,27 @@
   <div class="section" id="data-modelling-for-nsaph-data-platform">
 <h1>Data Modelling for NSAPH Data Platform<a class="headerlink" href="#data-modelling-for-nsaph-data-platform" title="Permalink to this headline">¶</a></h1>
 <p><strong>How data models are defined and handled</strong></p>
-<div class="section" id="introduction">
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
+<li><p><a class="reference external" href="#domain">Domain</a></p></li>
+<li><p><a class="reference external" href="#table">Table</a></p>
+<ul>
+<li><p><a class="reference external" href="#invalid-record">Invalid Record</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#column">Column</a></p>
+<ul>
+<li><p><a class="reference external" href="#source">Source</a></p></li>
+<li><p><a class="reference external" href="#generated-columns">Generated columns</a></p></li>
+<li><p><a class="reference external" href="#computed-columns">Computed Columns</a></p></li>
+<li><p><a class="reference external" href="#transposing-columns">Transposing Columns</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#generation-of-the-database-schema-ddl">Generation of the database schema (DDL)</a></p></li>
+<li><p><a class="reference external" href="#indexing-policies">Indexing Policies</a></p></li>
+<li><p><a class="reference external" href="#ingesting-data">Ingesting Data</a></p></li>
+</ul>
+<!-- tocstop --><div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Data models consist of database tables, relations between them
 (e.g. foreign keys), indices and conventions that govern things
@@ -56,7 +76,8 @@ following domains</p>
 </div>
 <div class="section" id="domain">
 <h2>Domain<a class="headerlink" href="#domain" title="Permalink to this headline">¶</a></h2>
-<p>Handling domains is implemented by the <a class="reference external" href="../src/">Domain</a> class.</p>
+<p>Handling domains is implemented by the
+<a class="reference external" href="members/domain.html">Domain</a> class.</p>
 <p>For each domain, its data model is defined by a YAML file in
 the following directory: <a class="reference external" href="../src/yml">src/yml</a></p>
 <p>Each model is represented by a “forest”: a set of treelike
@@ -315,7 +336,7 @@ define an index</p></li>
 <li><p><strong>all</strong> Indices are only created for all columns</p></li>
 <li><p><strong>selected</strong> Indices are only created for columns
 matching certain pattern (defined in <code class="docutils literal notranslate"><span class="pre">index_columns</span></code> variable
-of <a class="reference external" href="../src/python/nsaph/data_model/model.py">model</a>) module</p></li>
+of <a class="reference external" href="members/model.html">model</a>) module</p></li>
 <li><p><strong>unless excluded</strong> Indices are only created for all columns
 not explicitly excluded</p></li>
 </ul>
@@ -379,14 +400,23 @@ child tables:</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Modelling for NSAPH Data Platform</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#domain">Domain</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#table">Table</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#column">Column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#table">Table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#invalid-record">Invalid Record</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#column">Column</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source">Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generated-columns">Generated columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computed-columns">Computed Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transposing-columns">Transposing Columns</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#generation-of-the-database-schema-ddl">Generation of the database schema (DDL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#indexing-policies">Indexing Policies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ingesting-data">Ingesting Data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UserRequests.html">Preliminary Considerations for Handling User Requests</a></li>
 </ul>
 
 <div class="relations">
@@ -394,7 +424,7 @@ child tables:</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../README.html" title="previous chapter">NSAPH Data Platform</a></li>
-      <li>Next: <a href="Medicaid.html" title="next chapter">Handling Medicaid data</a></li>
+      <li>Next: <a href="UserRequests.html" title="next chapter">Preliminary Considerations for Handling User Requests</a></li>
   </ul></li>
 </ul>
 </div>

@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Medicaid Processing Pipeline &#8212; NSAPH CMS Data Processing Package 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_paramlinks.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Importing Medicaid Data Processed by the Legacy Pipeline" href="../LegacyMedicaid.html" />
+    <link rel="prev" title="Handling Medicaid data" href="../Medicaid.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="full-medicaid-processing-pipeline">
+<h1>Full Medicaid Processing Pipeline<a class="headerlink" href="#full-medicaid-processing-pipeline" title="Permalink to this headline">¶</a></h1>
+<p><strong>Workflow</strong></p>
+<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/medicaid.cwl">medicaid.cwl</a></p>
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#description">Description</a></p></li>
+<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
+<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
+<li><p><a class="reference external" href="#steps">Steps</a></p></li>
+</ul>
+<!-- tocstop --><div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This workflow ingests Medicaid data, provided by
+Centers for Medicare &amp; Medicaid Services (CMS)
+to researches. The expected input format is
+Medicaid Analytic eXtract (MAX) data.</p>
+<p>The workflow parses File transfer summary (FTS) files,
+loads the raw data into a PostgreSQL DBMS and then processes
+the data to prepare it for using by NSAPH researches.
+See <a class="reference internal" href="../Medicaid.html"><span class="doc">documentation</span></a> for detailed
+information.</p>
+</div>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>File</td>
+<td></td>
+<td>Path to database connection file, usually database.ini</td>
+</tr>
+<tr>
+<td>connection_name</td>
+<td>string</td>
+<td></td>
+<td>The name of the section in the database.ini file</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Directory</td>
+<td></td>
+<td>A path to directory, containing unpacked CMS files. The tool will recursively look for data files according to provided pattern</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>resource1_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>parse_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>reset_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ben_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ben_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>mnth_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>mnth_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>enrlm_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>enrlm_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Runs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>states</td>
+<td><a href="ensure_resource.html">ensure_resource.cwl</a></td>
+<td>Ensures the presence of <code>us_states</code> table in the database. The table contains mapping between state names, ids (two letter abbreviations), FIPS codes and <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO-3166-2 codes</a></td>
+</tr>
+<tr>
+<td>iso</td>
+<td><a href="ensure_resource.html">ensure_resource.cwl</a></td>
+<td>Ensures the presence of <code>us_iso</code> table in the database. The table provides a mapping between states, counties and zip codes. It contains FIPS and <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO-3166-2 codes</a></td>
+</tr>
+<tr>
+<td>fts</td>
+<td><a href="parse_fts.html">parse_fts.cwl</a></td>
+<td></td>
+</tr>
+<tr>
+<td>reset_cms</td>
+<td><a href="reset.html">reset.cwl</a></td>
+<td>Initializes Raw CMS tables</td>
+</tr>
+<tr>
+<td>load_ps</td>
+<td><a href="load_ps.html">load_ps.cwl</a></td>
+<td>Loads Patient Summaries</td>
+</tr>
+<tr>
+<td>index_ps</td>
+<td><a href="index.html">index.cwl</a></td>
+<td></td>
+</tr>
+<tr>
+<td>create_beneficiaries</td>
+<td><a href="matview.html">matview.cwl</a></td>
+<td>Creates <code>Beneficiaries</code> Table</td>
+</tr>
+<tr>
+<td>create_monthly_view</td>
+<td><a href="matview.html">matview.cwl</a></td>
+<td>Creates internally used <code>Monthly View</code></td>
+</tr>
+<tr>
+<td>create_enrollments</td>
+<td><a href="matview.html">matview.cwl</a></td>
+<td>Creates <code>Enrollment</code> Table</td>
+</tr>
+<tr>
+<td>create_eligibility</td>
+<td><a href="matview.html">matview.cwl</a></td>
+<td>Creates <code>Eligibility</code> Table</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">NSAPH CMS Data Processing Package</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Full Medicaid Processing Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#steps">Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Also:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../Medicaid.html" title="previous chapter">Handling Medicaid data</a></li>
+      <li>Next: <a href="../LegacyMedicaid.html" title="next chapter">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Harvard University.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/doc/pipeline/medicaid.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

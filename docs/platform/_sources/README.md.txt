@@ -12,6 +12,8 @@ NSAPH Data Platform
       - [Database Connection Wrapper](#database-connection-wrapper)
       - [nsaph.loader](#nsaphloader)
       - [nsaph.requests](#nsaphrequests)
+      - [nsaph.util](#nsaphutil)
+      - [nsaph.tools](#nsaphtools)
   * [YAML files](#yaml-files)
   * [Resources](#resources)
 
@@ -34,7 +36,7 @@ Examples of tools included in this package are:
 * A [utility to link a table to GIS](src/python/nsaph/link_gis.py)
   from a CSV file
 * A [wrapper around database connection to PostgreSQL](#database-connection-wrapper)
-* A [utility to import/export JSONLines](src/python/nsaph/link_gis.py)
+* A [utility to import/export JSONLines](src/python/nsaph/util/pg_json_dump.py)
     files into/from PostgreSQL
 * An [Executor with a bounded queue](src/python/util/executors.py)
 
@@ -68,7 +70,7 @@ See details in [Software Sources](#software-sources) section.
 The directories under sources are:
 
     - airflow
-    - cwl
+    - commonwl
     - html
     - plpgsql
     - python
@@ -84,7 +86,7 @@ Here is a brief overview:
   to the deployment package or the specific pipelines. However,
   this directory is intended to contain Airflow plugins that are
   generic for all NSAPH pipelines
-* **_cwl_** contains reusable workflows, packaged as tools 
+* **_commonwl_** contains reusable workflows, packaged as tools 
     that can and should be used by
     all NSAPH pipelines. Examples of such tools
     are: introspection of CSV files, indexing tables, linking
@@ -125,7 +127,7 @@ module, [inserter](src/python/nsaph/data_model/inserter.py)
 handles parallel insertion of the data into domain tables.
 
 Auxiliary modules perform various maintenance tasks. 
-Module [index2](src/python/nsaph/data_model/index2.py)
+Module [index2](src/python/nsaph/loader/index_builder.py)
 builds indices for a given tables or for all
 tables within a domain. 
 Module [utils](src/python/nsaph/data_model/utils.py)
@@ -144,9 +146,9 @@ transparently connect over _**ssh tunnel**_ when required.
 
 ##### nsaph.loader
 
-Incomplete package, a wrapper around the 
-[Universal Data Loader](doc/Datamodels.md). To be completed 
-ASAP.
+A wrapper around the 
+[Universal Data Loader](doc/Datamodels.md). 
+
 
 ##### nsaph.requests
 Package nsaph.requests contains some code that is
@@ -160,27 +162,30 @@ described by a YAML request definition.
 Module [query](src/python/nsaph/requests/query.py) generates SQL query
 from a YAML request definition.
 
-##### nsaph.cms
+##### nsaph.util
 
-This sub-package contains modules to generate YAML schema for CMS
-data from FTS files provided with CMS medicaid and medicare 
-export (raw data).
+Package nsaph.util contains: 
 
-Module [fts2yaml](src/python/nsaph/cms/fts2yaml.py) is a generic
-parser for FTS format for both Medicaid and Medicare.
+* Support for packaging [resources](#resources)
+  in two modules [resources](src/python/nsaph/util/resources.py) 
+  and [pg_json_dump](src/python/nsaph/util/pg_json_dump.py). The 
+  latter module imports and exports PostgreSQL (pg) tables
+  as JSONLines format.
+* Module [net](src/python/nsaph/util/net.py) contains
+  one method resolving host to `localhost`. This method is
+  required by Airflow.
+* Module [executors](src/python/nsaph/util/executors.py) 
+  implements a  
+  [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor)
+  with a bounded queue. It is used to prevent out of memory (OOM)
+  errors when processing huge files (to prevent loading
+  the whole file into memory before dispatching it for processing).
 
-File transfer summary (FTS) document contains information about 
-the data extract. These are plain text files containing
-information such as the number of
-columns in the data extract, number of rows and the size of the
-data file. The FTS document provides the
-starting positions, the length and the generic format of 
-each of the column (such as character, numeric or date)  
+##### nsaph.tools
 
-Module [medicaid](src/python/nsaph/cms/medicaid.py) generates YAML 
-schema for CMS medicaid and places it into the registry described 
-in [YAML Files](#yaml-files) section.
-
+This package contains code that was written to try to extract
+corrupted medicare data for 2015. Ultimately, this attempt
+was unsuccessful.
 
 ### YAML files
 The majority of files are data model definitions. For now, they 
@@ -201,7 +206,7 @@ Beside data model files, there are YAML files for:
 
 ### Resources
 
-Resources are organized in teh following way:
+Resources are organized in the following way:
 
     - ${database schema}/
         - ddl file for ${resource1}
@@ -209,10 +214,12 @@ Resources are organized in teh following way:
         - ddl file for ${resource2}
         - content of ${resource2} in JSON Lines format (*.json.gz)
 
-consists of the following components:
+Resources can be packaged when a 
+[wheel](https://pythonwheels.com/) 
+is built. Support for packaging resources during development and
+after a package is deployed is provided by 
+[resources](src/python/nsaph/util/resources.py) module.
 
-* Python code to load data into PostgreSQL
-
-* Support for CWL workflows
-
-* Code for data mdoelling of CMS (Medicaid/Medicare) data
+Another module, [pg_json_dump](src/python/nsaph/util/pg_json_dump.py),
+provides support for packaging tables as resources in JSONLines
+format. This format is used natively by some DBMSs.

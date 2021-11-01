@@ -1,14 +1,13 @@
-
-Welcome to NSAPH Data Platform
+NSAPH Core Data Platform
 ==========================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
    README
    doc/Datamodels.md
-   doc/Medicaid.md
+   doc/UserRequests
 
 Indices and tables
 ==================

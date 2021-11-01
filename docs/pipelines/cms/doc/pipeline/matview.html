@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Materialized View Creator &#8212; NSAPH CMS Data Processing Package 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_paramlinks.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="materialized-view-creator">
+<h1>Materialized View Creator<a class="headerlink" href="#materialized-view-creator" title="Permalink to this headline">¶</a></h1>
+<p><strong>Workflow</strong></p>
+<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/matview.cwl">matview.cwl</a></p>
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#description">Description</a></p></li>
+<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
+<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
+<li><p><a class="reference external" href="#steps">Steps</a></p></li>
+</ul>
+<!-- tocstop --><div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This tool is a shortcut to create a materialized view and build
+all indices associated with the view</p>
+</div>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>File</td>
+<td></td>
+<td>Path to database connection file, usually database.ini</td>
+</tr>
+<tr>
+<td>connection_name</td>
+<td>string</td>
+<td></td>
+<td>The name of the section in the database.ini file</td>
+</tr>
+<tr>
+<td>table</td>
+<td>string</td>
+<td></td>
+<td>the name of the table to be created</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>string</td>
+<td><code>medicaid</code></td>
+<td>the name of the domain</td>
+</tr>
+<tr>
+<td>depends_on</td>
+<td>File</td>
+<td></td>
+<td>a special field used to enforce dependencies and execution order</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Runs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td><a href="create.html">create.cwl</a></td>
+<td>Execute DDL</td>
+</tr>
+<tr>
+<td>index</td>
+<td><a href="index.html">index.cwl</a></td>
+<td>Build indices</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">NSAPH CMS Data Processing Package</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Data Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medicaid.html">Full Medicaid Processing Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Also:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Harvard University.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/doc/pipeline/matview.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
