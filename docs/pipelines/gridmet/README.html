@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>NSAPH gridMET Read Me First &#8212; Gridmet Computational Utilities 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
@@ -33,7 +34,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="nsaph-gridmet-read-me-first">
+  <section id="nsaph-gridmet-read-me-first">
 <h1>NSAPH gridMET Read Me First<a class="headerlink" href="#nsaph-gridmet-read-me-first" title="Permalink to this headline">¶</a></h1>
 <p>gridMET is a dataset of daily high-spatial resolution (~4-km, 1/24th degree)
 surface meteorological data covering the contiguous US from 1979-yesterday.
@@ -46,12 +47,12 @@ corresponding to geographies for which data is aggregated
 <p>Which geography is used is defined by <code class="docutils literal notranslate"><span class="pre">geography</span></code> argument that defaults
 to “zip”. Only actually used geographies must have their shape files
 for the years actually used.</p>
-<div class="section" id="detailed-documentation">
+<section id="detailed-documentation">
 <h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Hosted <a class="reference external" href="https://nsaph-sandbox01.rc.fas.harvard.edu/gridmet/index.html">Documentation</a>
 describes Python code and API</p>
-</div>
-<div class="section" id="usage">
+</section>
+<section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>usage: gridmet.py [-h] --variable
                   {bi,erc,etr,fm100,fm1000,pet,pr,rmax,rmin,sph,srad,th,tmmn,tmmx,vpd,vs}
@@ -97,8 +98,8 @@ optional arguments:
                         Column names for metadata, default:
 </pre></div>
 </div>
-</div>
-<div class="section" id="example">
+</section>
+<section id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>One can try it on <code class="docutils literal notranslate"><span class="pre">nsaph-sandbox01.rc.fas.harvard.edu</span></code> changing to folder:
 <code class="docutils literal notranslate"><span class="pre">/data/projects/gridmet/</span></code></p>
@@ -106,8 +107,8 @@ optional arguments:
 will not be able to see the progress):</p>
 <p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/home/nsaph/projects/tools/gridmet/.gridmet/bin/activate</span> <span class="pre">&amp;&amp;</span> <span class="pre">PYTHONPATH=/home/nsaph/projects/tools/gridmet/src/python</span> <span class="pre">python</span> <span class="pre">-u</span> <span class="pre">-m</span> <span class="pre">gridmet</span> <span class="pre">--var</span> <span class="pre">tmmx</span> <span class="pre">-y</span> <span class="pre">2001</span> <span class="pre">--shapes_dir</span> <span class="pre">shapes/zip_shape_files</span> <span class="pre">--strategy</span> <span class="pre">downscale</span></code></p>
 <p>The results can be then found in data/processed folder</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>

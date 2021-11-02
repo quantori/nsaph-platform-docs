@@ -4,6 +4,7 @@ NSAPH Data Platform
 <!-- toc -->
 
 - [Overview](#overview)
+- [Tool Examples](#tool-examples)
 - [Project Structure](#project-structure)
   * [Software Sources](#software-sources)
   * [Python packages](#python-packages)
@@ -21,11 +22,16 @@ NSAPH Data Platform
 
 ## Overview
 The data platform provides generic infrastructure for NSAPH Data Platform
-It depends on nsaph_util package but, one can say that it augments it
+It depends on nsaph_util package, but it augments it
 with APIs and command line utilities dependent on the infrastructure 
-environment. For instance, its components assume presence of PostgreSQL
+and the environment. For instance, its components assume presence of PostgreSQL
 DBMS (version 13 or later) and CWL runtime environment.
 
+The package is under intensive development, therefore its 
+development branches contain some obsolete modules and utilities.
+The project structure can also be in flux.
+
+## Tool Examples
 Examples of tools included in this package are:
 
 * [Universal Data Loader](doc/Datamodels.md)
@@ -39,10 +45,6 @@ Examples of tools included in this package are:
 * A [utility to import/export JSONLines](src/python/nsaph/util/pg_json_dump.py)
     files into/from PostgreSQL
 * An [Executor with a bounded queue](src/python/util/executors.py)
-
-The package is under intensive development, therefore its 
-development branches contain some obsolete modules and utilities.
-The project structure can also be in flux.
 
 ## Project Structure
 

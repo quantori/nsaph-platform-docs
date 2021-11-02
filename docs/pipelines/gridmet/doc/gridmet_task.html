@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Task Object &#8212; Gridmet Computational Utilities 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -33,18 +34,285 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="task-object">
+  <section id="task-object">
 <h1>Task Object<a class="headerlink" href="#task-object" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="subtasks">
+<dl class="py class">
+<dt class="sig sig-object py" id="gridmet_task.GridmetTask">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">GridmetTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetContext" title="gridmet_ds_def.GridmetContext"><span class="pre">gridmet_ds_def.GridmetContext</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetVariable" title="gridmet_ds_def.GridmetVariable"><span class="pre">gridmet_ds_def.GridmetVariable</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#GridmetTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.GridmetTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a task to download and process data for a single year and variable
+Instances of this class can be used to parallelize processing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.GridmetTask.params.context"></span><strong>context</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.params.context">¶</a> – Configuration object for the pipeline</p></li>
+<li><p><span class="target" id="gridmet_task.GridmetTask.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet_task.GridmetTask.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.params.variable">¶</a> – Gridmet band (variable)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.GridmetTask.destination_file_name">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">destination_file_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetContext" title="gridmet_ds_def.GridmetContext"><span class="pre">gridmet_ds_def.GridmetContext</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetVariable" title="gridmet_ds_def.GridmetVariable"><span class="pre">gridmet_ds_def.GridmetVariable</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#GridmetTask.destination_file_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.GridmetTask.destination_file_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a file name for a given set of parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.GridmetTask.destination_file_name.params.context"></span><strong>context</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.destination_file_name.params.context">¶</a> – Configuration object for the pipeline</p></li>
+<li><p><span class="target" id="gridmet_task.GridmetTask.destination_file_name.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.destination_file_name.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet_task.GridmetTask.destination_file_name.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.destination_file_name.params.variable">¶</a> – Gridmet band (variable)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><cite>variable_geography_year.csv[.gz]</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.GridmetTask.find_shape_file">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">find_shape_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetContext" title="gridmet_ds_def.GridmetContext"><span class="pre">gridmet_ds_def.GridmetContext</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.Shape" title="gridmet_ds_def.Shape"><span class="pre">gridmet_ds_def.Shape</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#GridmetTask.find_shape_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.GridmetTask.find_shape_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds shapefile for a given type of geographies for the
+closest available year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.GridmetTask.find_shape_file.params.context"></span><strong>context</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.find_shape_file.params.context">¶</a> – Configuration object for the pipeline</p></li>
+<li><p><span class="target" id="gridmet_task.GridmetTask.find_shape_file.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.find_shape_file.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet_task.GridmetTask.find_shape_file.params.shape"></span><strong>shape</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.GridmetTask.find_shape_file.params.shape">¶</a> – Shape type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a shape file for a given year if it exists or for the latest
+year before the given</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.GridmetTask.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#GridmetTask.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.GridmetTask.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the task. First the download subtask is executed unless
+the corresponding file has already been downloaded. Then the compute
+tasks are executed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="subtasks">
 <h2>Subtasks<a class="headerlink" href="#subtasks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="downloading">
+<section id="downloading">
 <h3>Downloading<a class="headerlink" href="#downloading" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="compute">
+<dl class="py class">
+<dt class="sig sig-object py" id="gridmet_task.DownloadGridmetTask">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">DownloadGridmetTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetVariable" title="gridmet_ds_def.GridmetVariable"><span class="pre">gridmet_ds_def.GridmetVariable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#DownloadGridmetTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.DownloadGridmetTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Task to download source file in NCDF4 format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.DownloadGridmetTask.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.DownloadGridmetTask.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet_task.DownloadGridmetTask.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.DownloadGridmetTask.params.variable">¶</a> – Gridmet band (variable)</p></li>
+<li><p><span class="target" id="gridmet_task.DownloadGridmetTask.params.destination"></span><strong>destination</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.DownloadGridmetTask.params.destination">¶</a> – Destination directory for all downloads</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.DownloadGridmetTask.get_url">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetVariable" title="gridmet_ds_def.GridmetVariable"><span class="pre">gridmet_ds_def.GridmetVariable</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/gridmet_task.html#DownloadGridmetTask.get_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.DownloadGridmetTask.get_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs URL given a year and band</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.DownloadGridmetTask.get_url.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.DownloadGridmetTask.get_url.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet_task.DownloadGridmetTask.get_url.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.DownloadGridmetTask.get_url.params.variable">¶</a> – Gridmet band (variable)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>URL for download</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.DownloadGridmetTask.target">
+<span class="sig-name descname"><span class="pre">target</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#DownloadGridmetTask.target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.DownloadGridmetTask.target" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>File path for downloaded data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.DownloadGridmetTask.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#DownloadGridmetTask.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.DownloadGridmetTask.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the task
+:return: None</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="compute">
 <h3>Compute<a class="headerlink" href="#compute" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="gridmet_task.ComputeGridmetTask">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ComputeGridmetTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetVariable" title="gridmet_ds_def.GridmetVariable"><span class="pre">gridmet_ds_def.GridmetVariable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#ComputeGridmetTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.ComputeGridmetTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>An abstract class for a computational task that processes data in
+Unidata netCDF (Version 4) format:
+<a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/">https://www.unidata.ucar.edu/software/netcdf/</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.ComputeGridmetTask.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeGridmetTask.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeGridmetTask.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeGridmetTask.params.variable">¶</a> – Gridemt band (variable)</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeGridmetTask.params.infile"></span><strong>infile</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeGridmetTask.params.infile">¶</a> – File with source data in  NCDF4 format</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeGridmetTask.params.outfile"></span><strong>outfile</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeGridmetTask.params.outfile">¶</a> – Resulting CSV file</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.ComputeGridmetTask.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#ComputeGridmetTask.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.ComputeGridmetTask.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes computational task</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><span class="target" id="gridmet_task.ComputeGridmetTask.execute.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeGridmetTask.execute.params.mode">¶</a> (<em>str</em>) – mode to use opening result file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.ComputeGridmetTask.compute_one_day">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">compute_one_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_task.html#gridmet_task.Collector" title="gridmet_task.Collector"><span class="pre">gridmet_task.Collector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#ComputeGridmetTask.compute_one_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.ComputeGridmetTask.compute_one_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes required statistics for a single day.
+This method is called by <cite>execute()</cite> and is implemented in
+specific subclasses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.ComputeGridmetTask.compute_one_day.params.writer"></span><strong>writer</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeGridmetTask.compute_one_day.params.writer">¶</a> – CSV Writer to output the result</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeGridmetTask.compute_one_day.params.day"></span><strong>day</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeGridmetTask.compute_one_day.params.day">¶</a> – day</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeGridmetTask.compute_one_day.params.layer"></span><strong>layer</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeGridmetTask.compute_one_day.params.layer">¶</a> – layer, corresponding to the day</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gridmet_task.ComputeShapesTask">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ComputeShapesTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetVariable" title="gridmet_ds_def.GridmetVariable"><span class="pre">gridmet_ds_def.GridmetVariable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.RasterizationStrategy" title="gridmet_ds_def.RasterizationStrategy"><span class="pre">gridmet_ds_def.RasterizationStrategy</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">shapefile</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geography</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.Geography" title="gridmet_ds_def.Geography"><span class="pre">gridmet_ds_def.Geography</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#ComputeShapesTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.ComputeShapesTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class describes a compute task to aggregate data over geography shapes</p>
+<p>The data is expected in
+.. _Unidata netCDF (Version 4) format: <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/">https://www.unidata.ucar.edu/software/netcdf/</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.params.variable">¶</a> – Gridemt band (variable)</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.params.infile"></span><strong>infile</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.params.infile">¶</a> – File with source data in  NCDF4 format</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.params.outfile"></span><strong>outfile</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.params.outfile">¶</a> – Resulting CSV file</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.params.strategy"></span><strong>strategy</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.params.strategy">¶</a> – Rasterization strategy to use</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.params.shapefile"></span><strong>shapefile</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.params.shapefile">¶</a> – Shapefile for used collection of geographies</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.params.geography"></span><strong>geography</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.params.geography">¶</a> – Type of geography, e.g. zip code or county</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.ComputeShapesTask.compute_one_day">
+<span class="sig-name descname"><span class="pre">compute_one_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_task.html#gridmet_task.Collector" title="gridmet_task.Collector"><span class="pre">gridmet_task.Collector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#ComputeShapesTask.compute_one_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.ComputeShapesTask.compute_one_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes required statistics for a single day.
+This method is called by <cite>execute()</cite> and is implemented in
+specific subclasses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.compute_one_day.params.writer"></span><strong>writer</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.compute_one_day.params.writer">¶</a> – CSV Writer to output the result</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.compute_one_day.params.day"></span><strong>day</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.compute_one_day.params.day">¶</a> – day</p></li>
+<li><p><span class="target" id="gridmet_task.ComputeShapesTask.compute_one_day.params.layer"></span><strong>layer</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputeShapesTask.compute_one_day.params.layer">¶</a> – layer, corresponding to the day</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gridmet_task.ComputePointsTask">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ComputePointsTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetVariable" title="gridmet_ds_def.GridmetVariable"><span class="pre">gridmet_ds_def.GridmetVariable</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">infile</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">points_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordinates</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#ComputePointsTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.ComputePointsTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class describes a compute task to assign data to a collection of points</p>
+<p>The data is expected in
+.. _Unidata netCDF (Version 4) format: <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/">https://www.unidata.ucar.edu/software/netcdf/</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.params.variable">¶</a> – Gridemt band (variable)</p></li>
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.params.infile"></span><strong>infile</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.params.infile">¶</a> – File with source data in  NCDF4 format</p></li>
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.params.outfile"></span><strong>outfile</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.params.outfile">¶</a> – Resulting CSV file</p></li>
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.params.points_file"></span><strong>points_file</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.params.points_file">¶</a> – path to a file containing coordinates of points
+in csv format.</p></li>
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.params.coordinates"></span><strong>coordinates</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.params.coordinates">¶</a> – A two element list of column names in csv
+corresponding to coordinates</p></li>
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.params.metadata"></span><strong>metadata</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.params.metadata">¶</a> – A list of column names in csv that should be
+interpreted as metadata (e.g. ZIP, site_id, etc.)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.ComputePointsTask.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'w'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#ComputePointsTask.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.ComputePointsTask.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes computational task</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><span class="target" id="gridmet_task.ComputePointsTask.execute.params.mode"></span><strong>mode</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.execute.params.mode">¶</a> (<em>str</em>) – mode to use opening result file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet_task.ComputePointsTask.compute_one_day">
+<span class="sig-name descname"><span class="pre">compute_one_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="members/gridmet_task.html#gridmet_task.Collector" title="gridmet_task.Collector"><span class="pre">gridmet_task.Collector</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_task.html#ComputePointsTask.compute_one_day"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_task.ComputePointsTask.compute_one_day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes required statistics for a single day.
+This method is called by <cite>execute()</cite> and is implemented in
+specific subclasses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.compute_one_day.params.writer"></span><strong>writer</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.compute_one_day.params.writer">¶</a> – CSV Writer to output the result</p></li>
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.compute_one_day.params.day"></span><strong>day</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.compute_one_day.params.day">¶</a> – day</p></li>
+<li><p><span class="target" id="gridmet_task.ComputePointsTask.compute_one_day.params.layer"></span><strong>layer</strong><a class="paramlink headerlink reference internal" href="#gridmet_task.ComputePointsTask.compute_one_day.params.layer">¶</a> – layer, corresponding to the day</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
 
 
           </div>

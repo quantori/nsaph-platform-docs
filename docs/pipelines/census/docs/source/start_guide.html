@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Working with the get_census Package &#8212; NSAPH Data Platform 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
@@ -33,13 +34,13 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="working-with-the-get-census-package">
+  <section id="working-with-the-get-census-package">
 <h1>Working with the <code class="docutils literal notranslate"><span class="pre">get_census</span></code> Package<a class="headerlink" href="#working-with-the-get-census-package" title="Permalink to this headline">¶</a></h1>
 <p>The Get Census package provides an interface with US Census Data,
 including the main API, some functionality for working with the TigerWeb API,
 and the FTP site for Tiger Shapefile Downloads. This package also includes a command
 line interface to enable quick running of standard workflows.</p>
-<div class="section" id="environment-set-up">
+<section id="environment-set-up">
 <h2>Environment Set-up<a class="headerlink" href="#environment-set-up" title="Permalink to this headline">¶</a></h2>
 <p>In the <code class="docutils literal notranslate"><span class="pre">get_census</span></code> git repostory, we have included a yaml
 file (<code class="docutils literal notranslate"><span class="pre">get_census_env.yml</span></code>) that can be used to create a <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment
@@ -53,8 +54,8 @@ you have your key, you’ll need to add it to your environment. You can either d
 through <code class="docutils literal notranslate"><span class="pre">conda</span></code> (<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">config</span> <span class="pre">vars</span> <span class="pre">set</span> <span class="pre">GET_CENSUS_API_KEY=&lt;your</span> <span class="pre">key&gt;</span></code>), setting
 the key directly in your <code class="docutils literal notranslate"><span class="pre">.rc</span></code> file, or by using the <code class="docutils literal notranslate"><span class="pre">get_census.set_api_key</span></code> function
 (this only affects your current session, and isn’t permanent).</p>
-</div>
-<div class="section" id="running-the-command-line-interface">
+</section>
+<section id="running-the-command-line-interface">
 <h2>Running the Command Line Interface<a class="headerlink" href="#running-the-command-line-interface" title="Permalink to this headline">¶</a></h2>
 <p>When <code class="docutils literal notranslate"><span class="pre">get_census</span></code> is installed, a command line utility (also named <code class="docutils literal notranslate"><span class="pre">get_census</span></code>)
 is automatically made available in your environment. Documentation on the CLI can be
@@ -71,8 +72,8 @@ accessed by running:</p>
 calculate density per square mile for the “population” variable (<code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">population</span></code>),
 would not interpolate (<code class="docutils literal notranslate"><span class="pre">-i</span> <span class="pre">x</span></code>), and would write the created data frame to the
 path specified by <code class="docutils literal notranslate"><span class="pre">--out</span></code>.</p>
-</div>
-<div class="section" id="main-python-workflow">
+</section>
+<section id="main-python-workflow">
 <h2>Main Python Workflow<a class="headerlink" href="#main-python-workflow" title="Permalink to this headline">¶</a></h2>
 <p>All main functionality for this package is contained within the <cite>DataPlan</cite> object.
 For detailed documentation on its methods, please see <a class="reference internal" href="assemble_data.html"><span class="doc">DataPlan: Main Class For Assembling a Census Plan</span></a>.</p>
@@ -134,14 +135,14 @@ unit from the tigerweb API. Also note that due to limited data availability, the
 </li>
 </ul>
 <p>Your data set is now complete and written to disk.</p>
-</div>
-<div class="section" id="shapefile-downloads">
+</section>
+<section id="shapefile-downloads">
 <h2>Shapefile Downloads<a class="headerlink" href="#shapefile-downloads" title="Permalink to this headline">¶</a></h2>
 <p>In addition to the general processing workflow, the package also includes
 a function for downloading Census geography shape files. Please see <a class="reference internal" href="tigerweb.html"><span class="doc">Query Area and Download Shapefiles</span></a>
 for documentation on the functions interacting with the Census geographic resources.</p>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>

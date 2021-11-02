@@ -53,7 +53,7 @@ starting positions, the length and the generic format of
 each of the column (such as character, numeric or date)  
 
 Parsing FTS is done by running module 
-[medicaid](src/python/medicaid.py).
+[medicaid](../src/python/medicaid.py).
                                                        
     pyhton -m nsaph.cms.medicaid
 
@@ -310,5 +310,5 @@ See [Medicaid workflow](pipeline/medicaid.md) for details
 
 ## Sample user request: 
 
-See https://github.com/NSAPH/data_requests/tree/master/request_projects/feb2021_jenny_medicaid_resp
+See [Jenny Lee Request from February 2021](https://github.com/NSAPH/data_requests/tree/master/request_projects/feb2021_jenny_medicaid_resp)
 

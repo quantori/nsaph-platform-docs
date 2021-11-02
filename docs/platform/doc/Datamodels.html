@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Data Modelling for NSAPH Data Platform &#8212; NSAPH Data Platform 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -33,7 +34,7 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="data-modelling-for-nsaph-data-platform">
+  <section id="data-modelling-for-nsaph-data-platform">
 <h1>Data Modelling for NSAPH Data Platform<a class="headerlink" href="#data-modelling-for-nsaph-data-platform" title="Permalink to this headline">¶</a></h1>
 <p><strong>How data models are defined and handled</strong></p>
 <!-- toc --><ul class="simple">
@@ -56,7 +57,7 @@
 <li><p><a class="reference external" href="#indexing-policies">Indexing Policies</a></p></li>
 <li><p><a class="reference external" href="#ingesting-data">Ingesting Data</a></p></li>
 </ul>
-<!-- tocstop --><div class="section" id="introduction">
+<!-- tocstop --><section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Data models consist of database tables, relations between them
 (e.g. foreign keys), indices and conventions that govern things
@@ -73,8 +74,8 @@ following domains</p>
 <li><p>Census</p></li>
 <li><p>Gridmet</p></li>
 </ul>
-</div>
-<div class="section" id="domain">
+</section>
+<section id="domain">
 <h2>Domain<a class="headerlink" href="#domain" title="Permalink to this headline">¶</a></h2>
 <p>Handling domains is implemented by the
 <a class="reference external" href="members/domain.html">Domain</a> class.</p>
@@ -137,8 +138,8 @@ structures of tables. It can contain one or several root tables</p>
 <td>Numeric value, passed to CSV loader. Describes input source rather than data model itself (QUOTE_MINIMAL=0, QUOTE_ALL=1, QUOTE_NONNUMERIC=2, QUOTE_NONE=3)</td>
 </tr>
 </tbody>
-</table></div>
-<div class="section" id="table">
+</table></section>
+<section id="table">
 <h2>Table<a class="headerlink" href="#table" title="Permalink to this headline">¶</a></h2>
 <p>The following parameters can be defined for a table:</p>
 <table border="1" class="docutils">
@@ -191,7 +192,7 @@ structures of tables. It can contain one or several root tables</p>
 <td><a href="#invalid-record">action</a> to be performed upon encountering an invalid record (corrupted, incomplete, duplicate, etc.)</td>
 </tr>
 </tbody>
-</table><div class="section" id="invalid-record">
+</table><section id="invalid-record">
 <h3>Invalid Record<a class="headerlink" href="#invalid-record" title="Permalink to this headline">¶</a></h3>
 <p>By default, an exception is raised if an invalid
 record is encountered during data ingestion. However,
@@ -228,9 +229,9 @@ in a special audit table.</p>
 <td>URL with external documentation</td>
 </tr>
 </tbody>
-</table></div>
-</div>
-<div class="section" id="column">
+</table></section>
+</section>
+<section id="column">
 <h2>Column<a class="headerlink" href="#column" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <thead>
@@ -275,7 +276,7 @@ records)</p></li>
 <p>Special columns must have their <code class="docutils literal notranslate"><span class="pre">source</span></code> defined. If a column
 name in input source is different from a column name in the
 database, such column also must define <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
-<div class="section" id="source">
+<section id="source">
 <h3>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h3>
 <p>Source must be defined for special columns and for columns
 with the name in the database different from the name
@@ -310,25 +311,25 @@ in the input source.</p>
 <td>Code for generated and computed columns</td>
 </tr>
 </tbody>
-</table></div>
-<div class="section" id="generated-columns">
+</table></section>
+<section id="generated-columns">
 <h3>Generated columns<a class="headerlink" href="#generated-columns" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="computed-columns">
+</section>
+<section id="computed-columns">
 <h3>Computed Columns<a class="headerlink" href="#computed-columns" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="transposing-columns">
+</section>
+<section id="transposing-columns">
 <h3>Transposing Columns<a class="headerlink" href="#transposing-columns" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="generation-of-the-database-schema-ddl">
+</section>
+</section>
+<section id="generation-of-the-database-schema-ddl">
 <h2>Generation of the database schema (DDL)<a class="headerlink" href="#generation-of-the-database-schema-ddl" title="Permalink to this headline">¶</a></h2>
 <p>From a domain YAML file, the database schema is
 generated in the form of PostgreSQL dialect of DDL.</p>
 <p>The main class responsible for the generation of DDL is
 <a class="reference external" href="../src/python/nsaph/data_model/domain.py#Domain">Domain</a></p>
-</div>
-<div class="section" id="indexing-policies">
+</section>
+<section id="indexing-policies">
 <h2>Indexing Policies<a class="headerlink" href="#indexing-policies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><strong>explicit</strong>. Indices are only created for columns that
@@ -340,8 +341,8 @@ of <a class="reference external" href="members/model.html">model</a>) module</p>
 <li><p><strong>unless excluded</strong> Indices are only created for all columns
 not explicitly excluded</p></li>
 </ul>
-</div>
-<div class="section" id="ingesting-data">
+</section>
+<section id="ingesting-data">
 <h2>Ingesting Data<a class="headerlink" href="#ingesting-data" title="Permalink to this headline">¶</a></h2>
 <p>The following command ingests data into a table and all hard-linked
 child tables:</p>
@@ -374,8 +375,8 @@ child tables:</p>
 <span class="o">--</span><span class="n">threads</span> <span class="n">THREADS</span>       <span class="n">Number</span> <span class="n">of</span> <span class="n">threads</span> <span class="n">writing</span> <span class="n">into</span> <span class="n">the</span> <span class="n">database</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
           </div>

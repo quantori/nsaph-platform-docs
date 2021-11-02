@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>NSAPH Data Platform &#8212; NSAPH Data Platform 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
@@ -32,33 +33,79 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="nsaph-data-platform">
+  <section id="nsaph-data-platform">
 <h1>NSAPH Data Platform<a class="headerlink" href="#nsaph-data-platform" title="Permalink to this headline">¶</a></h1>
 <p><strong>User and Development Documentation</strong></p>
-<div class="section" id="core-platform">
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#glossary">Glossary</a></p></li>
+<li><p><a class="reference external" href="#nsaph-utilities">NSAPH Utilities</a></p></li>
+<li><p><a class="reference external" href="#core-platform">Core Platform</a></p></li>
+<li><p><a class="reference external" href="#data-ingestion-and-processing-pipelines">Data Ingestion and Processing Pipelines</a></p></li>
+</ul>
+<!-- tocstop --><section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="glossary.html"><span class="doc">Glossary</span></a> provides some information about
+acronyms and other terms used throughout this documentation</p>
+</section>
+<section id="nsaph-utilities">
+<h2>NSAPH Utilities<a class="headerlink" href="#nsaph-utilities" title="Permalink to this headline">¶</a></h2>
+<!-- section overview from nsaph_utils --><p>The nsaph_utils package is intended to hold python
+code that will be useful
+across multiple portions of the NSAPH pipelines.</p>
+<p>The included utilities are developed to be as independent of
+specific infrastructure and execution environment as possible.</p>
+<p>Included utilities:</p>
+<ul class="simple">
+<li><p>Interpolation code</p></li>
+<li><p>Reading FST files from Python</p></li>
+<li><p>various I/O wrappers</p></li>
+<li><p>An API and CLI framework</p></li>
+<li><p>QC Framework</p></li>
+<li><p>Documentation utilities to simplify creation of consistent
+documentation for NSAPH platform</p></li>
+</ul>
+<!-- end of section overview from nsaph_utils --></section>
+<section id="core-platform">
 <h2>Core Platform<a class="headerlink" href="#core-platform" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="platform">Package Description</a></p>
-</div>
-<div class="section" id="data-ingestion-and-processing-pipelines">
+<!-- section overview from nsaph --><p>The data platform provides generic infrastructure for NSAPH Data Platform
+It depends on nsaph_util package, but it augments it
+with APIs and command line utilities dependent on the infrastructure
+and the environment. For instance, its components assume presence of PostgreSQL
+DBMS (version 13 or later) and CWL runtime environment.</p>
+<p>The package is under intensive development, therefore its
+development branches contain some obsolete modules and utilities.
+The project structure can also be in flux.</p>
+<!-- end of section overview from nsaph --><p><a class="reference external" href="platform">Package Description</a></p>
+</section>
+<section id="data-ingestion-and-processing-pipelines">
 <h2>Data Ingestion and Processing Pipelines<a class="headerlink" href="#data-ingestion-and-processing-pipelines" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="cms-pipelines">
-<h3>CMS Pipelines<a class="headerlink" href="#cms-pipelines" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="pipelines/cms">CMS</a></p>
-</div>
-<div class="section" id="gridmet-pipelines">
-<h3>Gridmet Pipelines<a class="headerlink" href="#gridmet-pipelines" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="pipelines/gridmet">Gridmet package</a></p>
-</div>
-<div class="section" id="epa-aqs-pipelines">
-<h3>EPA AQS Pipelines<a class="headerlink" href="#epa-aqs-pipelines" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="pipelines/epa">EPA Pipelines</a></p>
-</div>
-<div class="section" id="census-pipelines">
-<h3>Census Pipelines<a class="headerlink" href="#census-pipelines" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="pipelines/census">Census</a></p>
-</div>
-</div>
-</div>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Pipeline</th>
+<th>Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EPA</td>
+<td><a href="pipelines/epa">EPA Pipelines</a></td>
+</tr>
+<tr>
+<td>Census</td>
+<td><a href="pipelines/census">Census Package</a></td>
+</tr>
+<tr>
+<td>Gridmet</td>
+<td><a href="pipelines/gridmet">Gridmet package</a></td>
+</tr>
+<tr>
+<td>CMS</td>
+<td><a href="pipelines/cms">Medicaid Piepline</a></td>
+</tr>
+</tbody>
+</table></section>
+</section>
 
 
           </div>
@@ -80,14 +127,10 @@
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">NSAPH Data Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nsaph-utilities">NSAPH Utilities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#core-platform">Core Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-ingestion-and-processing-pipelines">Data Ingestion and Processing Pipelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cms-pipelines">CMS Pipelines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gridmet-pipelines">Gridmet Pipelines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#epa-aqs-pipelines">EPA AQS Pipelines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#census-pipelines">Census Pipelines</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-ingestion-and-processing-pipelines">Data Ingestion and Processing Pipelines</a></li>
 </ul>
 </li>
 </ul>

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Main Class: Pipeline Object &#8212; Gridmet Computational Utilities 0.0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
@@ -33,9 +34,55 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="main-class-pipeline-object">
-<h1>Main Class: Pipeline Object<a class="headerlink" href="#main-class-pipeline-object" title="Permalink to this headline">¶</a></h1>
-</div>
+  <section id="module-gridmet">
+<span id="main-class-pipeline-object"></span><h1>Main Class: Pipeline Object<a class="headerlink" href="#module-gridmet" title="Permalink to this headline">¶</a></h1>
+<p>Executing pipelines through this class requires a collection of shape files
+corresponding to geographies for which data is aggregated
+(for example, zip code areas or counties).</p>
+<p>The data has to be placed in the following directory structure:
+${year}/${geo_type: zip|county|etc.}/${shape:point|polygon}/</p>
+<p>Which geography is used is defined by <cite>geography</cite> argument that defaults
+to “zip”. Only actually used geographies must have their shape files
+for the years actually used.</p>
+<p>Output file format:
+At the moment output is a simple 3+ columns file (most files contain 3
+columns, but parameter “metadata” can define more columns to include):</p>
+<ol class="arabic simple">
+<li><p>Variable (aka band) mean value. The actual band is given in the arguments
+(or configuration object) and is printed in the header line of the file</p></li>
+<li><p>Date in YYYY-mm-dd format (SQL date format)</p></li>
+<li><p>Label, associated with location. E.g., zip code for zip shapes,
+county fips for county shapes or custom label for point file.
+For points file, the label is taken from the first column defined by
+“metadata” argument.</p></li>
+</ol>
+<dl class="simple">
+<dt>4+. If more than one column is included in metadata, the output file</dt><dd><p>will contain more than 3 columns</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="gridmet.Gridmet">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Gridmet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetContext" title="gridmet_ds_def.GridmetContext"><span class="pre">gridmet_ds_def.GridmetContext</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet.html#Gridmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.Gridmet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main class, describes the whole download and processing job for climate data</p>
+<p>The pipeline consists of the collection of Task Objects</p>
+<p>Creates a new instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><span class="target" id="gridmet.Gridmet.params.context"></span><strong>context</strong><a class="paramlink headerlink reference internal" href="#gridmet.Gridmet.params.context">¶</a> – An optional GridmetContext object, if not specified,
+then it is constructed from the command line arguments</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet.Gridmet.execute_sequentially">
+<span class="sig-name descname"><span class="pre">execute_sequentially</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet.html#Gridmet.execute_sequentially"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.Gridmet.execute_sequentially" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes all tasks in the pipeline sequentially
+without any parallelization
+:return: None</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 
 
           </div>

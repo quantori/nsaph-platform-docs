@@ -1,7 +1,16 @@
-# CMS Data Pipelines
+# CMS Manipulation Package 
 **Pipelines to process CMS data: Medicaid and Medicare**
 
 <!-- toc -->
+
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+  * [Software Sources](#software-sources)
+  * [CWL](#cwl)
+  * [Python](#python)
+    + [Package cms](#package-cms)
+
+<!-- tocstop -->
 
 ## Overview
 
@@ -45,7 +54,7 @@ This package contains modules to generate YAML schema for CMS
 data from FTS files provided with CMS medicaid and medicare 
 export (raw data).
 
-Module [fts2yaml](../tools/cms/src/python/fts2yaml.py) is a generic
+Module [fts2yaml](src/python/cms/fts2yaml.py) is a generic
 parser for FTS format for both Medicaid and Medicare.
 
 File transfer summary (FTS) document contains information about 
