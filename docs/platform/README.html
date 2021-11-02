@@ -95,12 +95,11 @@
 <ul>
 <li><p><a class="reference external" href="#nsaph-package">NSAPH Package</a></p>
 <ul>
-<li><p><a class="reference external" href="#nsaphdata_model">nsaph.data_model</a></p></li>
-<li><p><a class="reference external" href="#database-connection-wrapper">Database Connection Wrapper</a></p></li>
-<li><p><a class="reference external" href="#nsaphloader">nsaph.loader</a></p></li>
-<li><p><a class="reference external" href="#nsaphrequests">nsaph.requests</a></p></li>
-<li><p><a class="reference external" href="#nsaphutil">nsaph.util</a></p></li>
-<li><p><a class="reference external" href="#nsaphtools">nsaph.tools</a></p></li>
+<li><p><a class="reference external" href="#subpackage-for-data-modelling">Subpackage for Data Modelling</a></p></li>
+<li><p><a class="reference external" href="#module-database-connection-wrapper">Module Database Connection Wrapper</a></p></li>
+<li><p><a class="reference external" href="#loader-subpackage">Loader Subpackage</a></p></li>
+<li><p><a class="reference external" href="#subpackage-to-describe-and-implement-user-requests-incomplete">Subpackage to describe and implement user requests [Incomplete]</a></p></li>
+<li><p><a class="reference external" href="#subpackage-with-miscellaneous-utilities">Subpackage with miscellaneous utilities</a></p></li>
 </ul>
 </li>
 </ul>
@@ -125,7 +124,7 @@ The project structure can also be in flux.</p>
 <h2>Tool Examples<a class="headerlink" href="#tool-examples" title="Permalink to this headline"></a></h2>
 <p>Examples of tools included in this package are:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="doc/Datamodels.html"><span class="doc">Universal Data Loader</span></a></p></li>
+<li><p><a class="reference external" href="doc/members/data_loader.html">Universal Data Loader</a></p></li>
 <li><p>A <a class="reference external" href="doc/members/index.html">utility to monitor progress of long-running database</a>
 processes like indexing.</p></li>
 <li><p>A <a class="reference external" href="doc/members/analyze.html">utility to infer database schema and generate DDL</a>
@@ -196,9 +195,13 @@ datasets and dashboards</p></li>
 <h3>Python packages<a class="headerlink" href="#python-packages" title="Permalink to this headline"></a></h3>
 <section id="nsaph-package">
 <h4>NSAPH Package<a class="headerlink" href="#nsaph-package" title="Permalink to this headline"></a></h4>
-<p>This is the main package containing the majority of the code.</p>
-<section id="nsaph-data-model">
-<h5>nsaph.data_model<a class="headerlink" href="#nsaph-data-model" title="Permalink to this headline"></a></h5>
+<p>This is the main package containing the majority of the code.
+Modules and subpackages included in <code class="docutils literal notranslate"><span class="pre">nsaph</span></code> package are described below.</p>
+<section id="subpackage-for-data-modelling">
+<h5>Subpackage for Data Modelling<a class="headerlink" href="#subpackage-for-data-modelling" title="Permalink to this headline"></a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nsaph.data_model</span></code></p></li>
+</ul>
 <p>Implements version 2 of the data modelling toolkit.</p>
 <p>Version 1 was focused on loading into the database already
 processed data saved as flat files. It inferred data
@@ -224,21 +227,35 @@ In other words, DataReader provides uniform interface
 to reading columnar files in two (potentially more)
 different formats.</p>
 </section>
-<section id="database-connection-wrapper">
-<h5>Database Connection Wrapper<a class="headerlink" href="#database-connection-wrapper" title="Permalink to this headline"></a></h5>
+<section id="module-database-connection-wrapper">
+<h5>Module Database Connection Wrapper<a class="headerlink" href="#module-database-connection-wrapper" title="Permalink to this headline"></a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nsaph.db</span></code></p></li>
+</ul>
 <p>Module <a class="reference external" href="doc/members/db.html">db</a> is a PostgreSQL
 connection wrapper. It reads connection parameters from
 an <code class="docutils literal notranslate"><span class="pre">ini</span></code> file and connects to the database. It can
 transparently connect over <em><strong>ssh tunnel</strong></em> when required.</p>
 </section>
-<section id="nsaph-loader">
-<h5>nsaph.loader<a class="headerlink" href="#nsaph-loader" title="Permalink to this headline"></a></h5>
-<p>A wrapper around the
-<a class="reference internal" href="doc/Datamodels.html"><span class="doc">Universal Data Loader</span></a>.</p>
+<section id="loader-subpackage">
+<h5>Loader Subpackage<a class="headerlink" href="#loader-subpackage" title="Permalink to this headline"></a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nsaph.loader</span></code></p></li>
+</ul>
+<p>A set of utilities to manipulate data.</p>
+<p>Module <a class="reference external" href="doc/members/data_loader.html">data_loader</a>
+Implements parallel loading data into a PostgreSQL database.
+It is also responsible for loading DDL and creation of view,
+both virtual and materialized.</p>
+<p>Module <a class="reference external" href="doc/members/index_builder.html">index_builder</a>
+is a utility to build indices and monitor the build progress.</p>
 </section>
-<section id="nsaph-requests">
-<h5>nsaph.requests<a class="headerlink" href="#nsaph-requests" title="Permalink to this headline"></a></h5>
-<p>Package nsaph.requests contains some code that is
+<section id="subpackage-to-describe-and-implement-user-requests-incomplete">
+<h5>Subpackage to describe and implement user requests [Incomplete]<a class="headerlink" href="#subpackage-to-describe-and-implement-user-requests-incomplete" title="Permalink to this headline"></a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nsaph.requests</span></code></p></li>
+</ul>
+<p>Package <code class="docutils literal notranslate"><span class="pre">nsaph.requests</span></code> contains some code that is
 intended to be used for fulfilling user requests. Its
 development is currently put on hold.</p>
 <p>Module <a class="reference external" href="doc/members/hdf5_export.html">hdf5_export</a> exports
@@ -247,9 +264,12 @@ described by a YAML request definition.</p>
 <p>Module <a class="reference external" href="doc/members/query.html">query</a> generates SQL query
 from a YAML request definition.</p>
 </section>
-<section id="nsaph-util">
-<h5>nsaph.util<a class="headerlink" href="#nsaph-util" title="Permalink to this headline"></a></h5>
-<p>Package nsaph.util contains:</p>
+<section id="subpackage-with-miscellaneous-utilities">
+<h5>Subpackage with miscellaneous utilities<a class="headerlink" href="#subpackage-with-miscellaneous-utilities" title="Permalink to this headline"></a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nsaph.util</span></code></p></li>
+</ul>
+<p>Package <code class="docutils literal notranslate"><span class="pre">nsaph.util</span></code> contains:</p>
 <ul class="simple">
 <li><p>Support for packaging <a class="reference external" href="#resources">resources</a>
 in two modules <a class="reference external" href="doc/members/resources.html">resources</a>
@@ -265,12 +285,6 @@ with a bounded queue. It is used to prevent out of memory (OOM)
 errors when processing huge files (to prevent loading
 the whole file into memory before dispatching it for processing).</p></li>
 </ul>
-</section>
-<section id="nsaph-tools">
-<h5>nsaph.tools<a class="headerlink" href="#nsaph-tools" title="Permalink to this headline"></a></h5>
-<p>This package contains code that was written to try to extract
-corrupted medicare data for 2015. Ultimately, this attempt
-was unsuccessful.</p>
 </section>
 </section>
 </section>

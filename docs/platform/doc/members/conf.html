@@ -114,6 +114,71 @@ If not specified, then it is extracted from subclass documentation</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.data" title="Permalink to this definition"></a></dt>
+<dd><p>Path to a data file or directory. Can be a 
+single CSV, gzipped CSV or FST file or a directory recursively 
+containing CSV files. Can also be a tar, tar.gz (or tgz) or zip archive 
+containing CSV files</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Force recreating table(s) if it/they already exist</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.page">
+<span class="sig-name descname"><span class="pre">page</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.page" title="Permalink to this definition"></a></dt>
+<dd><p>Explicit page size for the database</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.log">
+<span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.log" title="Permalink to this definition"></a></dt>
+<dd><p>Explicit interval for logging</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.limit">
+<span class="sig-name descname"><span class="pre">limit</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.limit" title="Permalink to this definition"></a></dt>
+<dd><p>Load at most specified number of records</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.buffer">
+<span class="sig-name descname"><span class="pre">buffer</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.buffer" title="Permalink to this definition"></a></dt>
+<dd><p>Buffer size for converting fst files</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.threads">
+<span class="sig-name descname"><span class="pre">threads</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.threads" title="Permalink to this definition"></a></dt>
+<dd><p>Number of threads writing into the database</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.parallelization">
+<span class="sig-name descname"><span class="pre">parallelization</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.parallelization" title="Permalink to this definition"></a></dt>
+<dd><p>Type of parallelization, if any</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.pattern">
+<span class="sig-name descname"><span class="pre">pattern</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.pattern" title="Permalink to this definition"></a></dt>
+<dd><p>pattern for files in a directory or an archive, 
+e.g. “<a href="#id1"><span class="problematic" id="id2">**</span></a>/maxdata_*_ps_*.csv”</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.incremental">
+<span class="sig-name descname"><span class="pre">incremental</span></span><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.incremental" title="Permalink to this definition"></a></dt>
+<dd><p>Commit every file and skip over files that 
+have already been ingested</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.conf.LoaderConfig.validate">
 <span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/conf.html#LoaderConfig.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.conf.LoaderConfig.validate" title="Permalink to this definition"></a></dt>
