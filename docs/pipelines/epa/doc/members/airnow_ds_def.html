@@ -1,91 +1,130 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>The airnow_ds_def Module &#8212; NSAPH EPA Pipelines 0.0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_paramlinks.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The airnow_ds_def Module &mdash; NSAPH EPA Pipelines 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-   
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> NSAPH EPA Pipelines
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../source/usage.html">EPA AQS Toolkit Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/airnow.html">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/airnow_ds_def.html">Configuration Object for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../source/airnow_downloader.html">Downloader for AirNow</a></li>
+</ul>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+        </div>
+      </div>
+    </nav>
 
-          <div class="body" role="main">
-            
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NSAPH EPA Pipelines</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>The airnow_ds_def Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/doc/members/airnow_ds_def.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-airnow_ds_def">
-<span id="the-airnow-ds-def-module"></span><h1>The airnow_ds_def Module<a class="headerlink" href="#module-airnow_ds_def" title="Permalink to this headline">¶</a></h1>
+<span id="the-airnow-ds-def-module"></span><h1>The airnow_ds_def Module<a class="headerlink" href="#module-airnow_ds_def" title="Permalink to this headline"></a></h1>
 <p>Module contains classes to describe the context in which AirNow data is downloaded</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="airnow_ds_def.Parameter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airnow_ds_def.html#Parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#airnow_ds_def.Parameter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airnow_ds_def.html#Parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#airnow_ds_def.Parameter" title="Permalink to this definition"></a></dt>
 <dd><p>An Enum with mnemonic names for the most common EPA AirNow Parameter Codes
 See more at <a class="reference external" href="https://docs.airnowapi.org/Data/docs">https://docs.airnowapi.org/Data/docs</a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.Parameter.NO2">
-<span class="sig-name descname"><span class="pre">NO2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'no2'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.NO2" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">NO2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'no2'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.NO2" title="Permalink to this definition"></a></dt>
 <dd><p>NO2</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.Parameter.OZONE">
-<span class="sig-name descname"><span class="pre">OZONE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'ozone'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.OZONE" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">OZONE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'ozone'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.OZONE" title="Permalink to this definition"></a></dt>
 <dd><p>ozone</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.Parameter.PM25">
-<span class="sig-name descname"><span class="pre">PM25</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'pm25'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.PM25" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">PM25</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'pm25'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.PM25" title="Permalink to this definition"></a></dt>
 <dd><p>PM25</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.Parameter.PM10">
-<span class="sig-name descname"><span class="pre">PM10</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'pm10'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.PM10" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">PM10</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'pm10'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.PM10" title="Permalink to this definition"></a></dt>
 <dd><p>PM10</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.Parameter.CO">
-<span class="sig-name descname"><span class="pre">CO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'co'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.CO" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CO</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'co'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.CO" title="Permalink to this definition"></a></dt>
 <dd><p>co</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.Parameter.SO2">
-<span class="sig-name descname"><span class="pre">SO2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'so2'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.SO2" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">SO2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'so2'</span></em><a class="headerlink" href="#airnow_ds_def.Parameter.SO2" title="Permalink to this definition"></a></dt>
 <dd><p>SO2</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="airnow_ds_def.Parameter.values">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airnow_ds_def.html#Parameter.values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#airnow_ds_def.Parameter.values" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airnow_ds_def.html#Parameter.values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#airnow_ds_def.Parameter.values" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="airnow_ds_def.AirNowContext">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">AirNowContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airnow_ds_def.html#AirNowContext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#airnow_ds_def.AirNowContext" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">AirNowContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airnow_ds_def.html#AirNowContext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#airnow_ds_def.AirNowContext" title="Permalink to this definition"></a></dt>
 <dd><p>This class is part of EPA AirNow Toolkit. It allows user to define any
 parameters that are used to select what data to download,
 how to format it and where to place the results.</p>
@@ -98,37 +137,37 @@ how to format it and where to place the results.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.AirNowContext.parameters">
-<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.parameters" title="Permalink to this definition"></a></dt>
 <dd><p>Parameters (variables, e.g. PM25, NO2, etc.) to download</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.AirNowContext.destination">
-<span class="sig-name descname"><span class="pre">destination</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.destination" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">destination</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.destination" title="Permalink to this definition"></a></dt>
 <dd><p>Destination directory for the downloaded files</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.AirNowContext.start_date">
-<span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.start_date" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">start_date</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.start_date" title="Permalink to this definition"></a></dt>
 <dd><p>First date in the range to download (inclusive)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.AirNowContext.end_date">
-<span class="sig-name descname"><span class="pre">end_date</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.end_date" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">end_date</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.end_date" title="Permalink to this definition"></a></dt>
 <dd><p>Last date in the range to download (inclusive)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.AirNowContext.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.reset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.reset" title="Permalink to this definition"></a></dt>
 <dd><p>Discard previously downloaded data if exists</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="airnow_ds_def.AirNowContext.qc">
-<span class="sig-name descname"><span class="pre">qc</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.qc" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">qc</span></span><a class="headerlink" href="#airnow_ds_def.AirNowContext.qc" title="Permalink to this definition"></a></dt>
 <dd><p>Perform basic data QC</p>
 </dd></dl>
 
@@ -137,76 +176,31 @@ how to format it and where to place the results.</p>
 </section>
 
 
+           </div>
           </div>
-          
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">NSAPH EPA Pipelines</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../source/usage.html">EPA AQS Toolkit Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/aqs.html">Main Class for EPA AQS Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/airnow.html">Main Class for EPA AirNow Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/airnow_ds_def.html">Configuration Object for EPA AirNow Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/aqs_tools.html">Internal scripts used for download tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/airnow_downloader.html">Downloader for AirNow</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, Harvard University.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../../_sources/doc/members/airnow_ds_def.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

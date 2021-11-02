@@ -1,41 +1,86 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>get_census Census Variable File Structure &#8212; NSAPH Data Platform 0.0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_paramlinks.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>get_census Census Variable File Structure &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="DataPlan: Main Class For Assembling a Census Plan" href="assemble_data.html" />
-    <link rel="prev" title="Working with the get_census Package" href="start_guide.html" />
-   
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="Working with the get_census Package" href="start_guide.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start_guide.html">Working with the <code class="docutils literal notranslate"><span class="pre">get_census</span></code> Package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">get_census</span></code> Census Variable File Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#field-definitions">Field Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#skipping-years-for-a-variable">Skipping years for a Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#census-variable-documentation">Census Variable Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="assemble_data.html">DataPlan: Main Class For Assembling a Census Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="census_info.html">Census Metadata Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query.html">Functions for Requesting Data from the Census API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cached_data.html">Stored Data Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tigerweb.html">Query Area and Download Shapefiles</a></li>
+</ul>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+        </div>
+      </div>
+    </nav>
 
-          <div class="body" role="main">
-            
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="docutils literal notranslate"><span class="pre">get_census</span></code> Census Variable File Structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/docs/source/census_yaml.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="get-census-census-variable-file-structure">
-<h1><code class="docutils literal notranslate"><span class="pre">get_census</span></code> Census Variable File Structure<a class="headerlink" href="#get-census-census-variable-file-structure" title="Permalink to this headline">¶</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">get_census</span></code> Census Variable File Structure<a class="headerlink" href="#get-census-census-variable-file-structure" title="Permalink to this headline"></a></h1>
 <p>The variables used to create the census data using the <code class="docutils literal notranslate"><span class="pre">get_census</span></code>
 package must be formally described ina yaml file. Each variable is defined by a top
 level entry in this file. The format for a variable is as follows:</p>
@@ -54,7 +99,7 @@ level entry in this file. The format for a variable is as follows:</p>
 to ask for from which api and how to calculate the desired variable from
 the information available in the API.</p>
 <section id="field-definitions">
-<h2>Field Definitions<a class="headerlink" href="#field-definitions" title="Permalink to this headline">¶</a></h2>
+<h2>Field Definitions<a class="headerlink" href="#field-definitions" title="Permalink to this headline"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><cite>var_name</cite>: The user chosen name for a variable</p></li>
@@ -78,7 +123,7 @@ variables is divided by this to produce the final reported value.</p></li>
 </div></blockquote>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
 <ul>
 <li><p>% of the population that is Black,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blk_pct</span><span class="p">:</span>
@@ -128,7 +173,7 @@ reported. This value was missing from the 2010 census, so from 2009-2018
 the acs variable <code class="docutils literal notranslate"><span class="pre">B19013_001</span></code> will be used instead.</p>
 </section>
 <section id="skipping-years-for-a-variable">
-<h2>Skipping years for a Variable<a class="headerlink" href="#skipping-years-for-a-variable" title="Permalink to this headline">¶</a></h2>
+<h2>Skipping years for a Variable<a class="headerlink" href="#skipping-years-for-a-variable" title="Permalink to this headline"></a></h2>
 <p>Sometimes, you may want to skip getting data for a variable for a given year.
 The most common reason to do this is when working with ZCTAs. ZCTA level data
 is not available from the 5 year ACS (acs5) for 2009 and 2010, despite the acs5 being
@@ -170,7 +215,7 @@ and population might look something like this:</p>
 2009 and 2010 will be skipped.</p>
 </section>
 <section id="census-variable-documentation">
-<h2>Census Variable Documentation<a class="headerlink" href="#census-variable-documentation" title="Permalink to this headline">¶</a></h2>
+<h2>Census Variable Documentation<a class="headerlink" href="#census-variable-documentation" title="Permalink to this headline"></a></h2>
 <p>Assembling these files will require reading through the census variable documentation,
 which can be quite tedious, especially when trying to figure out how to assemble more
 complex estimates. Links to this documentation can be found here:</p>
@@ -200,84 +245,34 @@ complex estimates. Links to this documentation can be found here:</p>
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="start_guide.html" class="btn btn-neutral float-left" title="Working with the get_census Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="assemble_data.html" class="btn btn-neutral float-right" title="DataPlan: Main Class For Assembling a Census Plan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">NSAPH Data Platform</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="start_guide.html">Working with the <code class="docutils literal notranslate"><span class="pre">get_census</span></code> Package</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">get_census</span></code> Census Variable File Structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#field-definitions">Field Definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#skipping-years-for-a-variable">Skipping years for a Variable</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#census-variable-documentation">Census Variable Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="assemble_data.html">DataPlan: Main Class For Assembling a Census Plan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="census_info.html">Census Metadata Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="query.html">Functions for Requesting Data from the Census API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cached_data.html">Stored Data Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tigerweb.html">Query Area and Download Shapefiles</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="start_guide.html" title="previous chapter">Working with the <code class="docutils literal notranslate"><span class="pre">get_census</span></code> Package</a></li>
-      <li>Next: <a href="assemble_data.html" title="next chapter">DataPlan: Main Class For Assembling a Census Plan</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, Harvard University.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../../_sources/docs/source/census_yaml.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

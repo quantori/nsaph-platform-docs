@@ -1,41 +1,92 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>CMS Manipulation Package &#8212; NSAPH CMS Data Processing Package 0.0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx_paramlinks.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMS Manipulation Package &mdash; NSAPH CMS Data Processing Package 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Handling Medicaid data" href="doc/Medicaid.html" />
-    <link rel="prev" title="NSAPH CMS Processing Pipelines" href="index.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="NSAPH CMS Processing Pipelines" href="index.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> NSAPH CMS Data Processing Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CMS Manipulation Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#software-sources">Software Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwl">CWL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#package-cms">Package cms</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc/Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/pipeline/medicaid.html">Full Medicaid Processing Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Also:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="doc/LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+</ul>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+        </div>
+      </div>
+    </nav>
 
-          <div class="body" role="main">
-            
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NSAPH CMS Data Processing Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>CMS Manipulation Package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="cms-manipulation-package">
-<h1>CMS Manipulation Package<a class="headerlink" href="#cms-manipulation-package" title="Permalink to this headline">¶</a></h1>
+<h1>CMS Manipulation Package<a class="headerlink" href="#cms-manipulation-package" title="Permalink to this headline"></a></h1>
 <p><strong>Pipelines to process CMS data: Medicaid and Medicare</strong></p>
 <!-- toc --><ul class="simple">
 <li><p><a class="reference external" href="#overview">Overview</a></p></li>
@@ -52,11 +103,11 @@
 </li>
 </ul>
 <!-- tocstop --><section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
 <p>See <a class="reference internal" href="doc/Medicaid.html"><span class="doc">Medicaid</span></a> master document.</p>
 </section>
 <section id="project-structure">
-<h2>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h2>
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this headline"></a></h2>
 <p>Top level directories are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">doc</span>
 <span class="o">-</span> <span class="n">src</span>
@@ -66,7 +117,7 @@
 <p>Src directory contains software source code.
 See details in <a class="reference external" href="#software-sources">Software Sources</a> section.</p>
 <section id="software-sources">
-<h3>Software Sources<a class="headerlink" href="#software-sources" title="Permalink to this headline">¶</a></h3>
+<h3>Software Sources<a class="headerlink" href="#software-sources" title="Permalink to this headline"></a></h3>
 <p>The directories under sources are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">cwl</span>
 <span class="o">-</span> <span class="n">python</span>
@@ -74,7 +125,7 @@ See details in <a class="reference external" href="#software-sources">Software S
 </div>
 </section>
 <section id="cwl">
-<h3>CWL<a class="headerlink" href="#cwl" title="Permalink to this headline">¶</a></h3>
+<h3>CWL<a class="headerlink" href="#cwl" title="Permalink to this headline"></a></h3>
 <p>CWL folder contains reusable workflows, packaged as tools
 that can and should be used by
 all NSAPH pipelines.</p>
@@ -85,9 +136,9 @@ The tools are combined into a workflow represented by
 medicaid.cwl file.</p>
 </section>
 <section id="python">
-<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline"></a></h3>
 <section id="package-cms">
-<h4>Package cms<a class="headerlink" href="#package-cms" title="Permalink to this headline">¶</a></h4>
+<h4>Package cms<a class="headerlink" href="#package-cms" title="Permalink to this headline"></a></h4>
 <p>This package contains modules to generate YAML schema for CMS
 data from FTS files provided with CMS medicaid and medicare
 export (raw data).</p>
@@ -111,90 +162,34 @@ for CMS medicaid data by parsing FTS files.</p>
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="NSAPH CMS Processing Pipelines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="doc/Medicaid.html" class="btn btn-neutral float-right" title="Handling Medicaid data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">NSAPH CMS Data Processing Package</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CMS Manipulation Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#software-sources">Software Sources</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cwl">CWL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#python">Python</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#package-cms">Package cms</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="doc/Medicaid.html">Handling Medicaid data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/pipeline/medicaid.html">Full Medicaid Processing Pipeline</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Also:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="doc/LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">NSAPH CMS Processing Pipelines</a></li>
-      <li>Next: <a href="doc/Medicaid.html" title="next chapter">Handling Medicaid data</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, Harvard University.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/README.md.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

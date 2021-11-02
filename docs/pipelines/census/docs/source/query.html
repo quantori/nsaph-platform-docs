@@ -1,98 +1,44 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Functions for Requesting Data from the Census API &#8212; NSAPH Data Platform 0.0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_paramlinks.css" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Functions for Requesting Data from the Census API &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Stored Data Files" href="cached_data.html" />
-    <link rel="prev" title="Census Metadata Functions" href="census_info.html" />
-   
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="Census Metadata Functions" href="census_info.html" /> 
+</head>
 
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <section id="module-get_census.query">
-<span id="functions-for-requesting-data-from-the-census-api"></span><h1>Functions for Requesting Data from the Census API<a class="headerlink" href="#module-get_census.query" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="get_census.query.get_census_data">
-<span class="sig-name descname"><span class="pre">get_census_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geography</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sum_file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">county</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/get_census/query.html#get_census_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#get_census.query.get_census_data" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="get_census.query.get_census_data.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#get_census.query.get_census_data.params.year">¶</a> – Year of data that we are querying</p></li>
-<li><p><span class="target" id="get_census.query.get_census_data.params.variables"></span><strong>variables</strong><a class="paramlink headerlink reference internal" href="#get_census.query.get_census_data.params.variables">¶</a> – list of strings containing the census variable names to request</p></li>
-<li><p><span class="target" id="get_census.query.get_census_data.params.geography"></span><strong>geography</strong><a class="paramlink headerlink reference internal" href="#get_census.query.get_census_data.params.geography">¶</a> – Geographic resolution we’re querying at (zcta, county, state)</p></li>
-<li><p><span class="target" id="get_census.query.get_census_data.params.dataset"></span><strong>dataset</strong><a class="paramlink headerlink reference internal" href="#get_census.query.get_census_data.params.dataset">¶</a> – The census data set you want (dec, acs1, acs5, pums)</p></li>
-<li><p><span class="target" id="get_census.query.get_census_data.params.sum_file"></span><strong>sum_file</strong><a class="paramlink headerlink reference internal" href="#get_census.query.get_census_data.params.sum_file">¶</a> – For the 2000 census, sf1 or sf3</p></li>
-<li><p><span class="target" id="get_census.query.get_census_data.params.key"></span><strong>key</strong><a class="paramlink headerlink reference internal" href="#get_census.query.get_census_data.params.key">¶</a> – Your census API key. We recommend not passing it here and instead either setting
-the “GET_CENSUS_API_KEY” environmental variable or using the <cite>set_api_key</cite> function.</p></li>
-<li><p><span class="target" id="get_census.query.get_census_data.params.state"></span><strong>state</strong><a class="paramlink headerlink reference internal" href="#get_census.query.get_census_data.params.state">¶</a> – 2 digit FIPS code of the state you want to limit the query to (i.e. “06” for CA)</p></li>
-<li><p><span class="target" id="get_census.query.get_census_data.params.county"></span><strong>county</strong><a class="paramlink headerlink reference internal" href="#get_census.query.get_census_data.params.county">¶</a> – 3 digit FIPS code of the county you want to include. Requires state to be specified</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a pandas DataFrame</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="get_census.query.api_geography">
-<span class="sig-name descname"><span class="pre">api_geography</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">geo</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/get_census/query.html#api_geography"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#get_census.query.api_geography" title="Permalink to this definition">¶</a></dt>
-<dd><p>go from function shorthand to the input the census api needs</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><span class="target" id="get_census.query.api_geography.params.geo"></span><strong>geo</strong><a class="paramlink headerlink reference internal" href="#get_census.query.api_geography.params.geo">¶</a> – shorthand for a given geography type</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>corrected geography name</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-
-
-          </div>
-          
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">NSAPH Data Platform</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="start_guide.html">Working with the <code class="docutils literal notranslate"><span class="pre">get_census</span></code> Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="census_yaml.html"><code class="docutils literal notranslate"><span class="pre">get_census</span></code> Census Variable File Structure</a></li>
@@ -103,51 +49,63 @@ the “GET_CENSUS_API_KEY” environmental variable or using the <cite>set_api_k
 <li class="toctree-l1"><a class="reference internal" href="tigerweb.html">Query Area and Download Shapefiles</a></li>
 </ul>
 
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="census_info.html" title="previous chapter">Census Metadata Functions</a></li>
-      <li>Next: <a href="cached_data.html" title="next chapter">Stored Data Files</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, Harvard University.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../../_sources/docs/source/query.rst.txt"
-          rel="nofollow">Page source</a>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Functions for Requesting Data from the Census API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/docs/source/query.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="functions-for-requesting-data-from-the-census-api">
+<h1>Functions for Requesting Data from the Census API<a class="headerlink" href="#functions-for-requesting-data-from-the-census-api" title="Permalink to this headline"></a></h1>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="census_info.html" class="btn btn-neutral float-left" title="Census Metadata Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cached_data.html" class="btn btn-neutral float-right" title="Stored Data Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
-    
+  <hr/>
 
-    
-  </body>
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
