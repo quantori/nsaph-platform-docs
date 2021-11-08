@@ -37,13 +37,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="doc/source/usage.html">EPA AQS Toolkit Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/source/aqs.html">Main Class for EPA AQS Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/source/aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/source/airnow.html">Main Class for EPA AirNow Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/source/airnow_ds_def.html">Configuration Object for EPA AirNow Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/source/aqs_tools.html">Internal scripts used for download tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="doc/source/airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Toolkit for downloading and preprocessing of data provided by EPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/usage.html">EPA Toolkit Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/members/aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/members/aqs_ds_def.html">Configuration Options for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/members/airnow.html">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/members/airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/members/aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc/members/airnow_downloader.html">Downloader for AirNow</a></li>
 </ul>
 
         </div>
@@ -95,107 +96,59 @@
  | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
  | <a href="#Y"><strong>Y</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.add_monitor_key">add_monitor_key() (in module aqs_tools)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.add_monitor_key">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.add_monitor_key">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.add_monitor_key">add_monitor_key() (in module epa.aqs_tools)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.aggregation">aggregation (aqs_tools.collect_aqs_download_tasks parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.aggregation">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.aggregation">[2]</a>
+      <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.aggregation">aggregation (AQSContext attribute)</a>
+</li>
+      <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Aggregation">Aggregation (class in epa.aqs_ds_def)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_aqs_download_tasks.params.aggregation">aggregation (epa.aqs_tools.collect_aqs_download_tasks parameter)</a>
+</li>
+      <li><a href="doc/members/airnow.html#epa.airnow.AirNow">AirNow (class in epa.airnow)</a>
+</li>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext">AirNowContext (class in epa.airnow_ds_def)</a>
+</li>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader">AirNowDownloader (class in epa.airnow_downloader)</a>
+</li>
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.aliases">aliases (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.aliases">[1]</a>
+</li>
+      <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Aggregation.ANNUAL">ANNUAL (Aggregation attribute)</a>
+</li>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.api_key">api_key (AirNowContext attribute)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext.aggregation">(AQSContext attribute)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.aggregation">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.aggregation">[2]</a>
+        <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.params.api_key">(epa.airnow_downloader.AirNowDownloader parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.Aggregation">Aggregation (class in aqs_ds_def)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Aggregation">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Aggregation">[2]</a>
-</li>
-      <li>
-    airnow
-
-      <ul>
-        <li><a href="doc/members/airnow.html#module-airnow">module</a>, <a href="doc/source/airnow.html#module-airnow">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="doc/members/airnow.html#airnow.AirNow">AirNow (class in airnow)</a>, <a href="doc/source/airnow.html#airnow.AirNow">[1]</a>
-</li>
-      <li>
-    airnow_downloader
-
-      <ul>
-        <li><a href="doc/members/airnow_downloader.html#module-airnow_downloader">module</a>, <a href="doc/source/airnow_downloader.html#module-airnow_downloader">[1]</a>
-</li>
-      </ul></li>
-      <li>
-    airnow_ds_def
-
-      <ul>
-        <li><a href="doc/members/airnow_ds_def.html#module-airnow_ds_def">module</a>, <a href="doc/source/airnow_ds_def.html#module-airnow_ds_def">[1]</a>
-</li>
-      </ul></li>
-      <li>
-    airnow_gis
-
-      <ul>
-        <li><a href="doc/members/airnow_gis.html#module-airnow_gis">module</a>
-</li>
-      </ul></li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.AirNowContext">AirNowContext (class in airnow_ds_def)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext">[1]</a>
-</li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader">AirNowDownloader (class in airnow_downloader)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader">[1]</a>
-</li>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.aliases">aliases (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.aliases">[1]</a>
-</li>
-      <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.Aggregation.ANNUAL">ANNUAL (Aggregation attribute)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Aggregation.ANNUAL">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Aggregation.ANNUAL">[2]</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.params.api_key">api_key (airnow_downloader.AirNowDownloader parameter)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.params.api_key">[1]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.download_data.params.append">append (epa.aqs_tools.download_data parameter)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.download_data.params.append">append (aqs_tools.download_data parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.download_data.params.append">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.download_data.params.append">[2]</a>
+      <li><a href="doc/members/aqs.html#epa.aqs.AQS">AQS (class in epa.aqs)</a>
 </li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.AQI">AQI (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext">AQSContext (class in epa.aqs_ds_def)</a>
 </li>
-      <li>
-    aqs
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument">Argument (class in nsaph_utils.utils.context)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument">[1]</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_content">as_content() (in module nsaph_utils.utils.io_utils)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_csv_reader">as_csv_reader() (in module nsaph_utils.utils.io_utils)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream">as_stream() (in module nsaph_utils.utils.io_utils)</a>
+</li>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.validate.params.attr">attr (epa.airnow_ds_def.AirNowContext.validate parameter)</a>
 
       <ul>
-        <li><a href="doc/members/aqs.html#module-aqs">module</a>, <a href="doc/source/aqs.html#module-aqs">[1]</a>, <a href="public/doc/source/aqs.html#module-aqs">[2]</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.validate.params.attr">(epa.aqs_ds_def.AQSContext.validate parameter)</a>
 </li>
-      </ul></li>
-      <li><a href="doc/members/aqs.html#aqs.AQS">AQS (class in aqs)</a>, <a href="doc/source/aqs.html#aqs.AQS">[1]</a>, <a href="public/doc/source/aqs.html#aqs.AQS">[2]</a>
-</li>
-      <li>
-    aqs_ds_def
-
-      <ul>
-        <li><a href="doc/members/aqs_ds_def.html#module-aqs_ds_def">module</a>, <a href="doc/source/aqs_ds_def.html#module-aqs_ds_def">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#module-aqs_ds_def">[2]</a>
-</li>
-      </ul></li>
-      <li>
-    aqs_tools
-
-      <ul>
-        <li><a href="doc/members/aqs_tools.html#module-aqs_tools">module</a>, <a href="doc/source/aqs_tools.html#module-aqs_tools">[1]</a>, <a href="public/doc/source/aqs_tools.html#module-aqs_tools">[2]</a>
-</li>
-      </ul></li>
-      <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext">AQSContext (class in aqs_ds_def)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext">[2]</a>
-</li>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Argument">Argument (class in nsaph_utils.utils.context)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Argument">[1]</a>
-</li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_content">as_content() (in module nsaph_utils.utils.io_utils)</a>
-</li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_csv_reader">as_csv_reader() (in module nsaph_utils.utils.io_utils)</a>
-</li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream">as_stream() (in module nsaph_utils.utils.io_utils)</a>
-</li>
-      <li><a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.validate.params.attr">attr (airnow_ds_def.AirNowContext.validate parameter)</a>
-
-      <ul>
-        <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext.validate.params.attr">(aqs_ds_def.AQSContext.validate parameter)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.validate.params.attr">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.validate.params.attr">[2]</a>
-</li>
-        <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.validate.params.attr">(nsaph_utils.utils.context.Context.validate parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.validate.params.attr">[1]</a>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.validate.params.attr">(nsaph_utils.utils.context.Context.validate parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.validate.params.attr">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -204,7 +157,7 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.bbox">bbox (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.basename">basename() (in module nsaph_utils.utils.io_utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -212,61 +165,71 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Cardinality">Cardinality (class in nsaph_utils.utils.context)</a>
+      <li><a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Cardinality">Cardinality (class in nsaph_utils.utils.context)</a>
 </li>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.cardinality">cardinality (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.cardinality">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.cardinality">cardinality (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.cardinality">[1]</a>
 </li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.check_http_response">check_http_response() (in module nsaph_utils.utils.io_utils)</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.cfg">cfg (AirNowContext attribute)</a>
 </li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.check_sites">check_sites() (AirNowDownloader method)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.check_http_response">check_http_response() (in module nsaph_utils.utils.io_utils)</a>
 </li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.check_size">check_size (nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.check_size">check_size (nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
 </li>
-      <li><a href="doc/members/aqs.html#aqs.AQS.clear">clear() (AQS method)</a>, <a href="doc/source/aqs.html#aqs.AQS.clear">[1]</a>, <a href="public/doc/source/aqs.html#aqs.AQS.clear">[2]</a>
+      <li><a href="doc/members/aqs.html#epa.aqs.AQS.clear">clear() (AQS method)</a>
 </li>
-      <li><a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.enum.params.cls">cls (airnow_ds_def.AirNowContext.enum parameter)</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.enum.params.cls">cls (epa.airnow_ds_def.AirNowContext.enum parameter)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.enum.params.cls">(aqs_ds_def.AQSContext.enum parameter)</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.enum.params.cls">(epa.aqs_ds_def.AQSContext.enum parameter)</a>
 </li>
-        <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.enum.params.cls">(nsaph_utils.utils.context.Context.enum parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.enum.params.cls">[1]</a>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.enum.params.cls">(nsaph_utils.utils.context.Context.enum parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.enum.params.cls">[1]</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.Parameter.CO">CO (Parameter attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.Parameter.CO">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.CO">CO (Parameter attribute)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_annual_downloads">collect_annual_downloads() (in module aqs_tools)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_annual_downloads">collect_annual_downloads() (in module epa.aqs_tools)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_aqs_download_tasks">collect_aqs_download_tasks() (in module aqs_tools)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_aqs_download_tasks">collect_aqs_download_tasks() (in module epa.aqs_tools)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_daily_downloads">collect_daily_downloads() (in module epa.aqs_tools)</a>
+</li>
+      <li><a href="doc/members/aqs.html#epa.aqs.AQS.collect_downloads">collect_downloads() (AQS method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_daily_downloads">collect_daily_downloads() (in module aqs_tools)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.Collector">Collector (class in nsaph_utils.utils.io_utils)</a>
 </li>
-      <li><a href="doc/members/aqs.html#aqs.AQS.collect_downloads">collect_downloads() (AQS method)</a>, <a href="doc/source/aqs.html#aqs.AQS.collect_downloads">[1]</a>, <a href="public/doc/source/aqs.html#aqs.AQS.collect_downloads">[2]</a>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator.params.columns">columns (epa.airnow_gis.GISAnnotator parameter)</a>
 </li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.Collector">Collector (class in nsaph_utils.utils.io_utils)</a>
-</li>
-      <li><a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.compress">compress (AirNowContext attribute)</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.compress">compress (AirNowContext attribute)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.compress">(AQSContext attribute)</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.compress">(AQSContext attribute)</a>
 </li>
-        <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.compress">(Context attribute)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.compress">[1]</a>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.compress">(Context attribute)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.compress">[1]</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.process.params.content">content (airnow_downloader.AirNowDownloader.process parameter)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.process.params.content">[1]</a>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.process.params.content">content (epa.airnow_downloader.AirNowDownloader.process parameter)</a>
 </li>
-      <li><a href="doc/members/aqs.html#aqs.AQS.params.context">context (aqs.AQS parameter)</a>, <a href="doc/source/aqs.html#aqs.AQS.params.context">[1]</a>, <a href="public/doc/source/aqs.html#aqs.AQS.params.context">[2]</a>
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context">Context (class in nsaph_utils.utils.context)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context">[1]</a>
 </li>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context">Context (class in nsaph_utils.utils.context)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context">[1]</a>
+      <li><a href="doc/members/aqs.html#epa.aqs.AQS.params.context">context (epa.aqs.AQS parameter)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_annual_downloads.params.contiguous_year_segment">contiguous_year_segment (aqs_tools.collect_annual_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.contiguous_year_segment">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.contiguous_year_segment">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_annual_downloads.params.contiguous_year_segment">contiguous_year_segment (epa.aqs_tools.collect_annual_downloads parameter)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_daily_downloads.params.contiguous_year_segment">(aqs_tools.collect_daily_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.contiguous_year_segment">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.contiguous_year_segment">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_daily_downloads.params.contiguous_year_segment">(epa.aqs_tools.collect_daily_downloads parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.CSVWriter">CSVWriter (class in nsaph_utils.utils.io_utils)</a>
+      <li><a href="doc/members/registry.html#epa.registry.Registry.create_domain_yaml">create_domain_yaml() (Registry static method)</a>
+</li>
+      <li><a href="doc/members/registry.html#epa.registry.Registry.create_table_yaml">create_table_yaml() (Registry method)</a>
+</li>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator.params.crs">crs (epa.airnow_gis.GISAnnotator parameter)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.CSVFileWrapper">CSVFileWrapper (class in nsaph_utils.utils.io_utils)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.CSVWriter">CSVWriter (class in nsaph_utils.utils.io_utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -274,61 +237,63 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.Aggregation.DAILY">DAILY (Aggregation attribute)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Aggregation.DAILY">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Aggregation.DAILY">[2]</a>
+      <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Aggregation.DAILY">DAILY (Aggregation attribute)</a>
 </li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.datatype">datatype (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/registry.html#epa.registry.EPAConfig.data">data (EPAConfig attribute)</a>
 </li>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.default">default (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.default">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.default">default (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.default">[1]</a>
 </li>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.params.description">description (nsaph_utils.utils.context.Context parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.params.description">[1]</a>
-</li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.AirNowContext.destination">destination (AirNowContext attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.destination">[1]</a>
+      <li><a href="doc/members/registry.html#epa.registry.EPAConfig.params.description">description (epa.registry.EPAConfig parameter)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_annual_downloads.params.destination">(aqs_tools.collect_annual_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.destination">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.destination">[2]</a>
-</li>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.destination">(aqs_tools.collect_aqs_download_tasks parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.destination">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.destination">[2]</a>
-</li>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_daily_downloads.params.destination">(aqs_tools.collect_daily_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.destination">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.destination">[2]</a>
-</li>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.destination_path.params.destination">(aqs_tools.destination_path parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.destination_path.params.destination">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.destination_path.params.destination">[2]</a>
-</li>
-        <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext.destination">(AQSContext attribute)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.destination">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.destination">[2]</a>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.params.description">(nsaph_utils.utils.context.Context parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.params.description">[1]</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.destination_path">destination_path() (in module aqs_tools)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.destination_path">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.destination_path">[2]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.destination">destination (AirNowContext attribute)</a>
+
+      <ul>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.destination">(AQSContext attribute)</a>
 </li>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_annual_downloads.params.destination">(epa.aqs_tools.collect_annual_downloads parameter)</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_aqs_download_tasks.params.destination">(epa.aqs_tools.collect_aqs_download_tasks parameter)</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_daily_downloads.params.destination">(epa.aqs_tools.collect_daily_downloads parameter)</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.destination_path.params.destination">(epa.aqs_tools.destination_path parameter)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.do_qc">do_qc() (AirNowDownloader method)</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.destination_path">destination_path() (in module epa.aqs_tools)</a>
 </li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.AirNowContext.params.doc">doc (airnow_ds_def.AirNowContext parameter)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.params.doc">[1]</a>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator.join.params.df">df (epa.airnow_gis.GISAnnotator.join parameter)</a>
+</li>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.params.doc">doc (epa.airnow_ds_def.AirNowContext parameter)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext.params.doc">(aqs_ds_def.AQSContext parameter)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.params.doc">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.params.doc">[2]</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.params.doc">(epa.aqs_ds_def.AQSContext parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/airnow.html#airnow.AirNow.download">download() (AirNow method)</a>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.download">download() (AirNowDownloader method)</a>
 
       <ul>
-        <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.download">(AirNowDownloader method)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.download">[1]</a>
+        <li><a href="doc/members/aqs.html#epa.aqs.AQS.download">(AQS method)</a>
 </li>
-        <li><a href="doc/members/aqs.html#aqs.AQS.download">(AQS method)</a>, <a href="doc/source/aqs.html#aqs.AQS.download">[1]</a>, <a href="public/doc/source/aqs.html#aqs.AQS.download">[2]</a>
-</li>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.download">(in module nsaph_utils.utils.io_utils)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.download">(in module nsaph_utils.utils.io_utils)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.download_data">download_data() (in module aqs_tools)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.download_data">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.download_data">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.download_data">download_data() (in module epa.aqs_tools)</a>
 </li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.download_range">download_range() (AirNowDownloader method)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.download_range">[1]</a>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.download_range">download_range() (AirNowDownloader method)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_annual_downloads.params.downloads">downloads (aqs_tools.collect_annual_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.downloads">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.downloads">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_annual_downloads.params.downloads">downloads (epa.aqs_tools.collect_annual_downloads parameter)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_daily_downloads.params.downloads">(aqs_tools.collect_daily_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.downloads">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.downloads">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_daily_downloads.params.downloads">(epa.aqs_tools.collect_daily_downloads parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.dump_csv">dump_csv() (AirNowDownloader static method)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.dump_csv">[1]</a>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.dump_csv">dump_csv() (AirNowDownloader static method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -336,23 +301,88 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.download_range.params.end_date">end_date (airnow_downloader.AirNowDownloader.download_range parameter)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.download_range.params.end_date">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.end_date">end_date (AirNowContext attribute)</a>
 
       <ul>
-        <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.AirNowContext.end_date">(AirNowContext attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.end_date">[1]</a>
+        <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.download_range.params.end_date">(epa.airnow_downloader.AirNowDownloader.download_range parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.enum">enum() (AirNowContext class method)</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.enum">enum() (AirNowContext class method)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.enum">(AQSContext class method)</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.enum">(AQSContext class method)</a>
 </li>
-        <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.enum">(Context class method)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.enum">[1]</a>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.enum">(Context class method)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.enum">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    epa.airnow
+
+      <ul>
+        <li><a href="doc/members/airnow.html#module-epa.airnow">module</a>
+</li>
+      </ul></li>
+      <li>
+    epa.airnow_downloader
+
+      <ul>
+        <li><a href="doc/members/airnow_downloader.html#module-epa.airnow_downloader">module</a>
+</li>
+      </ul></li>
+      <li>
+    epa.airnow_ds_def
+
+      <ul>
+        <li><a href="doc/members/airnow_ds_def.html#module-epa.airnow_ds_def">module</a>
+</li>
+      </ul></li>
+      <li>
+    epa.airnow_gis
+
+      <ul>
+        <li><a href="doc/members/airnow_gis.html#module-epa.airnow_gis">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.extension">extension (nsaph_utils.utils.io_utils.as_stream parameter)</a>
+      <li>
+    epa.airnow_setup
+
+      <ul>
+        <li><a href="doc/members/airnow_setup.html#module-epa.airnow_setup">module</a>
+</li>
+      </ul></li>
+      <li>
+    epa.aqs
+
+      <ul>
+        <li><a href="doc/members/aqs.html#module-epa.aqs">module</a>
+</li>
+      </ul></li>
+      <li>
+    epa.aqs_ds_def
+
+      <ul>
+        <li><a href="doc/members/aqs_ds_def.html#module-epa.aqs_ds_def">module</a>
+</li>
+      </ul></li>
+      <li>
+    epa.aqs_tools
+
+      <ul>
+        <li><a href="doc/members/aqs_tools.html#module-epa.aqs_tools">module</a>
+</li>
+      </ul></li>
+      <li>
+    epa.registry
+
+      <ul>
+        <li><a href="doc/members/registry.html#module-epa.registry">module</a>
+</li>
+      </ul></li>
+      <li><a href="doc/members/registry.html#epa.registry.EPAConfig">EPAConfig (class in epa.registry)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.extension">extension (nsaph_utils.utils.io_utils.as_stream parameter)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -360,17 +390,13 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.filter">filter (nsaph_utils.utils.io_utils.write_csv parameter)</a>
-</li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.transfer.params.flt">flt (aqs_tools.transfer parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.transfer.params.flt">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.transfer.params.flt">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.filter">filter (nsaph_utils.utils.io_utils.write_csv parameter)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.fopen">fopen() (in module nsaph_utils.utils.io_utils)</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.transfer.params.flt">flt (epa.aqs_tools.transfer parameter)</a>
 </li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.format_csv">format_csv (AirNowDownloader attribute)</a>
-</li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.format_json">format_json (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.fopen">fopen() (in module nsaph_utils.utils.io_utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -378,15 +404,13 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.get_config">get_config() (AirNowDownloader static method)</a>
-</li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.get_content">get_content() (AirNowDownloader method)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.get_entries">get_entries() (in module nsaph_utils.utils.io_utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.GIS_COLUMNS">GIS_COLUMNS (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.get_readme">get_readme() (in module nsaph_utils.utils.io_utils)</a>
 </li>
-      <li><a href="doc/members/airnow_gis.html#airnow_gis.GISAnnotator">GISAnnotator (class in airnow_gis)</a>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator">GISAnnotator (class in epa.airnow_gis)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -394,11 +418,11 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.transfer.params.header">header (aqs_tools.transfer parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.transfer.params.header">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.transfer.params.header">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.transfer.params.header">header (epa.aqs_tools.transfer parameter)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.help">help (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.help">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.help">help (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.help">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -406,23 +430,27 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_gis.html#airnow_gis.GISAnnotator.init">init() (GISAnnotator method)</a>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator.init">init() (GISAnnotator method)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_dir">is_dir() (in module nsaph_utils.utils.io_utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/aqs.html#aqs.AQS.is_downloaded">is_downloaded() (AQS method)</a>, <a href="doc/source/aqs.html#aqs.AQS.is_downloaded">[1]</a>, <a href="public/doc/source/aqs.html#aqs.AQS.is_downloaded">[2]</a>
+      <li><a href="doc/members/aqs.html#epa.aqs.AQS.is_downloaded">is_downloaded() (AQS method)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded">(in module nsaph_utils.utils.io_utils)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded">(in module nsaph_utils.utils.io_utils)</a>
 </li>
       </ul></li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_readme">is_readme() (in module nsaph_utils.utils.io_utils)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_gis.html#airnow_gis.GISAnnotator.join">join() (GISAnnotator method)</a>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator.join">join() (GISAnnotator method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -430,11 +458,7 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.ListCollector">ListCollector (class in nsaph_utils.utils.io_utils)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.look_for_api_key">look_for_api_key() (AirNowDownloader static method)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.ListCollector">ListCollector (class in nsaph_utils.utils.io_utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -442,49 +466,47 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.max_attempts">max_attempts (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter.MAX_TEMP">MAX_TEMP (Parameter attribute)</a>
 </li>
-      <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.Parameter.MAX_TEMP">MAX_TEMP (Parameter attribute)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.MAX_TEMP">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.MAX_TEMP">[2]</a>
-</li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.merge">merge() (AirNowDownloader static method)</a>
-</li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.merge_years">merge_years (aqs_tools.collect_aqs_download_tasks parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.merge_years">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.merge_years">[2]</a>
+      <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.merge_years">merge_years (AQSContext attribute)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext.merge_years">(AQSContext attribute)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.merge_years">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.merge_years">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_aqs_download_tasks.params.merge_years">(epa.aqs_tools.collect_aqs_download_tasks parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.Parameter.MIN_TEMP">MIN_TEMP (Parameter attribute)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.MIN_TEMP">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.MIN_TEMP">[2]</a>
+      <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter.MIN_TEMP">MIN_TEMP (Parameter attribute)</a>
 </li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_content.params.mode">mode (nsaph_utils.utils.io_utils.as_content parameter)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_content.params.mode">mode (nsaph_utils.utils.io_utils.as_content parameter)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.mode">(nsaph_utils.utils.io_utils.as_stream parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.mode">(nsaph_utils.utils.io_utils.as_stream parameter)</a>
 </li>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.fopen.params.mode">(nsaph_utils.utils.io_utils.fopen parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.fopen.params.mode">(nsaph_utils.utils.io_utils.fopen parameter)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     module
 
       <ul>
-        <li><a href="doc/members/airnow.html#module-airnow">airnow</a>, <a href="doc/source/airnow.html#module-airnow">[1]</a>
+        <li><a href="doc/members/airnow.html#module-epa.airnow">epa.airnow</a>
 </li>
-        <li><a href="doc/members/airnow_downloader.html#module-airnow_downloader">airnow_downloader</a>, <a href="doc/source/airnow_downloader.html#module-airnow_downloader">[1]</a>
+        <li><a href="doc/members/airnow_downloader.html#module-epa.airnow_downloader">epa.airnow_downloader</a>
 </li>
-        <li><a href="doc/members/airnow_ds_def.html#module-airnow_ds_def">airnow_ds_def</a>, <a href="doc/source/airnow_ds_def.html#module-airnow_ds_def">[1]</a>
+        <li><a href="doc/members/airnow_ds_def.html#module-epa.airnow_ds_def">epa.airnow_ds_def</a>
 </li>
-        <li><a href="doc/members/airnow_gis.html#module-airnow_gis">airnow_gis</a>
+        <li><a href="doc/members/airnow_gis.html#module-epa.airnow_gis">epa.airnow_gis</a>
 </li>
-        <li><a href="doc/members/aqs.html#module-aqs">aqs</a>, <a href="doc/source/aqs.html#module-aqs">[1]</a>, <a href="public/doc/source/aqs.html#module-aqs">[2]</a>
+        <li><a href="doc/members/airnow_setup.html#module-epa.airnow_setup">epa.airnow_setup</a>
 </li>
-        <li><a href="doc/members/aqs_ds_def.html#module-aqs_ds_def">aqs_ds_def</a>, <a href="doc/source/aqs_ds_def.html#module-aqs_ds_def">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#module-aqs_ds_def">[2]</a>
+        <li><a href="doc/members/aqs.html#module-epa.aqs">epa.aqs</a>
 </li>
-        <li><a href="doc/members/aqs_tools.html#module-aqs_tools">aqs_tools</a>, <a href="doc/source/aqs_tools.html#module-aqs_tools">[1]</a>, <a href="public/doc/source/aqs_tools.html#module-aqs_tools">[2]</a>
+        <li><a href="doc/members/aqs_ds_def.html#module-epa.aqs_ds_def">epa.aqs_ds_def</a>
 </li>
-        <li><a href="doc/source/aqs_tools.html#module-nsaph_utils.utils.io_utils">nsaph_utils.utils.io_utils</a>
+        <li><a href="doc/members/aqs_tools.html#module-epa.aqs_tools">epa.aqs_tools</a>
+</li>
+        <li><a href="doc/members/registry.html#module-epa.registry">epa.registry</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#module-nsaph_utils.utils.io_utils">nsaph_utils.utils.io_utils</a>
 </li>
       </ul></li>
   </ul></td>
@@ -493,17 +515,21 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.name">name (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.name">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.name">name (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.name">[1]</a>
+
+      <ul>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_readme.params.name">(nsaph_utils.utils.io_utils.is_readme parameter)</a>
 </li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.Parameter.NO2">NO2 (Parameter attribute)</a>, <a href="doc/members/aqs_ds_def.html#aqs_ds_def.Parameter.NO2">[1]</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.Parameter.NO2">[2]</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.NO2">[3]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.NO2">[4]</a>
-</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.NO2">NO2 (Parameter attribute)</a>, <a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter.NO2">[1]</a>
+</li>
       <li>
     nsaph_utils.utils.io_utils
 
       <ul>
-        <li><a href="doc/source/aqs_tools.html#module-nsaph_utils.utils.io_utils">module</a>
+        <li><a href="doc/members/aqs_tools.html#module-nsaph_utils.utils.io_utils">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -512,7 +538,11 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.Parameter.OZONE">OZONE (Parameter attribute)</a>, <a href="doc/members/aqs_ds_def.html#aqs_ds_def.Parameter.OZONE">[1]</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.Parameter.OZONE">[2]</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.OZONE">[3]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.OZONE">[4]</a>
+      <li><a href="doc/members/registry.html#epa.registry.EPAConfig.output">output (EPAConfig attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.OZONE">OZONE (Parameter attribute)</a>, <a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter.OZONE">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -520,49 +550,57 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.params.parameter">parameter (airnow_downloader.AirNowDownloader parameter)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.params.parameter">[1]</a>
-</li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.Parameter">Parameter (class in airnow_ds_def)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.Parameter">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter">Parameter (class in epa.airnow_ds_def)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.Parameter">(class in aqs_ds_def)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Parameter">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Parameter">[2]</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter">(class in epa.aqs_ds_def)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.AirNowContext.parameters">parameters (AirNowContext attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.parameters">[1]</a>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.params.parameter">parameter (epa.airnow_downloader.AirNowDownloader parameter)</a>
+</li>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.parameters">parameters (AirNowContext attribute)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_annual_downloads.params.parameters">(aqs_tools.collect_annual_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.parameters">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.parameters">[2]</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.parameters">(AQSContext attribute)</a>
 </li>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.parameters">(aqs_tools.collect_aqs_download_tasks parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.parameters">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.parameters">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_annual_downloads.params.parameters">(epa.aqs_tools.collect_annual_downloads parameter)</a>
 </li>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_daily_downloads.params.parameters">(aqs_tools.collect_daily_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.parameters">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.parameters">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_aqs_download_tasks.params.parameters">(epa.aqs_tools.collect_aqs_download_tasks parameter)</a>
 </li>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.download_data.params.parameters">(aqs_tools.download_data parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.download_data.params.parameters">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.download_data.params.parameters">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_daily_downloads.params.parameters">(epa.aqs_tools.collect_daily_downloads parameter)</a>
 </li>
-        <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext.parameters">(AQSContext attribute)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.parameters">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.parameters">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.download_data.params.parameters">(epa.aqs_tools.download_data parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_content.params.params">params (nsaph_utils.utils.io_utils.as_content parameter)</a>
+
+      <ul>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.params">(nsaph_utils.utils.io_utils.as_stream parameter)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_content.params.params">params (nsaph_utils.utils.io_utils.as_content parameter)</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_annual_downloads.params.path">path (epa.aqs_tools.collect_annual_downloads parameter)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.params">(nsaph_utils.utils.io_utils.as_stream parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.destination_path.params.path">(epa.aqs_tools.destination_path parameter)</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.basename.params.path">(nsaph_utils.utils.io_utils.basename parameter)</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.fopen.params.path">(nsaph_utils.utils.io_utils.fopen parameter)</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.get_entries.params.path">(nsaph_utils.utils.io_utils.get_entries parameter)</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.get_readme.params.path">(nsaph_utils.utils.io_utils.get_readme parameter)</a>
+</li>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_dir.params.path">(nsaph_utils.utils.io_utils.is_dir parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_annual_downloads.params.path">path (aqs_tools.collect_annual_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.path">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_annual_downloads.params.path">[2]</a>
-
-      <ul>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.destination_path.params.path">(aqs_tools.destination_path parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.destination_path.params.path">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.destination_path.params.path">[2]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.PM10">PM10 (Parameter attribute)</a>
 </li>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.fopen.params.path">(nsaph_utils.utils.io_utils.fopen parameter)</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.PM25">PM25 (Parameter attribute)</a>, <a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter.PM25">[1]</a>
 </li>
-      </ul></li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.Parameter.PM10">PM10 (Parameter attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.Parameter.PM10">[1]</a>
-</li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.Parameter.PM25">PM25 (Parameter attribute)</a>, <a href="doc/members/aqs_ds_def.html#aqs_ds_def.Parameter.PM25">[1]</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.Parameter.PM25">[2]</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.PM25">[3]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.Parameter.PM25">[4]</a>
-</li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.process">process() (AirNowDownloader method)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.process">[1]</a>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.process">process() (AirNowDownloader method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -570,7 +608,7 @@
 <h2 id="Q">Q</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.AirNowContext.qc">qc (AirNowContext attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.qc">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.qc">qc (AirNowContext attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -578,23 +616,23 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.check_http_response.params.r">r (nsaph_utils.utils.io_utils.check_http_response parameter)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.check_http_response.params.r">r (nsaph_utils.utils.io_utils.check_http_response parameter)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.transfer.params.reader">reader (aqs_tools.transfer parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.transfer.params.reader">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.transfer.params.reader">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.transfer.params.reader">reader (epa.aqs_tools.transfer parameter)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.reader">(nsaph_utils.utils.io_utils.write_csv parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.reader">(nsaph_utils.utils.io_utils.write_csv parameter)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.download.params.requested_date">requested_date (airnow_downloader.AirNowDownloader.download parameter)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.download.params.requested_date">[1]</a>
+      <li><a href="doc/members/registry.html#epa.registry.Registry">Registry (class in epa.registry)</a>
 </li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.AirNowContext.reset">reset (AirNowContext attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.reset">[1]</a>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.download.params.requested_date">requested_date (epa.airnow_downloader.AirNowDownloader.download parameter)</a>
 </li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.reset">reset() (AirNowDownloader method)</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.reset">reset (AirNowContext attribute)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.add_monitor_key.params.row">row (aqs_tools.add_monitor_key parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.add_monitor_key.params.row">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.add_monitor_key.params.row">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.add_monitor_key.params.row">row (epa.aqs_tools.add_monitor_key parameter)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -602,53 +640,59 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.enum.params.s">s (airnow_ds_def.AirNowContext.enum parameter)</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.enum.params.s">s (epa.airnow_ds_def.AirNowContext.enum parameter)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.enum.params.s">(aqs_ds_def.AQSContext.enum parameter)</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.enum.params.s">(epa.aqs_ds_def.AQSContext.enum parameter)</a>
 </li>
-        <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.enum.params.s">(nsaph_utils.utils.context.Context.enum parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.enum.params.s">[1]</a>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.enum.params.s">(nsaph_utils.utils.context.Context.enum parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.enum.params.s">[1]</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.SITE">SITE (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/airnow_setup.html#epa.airnow_setup.setup">setup() (in module epa.airnow_setup)</a>
+</li>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator.params.shape_files">shape_files (epa.airnow_gis.GISAnnotator parameter)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.Parameter.SO2">SO2 (Parameter attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.Parameter.SO2">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.shapes">shapes (AirNowContext attribute)</a>
 </li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.download_range.params.start_date">start_date (airnow_downloader.AirNowDownloader.download_range parameter)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.download_range.params.start_date">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.SO2">SO2 (Parameter attribute)</a>
+</li>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.start_date">start_date (AirNowContext attribute)</a>
 
       <ul>
-        <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.AirNowContext.start_date">(AirNowContext attribute)</a>, <a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.start_date">[1]</a>
+        <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.download_range.params.start_date">(epa.airnow_downloader.AirNowDownloader.download_range parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.params.subclass">subclass (nsaph_utils.utils.context.Context parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.params.subclass">[1]</a>
+      <li><a href="doc/members/registry.html#epa.registry.EPAConfig.params.subclass">subclass (epa.registry.EPAConfig parameter)</a>
+
+      <ul>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.params.subclass">(nsaph_utils.utils.context.Context parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.params.subclass">[1]</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.params.target">target (airnow_downloader.AirNowDownloader parameter)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.params.target">[1]</a>
+      <li><a href="doc/members/registry.html#epa.registry.EPAConfig.table">table (EPAConfig attribute)</a>
+</li>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.params.target">target (epa.airnow_downloader.AirNowDownloader parameter)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.download_data.params.target">(aqs_tools.download_data parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.download_data.params.target">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.download_data.params.target">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.download_data.params.target">(epa.aqs_tools.download_data parameter)</a>
 </li>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.target">(nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.target">(nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.test">test() (in module airnow_downloader)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.time_to_sleep_between_attempts">time_to_sleep_between_attempts (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.transfer">transfer() (in module epa.aqs_tools)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.transfer">transfer() (in module aqs_tools)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.transfer">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.transfer">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.transformer">transformer (nsaph_utils.utils.io_utils.write_csv parameter)</a>
 </li>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.transformer">transformer (nsaph_utils.utils.io_utils.write_csv parameter)</a>
-</li>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.type">type (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.type">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.type">type (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.type">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -656,18 +700,18 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.url">url (AirNowDownloader attribute)</a>
+      <li><a href="doc/members/registry.html#epa.registry.Registry.update">update() (Registry method)</a>
+</li>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.download_data.params.url">url (epa.aqs_tools.download_data parameter)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.download_data.params.url">(aqs_tools.download_data parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.download_data.params.url">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.download_data.params.url">[2]</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_content.params.url">(nsaph_utils.utils.io_utils.as_content parameter)</a>
 </li>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_content.params.url">(nsaph_utils.utils.io_utils.as_content parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_csv_reader.params.url">(nsaph_utils.utils.io_utils.as_csv_reader parameter)</a>
 </li>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_csv_reader.params.url">(nsaph_utils.utils.io_utils.as_csv_reader parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.url">(nsaph_utils.utils.io_utils.as_stream parameter)</a>
 </li>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.url">(nsaph_utils.utils.io_utils.as_stream parameter)</a>
-</li>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.url">(nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.url">(nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -676,71 +720,75 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.valid_values">valid_values (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.valid_values">[1]</a>
+      <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument.params.valid_values">valid_values (nsaph_utils.utils.context.Argument parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument.params.valid_values">[1]</a>
 </li>
-      <li><a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.validate">validate() (AirNowContext method)</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.validate">validate() (AirNowContext method)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext.validate">(AQSContext method)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.validate">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.validate">[2]</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.validate">(AQSContext method)</a>
 </li>
-        <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.validate">(Context method)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.validate">[1]</a>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.validate">(Context method)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.validate">[1]</a>
 </li>
       </ul></li>
-      <li><a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.validate.params.value">value (airnow_ds_def.AirNowContext.validate parameter)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.VALUE">VALUE (AirNowDownloader attribute)</a>
-</li>
-      <li><a href="doc/members/aqs_ds_def.html#aqs_ds_def.AQSContext.validate.params.value">value (aqs_ds_def.AQSContext.validate parameter)</a>, <a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.validate.params.value">[1]</a>, <a href="public/doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.validate.params.value">[2]</a>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.validate.params.value">value (epa.airnow_ds_def.AirNowContext.validate parameter)</a>
 
       <ul>
-        <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.validate.params.value">(nsaph_utils.utils.context.Context.validate parameter)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.validate.params.value">[1]</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.validate.params.value">(epa.aqs_ds_def.AQSContext.validate parameter)</a>
+</li>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.validate.params.value">(nsaph_utils.utils.context.Context.validate parameter)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.validate.params.value">[1]</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/airnow_ds_def.html#airnow_ds_def.Parameter.values">values() (Parameter class method)</a>, <a href="doc/members/aqs_ds_def.html#aqs_ds_def.Parameter.values">[1]</a>
-</li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.verbose">verbose (AirNowDownloader attribute)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv">write_csv() (in module nsaph_utils.utils.io_utils)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv">write_csv() (in module nsaph_utils.utils.io_utils)</a>
 </li>
-      <li><a href="doc/members/airnow_downloader.html#airnow_downloader.AirNowDownloader.write_csv_header">write_csv_header() (AirNowDownloader method)</a>, <a href="doc/source/airnow_downloader.html#airnow_downloader.AirNowDownloader.write_csv_header">[1]</a>
+      <li><a href="doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.write_csv_header">write_csv_header() (AirNowDownloader method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.write_header">write_header (nsaph_utils.utils.io_utils.write_csv parameter)</a>
+      <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.write_header">write_header (nsaph_utils.utils.io_utils.write_csv parameter)</a>
 </li>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.transfer.params.writer">writer (aqs_tools.transfer parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.transfer.params.writer">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.transfer.params.writer">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.transfer.params.writer">writer (epa.aqs_tools.transfer parameter)</a>
 
       <ul>
-        <li><a href="doc/source/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.writer">(nsaph_utils.utils.io_utils.write_csv parameter)</a>
+        <li><a href="doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.writer">(nsaph_utils.utils.io_utils.write_csv parameter)</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator.join.params.x">x (epa.airnow_gis.GISAnnotator.join parameter)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="Y">Y</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/source/airnow_ds_def.html#airnow_ds_def.AirNowContext.years">years (AirNowContext attribute)</a>
+      <li><a href="doc/members/airnow_gis.html#epa.airnow_gis.GISAnnotator.join.params.y">y (epa.airnow_gis.GISAnnotator.join parameter)</a>
+</li>
+      <li><a href="doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.years">years (AirNowContext attribute)</a>
 
       <ul>
-        <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.years">(aqs_tools.collect_aqs_download_tasks parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.years">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_aqs_download_tasks.params.years">[2]</a>
+        <li><a href="doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.years">(AQSContext attribute)</a>
 </li>
-        <li><a href="doc/source/aqs_ds_def.html#aqs_ds_def.AQSContext.years">(AQSContext attribute)</a>
+        <li><a href="doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.years">(Context attribute)</a>, <a href="doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.years">[1]</a>
 </li>
-        <li><a href="doc/source/airnow_ds_def.html#nsaph_utils.utils.context.Context.years">(Context attribute)</a>, <a href="doc/source/aqs_ds_def.html#nsaph_utils.utils.context.Context.years">[1]</a>
+        <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_aqs_download_tasks.params.years">(epa.aqs_tools.collect_aqs_download_tasks parameter)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/aqs_tools.html#aqs_tools.collect_daily_downloads.params.ylabel">ylabel (aqs_tools.collect_daily_downloads parameter)</a>, <a href="doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.ylabel">[1]</a>, <a href="public/doc/source/aqs_tools.html#aqs_tools.collect_daily_downloads.params.ylabel">[2]</a>
+      <li><a href="doc/members/aqs_tools.html#epa.aqs_tools.collect_daily_downloads.params.ylabel">ylabel (epa.aqs_tools.collect_daily_downloads parameter)</a>
 </li>
   </ul></td>
 </tr></table>

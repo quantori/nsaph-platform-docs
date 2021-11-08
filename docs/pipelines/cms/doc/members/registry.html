@@ -71,55 +71,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-cms.registry">
-<span id="the-registry-module"></span><h1>The registry Module<a class="headerlink" href="#module-cms.registry" title="Permalink to this headline"></a></h1>
-<p>Medicaid Domain for NSAPH</p>
-<p>Running this module will create/update data model for raw CMS data</p>
-<p><a class="reference external" href="https://github.com/NSAPH/data_model">https://github.com/NSAPH/data_model</a></p>
-<dl class="simple">
-<dt>Demographics:   /data/incoming/rce/ci3_d_medicaid/processed_data/cms_medicaid-max/data_cms_medicaid-max-demographics_patient</dt><dd><dl class="simple">
-<dt>Description of columns:</dt><dd><p><a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/1_create_demographics_data.R">https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/1_create_demographics_data.R</a></p>
-</dd>
-</dl>
-</dd>
-<dt>Enrollments:    /data/incoming/rce/ci3_d_medicaid/processed_data/cms_medicaid-max/data_cms_medicaid-max-ps_patient-year</dt><dd><dl class="simple">
-<dt>Description of columns:</dt><dd><p><a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/2_process_enrollment_data.R">https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/2_process_enrollment_data.R</a>
-<a class="reference external" href="https://github.com/NSAPH/data_requests/tree/master/request_projects/dec2019_medicaid_platform_cvd">https://github.com/NSAPH/data_requests/tree/master/request_projects/dec2019_medicaid_platform_cvd</a></p>
-</dd>
-</dl>
-</dd>
-<dt>Admissions:     /data/incoming/rce/ci3_health_data/medicaid/cvd/1999_2012/desouza/data</dt><dd><dl class="simple">
-<dt>Description of columns:</dt><dd><p><a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/code/2_create_cvd_data.R">https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/code/2_create_cvd_data.R</a>
-<a class="reference external" href="https://github.com/NSAPH/data_requests/blob/master/request_projects/dec2019_medicaid_platform_cvd/cvd_readme.md">https://github.com/NSAPH/data_requests/blob/master/request_projects/dec2019_medicaid_platform_cvd/cvd_readme.md</a></p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p>Sample user request: <a class="reference external" href="https://github.com/NSAPH/data_requests/tree/master/request_projects/feb2021_jenny_medicaid_resp">https://github.com/NSAPH/data_requests/tree/master/request_projects/feb2021_jenny_medicaid_resp</a></p>
-<dl class="py class">
-<dt class="sig sig-object py" id="cms.registry.Registry">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="create_schema_config.html#cms.create_schema_config.CMSSchema" title="cms.create_schema_config.CMSSchema"><span class="pre">cms.create_schema_config.CMSSchema</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry" title="Permalink to this definition"></a></dt>
-<dd><p>This class parses File Transfer Summary files and
-creates YAML data model. It can either
-update built-in registry or write
-the model to a designated path</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="cms.registry.Registry.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry.update" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cms.registry.Registry.create_yaml">
-<span class="sig-name descname"><span class="pre">create_yaml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry.create_yaml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry.create_yaml" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cms.registry.Registry.built_in_registry_path">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">built_in_registry_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry.built_in_registry_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry.built_in_registry_path" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+  <section id="the-registry-module">
+<h1>The registry Module<a class="headerlink" href="#the-registry-module" title="Permalink to this headline"></a></h1>
 </section>
 
 

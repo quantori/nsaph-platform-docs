@@ -4,7 +4,7 @@
 The monitor Module
 ============================================================================
 
-.. automodule:: nsaph.monitor
+.. automodule:: nsaph.loader.monitor
    :members:
    :undoc-members:
 

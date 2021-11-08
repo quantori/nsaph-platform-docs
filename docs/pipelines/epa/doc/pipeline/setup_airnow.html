@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prepare environment for AirNow &mdash; NSAPH EPA Pipelines 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> NSAPH EPA Pipelines
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Toolkit for downloading and preprocessing of data provided by EPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">EPA Toolkit Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/aqs_ds_def.html">Configuration Options for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/airnow.html">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/airnow_downloader.html">Downloader for AirNow</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NSAPH EPA Pipelines</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Prepare environment for AirNow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/doc/pipeline/setup_airnow.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="prepare-environment-for-airnow">
+<h1>Prepare environment for AirNow<a class="headerlink" href="#prepare-environment-for-airnow" title="Permalink to this headline"></a></h1>
+<p><strong>Tool</strong> 	<a class="reference external" href="members/airnow_setup.html">epa.airnow_setup</a></p>
+<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/setup_airnow.cwl">setup_airnow.cwl</a></p>
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#description">Description</a></p></li>
+<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
+<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
+</ul>
+<!-- tocstop --><section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
+<p>This tool prepares environemnt for AirNow download
+It checks that AirNow API key is provided and installs
+zip and county shape files if necessary</p>
+</section>
+<section id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline"></a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>api-key</td>
+<td>string</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>shape_dir</td>
+<td>Directory</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>cfg</td>
+<td>File</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></section>
+<section id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline"></a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cfg</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>shapes</td>
+<td>File[]</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td>stdout</td>
+<td></td>
+</tr>
+</tbody>
+</table></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

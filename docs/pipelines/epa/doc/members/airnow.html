@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The airnow Module &mdash; NSAPH EPA Pipelines 0.0.1 documentation</title>
+  <title>Main Class for EPA AirNow Package &mdash; NSAPH EPA Pipelines 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -18,7 +18,9 @@
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configuration Object for EPA AirNow Package" href="airnow_ds_def.html" />
+    <link rel="prev" title="Configuration Object for EPA AQS Package" href="aqs_ds_def.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,14 +39,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../source/usage.html">EPA AQS Toolkit Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/aqs.html">Main Class for EPA AQS Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/airnow.html">Main Class for EPA AirNow Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/airnow_ds_def.html">Configuration Object for EPA AirNow Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/aqs_tools.html">Internal scripts used for download tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../source/airnow_downloader.html">Downloader for AirNow</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">EPA Toolkit Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html#airnow-usage">AirNow Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow_ds_def.html">Configuration Object for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow_downloader.html">Downloader for AirNow</a></li>
 </ul>
 
         </div>
@@ -61,7 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>The airnow Module</li>
+      <li>Main Class for EPA AirNow Package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/doc/members/airnow.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -71,21 +74,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-airnow">
-<span id="the-airnow-module"></span><h1>The airnow Module<a class="headerlink" href="#module-airnow" title="Permalink to this headline"></a></h1>
+  <section id="module-epa.airnow">
+<span id="main-class-for-epa-airnow-package"></span><h1>Main Class for EPA AirNow Package<a class="headerlink" href="#module-epa.airnow" title="Permalink to this headline"></a></h1>
 <p>Python module to download EPA AirNow Data using WebServices API</p>
 <p><a class="reference external" href="https://docs.airnowapi.org/webservices">https://docs.airnowapi.org/webservices</a></p>
 <p>AirNow contains real-time up-to-date pollution data but is less reliable
 than AQS</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="airnow.AirNow">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">AirNow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../source/airnow_ds_def.html#airnow_ds_def.AirNowContext" title="airnow_ds_def.AirNowContext"><span class="pre">airnow_ds_def.AirNowContext</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airnow.html#AirNow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#airnow.AirNow" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="epa.airnow.AirNow">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">AirNow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="airnow_ds_def.html#epa.airnow_ds_def.AirNowContext" title="epa.airnow_ds_def.AirNowContext"><span class="pre">epa.airnow_ds_def.AirNowContext</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/airnow.html#AirNow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow.AirNow" title="Permalink to this definition"></a></dt>
 <dd><p>Main class</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="airnow.AirNow.download">
-<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/airnow.html#AirNow.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#airnow.AirNow.download" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </section>
@@ -93,7 +91,10 @@ than AQS</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="aqs_ds_def.html" class="btn btn-neutral float-left" title="Configuration Object for EPA AQS Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="airnow_ds_def.html" class="btn btn-neutral float-right" title="Configuration Object for EPA AirNow Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

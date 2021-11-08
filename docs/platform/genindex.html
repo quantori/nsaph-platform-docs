@@ -111,16 +111,12 @@
 </li>
       <li><a href="doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.add_state_fips">add_state_fips() (in module nsaph.util.pg_json_dump)</a>
 </li>
-      <li><a href="doc/members/query.html#nsaph.requests.query.all_tables">all_tables() (in module nsaph.requests.query)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/analyze.html#nsaph.analyze.analyze">analyze() (in module nsaph.analyze)</a>
-
-      <ul>
-        <li><a href="doc/members/model.html#nsaph.data_model.model.Table.analyze">(Table method)</a>
+      <li><a href="doc/members/query.html#nsaph.requests.query.all_tables">all_tables() (in module nsaph.requests.query)</a>
 </li>
-      </ul></li>
+      <li><a href="doc/members/model.html#nsaph.data_model.model.Table.analyze">analyze() (Table method)</a>
+</li>
       <li><a href="doc/members/model.html#nsaph.data_model.model.Table.make_iso_column.params.anchor">anchor (nsaph.data_model.model.Table.make_iso_column parameter)</a>
 </li>
       <li><a href="doc/members/hdf5_export.html#nsaph.requests.hdf5_export.Dataset.append">append() (Dataset method)</a>
@@ -131,9 +127,9 @@
       </ul></li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.append_ddl">append_ddl() (Domain method)</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.validate.params.attr">attr (nsaph.loader.conf.LoaderConfig.validate parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.validate.params.attr">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.validate.params.attr">attr (nsaph.loader.loader_config.LoaderConfig.validate parameter)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.validate.params.attr">[1]</a>
 </li>
-      <li><a href="doc/members/common.html#nsaph.loader.common.CommonConfig.autocommit">autocommit (CommonConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.CommonConfig.autocommit">[1]</a>
+      <li><a href="doc/members/common.html#nsaph.loader.common.DBConnectionConfig.autocommit">autocommit (DBConnectionConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.DBConnectionConfig.autocommit">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -145,18 +141,14 @@
 </li>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.Batch">Batch() (Inserter method)</a>
 </li>
-      <li><a href="doc/members/executors.html#nsaph.util.executors.BlockingThreadPoolExecutor">BlockingThreadPoolExecutor (class in nsaph.util.executors)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.buffer">buffer (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.buffer">[1]</a>
+      <li><a href="doc/members/executors.html#nsaph.util.executors.BlockingThreadPoolExecutor">BlockingThreadPoolExecutor (class in nsaph.util.executors)</a>
 </li>
-      <li><a href="doc/members/index.html#nsaph.index.build_indices">build_indices() (in module nsaph.index)</a>
-
-      <ul>
-        <li><a href="doc/members/model.html#nsaph.data_model.model.Table.build_indices">(Table method)</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.buffer">buffer (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.buffer">[1]</a>
 </li>
-      </ul></li>
+      <li><a href="doc/members/model.html#nsaph.data_model.model.Table.build_indices">build_indices() (Table method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -168,6 +160,8 @@
       <li><a href="doc/members/db.html#nsaph.db.Connection.close">close() (Connection method)</a>
 
       <ul>
+        <li><a href="doc/members/utils.html#nsaph.data_model.utils.CSVLikeJsonReader.close">(CSVLikeJsonReader method)</a>
+</li>
         <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.close">(DataLoader method)</a>
 </li>
       </ul></li>
@@ -187,11 +181,11 @@
 </li>
       <li><a href="doc/members/db.html#nsaph.db.Connection.connect_via_tunnel">connect_via_tunnel() (Connection method)</a>
 </li>
-      <li><a href="doc/members/db.html#nsaph.db.Connection">Connection (class in nsaph.db)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/common.html#nsaph.loader.common.CommonConfig.connection">connection (CommonConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.CommonConfig.connection">[1]</a>
+      <li><a href="doc/members/db.html#nsaph.db.Connection">Connection (class in nsaph.db)</a>
+</li>
+      <li><a href="doc/members/common.html#nsaph.loader.common.DBConnectionConfig.connection">connection (DBConnectionConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.DBConnectionConfig.connection">[1]</a>
 </li>
       <li><a href="doc/members/model.html#nsaph.data_model.model.Table.copy_data">copy_data() (Table method)</a>
 </li>
@@ -207,11 +201,13 @@
       </ul></li>
       <li><a href="doc/members/ds.html#nsaph.ds.create_datasource_def">create_datasource_def() (in module nsaph.ds)</a>
 </li>
-      <li><a href="doc/members/create.html#nsaph.create.create_table">create_table() (in module nsaph.create)</a>
-</li>
       <li><a href="doc/members/model.html#nsaph.data_model.model.csv_reader">csv_reader() (in module nsaph.data_model.model)</a>
+
+      <ul>
+        <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.csv_reader">(Introspector static method)</a>
 </li>
-      <li><a href="doc/members/reader.html#nsaph.reader.CSVFileWrapper">CSVFileWrapper (class in nsaph.reader)</a>
+      </ul></li>
+      <li><a href="doc/members/utils.html#nsaph.data_model.utils.CSVLikeJsonReader">CSVLikeJsonReader (class in nsaph.data_model.utils)</a>
 </li>
       <li><a href="doc/members/model.html#nsaph.data_model.model.Table.make_iso_column.params.cursor">cursor (nsaph.data_model.model.Table.make_iso_column parameter)</a>
 </li>
@@ -223,7 +219,7 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.data">data (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.data">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.data">data (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.data">[1]</a>
 </li>
       <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader">DataLoader (class in nsaph.loader.data_loader)</a>
 </li>
@@ -231,7 +227,13 @@
 </li>
       <li><a href="doc/members/hdf5_export.html#nsaph.requests.hdf5_export.Dataset">Dataset (class in nsaph.requests.hdf5_export)</a>
 </li>
-      <li><a href="doc/members/common.html#nsaph.loader.common.CommonConfig.db">db (CommonConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.CommonConfig.db">[1]</a>
+      <li><a href="doc/members/common.html#nsaph.loader.common.DBConnectionConfig.db">db (DBConnectionConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.DBConnectionConfig.db">[1]</a>
+</li>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.db_type">db_type() (Introspector static method)</a>
+</li>
+      <li><a href="doc/members/monitor.html#nsaph.loader.monitor.DBActivityMonitor">DBActivityMonitor (class in nsaph.loader.monitor)</a>
+</li>
+      <li><a href="doc/members/common.html#nsaph.loader.common.DBConnectionConfig">DBConnectionConfig (class in nsaph.loader.common)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.DBConnectionConfig">[1]</a>
 </li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.ddl_for_node">ddl_for_node() (Domain method)</a>
 </li>
@@ -239,16 +241,18 @@
 </li>
       <li><a href="doc/members/db.html#nsaph.db.Connection.default_port">default_port() (Connection static method)</a>
 </li>
-      <li><a href="doc/members/db.html#nsaph.db.Connection.default_section">default_section (Connection attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="doc/members/db.html#nsaph.db.Connection.default_section">default_section (Connection attribute)</a>
+</li>
       <li><a href="doc/members/common.html#nsaph.loader.common.CommonConfig.params.description">description (nsaph.loader.common.CommonConfig parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.CommonConfig.params.description">[1]</a>
 
       <ul>
-        <li><a href="doc/members/conf.html#nsaph.loader.conf.IndexerConfig.params.description">(nsaph.loader.conf.IndexerConfig parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.IndexerConfig.params.description">[1]</a>
+        <li><a href="doc/members/common.html#nsaph.loader.common.DBConnectionConfig.params.description">(nsaph.loader.common.DBConnectionConfig parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.DBConnectionConfig.params.description">[1]</a>
 </li>
-        <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.params.description">(nsaph.loader.conf.LoaderConfig parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.params.description">[1]</a>
+        <li><a href="doc/members/index_builder.html#nsaph.loader.index_builder.IndexerConfig.params.description">(nsaph.loader.index_builder.IndexerConfig parameter)</a>
+</li>
+        <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.params.description">(nsaph.loader.loader_config.LoaderConfig parameter)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.params.description">[1]</a>
 </li>
       </ul></li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain">Domain (class in nsaph.data_model.domain)</a>
@@ -301,7 +305,7 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.Parallelization.files">files (Parallelization attribute)</a>
+      <li><a href="doc/members/loader_config.html#nsaph.loader.loader_config.Parallelization.files">files (Parallelization attribute)</a>
 </li>
       <li><a href="doc/members/md.html#nsaph.md.fill_c_desc">fill_c_desc() (in module nsaph.md)</a>
 </li>
@@ -319,7 +323,7 @@
 </li>
       <li><a href="doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.flush">flush() (in module nsaph.util.pg_json_dump)</a>
 </li>
-      <li><a href="doc/members/reader.html#nsaph.reader.fopen">fopen() (in module nsaph.reader)</a>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.fopen">fopen() (Introspector method)</a>
 
       <ul>
         <li><a href="doc/members/model.html#nsaph.data_model.model.Table.fopen">(Table method)</a>
@@ -353,6 +357,8 @@
 </li>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.get_autocommit">get_autocommit() (Inserter method)</a>
 </li>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.get_columns">get_columns() (Introspector method)</a>
+</li>
       <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.get_connection">get_connection() (DataLoader method)</a>
 </li>
       <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.get_connections">get_connections() (DataLoader method)</a>
@@ -360,8 +366,6 @@
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.get_cumulative_timing">get_cumulative_timing() (Inserter method)</a>
 </li>
       <li><a href="doc/members/db.html#nsaph.db.Connection.get_database_types">get_database_types() (Connection method)</a>
-</li>
-      <li><a href="doc/members/reader.html#nsaph.reader.get_entries">get_entries() (in module nsaph.reader)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -375,9 +379,9 @@
         <li><a href="doc/members/model.html#nsaph.data_model.model.Table.get_index_ddl">(Table method)</a>
 </li>
       </ul></li>
-      <li><a href="doc/members/utils.html#nsaph.data_model.utils.DataReader.get_path">get_path() (DataReader method)</a>
+      <li><a href="doc/members/monitor.html#nsaph.loader.monitor.DBActivityMonitor.get_indexing_progress">get_indexing_progress() (DBActivityMonitor method)</a>
 </li>
-      <li><a href="doc/members/reader.html#nsaph.reader.get_readme">get_readme() (in module nsaph.reader)</a>
+      <li><a href="doc/members/utils.html#nsaph.data_model.utils.DataReader.get_path">get_path() (DataReader method)</a>
 </li>
       <li><a href="doc/members/resources.html#nsaph.util.resources.get_resource_dir">get_resource_dir() (in module nsaph.util.resources)</a>
 </li>
@@ -389,20 +393,28 @@
 </li>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.get_timings">get_timings() (Inserter method)</a>
 </li>
-      <li><a href="doc/members/model.html#nsaph.data_model.model.Table.guess_types">guess_types() (Table method)</a>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.guess_types">guess_types() (Introspector method)</a>
+
+      <ul>
+        <li><a href="doc/members/model.html#nsaph.data_model.model.Table.guess_types">(Table method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.has">has() (Domain method)</a>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.handle_csv">handle_csv() (Introspector method)</a>
 </li>
-      <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.has_been_ingested">has_been_ingested() (DataLoader method)</a>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.handle_json">handle_json() (Introspector method)</a>
+</li>
+      <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.has">has() (Domain method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.has_been_ingested">has_been_ingested() (DataLoader method)</a>
+</li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.has_hard_linked_children">has_hard_linked_children() (Domain method)</a>
 </li>
       <li><a href="doc/members/db.html#nsaph.db.Connection.host_name">host_name() (Connection static method)</a>
@@ -421,35 +433,33 @@
 </li>
       <li><a href="doc/members/model.html#nsaph.data_model.model.Table.make_iso_column.params.include">include (nsaph.data_model.model.Table.make_iso_column parameter)</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.incremental">incremental (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.incremental">[1]</a>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.InconsistentTypes">InconsistentTypes</a>
 </li>
-      <li><a href="doc/members/index.html#nsaph.index.index">index() (in module nsaph.index)</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.incremental">incremental (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.incremental">[1]</a>
 </li>
       <li><a href="doc/members/model.html#nsaph.data_model.model.index_method">index_method() (in module nsaph.data_model.model)</a>
 </li>
       <li><a href="doc/members/index_builder.html#nsaph.loader.index_builder.IndexBuilder">IndexBuilder (class in nsaph.loader.index_builder)</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.IndexerConfig">IndexerConfig (class in nsaph.loader.conf)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.IndexerConfig">[1]</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/ingest.html#nsaph.ingest.ingest">ingest() (in module nsaph.ingest)</a>
+      <li><a href="doc/members/index_builder.html#nsaph.loader.index_builder.IndexerConfig">IndexerConfig (class in nsaph.loader.index_builder)</a>
 </li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.init">init() (Domain method)</a>
 </li>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter">Inserter (class in nsaph.data_model.inserter)</a>
 </li>
+      <li><a href="doc/members/shapes.html#nsaph.util.shapes.install">install() (in module nsaph.util.shapes)</a>
+</li>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.introspect">introspect() (Introspector method)</a>
+</li>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector">Introspector (class in nsaph.loader.introspector)</a>
+</li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.is_array">is_array() (Domain static method)</a>
 </li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.is_generated">is_generated() (Domain static method)</a>
 </li>
-      <li><a href="doc/members/reader.html#nsaph.reader.SpecialValues.is_missing">is_missing() (SpecialValues class method)</a>
-</li>
       <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.is_parallel">is_parallel() (DataLoader method)</a>
-</li>
-      <li><a href="doc/members/reader.html#nsaph.reader.is_readme">is_readme() (in module nsaph.reader)</a>
-</li>
-      <li><a href="doc/members/reader.html#nsaph.reader.SpecialValues.is_untyped">is_untyped() (SpecialValues class method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -457,23 +467,33 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.limit">limit (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.limit">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.limit">limit (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.limit">[1]</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.Parallelization.lines">lines (Parallelization attribute)</a>
+      <li><a href="doc/members/loader_config.html#nsaph.loader.loader_config.Parallelization.lines">lines (Parallelization attribute)</a>
 </li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.list_columns">list_columns() (Domain method)</a>
 </li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.list_identifiers">list_identifiers() (Domain static method)</a>
 </li>
+      <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.list_source_columns">list_source_columns() (Domain method)</a>
+</li>
       <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.load">load() (DataLoader method)</a>
+</li>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.load_csv">load_csv() (Introspector method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.load_json">load_json() (Introspector method)</a>
+</li>
       <li><a href="doc/members/model.html#nsaph.data_model.model.load_range">load_range() (in module nsaph.data_model.model)</a>
+
+      <ul>
+        <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.load_range">(Introspector static method)</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig">LoaderConfig (class in nsaph.loader.conf)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig">[1]</a>
+      </ul></li>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig">LoaderConfig (class in nsaph.loader.loader_config)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig">[1]</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.log">log (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.log">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.log">log (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.log">[1]</a>
 </li>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.log_progress">log_progress() (Inserter method)</a>
 
@@ -505,10 +525,6 @@
       <ul>
         <li><a href="doc/members/adi.html#module-nsaph.adi">nsaph.adi</a>
 </li>
-        <li><a href="doc/members/analyze.html#module-nsaph.analyze">nsaph.analyze</a>
-</li>
-        <li><a href="doc/members/create.html#module-nsaph.create">nsaph.create</a>
-</li>
         <li><a href="doc/members/domain.html#module-nsaph.data_model.domain">nsaph.data_model.domain</a>
 </li>
         <li><a href="doc/members/inserter.html#module-nsaph.data_model.inserter">nsaph.data_model.inserter</a>
@@ -523,27 +539,25 @@
 </li>
         <li><a href="doc/members/fips.html#module-nsaph.fips">nsaph.fips</a>
 </li>
-        <li><a href="doc/members/index.html#module-nsaph.index">nsaph.index</a>
-</li>
-        <li><a href="doc/members/ingest.html#module-nsaph.ingest">nsaph.ingest</a>
-</li>
         <li><a href="doc/members/link_gis.html#module-nsaph.link_gis">nsaph.link_gis</a>
 </li>
         <li><a href="doc/members/common.html#module-nsaph.loader.common">nsaph.loader.common</a>, <a href="doc/members/data_loader.html#module-nsaph.loader.common">[1]</a>
 </li>
-        <li><a href="doc/members/conf.html#module-nsaph.loader.conf">nsaph.loader.conf</a>, <a href="doc/members/data_loader.html#module-nsaph.loader.conf">[1]</a>
-</li>
         <li><a href="doc/members/data_loader.html#module-nsaph.loader.data_loader">nsaph.loader.data_loader</a>
 </li>
         <li><a href="doc/members/index_builder.html#module-nsaph.loader.index_builder">nsaph.loader.index_builder</a>
+</li>
+        <li><a href="doc/members/introspector.html#module-nsaph.loader.introspector">nsaph.loader.introspector</a>
+</li>
+        <li><a href="doc/members/data_loader.html#module-nsaph.loader.loader_config">nsaph.loader.loader_config</a>, <a href="doc/members/loader_config.html#module-nsaph.loader.loader_config">[1]</a>
+</li>
+        <li><a href="doc/members/monitor.html#module-nsaph.loader.monitor">nsaph.loader.monitor</a>
 </li>
         <li><a href="doc/members/md.html#module-nsaph.md">nsaph.md</a>
 </li>
         <li><a href="doc/members/nc_loader.html#module-nsaph.nc_loader">nsaph.nc_loader</a>
 </li>
         <li><a href="doc/members/pg_keywords.html#module-nsaph.pg_keywords">nsaph.pg_keywords</a>
-</li>
-        <li><a href="doc/members/reader.html#module-nsaph.reader">nsaph.reader</a>
 </li>
         <li><a href="doc/members/hdf5_export.html#module-nsaph.requests.hdf5_export">nsaph.requests.hdf5_export</a>
 </li>
@@ -557,6 +571,8 @@
 </li>
         <li><a href="doc/members/resources.html#module-nsaph.util.resources">nsaph.util.resources</a>
 </li>
+        <li><a href="doc/members/shapes.html#module-nsaph.util.shapes">nsaph.util.shapes</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -564,39 +580,21 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/reader.html#nsaph.reader.SpecialValues.NA">NA (SpecialValues attribute)</a>
-</li>
-      <li><a href="doc/members/reader.html#nsaph.reader.name">name() (in module nsaph.reader)</a>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.name">name() (Introspector static method)</a>
 </li>
       <li><a href="doc/members/resources.html#nsaph.util.resources.name2path">name2path() (in module nsaph.util.resources)</a>
-</li>
-      <li><a href="doc/members/reader.html#nsaph.reader.SpecialValues.NaN">NaN (SpecialValues attribute)</a>
 </li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.need_index">need_index() (Domain method)</a>
 </li>
       <li><a href="doc/members/utils.html#nsaph.data_model.utils.split.params.node">node (nsaph.data_model.utils.split parameter)</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.Parallelization.none">none (Parallelization attribute)</a>
+      <li><a href="doc/members/loader_config.html#nsaph.loader.loader_config.Parallelization.none">none (Parallelization attribute)</a>
 </li>
       <li>
     nsaph.adi
 
       <ul>
         <li><a href="doc/members/adi.html#module-nsaph.adi">module</a>
-</li>
-      </ul></li>
-      <li>
-    nsaph.analyze
-
-      <ul>
-        <li><a href="doc/members/analyze.html#module-nsaph.analyze">module</a>
-</li>
-      </ul></li>
-      <li>
-    nsaph.create
-
-      <ul>
-        <li><a href="doc/members/create.html#module-nsaph.create">module</a>
 </li>
       </ul></li>
       <li>
@@ -649,22 +647,6 @@
 </li>
       </ul></li>
       <li>
-    nsaph.index
-
-      <ul>
-        <li><a href="doc/members/index.html#module-nsaph.index">module</a>
-</li>
-      </ul></li>
-      <li>
-    nsaph.ingest
-
-      <ul>
-        <li><a href="doc/members/ingest.html#module-nsaph.ingest">module</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
     nsaph.link_gis
 
       <ul>
@@ -679,24 +661,40 @@
 </li>
       </ul></li>
       <li>
-    nsaph.loader.conf
-
-      <ul>
-        <li><a href="doc/members/conf.html#module-nsaph.loader.conf">module</a>, <a href="doc/members/data_loader.html#module-nsaph.loader.conf">[1]</a>
-</li>
-      </ul></li>
-      <li>
     nsaph.loader.data_loader
 
       <ul>
         <li><a href="doc/members/data_loader.html#module-nsaph.loader.data_loader">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     nsaph.loader.index_builder
 
       <ul>
         <li><a href="doc/members/index_builder.html#module-nsaph.loader.index_builder">module</a>
+</li>
+      </ul></li>
+      <li>
+    nsaph.loader.introspector
+
+      <ul>
+        <li><a href="doc/members/introspector.html#module-nsaph.loader.introspector">module</a>
+</li>
+      </ul></li>
+      <li>
+    nsaph.loader.loader_config
+
+      <ul>
+        <li><a href="doc/members/data_loader.html#module-nsaph.loader.loader_config">module</a>, <a href="doc/members/loader_config.html#module-nsaph.loader.loader_config">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    nsaph.loader.monitor
+
+      <ul>
+        <li><a href="doc/members/monitor.html#module-nsaph.loader.monitor">module</a>
 </li>
       </ul></li>
       <li>
@@ -718,13 +716,6 @@
 
       <ul>
         <li><a href="doc/members/pg_keywords.html#module-nsaph.pg_keywords">module</a>
-</li>
-      </ul></li>
-      <li>
-    nsaph.reader
-
-      <ul>
-        <li><a href="doc/members/reader.html#module-nsaph.reader">module</a>
 </li>
       </ul></li>
       <li>
@@ -769,17 +760,28 @@
         <li><a href="doc/members/resources.html#module-nsaph.util.resources">module</a>
 </li>
       </ul></li>
+      <li>
+    nsaph.util.shapes
+
+      <ul>
+        <li><a href="doc/members/shapes.html#module-nsaph.util.shapes">module</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="doc/members/utils.html#nsaph.data_model.utils.CSVLikeJsonReader.open">open() (CSVLikeJsonReader method)</a>
+</li>
       <li><a href="doc/members/utils.html#nsaph.data_model.utils.DataReader.open_csv">open_csv() (DataReader method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="doc/members/utils.html#nsaph.data_model.utils.DataReader.open_fst">open_fst() (DataReader method)</a>
+</li>
+      <li><a href="doc/members/utils.html#nsaph.data_model.utils.DataReader.open_json">open_json() (DataReader method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -787,11 +789,11 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.page">page (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.page">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.page">page (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.page">[1]</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.Parallelization">Parallelization (class in nsaph.loader.conf)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.Parallelization">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.Parallelization">Parallelization (class in nsaph.loader.loader_config)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.Parallelization">[1]</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.parallelization">parallelization (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.parallelization">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.parallelization">parallelization (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.parallelization">[1]</a>
 </li>
       <li><a href="doc/members/md.html#nsaph.md.parse">parse() (in module nsaph.md)</a>
 </li>
@@ -799,7 +801,7 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.pattern">pattern (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.pattern">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.pattern">pattern (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.pattern">[1]</a>
 </li>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.prepare">prepare() (Inserter method)</a>
 
@@ -835,13 +837,15 @@
 </li>
       <li><a href="doc/members/db.html#nsaph.db.Connection.read_config">read_config() (Connection class method)</a>
 </li>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.reconcile">reconcile() (Introspector static method)</a>
+</li>
       <li><a href="doc/members/query.html#nsaph.requests.query.reduce_tables">reduce_tables() (in module nsaph.requests.query)</a>
 </li>
       <li><a href="doc/members/utils.html#nsaph.data_model.utils.regex">regex() (in module nsaph.data_model.utils)</a>
 </li>
       <li><a href="doc/members/common.html#nsaph.loader.common.CommonConfig.registry">registry (CommonConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.CommonConfig.registry">[1]</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.reset">reset (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.reset">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.reset">reset (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.reset">[1]</a>
 </li>
       <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.reset">reset() (DataLoader method)</a>
 </li>
@@ -862,6 +866,8 @@
       <li><a href="doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.run">run() (DataLoader method)</a>
 
       <ul>
+        <li><a href="doc/members/monitor.html#nsaph.loader.monitor.DBActivityMonitor.run">(DBActivityMonitor method)</a>
+</li>
         <li><a href="doc/members/index_builder.html#nsaph.loader.index_builder.IndexBuilder.run">(IndexBuilder method)</a>
 </li>
       </ul></li>
@@ -877,24 +883,24 @@
 </li>
       <li><a href="doc/members/db.html#nsaph.db.ResultSetDeprecated.SIZE">SIZE (ResultSetDeprecated attribute)</a>
 </li>
-      <li><a href="doc/members/reader.html#nsaph.reader.SpecialValues">SpecialValues (class in nsaph.reader)</a>
-</li>
       <li><a href="doc/members/domain.html#nsaph.data_model.domain.Domain.spillover_table">spillover_table() (Domain method)</a>
 </li>
       <li><a href="doc/members/utils.html#nsaph.data_model.utils.split">split() (in module nsaph.data_model.utils)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.stamp_time">stamp_time() (Inserter method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="doc/members/hdf5_export.html#nsaph.requests.hdf5_export.store">store() (in module nsaph.requests.hdf5_export)</a>
 </li>
       <li><a href="doc/members/common.html#nsaph.loader.common.CommonConfig.params.subclass">subclass (nsaph.loader.common.CommonConfig parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.CommonConfig.params.subclass">[1]</a>
 
       <ul>
-        <li><a href="doc/members/conf.html#nsaph.loader.conf.IndexerConfig.params.subclass">(nsaph.loader.conf.IndexerConfig parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.IndexerConfig.params.subclass">[1]</a>
+        <li><a href="doc/members/common.html#nsaph.loader.common.DBConnectionConfig.params.subclass">(nsaph.loader.common.DBConnectionConfig parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.common.DBConnectionConfig.params.subclass">[1]</a>
 </li>
-        <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.params.subclass">(nsaph.loader.conf.LoaderConfig parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.params.subclass">[1]</a>
+        <li><a href="doc/members/index_builder.html#nsaph.loader.index_builder.IndexerConfig.params.subclass">(nsaph.loader.index_builder.IndexerConfig parameter)</a>
+</li>
+        <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.params.subclass">(nsaph.loader.loader_config.LoaderConfig parameter)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.params.subclass">[1]</a>
 </li>
       </ul></li>
       <li><a href="doc/members/executors.html#nsaph.util.executors.BlockingThreadPoolExecutor.submit">submit() (BlockingThreadPoolExecutor method)</a>
@@ -915,13 +921,15 @@
       </ul></li>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.Table">Table() (Inserter method)</a>
 </li>
+      <li><a href="doc/members/introspector.html#nsaph.loader.introspector.test">test() (in module nsaph.loader.introspector)</a>
+</li>
       <li><a href="doc/members/db.html#nsaph.db.test_connection">test_connection() (in module nsaph.db)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="doc/members/executors.html#nsaph.util.executors.thread_initializer">thread_initializer() (in module nsaph.util.executors)</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.threads">threads (LoaderConfig attribute)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.threads">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.threads">threads (LoaderConfig attribute)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.threads">[1]</a>
 </li>
       <li><a href="doc/members/inserter.html#nsaph.data_model.inserter.Inserter.timer">timer() (Inserter method)</a>
 </li>
@@ -938,16 +946,20 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="doc/members/model.html#nsaph.data_model.model.unquote">unquote() (in module nsaph.data_model.model)</a>
+
+      <ul>
+        <li><a href="doc/members/introspector.html#nsaph.loader.introspector.Introspector.unquote">(Introspector static method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.validate">validate() (LoaderConfig method)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.validate">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.validate">validate() (LoaderConfig method)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.validate">[1]</a>
 </li>
-      <li><a href="doc/members/conf.html#nsaph.loader.conf.LoaderConfig.validate.params.value">value (nsaph.loader.conf.LoaderConfig.validate parameter)</a>, <a href="doc/members/data_loader.html#nsaph.loader.conf.LoaderConfig.validate.params.value">[1]</a>
+      <li><a href="doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.validate.params.value">value (nsaph.loader.loader_config.LoaderConfig.validate parameter)</a>, <a href="doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.validate.params.value">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>

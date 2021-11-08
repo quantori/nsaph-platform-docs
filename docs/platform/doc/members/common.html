@@ -71,6 +71,43 @@
 <span id="the-common-module"></span><h1>The common Module<a class="headerlink" href="#module-nsaph.loader.common" title="Permalink to this headline"></a></h1>
 <p>Common options for data manipulation</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.common.DBConnectionConfig">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">DBConnectionConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/common.html#DBConnectionConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Configuration class for connection to a database</p>
+<p>Creates a new object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph.loader.common.DBConnectionConfig.params.subclass"></span><strong>subclass</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.common.DBConnectionConfig.params.subclass">¶</a> – A concrete class containing configuration information
+Configuration options must be defined as class memebers with names,
+starting with one ‘_’ characters and values be instances of
+:class Argument:</p></li>
+<li><p><span class="target" id="nsaph.loader.common.DBConnectionConfig.params.description"></span><strong>description</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.common.DBConnectionConfig.params.description">¶</a> – Optional text to use as description.
+If not specified, then it is extracted from subclass documentation</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.common.DBConnectionConfig.autocommit">
+<span class="sig-name descname"><span class="pre">autocommit</span></span><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig.autocommit" title="Permalink to this definition"></a></dt>
+<dd><p>Use autocommit</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.common.DBConnectionConfig.db">
+<span class="sig-name descname"><span class="pre">db</span></span><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig.db" title="Permalink to this definition"></a></dt>
+<dd><p>Path to a database connection parameters file</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.common.DBConnectionConfig.connection">
+<span class="sig-name descname"><span class="pre">connection</span></span><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig.connection" title="Permalink to this definition"></a></dt>
+<dd><p>Section in the database connection parameters file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.common.CommonConfig">
 <em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CommonConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/common.html#CommonConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.common.CommonConfig" title="Permalink to this definition"></a></dt>
 <dd><p>Abstract base class for configurators used for data loading</p>
@@ -107,24 +144,6 @@ the built-in registry</p>
 <dt class="sig sig-object py" id="nsaph.loader.common.CommonConfig.table">
 <span class="sig-name descname"><span class="pre">table</span></span><a class="headerlink" href="#nsaph.loader.common.CommonConfig.table" title="Permalink to this definition"></a></dt>
 <dd><p>Name of the table to manipulate</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.loader.common.CommonConfig.autocommit">
-<span class="sig-name descname"><span class="pre">autocommit</span></span><a class="headerlink" href="#nsaph.loader.common.CommonConfig.autocommit" title="Permalink to this definition"></a></dt>
-<dd><p>Use autocommit</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.loader.common.CommonConfig.db">
-<span class="sig-name descname"><span class="pre">db</span></span><a class="headerlink" href="#nsaph.loader.common.CommonConfig.db" title="Permalink to this definition"></a></dt>
-<dd><p>Path to a database connection parameters file</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.loader.common.CommonConfig.connection">
-<span class="sig-name descname"><span class="pre">connection</span></span><a class="headerlink" href="#nsaph.loader.common.CommonConfig.connection" title="Permalink to this definition"></a></dt>
-<dd><p>Section in the database connection parameters file</p>
 </dd></dl>
 
 </dd></dl>

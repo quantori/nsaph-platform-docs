@@ -52,6 +52,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#source">Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generated-columns">Generated columns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#computed-columns">Computed Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-columns">File columns</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#transposing-columns">Transposing Columns</a></li>
 </ul>
 </li>
@@ -103,6 +104,7 @@
 <li><p><a class="reference external" href="#source">Source</a></p></li>
 <li><p><a class="reference external" href="#generated-columns">Generated columns</a></p></li>
 <li><p><a class="reference external" href="#computed-columns">Computed Columns</a></p></li>
+<li><p><a class="reference external" href="#file-columns">File columns</a></p></li>
 <li><p><a class="reference external" href="#transposing-columns">Transposing Columns</a></p></li>
 </ul>
 </li>
@@ -351,7 +353,7 @@ in the input source.</p>
 <tr>
 <td>type</td>
 <td>no</td>
-<td>Types: <code>generated</code>, <code>multi_column</code>, <code>range</code>, <code>compute</code></td>
+<td>Types: <code>generated</code>, <code>multi_column</code>, <code>range</code>, <code>compute</code>, <code>file</code></td>
 </tr>
 <tr>
 <td>range</td>
@@ -363,13 +365,83 @@ in the input source.</p>
 <td>no</td>
 <td>Code for generated and computed columns</td>
 </tr>
+<tr>
+<td>columns</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>no</td>
+<td></td>
+</tr>
 </tbody>
 </table></section>
 <section id="generated-columns">
 <h3>Generated columns<a class="headerlink" href="#generated-columns" title="Permalink to this headline"></a></h3>
+<p>Generated columns are columns that are not present in the source
+(e.g. CSV or FST file) but whose value
+is automatically computed using other columns values,
+or another deterministic expression <strong><em>inside the database</em></strong>.</p>
+<p>From <a class="reference external" href="https://www.postgresql.org/docs/current/ddl-generated-columns.html">PostgreSQL Documentation</a>:</p>
+<blockquote>
+<div><p>Theoretically, generated columns are for columns
+what a view is for tables. There are two kinds of
+generated columns: stored and virtual. A stored
+generated column is computed when it is written
+(inserted or updated) and occupies storage as if
+it were a normal column. A virtual generated column
+occupies no storage and is computed when it is read.
+Thus, a virtual generated column is similar to a
+view and a stored generated column is similar to a
+materialized view (except that it is always updated automatically).</p>
+</div></blockquote>
+<blockquote>
+<div><p>However, <strong>PostgreSQL currently implements only STORED generated columns</strong>.</p>
+</div></blockquote>
 </section>
 <section id="computed-columns">
 <h3>Computed Columns<a class="headerlink" href="#computed-columns" title="Permalink to this headline"></a></h3>
+<p>Computed columns are columns that are not present in the source
+(e.g. CSV or FST file) but whose value is computed
+using provided Python code by the Universal Database Loader.
+They use the values of other columns in the same record and can call
+out to standard Python functions.</p>
+<p>The columns used for computation are listed in either <code class="docutils literal notranslate"><span class="pre">columns</span></code>
+or <code class="docutils literal notranslate"><span class="pre">parameters</span> </code>sections. Column names are names of the original
+columns in the data file. To reference columns in the
+database use parameters.
+Referenced them by a number in curly brackets in the compute code.</p>
+<p>Here is an example of a computed column:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">admission_date</span><span class="p">:</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;DATE&quot;</span>
+    <span class="n">source</span><span class="p">:</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;compute&quot;</span>
+      <span class="n">columns</span><span class="p">:</span> 
+        <span class="o">-</span> <span class="s2">&quot;ADMSN_DT&quot;</span>
+      <span class="n">code</span><span class="p">:</span> <span class="s2">&quot;datetime.strptime(</span><span class="si">{1}</span><span class="s2">, &#39;%Y%m</span><span class="si">%d</span><span class="s2">&#39;).date()&quot;</span>
+</pre></div>
+</div>
+<p>Here in <code class="docutils literal notranslate"><span class="pre">code</span></code> the pattern <code class="docutils literal notranslate"><span class="pre">{1}</span></code> is replaced with the name of the
+first (and only) column in the list: <code class="docutils literal notranslate"><span class="pre">ADMSN_DT</span></code>.</p>
+<p>Another example, using database columns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">fips5</span><span class="p">:</span>
+    <span class="n">source</span><span class="p">:</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;compute&quot;</span>
+      <span class="n">parameters</span><span class="p">:</span> 
+        <span class="o">-</span> <span class="n">state</span>
+        <span class="o">-</span> <span class="n">residence_county</span>
+      <span class="n">code</span><span class="p">:</span> <span class="s2">&quot;fips_dict[</span><span class="si">{1}</span><span class="s2">] * 1000 + int(</span><span class="si">{2}</span><span class="s2">)&quot;</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">{1}</span></code> references the value that would be inserted into the
+table column <code class="docutils literal notranslate"><span class="pre">state</span></code> and <code class="docutils literal notranslate"><span class="pre">{2}</span></code> references the value that
+would be inserted into the table column <code class="docutils literal notranslate"><span class="pre">residence_county</span></code>.</p>
+</section>
+<section id="file-columns">
+<h3>File columns<a class="headerlink" href="#file-columns" title="Permalink to this headline"></a></h3>
+<p>File columns are of type <code class="docutils literal notranslate"><span class="pre">file</span></code>. They store the name of the file,
+from which the data has been ingested.</p>
 </section>
 <section id="transposing-columns">
 <h3>Transposing Columns<a class="headerlink" href="#transposing-columns" title="Permalink to this headline"></a></h3>

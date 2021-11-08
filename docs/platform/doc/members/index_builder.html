@@ -77,8 +77,27 @@ and monitoring the build progress</p>
 <dd></dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.index_builder.IndexerConfig">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">IndexerConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/index_builder.html#IndexerConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.index_builder.IndexerConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Configurator class for index builder</p>
+<p>Creates a new object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph.loader.index_builder.IndexerConfig.params.subclass"></span><strong>subclass</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.index_builder.IndexerConfig.params.subclass">¶</a> – A concrete class containing configuration information
+Configuration options must be defined as class memebers with names,
+starting with one ‘_’ characters and values be instances of
+:class Argument:</p></li>
+<li><p><span class="target" id="nsaph.loader.index_builder.IndexerConfig.params.description"></span><strong>description</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.index_builder.IndexerConfig.params.description">¶</a> – Optional text to use as description.
+If not specified, then it is extracted from subclass documentation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.index_builder.IndexBuilder">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">IndexBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="conf.html#nsaph.loader.conf.IndexerConfig" title="nsaph.loader.conf.IndexerConfig"><span class="pre">nsaph.loader.conf.IndexerConfig</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/index_builder.html#IndexBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.index_builder.IndexBuilder" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">IndexBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#nsaph.loader.index_builder.IndexerConfig" title="nsaph.loader.index_builder.IndexerConfig"><span class="pre">nsaph.loader.index_builder.IndexerConfig</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/index_builder.html#IndexBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.index_builder.IndexBuilder" title="Permalink to this definition"></a></dt>
 <dd><p>Index Builder Class</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.index_builder.IndexBuilder.run">
