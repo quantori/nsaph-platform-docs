@@ -123,6 +123,12 @@ all indices associated with the view</p>
 <td>the name of the domain</td>
 </tr>
 <tr>
+<td>incremental</td>
+<td>boolean</td>
+<td><code>False</code></td>
+<td></td>
+</tr>
+<tr>
 <td>depends_on</td>
 <td>File</td>
 <td></td>
@@ -151,6 +157,26 @@ all indices associated with the view</p>
 <td>File</td>
 <td></td>
 </tr>
+<tr>
+<td>vacuum_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>create_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>index_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>vacuum_err</td>
+<td>File</td>
+<td></td>
+</tr>
 </tbody>
 </table></section>
 <section id="steps">
@@ -173,6 +199,11 @@ all indices associated with the view</p>
 <td>index</td>
 <td><a href="index.html">index.cwl</a></td>
 <td>Build indices</td>
+</tr>
+<tr>
+<td>vacuum</td>
+<td><a href="vacuum.html">vacuum.cwl</a></td>
+<td>Vacuum the view</td>
 </tr>
 </tbody>
 </table></section>

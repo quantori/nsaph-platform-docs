@@ -75,6 +75,8 @@
 <span class="kn">import</span> <span class="nn">sshtunnel</span>
 <span class="kn">from</span> <span class="nn">configparser</span> <span class="kn">import</span> <span class="n">ConfigParser</span>
 
+<span class="kn">from</span> <span class="nn">nsaph</span> <span class="kn">import</span> <span class="n">app_name</span>
+
 
 <div class="viewcode-block" id="Connection"><a class="viewcode-back" href="../../doc/members/db.html#nsaph.db.Connection">[docs]</a><span class="k">class</span> <span class="nc">Connection</span><span class="p">:</span>
     <span class="n">default_filename</span> <span class="o">=</span> <span class="s1">&#39;database.ini&#39;</span>
@@ -115,12 +117,16 @@
     <span class="k">def</span> <span class="nf">default_port</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">5432</span></div>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">section</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">silent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">section</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">silent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">app_name_postfix</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="n">Connection</span><span class="o">.</span><span class="n">default_filename</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">section</span><span class="p">:</span>
             <span class="n">section</span> <span class="o">=</span> <span class="n">Connection</span><span class="o">.</span><span class="n">default_section</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_config</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">section</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;application_name&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;nsaph:&quot;</span> <span class="o">+</span> <span class="n">app_name</span><span class="p">()</span> <span class="o">+</span> <span class="n">app_name_postfix</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;application_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tunnel</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">silent</span> <span class="o">=</span> <span class="n">silent</span>

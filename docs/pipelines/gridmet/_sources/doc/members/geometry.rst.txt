@@ -4,7 +4,7 @@
 The geometry Module
 ============================================================================
 
-.. automodule:: geometry
+.. automodule:: gridmet.geometry
    :members:
    :undoc-members:
 

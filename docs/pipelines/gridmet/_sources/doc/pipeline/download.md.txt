@@ -1,0 +1,37 @@
+# Downloader of gridMET Data
+**Tool** 	[gridmet.launcher](../../src/python/gridmet/launcher.py)
+
+**Source**: [download.cwl](../../src/cwl/download.cwl)
+
+<!-- toc -->
+
+- [Description](#description)
+- [Inputs](#inputs)
+- [Outputs](#outputs)
+
+<!-- tocstop -->
+
+## Description
+This tool downloads gridMET data from Atmospheric Composition Analysis Group
+and then preprocesses it to aggregate over shapes (zip codes or counties)
+
+
+## Inputs
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+|proxy|string|``|HTTP/HTTPS Proxy if required|
+|strategy|string|`downscale`|Rasterization strategy|
+|shapes|Directory| | |
+|geography|string| |Type of geography: zip codes or counties |
+|year|string| |Year to process|
+|band|string| |[Gridmet Band](https://gee.stac.cloud/WUtw2spmec7AM9rk6xMXUtStkMtbviDtHK?t=bands) |
+|dates|string| |dates restriction, for testing purposes only|
+
+## Outputs
+
+| Name | Type | Description |
+|------|------|-------------|
+|log|File| |
+|data|File| |
+|errors|stderr| |

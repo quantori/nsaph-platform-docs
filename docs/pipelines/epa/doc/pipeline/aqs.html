@@ -101,6 +101,12 @@ and ingests the data into the database</p>
 </thead>
 <tbody>
 <tr>
+<td>proxy</td>
+<td>string</td>
+<td>``</td>
+<td>HTTP/HTTPS Proxy if required</td>
+</tr>
+<tr>
 <td>database</td>
 <td>File</td>
 <td></td>
@@ -122,13 +128,13 @@ and ingests the data into the database</p>
 <td>parameter_code</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: <a href="https://www.epa.gov/aqs/aqs-code-list">AQS Code List</a></td>
 </tr>
 <tr>
 <td>table</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>Name of the table to be created in the database</td>
 </tr>
 </tbody>
 </table></section>
@@ -180,6 +186,21 @@ and ingests the data into the database</p>
 </tr>
 <tr>
 <td>model</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>download_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>introspect_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ingest_err</td>
 <td>File</td>
 <td></td>
 </tr>

@@ -98,16 +98,22 @@
 </thead>
 <tbody>
 <tr>
+<td>proxy</td>
+<td>string</td>
+<td>``</td>
+<td>HTTP/HTTPS Proxy if required</td>
+</tr>
+<tr>
 <td>aggregation</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>Aggregation type: annual or daily</td>
 </tr>
 <tr>
 <td>parameter_code</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: <a href="https://www.epa.gov/aqs/aqs-code-list">AQS Code List</a></td>
 </tr>
 </tbody>
 </table></section>
@@ -130,6 +136,11 @@
 <tr>
 <td>data</td>
 <td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>errors</td>
+<td>stderr</td>
 <td></td>
 </tr>
 </tbody>

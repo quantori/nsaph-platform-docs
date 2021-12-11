@@ -110,14 +110,41 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="sd">&#39;&#39;&#39; Section in the database connection parameters file &#39;&#39;&#39;</span>
 
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">subclass</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">include_default</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="o">+=</span> <span class="p">[</span>
-            <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">DBConnectionConfig</span><span class="o">.</span><span class="vm">__dict__</span>
-            <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span> <span class="ow">and</span> <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span>
-        <span class="p">]</span></div>
+        <span class="k">if</span> <span class="n">subclass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">DBConnectionConfig</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">include_default</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">subclass</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">include_default</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">DBConnectionConfig</span><span class="o">.</span><span class="vm">__dict__</span>
+                <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span> <span class="ow">and</span> <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span>
+            <span class="p">]</span></div>
 
 
-<div class="viewcode-block" id="CommonConfig"><a class="viewcode-back" href="../../../doc/members/data_loader.html#nsaph.loader.common.CommonConfig">[docs]</a><span class="k">class</span> <span class="nc">CommonConfig</span><span class="p">(</span><span class="n">DBConnectionConfig</span><span class="p">):</span>
+<div class="viewcode-block" id="DBTableConfig"><a class="viewcode-back" href="../../../doc/members/data_loader.html#nsaph.loader.common.DBTableConfig">[docs]</a><span class="k">class</span> <span class="nc">DBTableConfig</span><span class="p">(</span><span class="n">DBConnectionConfig</span><span class="p">):</span>
+    <span class="n">_table</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
+        <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Name of the table to manipulate&quot;</span><span class="p">,</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">required</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">],</span>
+        <span class="n">default</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">cardinality</span> <span class="o">=</span> <span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subclass</span><span class="p">,</span> <span class="n">doc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="sd">&#39;&#39;&#39; Name of the table to manipulate &#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="n">subclass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">DBTableConfig</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">subclass</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">DBTableConfig</span><span class="o">.</span><span class="vm">__dict__</span>
+                <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span> <span class="ow">and</span> <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span>
+            <span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="CommonConfig"><a class="viewcode-back" href="../../../doc/members/data_loader.html#nsaph.loader.common.CommonConfig">[docs]</a><span class="k">class</span> <span class="nc">CommonConfig</span><span class="p">(</span><span class="n">DBTableConfig</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Abstract base class for configurators used for data loading</span>
 
@@ -143,16 +170,6 @@
         <span class="n">valid_values</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span>
 
-    <span class="n">_table</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span>
-        <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Name of the table to manipulate&quot;</span><span class="p">,</span>
-        <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">required</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">aliases</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">],</span>
-        <span class="n">default</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">cardinality</span> <span class="o">=</span> <span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span>
-    <span class="p">)</span>
-
-
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subclass</span><span class="p">,</span> <span class="n">doc</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="sd">&#39;&#39;&#39; Name of the domain &#39;&#39;&#39;</span>
@@ -166,14 +183,14 @@
 <span class="sd">        the built-in registry</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="sd">&#39;&#39;&#39; Name of the table to manipulate &#39;&#39;&#39;</span>
-
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">subclass</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="o">+=</span> <span class="p">[</span>
-            <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">CommonConfig</span><span class="o">.</span><span class="vm">__dict__</span>
-            <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span> <span class="ow">and</span> <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span>
-        <span class="p">]</span></div>
+        <span class="k">if</span> <span class="n">subclass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">CommonConfig</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">subclass</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">CommonConfig</span><span class="o">.</span><span class="vm">__dict__</span>
+                <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span> <span class="ow">and</span> <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span>
+            <span class="p">]</span></div>
 </pre></div>
 
            </div>

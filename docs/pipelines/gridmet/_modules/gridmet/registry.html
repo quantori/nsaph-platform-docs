@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gridmet.registry &mdash; Gridmet Computational Utilities 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Gridmet Computational Utilities
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">NSAPH gridMET Read Me First</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/classes.html">Main Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/enums.html">Parameters (Enums)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/gridmet_tools.html">Tools and Utilities</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Gridmet Computational Utilities</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>gridmet.registry</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for gridmet.registry</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="kn">from</span> <span class="nn">nsaph</span> <span class="kn">import</span> <span class="n">init_logging</span>
+<span class="kn">from</span> <span class="nn">nsaph.pg_keywords</span> <span class="kn">import</span> <span class="n">PG_NUMERIC_TYPE</span><span class="p">,</span> <span class="n">PG_DATE_TYPE</span><span class="p">,</span> <span class="n">PG_INT_TYPE</span>
+
+<span class="kn">from</span> <span class="nn">gridmet.config</span> <span class="kn">import</span> <span class="n">Geography</span><span class="p">,</span> <span class="n">GridmetVariable</span>
+
+
+<div class="viewcode-block" id="Registry"><a class="viewcode-back" href="../../doc/members/registry.html#gridmet.registry.Registry">[docs]</a><span class="k">class</span> <span class="nc">Registry</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class parses File Transfer Summary files and</span>
+<span class="sd">    creates YAML data model. It can either</span>
+<span class="sd">    update built-in registry or write</span>
+<span class="sd">    the model to a designated path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="n">destination</span>
+        <span class="n">init_logging</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Registry.update"><a class="viewcode-back" href="../../doc/members/registry.html#gridmet.registry.Registry.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination</span><span class="p">,</span> <span class="s2">&quot;wt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">create_yaml</span><span class="p">())</span>
+        <span class="k">return</span></div>
+
+<div class="viewcode-block" id="Registry.create_yaml"><a class="viewcode-back" href="../../doc/members/registry.html#gridmet.registry.Registry.create_yaml">[docs]</a>    <span class="k">def</span> <span class="nf">create_yaml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;gridmet&quot;</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;NSAPH data model for gridMET&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;header&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;quoting&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s2">&quot;tables&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">geography</span> <span class="ow">in</span> <span class="n">Geography</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="n">GridmetVariable</span><span class="p">:</span>
+                <span class="n">bnd</span> <span class="o">=</span> <span class="n">band</span><span class="o">.</span><span class="n">value</span>
+                <span class="n">geo</span> <span class="o">=</span> <span class="n">geography</span><span class="o">.</span><span class="n">value</span>
+                <span class="n">date_column</span> <span class="o">=</span> <span class="s2">&quot;observation_date&quot;</span>
+                <span class="n">tname</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">geo</span><span class="p">,</span> <span class="n">bnd</span><span class="p">)</span>
+                <span class="n">table</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span><span class="n">bnd</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">PG_NUMERIC_TYPE</span>
+                        <span class="p">}},</span>
+                        <span class="p">{</span><span class="n">date_column</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">PG_DATE_TYPE</span><span class="p">,</span>
+                            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;date&quot;</span>
+                        <span class="p">}},</span>
+                        <span class="p">{</span><span class="n">geo</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">PG_INT_TYPE</span>
+                        <span class="p">}}</span>
+                    <span class="p">],</span>
+                    <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="n">geo</span><span class="p">,</span>
+                        <span class="n">date_column</span>
+                    <span class="p">],</span>
+                    <span class="s2">&quot;indices&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;dt_geo_idx&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">date_column</span><span class="p">,</span> <span class="n">geo</span><span class="p">]</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+
+
+                <span class="p">}</span>
+                <span class="n">domain</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;tables&quot;</span><span class="p">][</span><span class="n">tname</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span>
+
+        <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Registry.built_in_registry_path"><a class="viewcode-back" href="../../doc/members/registry.html#gridmet.registry.Registry.built_in_registry_path">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">built_in_registry_path</span><span class="p">():</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="s2">&quot;yml&quot;</span><span class="p">,</span> <span class="s2">&quot;cms.yaml&quot;</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">Registry</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

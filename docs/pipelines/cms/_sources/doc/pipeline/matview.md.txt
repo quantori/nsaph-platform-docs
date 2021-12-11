@@ -25,6 +25,7 @@ all indices associated with the view
 |connection_name|string| |The name of the section in the database.ini file|
 |table|string| |the name of the table to be created|
 |domain|string|`medicaid`|the name of the domain|
+|incremental|boolean|`False`| |
 |depends_on|File| |a special field used to enforce dependencies and execution order|
 
 ## Outputs
@@ -33,6 +34,10 @@ all indices associated with the view
 |------|------|-------------|
 |create_log|File| |
 |index_log|File| |
+|vacuum_log|File| |
+|create_err|File| |
+|index_err|File| |
+|vacuum_err|File| |
 
 ## Steps
 
@@ -40,3 +45,4 @@ all indices associated with the view
 |------|------|-------------|
 |create|[create.cwl](create.html)|Execute DDL|
 |index|[index.cwl](index.html)|Build indices|
+|vacuum|[vacuum.cwl](vacuum.html)|Vacuum the view|

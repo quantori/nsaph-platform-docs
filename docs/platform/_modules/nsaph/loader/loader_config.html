@@ -96,6 +96,13 @@
 <span class="sd">        Configurator class for data loader</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">_drop</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span>
+        <span class="s2">&quot;drop&quot;</span><span class="p">,</span>
+        <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Drops domain schema&quot;</span><span class="p">,</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
     <span class="n">_data</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span>
         <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Path to a data file or directory. Can be a &quot;</span>
                 <span class="o">+</span> <span class="s2">&quot;single CSV, gzipped CSV or FST file or a directory recursively &quot;</span>
@@ -124,6 +131,13 @@
     <span class="n">_incremental</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;incremental&quot;</span><span class="p">,</span>
         <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Commit every file and skip over files that &quot;</span>
                <span class="o">+</span> <span class="s2">&quot;have already been ingested&quot;</span><span class="p">,</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">default</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">cardinality</span> <span class="o">=</span> <span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span>
+    <span class="p">)</span>
+
+    <span class="n">_sloppy</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;sloppy&quot;</span><span class="p">,</span>
+        <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Do not update existing tables&quot;</span><span class="p">,</span>
         <span class="nb">type</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">,</span>
         <span class="n">default</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">cardinality</span> <span class="o">=</span> <span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span>
@@ -173,6 +187,11 @@
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">drop</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        If this option is given, then the whole domain schema will be dropped</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Path to a data file or directory. Can be a </span>
@@ -214,8 +233,10 @@
 <span class="sd">        have already been ingested</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">LoaderConfig</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sloppy</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="sd">&#39;&#39;&#39;Do not update existing tables and views&#39;&#39;&#39;</span>
 
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">LoaderConfig</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
 
 <div class="viewcode-block" id="LoaderConfig.validate"><a class="viewcode-back" href="../../../doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>

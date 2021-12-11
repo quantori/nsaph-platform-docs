@@ -29,3 +29,4 @@ the processing steps are loaded into the database
 | Name | Type | Description |
 |------|------|-------------|
 |log|File| |
+|errors|stderr| |

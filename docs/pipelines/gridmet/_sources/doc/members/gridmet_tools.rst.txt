@@ -4,7 +4,7 @@
 The gridmet_tools Module
 ============================================================================
 
-.. automodule:: gridmet_tools
+.. automodule:: gridmet.gridmet_tools
    :members:
    :undoc-members:
 

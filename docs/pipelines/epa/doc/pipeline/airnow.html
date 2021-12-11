@@ -101,10 +101,16 @@ and ingests the data into the database</p>
 </thead>
 <tbody>
 <tr>
+<td>proxy</td>
+<td>string</td>
+<td>``</td>
+<td>HTTP/HTTPS Proxy if required</td>
+</tr>
+<tr>
 <td>api-key</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>API key for AirNow</td>
 </tr>
 <tr>
 <td>database</td>
@@ -122,25 +128,25 @@ and ingests the data into the database</p>
 <td>from</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>Start date for downolading, in YYYY-MM-DD format</td>
 </tr>
 <tr>
 <td>to</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>End date for downolading, in YYYY-MM-DD format</td>
 </tr>
 <tr>
 <td>parameter_code</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: <a href="https://www.epa.gov/aqs/aqs-code-list">AQS Code List</a></td>
 </tr>
 <tr>
 <td>table</td>
 <td>string</td>
 <td></td>
-<td></td>
+<td>Name of the table to be created in the database</td>
 </tr>
 </tbody>
 </table></section>

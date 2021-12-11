@@ -56,6 +56,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#transposing-columns">Transposing Columns</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-column-indices">Multi-column indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generation-of-the-database-schema-ddl">Generation of the database schema (DDL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#indexing-policies">Indexing Policies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ingesting-data">Ingesting Data</a></li>
@@ -108,6 +109,7 @@
 <li><p><a class="reference external" href="#transposing-columns">Transposing Columns</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference external" href="#multi-column-indices">Multi-column indices</a></p></li>
 <li><p><a class="reference external" href="#generation-of-the-database-schema-ddl">Generation of the database schema (DDL)</a></p></li>
 <li><p><a class="reference external" href="#indexing-policies">Indexing Policies</a></p></li>
 <li><p><a class="reference external" href="#ingesting-data">Ingesting Data</a></p></li>
@@ -220,6 +222,11 @@ structures of tables. It can contain one or several root tables</p>
 <td>columns</td>
 <td>yes</td>
 <td>list of column definitions</td>
+</tr>
+<tr>
+<td>indices or indexes</td>
+<td>yes</td>
+<td>dictionary of multi-column indices</td>
 </tr>
 <tr>
 <td>primary_key</td>
@@ -446,6 +453,17 @@ from which the data has been ingested.</p>
 <section id="transposing-columns">
 <h3>Transposing Columns<a class="headerlink" href="#transposing-columns" title="Permalink to this headline"></a></h3>
 </section>
+</section>
+<section id="multi-column-indices">
+<h2>Multi-column indices<a class="headerlink" href="#multi-column-indices" title="Permalink to this headline"></a></h2>
+<p>Multi-column indices of a table are defined in <code class="docutils literal notranslate"><span class="pre">indices</span></code> section
+(spelling <code class="docutils literal notranslate"><span class="pre">indexes</span></code> is also acceptable). This is a dictionary with an
+index name as a key and its definition as the value. At the very minimum,
+the definition should include the list of the columns to be used in the
+index.</p>
+<p>Index definition can also include
+<a class="reference external" href="https://www.postgresql.org/docs/current/indexes-types.html">index type</a>
+(e.g. btree, hash, etc.)  and data to be included with teh index.</p>
 </section>
 <section id="generation-of-the-database-schema-ddl">
 <h2>Generation of the database schema (DDL)<a class="headerlink" href="#generation-of-the-database-schema-ddl" title="Permalink to this headline"></a></h2>

@@ -79,41 +79,6 @@
              
   <section id="rasterization-strategy">
 <h1>Rasterization Strategy<a class="headerlink" href="#rasterization-strategy" title="Permalink to this headline"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="gridmet_ds_def.RasterizationStrategy">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">RasterizationStrategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_ds_def.html#RasterizationStrategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy" title="Permalink to this definition"></a></dt>
-<dd><p>Rasterization Strategy, see details at
-<a class="reference external" href="https://pythonhosted.org/rasterstats/manual.html#rasterization-strategy">https://pythonhosted.org/rasterstats/manual.html#rasterization-strategy</a></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.RasterizationStrategy.default">
-<span class="sig-name descname"><span class="pre">default</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'default'</span></em><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy.default" title="Permalink to this definition"></a></dt>
-<dd><p>The default strategy is to include all pixels along the line render path
-(for lines), or cells where the center point is within the polygon
-(for polygons).</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.RasterizationStrategy.all_touched">
-<span class="sig-name descname"><span class="pre">all_touched</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'all_touched'</span></em><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy.all_touched" title="Permalink to this definition"></a></dt>
-<dd><p>Alternate, all_touched strategy, rasterizes the geometry
-by including all pixels that it touches.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.RasterizationStrategy.combined">
-<span class="sig-name descname"><span class="pre">combined</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'combined'</span></em><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy.combined" title="Permalink to this definition"></a></dt>
-<dd><p>Calculate statistics using both default and all_touched strategy and
-combine results, e.g. using arithmetic means</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.RasterizationStrategy.downscale">
-<span class="sig-name descname"><span class="pre">downscale</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'downscale'</span></em><a class="headerlink" href="#gridmet_ds_def.RasterizationStrategy.downscale" title="Permalink to this definition"></a></dt>
-<dd><p>Use disaggregate with factor = 5</p>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
 

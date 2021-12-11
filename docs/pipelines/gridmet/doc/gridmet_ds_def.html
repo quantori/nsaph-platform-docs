@@ -86,130 +86,13 @@
              
   <section id="configuration-object">
 <h1>Configuration Object<a class="headerlink" href="#configuration-object" title="Permalink to this headline"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">GridmetContext</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gridmet_ds_def.html#GridmetContext"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet_ds_def.GridmetContext" title="Permalink to this definition"></a></dt>
-<dd><p>Defines a context for running a gridmet pipeline.</p>
-<p>Constructor
-:param _sphinx_paramlinks_gridmet_ds_def.GridmetContext.doc: Optional argument, specifying what to print as documentation</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.enum">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.enum" title="Permalink to this definition"></a></dt>
-<dd><p>A helper method to return Enum value by its name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="gridmet_ds_def.GridmetContext.enum.params.cls"></span><strong>cls</strong><a class="paramlink headerlink reference internal" href="#gridmet_ds_def.GridmetContext.enum.params.cls">¶</a> – Enum class</p></li>
-<li><p><span class="target" id="gridmet_ds_def.GridmetContext.enum.params.s"></span><strong>s</strong><a class="paramlink headerlink reference internal" href="#gridmet_ds_def.GridmetContext.enum.params.s">¶</a> – name of a member in Enum class</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>value of the member</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.years">
-<span class="sig-name descname"><span class="pre">years</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.years" title="Permalink to this definition"></a></dt>
-<dd><p>Year or list of years to download. For example, 
-the following argument: 
-<cite>-y 1992:1995 1998 1999 2011 2015:2017</cite> will produce 
-the following list: 
-[1992,1993,1994,1995,1998,1999,2011,2015,2016,2017]</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.compress">
-<span class="sig-name descname"><span class="pre">compress</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.compress" title="Permalink to this definition"></a></dt>
-<dd><p>Specifies whether to use gzip compression for the result</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.variables">
-<span class="sig-name descname"><span class="pre">variables</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.variables" title="Permalink to this definition"></a></dt>
-<dd><p>Gridmet bands or variables</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.GridmetVariable" title="gridmet_ds_def.GridmetVariable">GridmetVariable</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.strategy">
-<span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.strategy" title="Permalink to this definition"></a></dt>
-<dd><p>Rasterization strategy
-:type: RasterizationStrategy</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.destination">
-<span class="sig-name descname"><span class="pre">destination</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.destination" title="Permalink to this definition"></a></dt>
-<dd><p>Destination directory for the processed files</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.raw_downloads">
-<span class="sig-name descname"><span class="pre">raw_downloads</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.raw_downloads" title="Permalink to this definition"></a></dt>
-<dd><p>Directory for downloaded raw files</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.geography">
-<span class="sig-name descname"><span class="pre">geography</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.geography" title="Permalink to this definition"></a></dt>
-<dd><p>The type of geographic area over which we aggregate data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.Geography" title="gridmet_ds_def.Geography">Geography</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.shapes_dir">
-<span class="sig-name descname"><span class="pre">shapes_dir</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.shapes_dir" title="Permalink to this definition"></a></dt>
-<dd><p>Directory containing shape files for geographies</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.shapes">
-<span class="sig-name descname"><span class="pre">shapes</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.shapes" title="Permalink to this definition"></a></dt>
-<dd><p>Type of shapes to aggregate over, e.g. points, polygons</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="members/gridmet_ds_def.html#gridmet_ds_def.Shape" title="gridmet_ds_def.Shape">Shape</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.points">
-<span class="sig-name descname"><span class="pre">points</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.points" title="Permalink to this definition"></a></dt>
-<dd><p>Path to CSV file containing points</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.coordinates">
-<span class="sig-name descname"><span class="pre">coordinates</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.coordinates" title="Permalink to this definition"></a></dt>
-<dd><p>Column names for coordinates</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gridmet_ds_def.GridmetContext.metadata">
-<span class="sig-name descname"><span class="pre">metadata</span></span><a class="headerlink" href="#gridmet_ds_def.GridmetContext.metadata" title="Permalink to this definition"></a></dt>
-<dd><p>Column names for metadata</p>
-</dd></dl>
-
-</dd></dl>
-
 <section id="classes-used-internally">
 <h2>Classes used Internally<a class="headerlink" href="#classes-used-internally" title="Permalink to this headline"></a></h2>
 <section id="abstract-context">
 <h3>Abstract Context<a class="headerlink" href="#abstract-context" title="Permalink to this headline"></a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph_utils.utils.context.Context">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_default</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nsaph_utils/utils/context.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Context" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nsaph_utils/utils/context.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Context" title="Permalink to this definition"></a></dt>
 <dd><p>Generic class allowing to build context and configuration objects
 and initialize them using command line arguments</p>
 <p>Creates a new object</p>
@@ -261,7 +144,7 @@ of command line arguments</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph_utils.utils.context.Context.enum">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nsaph_utils/utils/context.html#Context.enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Context.enum" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nsaph_utils/utils/context.html#Context.enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Context.enum" title="Permalink to this definition"></a></dt>
 <dd><p>A helper method to return Enum value by its name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -283,7 +166,7 @@ of command line arguments</p>
 <h3>Argument<a class="headerlink" href="#argument" title="Permalink to this headline"></a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph_utils.utils.context.Argument">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Argument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">help:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">type=&lt;class</span> <span class="pre">'str'&gt;</span></em>, <em class="sig-param"><span class="pre">aliases:</span> <span class="pre">Optional[List]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">default=None</span></em>, <em class="sig-param"><span class="pre">cardinality:</span> <span class="pre">nsaph_utils.utils.context.Cardinality</span> <span class="pre">=</span> <span class="pre">Cardinality.single</span></em>, <em class="sig-param"><span class="pre">valid_values=None</span></em>, <em class="sig-param"><span class="pre">required=True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nsaph_utils/utils/context.html#Argument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Argument" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Argument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">help:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=&lt;class</span> <span class="pre">'str'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aliases:</span> <span class="pre">Optional[List]</span> <span class="pre">=</span> <span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cardinality:</span> <span class="pre">nsaph_utils.utils.context.Cardinality</span> <span class="pre">=</span> <span class="pre">Cardinality.single</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">valid_values=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required=True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nsaph_utils/utils/context.html#Argument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Argument" title="Permalink to this definition"></a></dt>
 <dd><p>A wrapper class to describe a command-line arguments
 This is practically, a more rigid format for
 :func ArgumentParser.add_argument:</p>
@@ -308,7 +191,7 @@ This is practically, a more rigid format for
 <h3>Argument Cardinality Enum<a class="headerlink" href="#argument-cardinality-enum" title="Permalink to this headline"></a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph_utils.utils.context.Cardinality">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Cardinality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nsaph_utils/utils/context.html#Cardinality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Cardinality" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Cardinality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nsaph_utils/utils/context.html#Cardinality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Cardinality" title="Permalink to this definition"></a></dt>
 <dd><p>Cardinality of a configuration parameter: multiple or singular</p>
 </dd></dl>
 

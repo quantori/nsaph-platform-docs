@@ -1,0 +1,31 @@
+# gridMET Pipeline
+**Workflow**
+
+**Source**: [gridmet.cwl](../../src/cwl/gridmet.cwl)
+
+<!-- toc -->
+
+## Description
+Downloads, processes gridMET data and ingests it into the database
+
+
+## Inputs
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+|proxy|string|``|HTTP/HTTPS Proxy if required|
+|shapes|Directory| | |
+|geography|string| |Type of geography: zip codes or counties |
+|years|string[]|`['1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020']`| |
+|bands|string[]|`['bi', 'erc', 'etr', 'fm100', 'fm1000', 'pet', 'pr', 'rmax', 'rmin', 'sph', 'srad', 'th', 'tmmn', 'tmmx', 'vpd', 'vs']`| |
+|database|File| |Path to database connection file, usually database.ini|
+|connection_name|string| |The name of the section in the database.ini file|
+|dates|string| |dates restriction, for testing purposes only|
+
+## Outputs
+
+| Name | Type | Description |
+|------|------|-------------|
+|registry|File| |
+|registry_log|File| |
+|registry_err|File| |

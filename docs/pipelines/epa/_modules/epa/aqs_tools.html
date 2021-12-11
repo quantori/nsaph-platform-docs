@@ -37,13 +37,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../doc/source/usage.html">EPA AQS Toolkit Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../doc/source/aqs.html">Main Class for EPA AQS Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../doc/source/aqs_ds_def.html">Configuration Object for EPA AQS Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../doc/source/airnow.html">Main Class for EPA AirNow Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../doc/source/airnow_ds_def.html">Configuration Object for EPA AirNow Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../doc/source/aqs_tools.html">Internal scripts used for download tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../doc/source/airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Toolkit for downloading and preprocessing of data provided by EPA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/usage.html">EPA Toolkit Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/members/aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/members/aqs_ds_def.html">Configuration Options for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/members/airnow.html">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/members/airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/members/aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/members/airnow_downloader.html">Downloader for AirNow</a></li>
 </ul>
 
         </div>
@@ -86,6 +87,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
@@ -121,9 +123,9 @@
               <span class="n">write_header</span><span class="o">=</span><span class="n">header</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="add_more_columns"><a class="viewcode-back" href="../../doc/members/aqs_tools.html#epa.aqs_tools.add_more_columns">[docs]</a><span class="k">def</span> <span class="nf">add_more_columns</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">add_more_columns</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
     <span class="n">add_monitor_key</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-    <span class="n">add_record_key</span><span class="p">(</span><span class="n">row</span><span class="p">)</span></div>
+    <span class="n">add_record_key</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
 
 
 <span class="n">record_index</span> <span class="o">=</span> <span class="mi">0</span>
@@ -143,10 +145,10 @@
     <span class="n">row</span><span class="p">[</span><span class="n">MONITOR</span><span class="p">]</span> <span class="o">=</span> <span class="n">monitor</span></div>
 
 
-<div class="viewcode-block" id="add_record_key"><a class="viewcode-back" href="../../doc/members/aqs_tools.html#epa.aqs_tools.add_record_key">[docs]</a><span class="k">def</span> <span class="nf">add_record_key</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">add_record_key</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
     <span class="k">global</span> <span class="n">record_index</span>
     <span class="n">record_index</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">add_record_num</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">record_index</span><span class="p">)</span></div>
+    <span class="n">add_record_num</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">record_index</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="download_data"><a class="viewcode-back" href="../../doc/members/aqs_tools.html#epa.aqs_tools.download_data">[docs]</a><span class="k">def</span> <span class="nf">download_data</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="n">DownloadTask</span><span class="p">):</span>
@@ -168,7 +170,17 @@
     <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">task</span><span class="o">.</span><span class="n">urls</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> =&gt; </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">target</span><span class="p">))</span>
         <span class="k">with</span> <span class="n">fopen</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s2">&quot;at&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ostream</span><span class="p">:</span>
-            <span class="n">reader</span> <span class="o">=</span> <span class="n">as_csv_reader</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">reader</span> <span class="o">=</span> <span class="n">as_csv_reader</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+                    <span class="k">break</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="n">attempt</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="n">attempt</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+                        <span class="k">raise</span>
+                    <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Attempt </span><span class="si">{:d}</span><span class="s2">: Error downloading </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span>
+                                      <span class="nb">format</span><span class="p">(</span><span class="n">attempt</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
             <span class="n">fieldnames</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="o">.</span><span class="n">fieldnames</span><span class="p">)</span>
             <span class="n">fieldnames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">MONITOR</span><span class="p">)</span>
             <span class="n">fieldnames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RECORD</span><span class="p">)</span>

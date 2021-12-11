@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Medicaid Processing Pipeline &mdash; NSAPH CMS Data Processing Package 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> NSAPH CMS Data Processing Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medicaid.html">Full Medicaid Processing Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Also:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NSAPH CMS Data Processing Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Full Medicaid Processing Pipeline</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/doc/pipeline/test_medicaid.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="full-medicaid-processing-pipeline">
+<h1>Full Medicaid Processing Pipeline<a class="headerlink" href="#full-medicaid-processing-pipeline" title="Permalink to this headline"></a></h1>
+<p><strong>Workflow</strong></p>
+<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/test_medicaid.cwl">test_medicaid.cwl</a></p>
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#description">Description</a></p></li>
+<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
+<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
+<li><p><a class="reference external" href="#steps">Steps</a></p></li>
+</ul>
+<!-- tocstop --><section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
+<p>This workflow ingests a small random subset of Medicaid MAX data
+and verifies counts</p>
+</section>
+<section id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline"></a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>File</td>
+<td><code>{'class': 'File', 'location': '/opt/airflow/project/database.ini'}</code></td>
+<td>Path to database connection file, usually database.ini</td>
+</tr>
+<tr>
+<td>connection_name</td>
+<td>string</td>
+<td><code>nsaph_test</code></td>
+<td>The name of the section in the database.ini file</td>
+</tr>
+<tr>
+<td>input</td>
+<td>Directory</td>
+<td><code>{'class': 'Directory', 'location': '/data/incoming/medicaid/mini_random_data/'}</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></section>
+<section id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline"></a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>verification_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>verification_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>resource1_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>resource2_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>parse_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_reset_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_vacuum_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ip_reset_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ip_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ip_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ip_vacuum_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ben_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ben_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ben_vacuum_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>mnth_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>mnth_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>mnth_vacuum_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>enrlm_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>enrlm_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>enrlm_vacuum_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_prepare_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_vacuum_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>admissions_reset_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>admissions_create_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>admissions_index_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>admissions_vacuum_log</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>parse_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_reset_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_create_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_index_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ps_vacuum_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ip_reset_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ip_create_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ip_index_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ip_vacuum_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ben_create_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ben_index_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>ben_vacuum_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>mnth_create_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>mnth_index_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>mnth_vacuum_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>enrlm_create_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>enrlm_index_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>enrlm_vacuum_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_create_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_prepare_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_index_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>elgb_vacuum_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>admissions_reset_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>admissions_create_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>admissions_index_err</td>
+<td>File</td>
+<td></td>
+</tr>
+<tr>
+<td>admissions_vacuum_err</td>
+<td>File</td>
+<td></td>
+</tr>
+</tbody>
+</table></section>
+<section id="steps">
+<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline"></a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Name</th>
+<th>Runs</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>process</td>
+<td><a href="medicaid.html">medicaid.cwl</a></td>
+<td></td>
+</tr>
+<tr>
+<td>verify</td>
+<td><a href="verify.html">verify.cwl</a></td>
+<td></td>
+</tr>
+</tbody>
+</table></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -87,7 +87,7 @@ into NSAPH PostgreSQL Database.</p>
 <p>Input (aka source) files can be either in FST or in CSV format.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">DataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="loader_config.html#nsaph.loader.loader_config.LoaderConfig" title="nsaph.loader.loader_config.LoaderConfig"><span class="pre">nsaph.loader.loader_config.LoaderConfig</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/data_loader.html#DataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="loader_config.html#nsaph.loader.loader_config.LoaderConfig" title="nsaph.loader.loader_config.LoaderConfig"><span class="pre">nsaph.loader.loader_config.LoaderConfig</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/data_loader.html#DataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader" title="Permalink to this definition"></a></dt>
 <dd><p>Class for data loader</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.print_ddl">
@@ -111,17 +111,22 @@ into NSAPH PostgreSQL Database.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.get_files">
-<span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/nsaph/loader/data_loader.html#DataLoader.get_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.get_files" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/nsaph/loader/data_loader.html#DataLoader.get_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.get_files" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.has_been_ingested">
-<span class="sig-name descname"><span class="pre">has_been_ingested</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/data_loader.html#DataLoader.has_been_ingested"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.has_been_ingested" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">has_been_ingested</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/data_loader.html#DataLoader.has_been_ingested"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.has_been_ingested" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.reset">
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/data_loader.html#DataLoader.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.reset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.drop">
+<span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/data_loader.html#DataLoader.drop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.drop" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -162,7 +167,7 @@ into NSAPH PostgreSQL Database.</p>
 <p>Common options for data manipulation</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.common.DBConnectionConfig">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">DBConnectionConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/common.html#DBConnectionConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DBConnectionConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/common.html#DBConnectionConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig" title="Permalink to this definition"></a></dt>
 <dd><p>Configuration class for connection to a database</p>
 <p>Creates a new object</p>
 <dl class="field-list simple">
@@ -198,8 +203,32 @@ If not specified, then it is extracted from subclass documentation</p></li>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.common.DBTableConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DBTableConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/common.html#DBTableConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.common.DBTableConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a new object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph.loader.common.DBTableConfig.params.subclass"></span><strong>subclass</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.common.DBTableConfig.params.subclass">¶</a> – A concrete class containing configuration information
+Configuration options must be defined as class memebers with names,
+starting with one ‘_’ characters and values be instances of
+:class Argument:</p></li>
+<li><p><span class="target" id="nsaph.loader.common.DBTableConfig.params.description"></span><strong>description</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.common.DBTableConfig.params.description">¶</a> – Optional text to use as description.
+If not specified, then it is extracted from subclass documentation</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.common.DBTableConfig.table">
+<span class="sig-name descname"><span class="pre">table</span></span><a class="headerlink" href="#nsaph.loader.common.DBTableConfig.table" title="Permalink to this definition"></a></dt>
+<dd><p>Name of the table to manipulate</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.common.CommonConfig">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CommonConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/common.html#CommonConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.common.CommonConfig" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CommonConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/common.html#CommonConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.common.CommonConfig" title="Permalink to this definition"></a></dt>
 <dd><p>Abstract base class for configurators used for data loading</p>
 <p>Creates a new object</p>
 <dl class="field-list simple">
@@ -230,12 +259,6 @@ definition. Default is to use
 the built-in registry</p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.loader.common.CommonConfig.table">
-<span class="sig-name descname"><span class="pre">table</span></span><a class="headerlink" href="#nsaph.loader.common.CommonConfig.table" title="Permalink to this definition"></a></dt>
-<dd><p>Name of the table to manipulate</p>
-</dd></dl>
-
 </dd></dl>
 
 <span class="target" id="module-nsaph.loader.loader_config"></span><p>Domain Loader Configurator</p>
@@ -247,13 +270,13 @@ A separate tool is available to introspect source files and infer possible
 database schema.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.Parallelization">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Parallelization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/loader_config.html#Parallelization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Parallelization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/loader_config.html#Parallelization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization" title="Permalink to this definition"></a></dt>
 <dd><p>An enumeration.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">LoaderConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/loader_config.html#LoaderConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LoaderConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/loader_config.html#LoaderConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig" title="Permalink to this definition"></a></dt>
 <dd><p>Configurator class for data loader</p>
 <p>Creates a new object</p>
 <dl class="field-list simple">
@@ -268,6 +291,12 @@ If not specified, then it is extracted from subclass documentation</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.drop">
+<span class="sig-name descname"><span class="pre">drop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.drop" title="Permalink to this definition"></a></dt>
+<dd><p>If this option is given, then the whole domain schema will be dropped</p>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.data">
 <span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.data" title="Permalink to this definition"></a></dt>
@@ -333,6 +362,12 @@ e.g. “<a href="#id1"><span class="problematic" id="id2">**</span></a>/maxdata_
 have already been ingested</p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.sloppy">
+<span class="sig-name descname"><span class="pre">sloppy</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.sloppy" title="Permalink to this definition"></a></dt>
+<dd><p>Do not update existing tables and views</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.validate">
 <span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/nsaph/loader/loader_config.html#LoaderConfig.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.validate" title="Permalink to this definition"></a></dt>
@@ -361,6 +396,7 @@ of command line arguments</p>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#domain">Domain</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#table">Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#column">Column</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#multi-column-indices">Multi-column indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#generation-of-the-database-schema-ddl">Generation of the database schema (DDL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#indexing-policies">Indexing Policies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#ingesting-data">Ingesting Data</a></li>
