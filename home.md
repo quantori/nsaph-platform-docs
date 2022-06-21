@@ -1,14 +1,14 @@
 # NSAPH Data Platform
  **User and Development Documentation**
 
-<!-- toc -->
+<!--TOC-->
 
 - [Glossary](#glossary)
 - [NSAPH Utilities](#nsaph-utilities)
 - [Core Platform](#core-platform)
 - [Data Ingestion and Processing Pipelines](#data-ingestion-and-processing-pipelines)
 
-<!-- tocstop -->
+<!--TOC-->
 
 ## Glossary
 
@@ -68,7 +68,3 @@ The project structure can also be in flux.
 | Census | [Census Package](pipelines/census)     |
 | Gridmet | [Gridmet package](pipelines/gridmet) |
 | CMS | [Medicaid Piepline](pipelines/cms) |
-
-
-
-
