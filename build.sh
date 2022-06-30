@@ -62,4 +62,4 @@ python -u -m nsaph_utils.docutils.copy_section ../nsaph-platform-deployment/proj
 python -u -m nsaph_utils.docutils.copy_section ../nsaph-platform-deployment/project/data_platform/README.md home.md nsaph
 md_toc --in-place --skip-lines 1 cmark home.md
 
-python "$sphinx" -b html . docs
+sphinx-build -b html . docs
