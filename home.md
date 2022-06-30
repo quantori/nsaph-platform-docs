@@ -62,9 +62,9 @@ The project structure can also be in flux.
    
 ## Data Ingestion and Processing Pipelines
 
-| Pipeline | Documentation |
-|----------|---------------|
-| EPA | [EPA Pipelines](pipelines/epa) |
-| Census | [Census Package](pipelines/census)     |
-| Gridmet | [Gridmet package](pipelines/gridmet) |
-| CMS | [Medicaid Piepline](pipelines/cms) |
+| Pipeline | Documentation                                   |
+|----------|-------------------------------------------------|
+| EPA | [EPA Pipelines](pipelines/epa/index.html)       |
+| Census | [Census Package](pipelines/census/index.html)   |
+| Gridmet | [Gridmet package](pipelines/gridmet/index.html) |
+| CMS | [Medicaid Piepline](pipelines/cms/index.html[)  |
