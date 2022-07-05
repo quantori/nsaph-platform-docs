@@ -90,5 +90,5 @@ and verifies counts
 
 | Name | Runs | Description |
 |------|------|-------------|
-|process|[medicaid.cwl](medicaid.html)| |
-|verify|[verify.cwl](verify.html)| |
+|process|[medicaid.cwl](medicaid.md)| |
+|verify|[verify.cwl](verify.md)| |

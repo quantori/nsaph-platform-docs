@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>get_census &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>NSAPH Census Pipelines &mdash; NSAPH EPA Pipelines 0.0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
@@ -18,7 +18,9 @@
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The assemble_data Module" href="doc/members/assemble_data.html" />
+    <link rel="prev" title="Welcome to Census Toolkit’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -26,7 +28,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> NSAPH Data Platform
+            <a href="index.html" class="icon icon-home"> NSAPH EPA Pipelines
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -37,14 +39,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="docs/source/start_guide.html">Working with the <code class="docutils literal notranslate"><span class="pre">get_census</span></code> Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/source/census_yaml.html"><code class="docutils literal notranslate"><span class="pre">get_census</span></code> Census Variable File Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/source/assemble_data.html">DataPlan: Main Class For Assembling a Census Plan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/source/census_info.html">Census Metadata Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/source/query.html">Functions for Requesting Data from the Census API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/source/cached_data.html">Stored Data Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docs/source/tigerweb.html">Query Area and Download Shapefiles</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NSAPH Census Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#change-log">Change Log</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-0-3-june-2021">Version 0.3 June 2021:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="doc/members/assemble_data.html">The assemble_data Module</a></li>
 </ul>
 
         </div>
@@ -53,7 +56,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">NSAPH Data Platform</a>
+          <a href="index.html">NSAPH EPA Pipelines</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -61,7 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>get_census</li>
+      <li>NSAPH Census Pipelines</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -71,10 +74,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="get-census">
-<h1>get_census<a class="headerlink" href="#get-census" title="Permalink to this headline"></a></h1>
+  <section id="nsaph-census-pipelines">
+<h1>NSAPH Census Pipelines<a class="headerlink" href="#nsaph-census-pipelines" title="Permalink to this headline"></a></h1>
 <p>A Python Module for easy specification of custom census data sets.</p>
-<p>For instructions on running code see the notebook <a class="reference external" href="notebooks/workflow_example.ipynb">here</a></p>
+<p>To run pipelines use <a class="reference external" href="https://github.com/common-workflow-language/cwltool">cwl-tool</a>.</p>
+<p>How to run pipelines with sample parameters:</p>
+<ol class="simple">
+<li><p>Request for API key <a class="reference external" href="https://api.census.gov/data/key_signup.html">here</a></p></li>
+<li><p>Write API key in parameter <code class="docutils literal notranslate"><span class="pre">api_key</span></code> into
+<a class="reference external" href="src/cwl/pipelines/census_county/county_workflow.yml">county_workflow.yml</a>
+and <a class="reference external" href="src/cwl/pipelines/census_zcta/zcta_workflow.yml">zcta_workflow.yml</a></p></li>
+<li><p>Adjust other options in those config files</p></li>
+<li><p>Run command</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cwl</span><span class="o">-</span><span class="n">runner</span> <span class="n">census_workflow</span><span class="o">.</span><span class="n">cwl</span> <span class="n">pipelines</span><span class="o">/</span><span class="n">census_county</span><span class="o">/</span><span class="n">county_workflow</span><span class="o">.</span><span class="n">yml</span>
+
+<span class="n">cwl</span><span class="o">-</span><span class="n">runner</span> <span class="n">census_workflow</span><span class="o">.</span><span class="n">cwl</span> <span class="n">pipelines</span><span class="o">/</span><span class="n">census_zcta</span><span class="o">/</span><span class="n">zcta_workflow</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
 <section id="change-log">
 <h2>Change Log<a class="headerlink" href="#change-log" title="Permalink to this headline"></a></h2>
 <section id="version-0-3-june-2021">
@@ -88,7 +105,10 @@ Some user + code documentation, support for commonly used geographies.</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Census Toolkit’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="doc/members/assemble_data.html" class="btn btn-neutral float-right" title="The assemble_data Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

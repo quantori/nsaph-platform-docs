@@ -75,7 +75,7 @@
 <span id="the-create-schema-config-module"></span><h1>The create_schema_config Module<a class="headerlink" href="#module-cms.create_schema_config" title="Permalink to this headline"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="cms.create_schema_config.CMSSchema">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CMSSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/create_schema_config.html#CMSSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.create_schema_config.CMSSchema" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CMSSchema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inpt</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/create_schema_config.html#CMSSchema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.create_schema_config.CMSSchema" title="Permalink to this definition"></a></dt>
 <dd><p>Configuration object to configure parsing
 File Transfer Summary files and creating
 YAML data model</p>
@@ -102,6 +102,18 @@ If not specified, then it is extracted from subclass documentation</p></li>
 <dt class="sig sig-object py" id="cms.create_schema_config.CMSSchema.input">
 <span class="sig-name descname"><span class="pre">input</span></span><a class="headerlink" href="#cms.create_schema_config.CMSSchema.input" title="Permalink to this definition"></a></dt>
 <dd><p>Path to directory containing FTS files</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cms.create_schema_config.CMSSchema.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#cms.create_schema_config.CMSSchema.type" title="Permalink to this definition"></a></dt>
+<dd><p>Type of data: medicare or medicaid</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cms.create_schema_config.CMSSchema.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><a class="headerlink" href="#cms.create_schema_config.CMSSchema.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Reset content of the data model</p>
 </dd></dl>
 
 </dd></dl>

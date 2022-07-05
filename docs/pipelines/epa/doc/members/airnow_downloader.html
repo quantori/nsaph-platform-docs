@@ -19,6 +19,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Full Medicaid Processing Pipeline" href="../pipeline/airnow.html" />
     <link rel="prev" title="Internal scripts used for download tasks" href="aqs_tools.html" /> 
 </head>
 
@@ -47,6 +48,18 @@
 <li class="toctree-l1"><a class="reference internal" href="airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aqs_tools.html">Internal scripts used for download tasks</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/download_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Index Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/ingest.html">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/setup_airnow.html">Prepare environment for AirNow</a></li>
 </ul>
 
         </div>
@@ -73,110 +86,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-epa.airnow_downloader">
-<span id="downloader-for-airnow"></span><h1>Downloader for AirNow<a class="headerlink" href="#module-epa.airnow_downloader" title="Permalink to this headline"></a></h1>
-<p>Toolkit and API for downloading AirNow</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="epa.airnow_downloader.AirNowDownloader">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AirNowDownloader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">api_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="airnow_ds_def.html#epa.airnow_ds_def.AirNowContext" title="epa.airnow_ds_def.AirNowContext"><span class="pre">epa.airnow_ds_def.AirNowContext</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/airnow_downloader.html#AirNowDownloader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_downloader.AirNowDownloader" title="Permalink to this definition"></a></dt>
-<dd><p>Main downloader class</p>
-<p>Constructor.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="epa.airnow_downloader.AirNowDownloader.params.target"></span><strong>target</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_downloader.AirNowDownloader.params.target">¶</a> – File name, where downloaded data is saved.
-If file name includes substring “.json”, then the data is saved in
-JSON format, otherwise it is saved as CSV. If target is not
-specified (None), then teh data is not saved to file but is
-returned to the caller. The latter mode is useful for testing.</p></li>
-<li><p><span class="target" id="epa.airnow_downloader.AirNowDownloader.params.parameter"></span><strong>parameter</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_downloader.AirNowDownloader.params.parameter">¶</a> – <p>Comma-separated list of parameters to download.
-In practice because of AirNow API limitations, if more than
-one parameter is specified, a runtime error will occur.
-Possible values:</p>
-<blockquote>
-<div><ul>
-<li><p>Ozone (O3, ozone)</p></li>
-<li><p>PM2.5 (pm25)</p></li>
-<li><p>PM10 (pm10)</p></li>
-<li><p>CO (co)</p></li>
-<li><p>NO2 (no2)</p></li>
-<li><p>SO2 (so2)</p></li>
-</ul>
-</div></blockquote>
-</p></li>
-<li><p><span class="target" id="epa.airnow_downloader.AirNowDownloader.params.api_key"></span><strong>api_key</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_downloader.AirNowDownloader.params.api_key">¶</a> – Optional API Key to use with AirNow api. If not
-specified, then it is searched in a file named <cite>.airnow.yaml</cite>
-or <cite>.airnow.json</cite> first in working directory and then in user’s
-home directory</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="epa.airnow_downloader.AirNowDownloader.download">
-<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requested_date</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/epa/airnow_downloader.html#AirNowDownloader.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_downloader.AirNowDownloader.download" title="Permalink to this definition"></a></dt>
-<dd><p>Download data for a date</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><span class="target" id="epa.airnow_downloader.AirNowDownloader.download.params.requested_date"></span><strong>requested_date</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_downloader.AirNowDownloader.download.params.requested_date">¶</a> – date to be downloaded</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>If target has been specified, then this method returns
-the target file name, otherwise it returns a list of dictionaries
-where each dictionary is structured as JSON, with column names
-serving as keys</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epa.airnow_downloader.AirNowDownloader.dump_csv">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dump_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/airnow_downloader.html#AirNowDownloader.dump_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_downloader.AirNowDownloader.dump_csv" title="Permalink to this definition"></a></dt>
-<dd><p>Internal method used by download
-Dumps rows as CSV file</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epa.airnow_downloader.AirNowDownloader.write_csv_header">
-<span class="sig-name descname"><span class="pre">write_csv_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/airnow_downloader.html#AirNowDownloader.write_csv_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_downloader.AirNowDownloader.write_csv_header" title="Permalink to this definition"></a></dt>
-<dd><p>Internal method used by download
-Writes CSV file ehader</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epa.airnow_downloader.AirNowDownloader.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/epa/airnow_downloader.html#AirNowDownloader.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_downloader.AirNowDownloader.process" title="Permalink to this definition"></a></dt>
-<dd><p>Internal method</p>
-<p>Aggregates hourly data into day’s averages and joins with geographic
-information such as state, county, zip code.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><span class="target" id="epa.airnow_downloader.AirNowDownloader.process.params.content"></span><strong>content</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_downloader.AirNowDownloader.process.params.content">¶</a> – Raw content received from AirNow API call
-see: <a class="reference external" href="https://docs.airnowapi.org/Data/docs">https://docs.airnowapi.org/Data/docs</a></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of dictinaries, where each row is represented as a
-dictionary, with column names serving as keys</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epa.airnow_downloader.AirNowDownloader.download_range">
-<span class="sig-name descname"><span class="pre">download_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.date(2021,</span> <span class="pre">12,</span> <span class="pre">11)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/airnow_downloader.html#AirNowDownloader.download_range"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_downloader.AirNowDownloader.download_range" title="Permalink to this definition"></a></dt>
-<dd><p>Downloads data for a range of dates. To invoke this method the
-application must have specified a target file</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="epa.airnow_downloader.AirNowDownloader.download_range.params.start_date"></span><strong>start_date</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_downloader.AirNowDownloader.download_range.params.start_date">¶</a> – First date in the range to download (inclusive)</p></li>
-<li><p><span class="target" id="epa.airnow_downloader.AirNowDownloader.download_range.params.end_date"></span><strong>end_date</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_downloader.AirNowDownloader.download_range.params.end_date">¶</a> – Last date in the range to download (inclusive)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <section id="downloader-for-airnow">
+<h1>Downloader for AirNow<a class="headerlink" href="#downloader-for-airnow" title="Permalink to this headline"></a></h1>
 </section>
 
 
@@ -184,6 +95,7 @@ application must have specified a target file</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="aqs_tools.html" class="btn btn-neutral float-left" title="Internal scripts used for download tasks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../pipeline/airnow.html" class="btn btn-neutral float-right" title="Full Medicaid Processing Pipeline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

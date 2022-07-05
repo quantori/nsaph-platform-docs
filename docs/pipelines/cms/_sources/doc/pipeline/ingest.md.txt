@@ -46,7 +46,7 @@ This tool is a shortcut to ingest CMS raw data
 
 | Name | Runs | Description |
 |------|------|-------------|
-|reset|[reset.cwl](reset.html)|Initializes Raw CMS tables|
-|create|[load_raw.cwl](load_raw.html)|Run data loader to load files to the database|
-|index|[index.cwl](index.html)|Build indices|
-|vacuum|[vacuum.cwl](vacuum.html)|Vacuum the view|
+|reset|[reset.cwl](reset.md)|Initializes Raw CMS tables|
+|create|[load_raw.cwl](load_raw.md)|Run data loader to load files to the database|
+|index|[index.cwl](index.md)|Build indices|
+|vacuum|[vacuum.cwl](vacuum.md)|Vacuum the view|

@@ -18,7 +18,9 @@
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Introspector for downloaded data file" href="introspect.html" />
+    <link rel="prev" title="Index Builder" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,7 +39,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Toolkit for downloading and preprocessing of data provided by EPA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">EPA Toolkit Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../members/aqs.html">Main Class for EPA AQS Package</a></li>
@@ -46,6 +48,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../members/airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../members/aqs_tools.html">Internal scripts used for download tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../members/airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index Builder</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_airnow.html">Prepare environment for AirNow</a></li>
 </ul>
 
         </div>
@@ -64,7 +78,7 @@
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Uploader of the EPA Data to the database</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/doc/pipeline/ingest.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/doc/pipeline/ingest.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,120 +88,111 @@
              
   <section id="uploader-of-the-epa-data-to-the-database">
 <h1>Uploader of the EPA Data to the database<a class="headerlink" href="#uploader-of-the-epa-data-to-the-database" title="Permalink to this headline"></a></h1>
-<p><strong>Tool</strong> 	<a class="reference external" href="../../../../platform/doc/members/data_loader.html">nsaph.loader.data_loader</a></p>
-<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/ingest.cwl">ingest.cwl</a></p>
-<!-- toc --><ul class="simple">
-<li><p><a class="reference external" href="#description">Description</a></p></li>
-<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
-<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
-</ul>
-<!-- tocstop --><section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
-<p>This tool uploads the data to the database</p>
-</section>
-<section id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+<p class="rubric">Tool [‘python’, ‘-m’, ‘nsaph.loader.data_loader’]</p>
+<p class="rubric">Description<p>This tool uploads the data to the database
+</p>
+</p>
+<p class="rubric">Inputs<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
 <thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>registry</td>
-<td>File</td>
-<td></td>
-<td>A path to the data model file</td>
+<tr class="row-even"><td><p>registry</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+<td><p>A path to the data model file </p></td>
 </tr>
-<tr>
-<td>table</td>
-<td>string</td>
-<td></td>
-<td>the name of the table to be created</td>
+<tr class="row-odd"><td><p>table</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>the name of the table to be created</p></td>
 </tr>
-<tr>
-<td>database</td>
-<td>File</td>
-<td></td>
-<td>Path to database connection file, usually database.ini</td>
+<tr class="row-even"><td><p>database</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+<td><p>Path to database connection file, usually database.ini</p></td>
 </tr>
-<tr>
-<td>connection_name</td>
-<td>string</td>
-<td></td>
-<td>The name of the section in the database.ini file</td>
+<tr class="row-odd"><td><p>connection_name</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>The name of the section in the database.ini file</p></td>
 </tr>
-<tr>
-<td>input</td>
-<td>File</td>
-<td></td>
-<td>A path the downloaded data file</td>
+<tr class="row-even"><td><p>input</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+<td><p>A path the downloaded data file </p></td>
 </tr>
-<tr>
-<td>threads</td>
-<td>int</td>
-<td><code>4</code></td>
-<td>number of threads, concurrently writing into the database</td>
+<tr class="row-odd"><td><p>threads</p></td>
+<td><p>int</p></td>
+<td><p>`4`</p></td>
+<td><p>number of threads, concurrently writing into the database</p></td>
 </tr>
-<tr>
-<td>page_size</td>
-<td>int</td>
-<td><code>1000</code></td>
-<td>explicit page size for the database</td>
+<tr class="row-even"><td><p>page_size</p></td>
+<td><p>int</p></td>
+<td><p>`1000`</p></td>
+<td><p>explicit page size for the database</p></td>
 </tr>
-<tr>
-<td>log_frequency</td>
-<td>long</td>
-<td><code>100000</code></td>
-<td>informational logging occurs every specified number of records</td>
+<tr class="row-odd"><td><p>log_frequency</p></td>
+<td><p>long</p></td>
+<td><p>`100000`</p></td>
+<td><p>informational logging occurs every specified number of records</p></td>
 </tr>
-<tr>
-<td>limit</td>
-<td>long</td>
-<td></td>
-<td>if specified, the process will stop after ingesting the specified number of records</td>
+<tr class="row-even"><td><p>limit</p></td>
+<td><p>long</p></td>
+<td><p> </p></td>
+<td><p>if specified, the process will stop after ingesting the specified number of records </p></td>
 </tr>
-<tr>
-<td>depends_on</td>
-<td>File</td>
-<td></td>
-<td>a special field used to enforce dependencies and execution order</td>
+<tr class="row-odd"><td><p>depends_on</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+<td><p>a special field used to enforce dependencies and execution order</p></td>
 </tr>
 </tbody>
-</table></section>
-<section id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+</table>
+</p>
+<p class="rubric">Outputs<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
 </tr>
-<tr>
-<td>errors</td>
-<td>stderr</td>
-<td></td>
+<tr class="row-odd"><td><p>errors</p></td>
+<td><p>stderr</p></td>
+<td><p> </p></td>
 </tr>
 </tbody>
-</table></section>
+</table>
+</p>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Index Builder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="introspect.html" class="btn btn-neutral float-right" title="Introspector for downloaded data file" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

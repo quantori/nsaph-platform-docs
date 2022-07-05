@@ -48,6 +48,18 @@
 <li class="toctree-l1"><a class="reference internal" href="airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aqs_tools.html">Internal scripts used for download tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/download_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Index Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/ingest.html">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/setup_airnow.html">Prepare environment for AirNow</a></li>
 </ul>
 
         </div>
@@ -74,8 +86,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-epa.aqs">
-<span id="main-class-for-epa-aqs-package"></span><h1>Main Class for EPA AQS Package<a class="headerlink" href="#module-epa.aqs" title="Permalink to this headline"></a></h1>
+  <section id="module-python.epa.aqs">
+<span id="main-class-for-epa-aqs-package"></span><h1>Main Class for EPA AQS Package<a class="headerlink" href="#module-python.epa.aqs" title="Permalink to this headline"></a></h1>
 <p>Python module to download EPA AQS Data hosted at <a class="reference external" href="https://www.epa.gov/aqs">https://www.epa.gov/aqs</a></p>
 <p>The utility expects user to specify a list of years, a list of
 EPA Parameter Codes (see <a class="reference external" href="https://www.epa.gov/aqs/aqs-code-list">https://www.epa.gov/aqs/aqs-code-list</a>)
@@ -83,15 +95,15 @@ and some instructions how to format output</p>
 <p>The data is downloaded from <a class="reference external" href="https://aqs.epa.gov/aqsweb/airdata/download_files.html">https://aqs.epa.gov/aqsweb/airdata/download_files.html</a></p>
 <p>The tool also adds a column containing a uniquely generated Monitor Key</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="epa.aqs.AQS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AQS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="aqs_ds_def.html#epa.aqs_ds_def.AQSContext" title="epa.aqs_ds_def.AQSContext"><span class="pre">epa.aqs_ds_def.AQSContext</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/aqs.html#AQS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.aqs.AQS" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="python.epa.aqs.AQS">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">AQS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">epa.aqs_ds_def.AQSContext</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/python/epa/aqs.html#AQS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python.epa.aqs.AQS" title="Permalink to this definition"></a></dt>
 <dd><p>Main class, describes the whole download job</p>
 <p>Creates a new instance
-:param _sphinx_paramlinks_epa.aqs.AQS.context: An optional AQSContext object, if not specified,
+:param _sphinx_paramlinks_python.epa.aqs.AQS.context: An optional AQSContext object, if not specified,
 then it is constructed from the command line arguments</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="epa.aqs.AQS.collect_downloads">
-<span class="sig-name descname"><span class="pre">collect_downloads</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/aqs.html#AQS.collect_downloads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.aqs.AQS.collect_downloads" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="python.epa.aqs.AQS.collect_downloads">
+<span class="sig-name descname"><span class="pre">collect_downloads</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/python/epa/aqs.html#AQS.collect_downloads"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python.epa.aqs.AQS.collect_downloads" title="Permalink to this definition"></a></dt>
 <dd><p>Constructs a list of all download tasks necessary to execute to
 download all the data defined in the configuration ()</p>
 <dl class="field-list simple">
@@ -102,8 +114,8 @@ download all the data defined in the configuration ()</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="epa.aqs.AQS.is_downloaded">
-<span class="sig-name descname"><span class="pre">is_downloaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/aqs.html#AQS.is_downloaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.aqs.AQS.is_downloaded" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="python.epa.aqs.AQS.is_downloaded">
+<span class="sig-name descname"><span class="pre">is_downloaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/python/epa/aqs.html#AQS.is_downloaded"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python.epa.aqs.AQS.is_downloaded" title="Permalink to this definition"></a></dt>
 <dd><p>Checks if there anything remains to be downloaded or if all
 files are up to date</p>
 <dl class="field-list simple">
@@ -114,15 +126,15 @@ files are up to date</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="epa.aqs.AQS.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/aqs.html#AQS.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.aqs.AQS.clear" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="python.epa.aqs.AQS.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/python/epa/aqs.html#AQS.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python.epa.aqs.AQS.clear" title="Permalink to this definition"></a></dt>
 <dd><p>Removes all previously downloaded data from the local storage
 :return: Nothing</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="epa.aqs.AQS.download">
-<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/aqs.html#AQS.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.aqs.AQS.download" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="python.epa.aqs.AQS.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/python/epa/aqs.html#AQS.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python.epa.aqs.AQS.download" title="Permalink to this definition"></a></dt>
 <dd><p>Downloads all remaining data absent or not up to date)
 :return: Nothing</p>
 </dd></dl>

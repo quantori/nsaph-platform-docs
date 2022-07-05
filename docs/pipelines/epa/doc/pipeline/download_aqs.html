@@ -18,7 +18,9 @@
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Resource Loader" href="ensure_resource.html" />
+    <link rel="prev" title="Downloader of AirNow Data" href="download_airnow.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,7 +39,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Toolkit for downloading and preprocessing of data provided by EPA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">EPA Toolkit Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../members/aqs.html">Main Class for EPA AQS Package</a></li>
@@ -46,6 +48,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../members/airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../members/aqs_tools.html">Internal scripts used for download tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../members/airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ingest.html">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_airnow.html">Prepare environment for AirNow</a></li>
 </ul>
 
         </div>
@@ -64,7 +78,7 @@
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Downloader of AQS Data</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/doc/pipeline/download_aqs.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/doc/pipeline/download_aqs.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,83 +88,77 @@
              
   <section id="downloader-of-aqs-data">
 <h1>Downloader of AQS Data<a class="headerlink" href="#downloader-of-aqs-data" title="Permalink to this headline"></a></h1>
-<p><strong>Tool</strong> 	<a class="reference external" href="members/aqs.html">epa.aqs</a></p>
-<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/download_aqs.cwl">download_aqs.cwl</a></p>
-<!-- toc --><ul class="simple">
-<li><p><a class="reference external" href="#description">Description</a></p></li>
-<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
-<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
-</ul>
-<!-- tocstop --><section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
-<p>This tool downloads AQS data from EPA website</p>
-</section>
-<section id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+<p class="rubric">Tool [‘wget’]</p>
+<p class="rubric">Description<p>This tool downloads AQS data from EPA website
+</p>
+</p>
+<p class="rubric">Inputs<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
 <thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>proxy</td>
-<td>string</td>
-<td>``</td>
-<td>HTTP/HTTPS Proxy if required</td>
+<tr class="row-even"><td><p>aggregation</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>Aggregation type: annual or daily</p></td>
 </tr>
-<tr>
-<td>aggregation</td>
-<td>string</td>
-<td></td>
-<td>Aggregation type: annual or daily</td>
+<tr class="row-odd"><td><p>parameter_code</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: [AQS Code List](https://www.epa.gov/aqs/aqs-code-list) </p></td>
 </tr>
-<tr>
-<td>parameter_code</td>
-<td>string</td>
-<td></td>
-<td>Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: <a href="https://www.epa.gov/aqs/aqs-code-list">AQS Code List</a></td>
+<tr class="row-even"><td><p>year</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>Year to download</p></td>
+</tr>
+<tr class="row-odd"><td><p>proxy</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>Proxy for connection</p></td>
 </tr>
 </tbody>
-</table></section>
-<section id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+</table>
+</p>
+<p class="rubric">Outputs<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>log</td>
-<td>File</td>
-<td></td>
-</tr>
-<tr>
-<td>data</td>
-<td>File</td>
-<td></td>
-</tr>
-<tr>
-<td>errors</td>
-<td>stderr</td>
-<td></td>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
 </tr>
 </tbody>
-</table></section>
+</table>
+</p>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="download_airnow.html" class="btn btn-neutral float-left" title="Downloader of AirNow Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ensure_resource.html" class="btn btn-neutral float-right" title="Resource Loader" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

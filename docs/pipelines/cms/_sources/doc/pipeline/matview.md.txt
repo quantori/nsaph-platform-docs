@@ -43,6 +43,6 @@ all indices associated with the view
 
 | Name | Runs | Description |
 |------|------|-------------|
-|create|[create.cwl](create.html)|Execute DDL|
-|index|[index.cwl](index.html)|Build indices|
-|vacuum|[vacuum.cwl](vacuum.html)|Vacuum the view|
+|create|[create.cwl](create.md)|Execute DDL|
+|index|[index.cwl](index.md)|Build indices|
+|vacuum|[vacuum.cwl](vacuum.md)|Vacuum the view|

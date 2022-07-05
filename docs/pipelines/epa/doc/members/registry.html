@@ -46,6 +46,18 @@
 <li class="toctree-l1"><a class="reference internal" href="airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aqs_tools.html">Internal scripts used for download tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/download_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Index Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/ingest.html">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/setup_airnow.html">Prepare environment for AirNow</a></li>
 </ul>
 
         </div>
@@ -78,7 +90,7 @@
 downloaded files</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="epa.registry.EPAConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EPAConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/registry.html#EPAConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.registry.EPAConfig" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">EPAConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/registry.html#EPAConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.registry.EPAConfig" title="Permalink to this definition"></a></dt>
 <dd><p>Creates a new object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -114,7 +126,7 @@ If not specified, then it is extracted from subclass documentation</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="epa.registry.Registry">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#epa.registry.EPAConfig" title="epa.registry.EPAConfig"><span class="pre">epa.registry.EPAConfig</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/registry.html#Registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.registry.Registry" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#epa.registry.EPAConfig" title="epa.registry.EPAConfig"><span class="pre">epa.registry.EPAConfig</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/registry.html#Registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.registry.Registry" title="Permalink to this definition"></a></dt>
 <dd><p>This class parses File Transfer Summary files and
 creates YAML data model. It can either
 update built-in registry or write
@@ -126,7 +138,7 @@ the model to a designated path</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="epa.registry.Registry.create_domain_yaml">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_domain_yaml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../../_modules/epa/registry.html#Registry.create_domain_yaml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.registry.Registry.create_domain_yaml" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">create_domain_yaml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="reference internal" href="../../_modules/epa/registry.html#Registry.create_domain_yaml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.registry.Registry.create_domain_yaml" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">

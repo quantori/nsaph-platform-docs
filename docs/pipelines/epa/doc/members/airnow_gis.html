@@ -46,6 +46,18 @@
 <li class="toctree-l1"><a class="reference internal" href="airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aqs_tools.html">Internal scripts used for download tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/download_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Index Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/ingest.html">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/setup_airnow.html">Prepare environment for AirNow</a></li>
 </ul>
 
         </div>
@@ -72,54 +84,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-epa.airnow_gis">
-<span id="the-airnow-gis-module"></span><h1>The airnow_gis Module<a class="headerlink" href="#module-epa.airnow_gis" title="Permalink to this headline"></a></h1>
-<p>Geographic Annotator annotates data frame containing
-latitude and longitude with
-labels coming from provided shape files, such as zip
-codes or county names (or FIPS codes)</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="epa.airnow_gis.GISAnnotator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GISAnnotator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'EPSG:4326'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/airnow_gis.html#GISAnnotator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_gis.GISAnnotator" title="Permalink to this definition"></a></dt>
-<dd><p>Geographic Annotator adds columns to a provided data frame
-containing latitude and longitude (or other CRS) with
-labels coming from provided shape files, such as zip
-codes or county names (or FIPS codes)</p>
-<p>Create the Annotator</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="epa.airnow_gis.GISAnnotator.params.shape_files"></span><strong>shape_files</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_gis.GISAnnotator.params.shape_files">¶</a> – list of paths to shape files</p></li>
-<li><p><span class="target" id="epa.airnow_gis.GISAnnotator.params.columns"></span><strong>columns</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_gis.GISAnnotator.params.columns">¶</a> – List of columns to be added by the annotator</p></li>
-<li><p><span class="target" id="epa.airnow_gis.GISAnnotator.params.crs"></span><strong>crs</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_gis.GISAnnotator.params.crs">¶</a> – Coordinate reference system (CRS) used by the input data</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="epa.airnow_gis.GISAnnotator.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/epa/airnow_gis.html#GISAnnotator.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_gis.GISAnnotator.init" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="epa.airnow_gis.GISAnnotator.join">
-<span class="sig-name descname"><span class="pre">join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'longitude'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latitude'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.core.frame.DataFrame</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/epa/airnow_gis.html#GISAnnotator.join"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow_gis.GISAnnotator.join" title="Permalink to this definition"></a></dt>
-<dd><p>Adds columns with the labels to teh data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><span class="target" id="epa.airnow_gis.GISAnnotator.join.params.df"></span><strong>df</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_gis.GISAnnotator.join.params.df">¶</a> – Incoming data frame</p></li>
-<li><p><span class="target" id="epa.airnow_gis.GISAnnotator.join.params.x"></span><strong>x</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_gis.GISAnnotator.join.params.x">¶</a> – A column, containing longitude</p></li>
-<li><p><span class="target" id="epa.airnow_gis.GISAnnotator.join.params.y"></span><strong>y</strong><a class="paramlink headerlink reference internal" href="#epa.airnow_gis.GISAnnotator.join.params.y">¶</a> – A column, containing latitude</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>data frame with added annotations</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <section id="the-airnow-gis-module">
+<h1>The airnow_gis Module<a class="headerlink" href="#the-airnow-gis-module" title="Permalink to this headline"></a></h1>
 </section>
 
 

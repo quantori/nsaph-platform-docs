@@ -96,14 +96,14 @@ information.
 
 | Name | Runs | Description |
 |------|------|-------------|
-|states|[ensure_resource.cwl](ensure_resource.html)|Ensures the presence of `us_states` table in the database. The table contains mapping between state names, ids (two letter abbreviations), FIPS codes and [ISO-3166-2 codes](https://en.wikipedia.org/wiki/ISO_3166-2) |
-|iso|[ensure_resource.cwl](ensure_resource.html)|Ensures the presence of `us_iso` table in the database. The table provides a mapping between states, counties and zip codes. It contains FIPS and [ISO-3166-2 codes](https://en.wikipedia.org/wiki/ISO_3166-2) |
-|fts|[parse_fts.cwl](parse_fts.html)| |
-|load_ps|[ingest.cwl](ingest.html)|Loads Patient Summaries|
-|load_ip|[ingest.cwl](ingest.html)|Loads inpatient admissions|
-|create_beneficiaries|[matview.cwl](matview.html)|Creates `Beneficiaries` Table|
-|create_monthly_view|[matview.cwl](matview.html)|Creates internally used `Monthly View`|
-|create_enrollments|[matview.cwl](matview.html)|Creates `Enrollment` Table|
-|prepare_eligibility|[create.cwl](create.html)|Creates `_Eligibility` View, prerequisit for creation of Eligibility table |
-|create_eligibility|[matview.cwl](matview.html)|Creates `Eligibility` Table|
-|load_admissions|[ingest.cwl](ingest.html)|Processes and loads inpatient admissions|
+|states|[ensure_resource.cwl](ensure_resource.md)|Ensures the presence of `us_states` table in the database. The table contains mapping between state names, ids (two letter abbreviations), FIPS codes and [ISO-3166-2 codes](https://en.wikipedia.org/wiki/ISO_3166-2) |
+|iso|[ensure_resource.cwl](ensure_resource.md)|Ensures the presence of `us_iso` table in the database. The table provides a mapping between states, counties and zip codes. It contains FIPS and [ISO-3166-2 codes](https://en.wikipedia.org/wiki/ISO_3166-2) |
+|fts|[parse_fts.cwl](parse_fts.md)| |
+|load_ps|[ingest.cwl](ingest.md)|Loads Patient Summaries|
+|load_ip|[ingest.cwl](ingest.md)|Loads inpatient admissions|
+|create_beneficiaries|[matview.cwl](matview.md)|Creates `Beneficiaries` Table|
+|create_monthly_view|[matview.cwl](matview.md)|Creates internally used `Monthly View`|
+|create_enrollments|[matview.cwl](matview.md)|Creates `Enrollment` Table|
+|prepare_eligibility|[create.cwl](create.md)|Creates `_Eligibility` View, prerequisit for creation of Eligibility table |
+|create_eligibility|[matview.cwl](matview.md)|Creates `Eligibility` Table|
+|load_admissions|[ingest.cwl](ingest.md)|Processes and loads inpatient admissions|

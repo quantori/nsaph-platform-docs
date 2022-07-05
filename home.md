@@ -40,6 +40,9 @@ Included utilities:
 
 <!-- end of section overview from nsaph_utils -->
 
+[Package Description](utils)
+
+
 ## Core Platform
 
 <!-- section overview from nsaph -->
@@ -57,7 +60,7 @@ The project structure can also be in flux.
 <!-- end of section overview from nsaph -->
 
 
-[Package Description](platform)
+[Package Description](core-platform)
 
    
 ## Data Ingestion and Processing Pipelines
@@ -67,4 +70,4 @@ The project structure can also be in flux.
 | EPA | [EPA Pipelines](pipelines/epa/index.html)       |
 | Census | [Census Package](pipelines/census/index.html)   |
 | Gridmet | [Gridmet package](pipelines/gridmet/index.html) |
-| CMS | [Medicaid Piepline](pipelines/cms/index.html[)  |
+| CMS | [Medicaid Piepline](pipelines/cms/index.html)  |
