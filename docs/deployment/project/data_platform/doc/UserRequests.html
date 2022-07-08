@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preliminary Considerations for Handling User Requests &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Howto.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Testing.html">Testing the installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Glossary.html">Glossary and FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/UsefulCommands.html">Some useful commands:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Preliminary Considerations for Handling User Requests</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/project/data_platform/doc/UserRequests.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="preliminary-considerations-for-handling-user-requests">
+<h1>Preliminary Considerations for Handling User Requests<a class="headerlink" href="#preliminary-considerations-for-handling-user-requests" title="Permalink to this headline"></a></h1>
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
+<li><p><a class="reference external" href="#structure">Structure</a></p></li>
+</ul>
+<!-- tocstop --><section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p>This document describes some considerations and<br />a very preliminary format
+of a potential user request. It describes
+possible implementations of exporting and packaging
+data.</p>
+<p>A very crude and basic
+<a class="reference external" href="../src/yml/example_request.yaml">example</a>
+describes a request to export climate data for a set
+of places and dates.</p>
+</section>
+<section id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><strong>name</strong>. This is a name of the request</p></li>
+<li><p><strong>source</strong>. Source of the request, it can indicate
+a pipeline that has to be run to obtain the data
+or another way of building the data required for
+the request. Our software wil dispatch the actual
+reuqest based on this value. Each value has to be
+specifically implemented by us.</p></li>
+<li><p><strong>variables</strong>. List of variables that should be included
+in the package given to the user. Our software
+will figure out how to retrieve a specified variable.
+If a way to retrieve a variable cannot be determined,
+an error will be generated. Current prototype
+implementation searches for columns with appropriate
+names in the tables defined in the module specified
+in the <strong>source</strong> section.</p></li>
+<li><p><strong>restrict</strong>. This section specifies filters to restrict
+the data included in the package. Each filter is specified
+in the format <code class="docutils literal notranslate"><span class="pre">variable:</span> <span class="pre">value</span> <span class="pre">|</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">values</span></code>. If a
+variable contains sub-variables (e.g., date has years,
+months, days, etc.). Then sub-variables and their values
+can be specified. Variables used in <strong>restrict</strong> section
+do not necessarily be included in the <strong>variables</strong> section.</p></li>
+<li><p><strong>package</strong>.  This section defines how to package the data
+for the user. In the example we package it as HDF5,
+grouping by state and date. Grouping variables must be
+included iin the <strong>variables</strong> section.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSAPH Data Platform Deployment &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="NSAPH Data Platform" href="README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Howto.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Testing.html">Testing the installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Glossary.html">Glossary and FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/UsefulCommands.html">Some useful commands:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>NSAPH Data Platform Deployment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nsaph-data-platform-deployment">
+<h1>NSAPH Data Platform Deployment<a class="headerlink" href="#nsaph-data-platform-deployment" title="Permalink to this headline"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">NSAPH Data Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="README.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#testing">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Guide.html">CWL-Airflow Deployment Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/Guide.html#what-is-in">What is in</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Howto.html">Howto</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/Howto.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Howto.html#deployment-steps">Deployment Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Howto.html#building-containers">Building Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Howto.html#copying-dags-to-airflow-folder">Copying DAGs to Airflow folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Howto.html#local-development">Local development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Configuration.html">Configuration Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#what-can-be-configured">What can be configured</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#selecting-base-configuration">Selecting base configuration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#controlling-conda-environments">Controlling Conda environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#configuring-installation-of-third-party-requirements">Configuring installation of third-party requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#configuring-user-projects">Configuring user projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#configure-git-submodules">Configure Git submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#overriding-base-url">Overriding BASE_URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#airflow-admin-username-and-password">Airflow admin username and password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#configurations-related-to-postgresql">Configurations related to PostgreSQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Configuration.html#overriding-default-parameters">Overriding default parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Testing.html">Testing the installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/Testing.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Testing.html#included-examples">Included examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Testing.html#testing-command-line-mode">Testing command line mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Testing.html#testing-airflow-user-interface">Testing Airflow User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/Glossary.html">Glossary and FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/Glossary.html#what-is-cwl">What is CWL?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Glossary.html#what-is-airflow">What is Airflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Glossary.html#what-is-cwl-airflow">What is CWL-Airflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Glossary.html#what-is-docker">What is Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Glossary.html#what-is-docker-compose">What is Docker-compose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Glossary.html#what-is-conda">What is Conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/Glossary.html#what-is-postgresql">What is PostgreSQL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs/UsefulCommands.html">Some useful commands:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs/UsefulCommands.html#to-view-logs-of-the-running-containers">To view logs of the running containers:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/UsefulCommands.html#to-attach-to-the-started-container-bash">To attach to the started container (bash)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/UsefulCommands.html#attach-to-a-container-when-it-does-not-start">Attach to a container when it does not start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/UsefulCommands.html#to-stop-all-your-containers">To stop all your containers:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/UsefulCommands.html#to-delete-all-images-and-containers">To delete all images and containers:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/UsefulCommands.html#to-delete-postgresql-volumes">To delete PostgreSQL volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/UsefulCommands.html#upgrade-airflow-database">Upgrade Airflow Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs/UsefulCommands.html#create-airflow-user">Create Airflow user</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="README.html" class="btn btn-neutral float-right" title="NSAPH Data Platform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

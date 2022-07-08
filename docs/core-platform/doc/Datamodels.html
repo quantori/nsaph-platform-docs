@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Modelling for NSAPH Data Platform &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NSAPH Data Loader" href="DataLoader.html" />
+    <link rel="prev" title="NSAPH Data Platform" href="../README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Modelling for NSAPH Data Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#domain">Domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#table">Table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#invalid-record">Invalid Record</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#column">Column</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source">Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generated-columns">Generated columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computed-columns">Computed Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-column">File column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#record-column">Record column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transposing-columns">Transposing Columns</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-column-indices">Multi-column indices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generation-of-the-database-schema-ddl">Generation of the database schema (DDL)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#indexing-policies">Indexing Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linking-with-nomenclature">Linking with nomenclature</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#us-states">US States</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ingesting-data">Ingesting Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataLoader.html">NSAPH Data Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjectLoader.html">Project (Directory) Loading Utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TerritorialCodes.html">Mapping between different territorial codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SampleQuery.html">How to query the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="UserRequests.html">Preliminary Considerations for Handling User Requests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Data Modelling for NSAPH Data Platform</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/doc/Datamodels.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-modelling-for-nsaph-data-platform">
+<h1>Data Modelling for NSAPH Data Platform<a class="headerlink" href="#data-modelling-for-nsaph-data-platform" title="Permalink to this headline"></a></h1>
+<p><strong>How data models are defined and handled</strong></p>
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
+<li><p><a class="reference external" href="#domain">Domain</a></p></li>
+<li><p><a class="reference external" href="#table">Table</a></p>
+<ul>
+<li><p><a class="reference external" href="#invalid-record">Invalid Record</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#column">Column</a></p>
+<ul>
+<li><p><a class="reference external" href="#source">Source</a></p></li>
+<li><p><a class="reference external" href="#generated-columns">Generated columns</a></p></li>
+<li><p><a class="reference external" href="#computed-columns">Computed Columns</a></p></li>
+<li><p><a class="reference external" href="#file-columns">File columns</a></p></li>
+<li><p><a class="reference external" href="#transposing-columns">Transposing Columns</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#multi-column-indices">Multi-column indices</a></p></li>
+<li><p><a class="reference external" href="#generation-of-the-database-schema-ddl">Generation of the database schema (DDL)</a></p></li>
+<li><p><a class="reference external" href="#indexing-policies">Indexing Policies</a></p></li>
+<li><p><a class="reference external" href="#ingesting-data">Ingesting Data</a></p></li>
+</ul>
+<!-- tocstop --><section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<p>Data models consist of database tables, relations between them
+(e.g. foreign keys), indices and conventions that govern things
+like namings and roles of specific columns.</p>
+<p>We assume that a model is defined for a specific knowledge domain.
+Between domains, data can be linked based on the naming conventions
+for columns. For instance, a column named <code class="docutils literal notranslate"><span class="pre">zipcode</span></code> means the US zip
+code in any domain and thus can be used for linkages and aggregations.</p>
+<p>Currently, we are in the process of defining data models for the
+following domains</p>
+<ul class="simple">
+<li><p>Medicaid</p></li>
+<li><p>EPA</p></li>
+<li><p>Census</p></li>
+<li><p>Gridmet</p></li>
+</ul>
+</section>
+<section id="domain">
+<h2>Domain<a class="headerlink" href="#domain" title="Permalink to this headline"></a></h2>
+<p>Handling domains is implemented by the
+<a class="reference external" href="members/domain.html">Domain</a> class.</p>
+<p>For each domain, its data model is defined by a YAML file in
+the following directory: <a class="reference external" href="../src/yml">src/yml</a></p>
+<p>Each model is represented by a “forest”: a set of treelike
+structures of tables. It can contain one or several root tables</p>
+<p>Domain should be the first entry in the YAML file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_domain</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>The following parameters can be defined fro domain:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>schema</td>
+<td>yes</td>
+<td>Database schema, in which all tables are generated</td>
+</tr>
+<tr>
+<td>schema.audit</td>
+<td>no</td>
+<td>Database schema for tables containing audit logs of data ingestion, including corrupted, duplicate and inconsistent records</td>
+</tr>
+<tr>
+<td>index</td>
+<td>no</td>
+<td>Default indexing policy for this domain. This policy is used for tables that do not define their own indexing policy</td>
+</tr>
+<tr>
+<td>tables</td>
+<td>yes</td>
+<td>list of table definitions</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>description of this domain to be included in auto-generated documentation</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>no</td>
+<td>URL with external documentation</td>
+</tr>
+<tr>
+<td>header</td>
+<td>no</td>
+<td>Boolean value, passed to CSV loader. Describes input source rather than data model itself</td>
+</tr>
+<tr>
+<td>quoting</td>
+<td>no</td>
+<td>Numeric value, passed to CSV loader. Describes input source rather than data model itself (QUOTE_MINIMAL=0, QUOTE_ALL=1, QUOTE_NONNUMERIC=2, QUOTE_NONE=3)</td>
+</tr>
+</tbody>
+</table></section>
+<section id="table">
+<h2>Table<a class="headerlink" href="#table" title="Permalink to this headline"></a></h2>
+<p>The following parameters can be defined for a table:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>no</td>
+<td>view / table</td>
+</tr>
+<tr>
+<td>hard_linked</td>
+<td>no</td>
+<td>Denotes that the table is an integral part of parent table rather than a separate table with a many-to-one relationship to the parent table</td>
+</tr>
+<tr>
+<td>columns</td>
+<td>yes</td>
+<td>list of column definitions</td>
+</tr>
+<tr>
+<td>indices or indexes</td>
+<td>yes</td>
+<td>dictionary of multi-column indices</td>
+</tr>
+<tr>
+<td>primary_key</td>
+<td>yes</td>
+<td>list of column names included in the table primary key</td>
+</tr>
+<tr>
+<td>children</td>
+<td>no</td>
+<td>list of table definitions for child tables of this table</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>description of this domain to be included in auto-generated documentation</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>no</td>
+<td>URL with external documentation</td>
+</tr>
+<tr>
+<td>invalid.records</td>
+<td>no</td>
+<td><a href="#invalid-record">action</a> to be performed upon encountering an invalid record (corrupted, incomplete, duplicate, etc.)</td>
+</tr>
+</tbody>
+</table><section id="invalid-record">
+<h3>Invalid Record<a class="headerlink" href="#invalid-record" title="Permalink to this headline"></a></h3>
+<p>By default, an exception is raised if an invalid
+record is encountered during data ingestion. However,
+it is possible to override this behaviour by instructing
+the data loader to either ignore such records or put them
+in a special audit table.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>yes</td>
+<td>Action to be performed: <code>INSERT</code> or <code>IGNORE</code></td>
+</tr>
+<tr>
+<td>target</td>
+<td>yes/no</td>
+<td>For action INSERT - a target table</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>description of this domain to be included in auto-generated documentation</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>no</td>
+<td>URL with external documentation</td>
+</tr>
+</tbody>
+</table></section>
+</section>
+<section id="column">
+<h2>Column<a class="headerlink" href="#column" title="Permalink to this headline"></a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>yes</td>
+<td>Database type</td>
+</tr>
+<tr>
+<td>source</td>
+<td>no</td>
+<td><a href="#source">source</a> of the data</td>
+</tr>
+<tr>
+<td>index</td>
+<td>no</td>
+<td>Override default to build an index based on this column. Possible values: true/false/dictionary, specifying index name and/or parameters</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>description of this domain to be included in auto-generated documentation</td>
+</tr>
+<tr>
+<td>reference</td>
+<td>no</td>
+<td>URL with external documentation</td>
+</tr>
+</tbody>
+</table><p>Beside “normal” columns, when the value is
+directly taken from a column in a tabular input source,
+there are three types of special columns:</p>
+<ul class="simple">
+<li><p>Computed columns</p></li>
+<li><p>Generated columns</p></li>
+<li><p>Transposed columns (i.e., when multiple
+columns of a single record are converted to multiple
+records)</p></li>
+</ul>
+<p>Special columns must have their <code class="docutils literal notranslate"><span class="pre">source</span></code> defined. If a column
+name in input source is different from a column name in the
+database, such column also must define <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
+<section id="source">
+<h3>Source<a class="headerlink" href="#source" title="Permalink to this headline"></a></h3>
+<p>Source must be defined for special columns and for columns
+with the name in the database different from the name
+in the input source.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column name</td>
+<td>no</td>
+<td>A column name in the incoming tabular data</td>
+</tr>
+<tr>
+<td>type</td>
+<td>no</td>
+<td>Types: <code>generated</code>, <code>multi_column</code>, <code>range</code>, <code>compute</code>, <code>file</code></td>
+</tr>
+<tr>
+<td>range</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>no</td>
+<td>Code for generated and computed columns</td>
+</tr>
+<tr>
+<td>columns</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td>parameters</td>
+<td>no</td>
+<td></td>
+</tr>
+</tbody>
+</table></section>
+<section id="generated-columns">
+<h3>Generated columns<a class="headerlink" href="#generated-columns" title="Permalink to this headline"></a></h3>
+<p>Generated columns are columns that are not present in the source
+(e.g. CSV or FST file) but whose value
+is automatically computed using other columns values,
+or another deterministic expression <strong><em>inside the database</em></strong>.</p>
+<p>From <a class="reference external" href="https://www.postgresql.org/docs/current/ddl-generated-columns.html">PostgreSQL Documentation</a>:</p>
+<blockquote>
+<div><p>Theoretically, generated columns are for columns
+what a view is for tables. There are two kinds of
+generated columns: stored and virtual. A stored
+generated column is computed when it is written
+(inserted or updated) and occupies storage as if
+it were a normal column. A virtual generated column
+occupies no storage and is computed when it is read.
+Thus, a virtual generated column is similar to a
+view and a stored generated column is similar to a
+materialized view (except that it is always updated automatically).</p>
+</div></blockquote>
+<blockquote>
+<div><p>However, <strong>PostgreSQL currently implements only STORED generated columns</strong>.</p>
+</div></blockquote>
+</section>
+<section id="computed-columns">
+<h3>Computed Columns<a class="headerlink" href="#computed-columns" title="Permalink to this headline"></a></h3>
+<p>Computed columns are columns that are not present in the source
+(e.g. CSV or FST file) but whose value is computed
+using provided Python code by the Universal Database Loader.
+They use the values of other columns in the same record and can call
+out to standard Python functions.</p>
+<p>The columns used for computation are listed in either <code class="docutils literal notranslate"><span class="pre">columns</span></code>
+or <code class="docutils literal notranslate"><span class="pre">parameters</span> </code>sections. Column names are names of the original
+columns in the data file. To reference columns in the
+database use parameters.
+Referenced them by a number in curly brackets in the compute code.</p>
+<p>Here is an example of a computed column:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">admission_date</span><span class="p">:</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;DATE&quot;</span>
+    <span class="n">source</span><span class="p">:</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;compute&quot;</span>
+      <span class="n">columns</span><span class="p">:</span> 
+        <span class="o">-</span> <span class="s2">&quot;ADMSN_DT&quot;</span>
+      <span class="n">code</span><span class="p">:</span> <span class="s2">&quot;datetime.strptime(</span><span class="si">{1}</span><span class="s2">, &#39;%Y%m</span><span class="si">%d</span><span class="s2">&#39;).date()&quot;</span>
+</pre></div>
+</div>
+<p>Here in <code class="docutils literal notranslate"><span class="pre">code</span></code> the pattern <code class="docutils literal notranslate"><span class="pre">{1}</span></code> is replaced with the name of the
+first (and only) column in the list: <code class="docutils literal notranslate"><span class="pre">ADMSN_DT</span></code>.</p>
+<p>Another example, using database columns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">fips5</span><span class="p">:</span>
+    <span class="n">source</span><span class="p">:</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="s2">&quot;compute&quot;</span>
+      <span class="n">parameters</span><span class="p">:</span> 
+        <span class="o">-</span> <span class="n">state</span>
+        <span class="o">-</span> <span class="n">residence_county</span>
+      <span class="n">code</span><span class="p">:</span> <span class="s2">&quot;fips_dict[</span><span class="si">{1}</span><span class="s2">] * 1000 + int(</span><span class="si">{2}</span><span class="s2">)&quot;</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">{1}</span></code> references the value that would be inserted into the
+table column <code class="docutils literal notranslate"><span class="pre">state</span></code> and <code class="docutils literal notranslate"><span class="pre">{2}</span></code> references the value that
+would be inserted into the table column <code class="docutils literal notranslate"><span class="pre">residence_county</span></code>.</p>
+</section>
+<section id="file-column">
+<h3>File column<a class="headerlink" href="#file-column" title="Permalink to this headline"></a></h3>
+<p>File columns are of type <code class="docutils literal notranslate"><span class="pre">file</span></code>. They store the name of the file,
+from which the data has been ingested.</p>
+</section>
+<section id="record-column">
+<h3>Record column<a class="headerlink" href="#record-column" title="Permalink to this headline"></a></h3>
+<p>Record columns are of type <code class="docutils literal notranslate"><span class="pre">record</span></code>. They store the sequential
+index of the record (line number) in the file,
+from which the data has been ingested.</p>
+</section>
+<section id="transposing-columns">
+<h3>Transposing Columns<a class="headerlink" href="#transposing-columns" title="Permalink to this headline"></a></h3>
+</section>
+</section>
+<section id="multi-column-indices">
+<h2>Multi-column indices<a class="headerlink" href="#multi-column-indices" title="Permalink to this headline"></a></h2>
+<p>Multi-column indices of a table are defined in <code class="docutils literal notranslate"><span class="pre">indices</span></code> section
+(spelling <code class="docutils literal notranslate"><span class="pre">indexes</span></code> is also acceptable). This is a dictionary with an
+index name as a key and its definition as the value. At the very minimum,
+the definition should include the list of the columns to be used in the
+index.</p>
+<p>Index definition can also include
+<a class="reference external" href="https://www.postgresql.org/docs/current/indexes-types.html">index type</a>
+(e.g. btree, hash, etc.)  and data to be included with teh index.</p>
+</section>
+<section id="generation-of-the-database-schema-ddl">
+<h2>Generation of the database schema (DDL)<a class="headerlink" href="#generation-of-the-database-schema-ddl" title="Permalink to this headline"></a></h2>
+<p>From a domain YAML file, the database schema is
+generated in the form of PostgreSQL dialect of DDL.</p>
+<p>The main class responsible for the generation of DDL is
+<a class="reference external" href="../src/python/nsaph/data_model/domain.py#Domain">Domain</a></p>
+</section>
+<section id="indexing-policies">
+<h2>Indexing Policies<a class="headerlink" href="#indexing-policies" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><strong>explicit</strong>. Indices are only created for columns that
+define an index</p></li>
+<li><p><strong>all</strong> Indices are only created for all columns</p></li>
+<li><p><strong>selected</strong> Indices are only created for columns
+matching certain pattern (defined in <code class="docutils literal notranslate"><span class="pre">index_columns</span></code> variable
+of <a class="reference external" href="members/model.html">model</a>) module</p></li>
+<li><p><strong>unless excluded</strong> Indices are only created for all columns
+not explicitly excluded</p></li>
+</ul>
+</section>
+<section id="linking-with-nomenclature">
+<h2>Linking with nomenclature<a class="headerlink" href="#linking-with-nomenclature" title="Permalink to this headline"></a></h2>
+<section id="us-states">
+<h3>US States<a class="headerlink" href="#us-states" title="Permalink to this headline"></a></h3>
+<p>Database includes a table with codes for US states. It is taken from:</p>
+<p>https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/technical/nra/nri/results/?cid=nrcs143_013696</p>
+<p>The data leaves locally in <a class="reference external" href="members/fips.html">fips.py</a></p>
+<p>County codes:</p>
+<p>https://www.nber.org/research/data/ssa-federal-information-processing-series-fips-state-and-county-crosswalk</p>
+</section>
+</section>
+<section id="ingesting-data">
+<h2>Ingesting Data<a class="headerlink" href="#ingesting-data" title="Permalink to this headline"></a></h2>
+<p>The following command ingests data into a table and all hard-linked
+child tables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">python</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">m</span> <span class="n">nsaph</span><span class="o">.</span><span class="n">data_model</span><span class="o">.</span><span class="n">model2</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">domain</span> <span class="n">DOMAIN</span><span class="p">]</span> 
+            <span class="p">[</span><span class="o">--</span><span class="n">table</span> <span class="n">TABLE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">data</span> <span class="n">DATA</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">reset</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">autocommit</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">db</span> <span class="n">DB</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">connection</span> <span class="n">CONNECTION</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">page</span> <span class="n">PAGE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">log</span> <span class="n">LOG</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">limit</span> <span class="n">LIMIT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">buffer</span> <span class="n">BUFFER</span><span class="p">]</span>
+            <span class="p">[</span><span class="o">--</span><span class="n">threads</span> <span class="n">THREADS</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+<span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>              <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+<span class="o">--</span><span class="n">domain</span> <span class="n">DOMAIN</span>         <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">domain</span>
+<span class="o">--</span><span class="n">table</span> <span class="n">TABLE</span><span class="p">,</span> <span class="o">-</span><span class="n">t</span> <span class="n">TABLE</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">table</span> <span class="n">to</span> <span class="n">load</span> <span class="n">data</span> <span class="n">into</span>
+<span class="o">--</span><span class="n">data</span> <span class="n">DATA</span>             <span class="n">Path</span> <span class="n">to</span> <span class="n">a</span> <span class="n">data</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span><span class="o">.</span> <span class="n">Can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">single</span> <span class="n">CSV</span><span class="p">,</span>
+                        <span class="n">gzipped</span> <span class="n">CSV</span> <span class="ow">or</span> <span class="n">FST</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">directory</span> <span class="n">recursively</span>
+                        <span class="n">containing</span> <span class="n">CSV</span> <span class="n">files</span><span class="o">.</span> <span class="n">Can</span> <span class="n">also</span> <span class="n">be</span> <span class="n">a</span> <span class="n">tar</span><span class="p">,</span> <span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="p">(</span><span class="ow">or</span>
+                        <span class="n">tgz</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">zip</span> <span class="n">archive</span> <span class="n">containing</span> <span class="n">CSV</span> <span class="n">files</span>
+<span class="o">--</span><span class="n">pattern</span> <span class="n">PATTERN</span>       <span class="n">pattern</span> <span class="k">for</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">directory</span> <span class="ow">or</span> <span class="n">an</span> <span class="n">archive</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span>
+                        <span class="s2">&quot;**/maxdata_*_ps_*.csv&quot;</span>
+<span class="o">--</span><span class="n">reset</span>                 <span class="n">Force</span> <span class="n">recreating</span> <span class="n">table</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="n">it</span><span class="o">/</span><span class="n">they</span> <span class="n">already</span> <span class="n">exist</span>
+<span class="o">--</span><span class="n">incremental</span>           <span class="n">Commit</span> <span class="n">every</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">skip</span> <span class="n">over</span> <span class="n">files</span> <span class="n">that</span> <span class="n">have</span>
+                        <span class="n">already</span> <span class="n">been</span> <span class="n">ingested</span>
+<span class="o">--</span><span class="n">autocommit</span>            <span class="n">Use</span> <span class="n">autocommit</span>
+<span class="o">--</span><span class="n">db</span> <span class="n">DB</span>                 <span class="n">Path</span> <span class="n">to</span> <span class="n">a</span> <span class="n">database</span> <span class="n">connection</span> <span class="n">parameters</span> <span class="n">file</span>
+<span class="o">--</span><span class="n">connection</span> <span class="n">CONNECTION</span> <span class="n">Section</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">database</span> <span class="n">connection</span> <span class="n">parameters</span> <span class="n">file</span>
+<span class="o">--</span><span class="n">page</span> <span class="n">PAGE</span>             <span class="n">Explicit</span> <span class="n">page</span> <span class="n">size</span> <span class="k">for</span> <span class="n">the</span> <span class="n">database</span>
+<span class="o">--</span><span class="n">log</span> <span class="n">LOG</span>               <span class="n">Explicit</span> <span class="n">interval</span> <span class="k">for</span> <span class="n">logging</span>
+<span class="o">--</span><span class="n">limit</span> <span class="n">LIMIT</span>           <span class="n">Load</span> <span class="n">at</span> <span class="n">most</span> <span class="n">specified</span> <span class="n">number</span> <span class="n">of</span> <span class="n">records</span>
+<span class="o">--</span><span class="n">buffer</span> <span class="n">BUFFER</span>         <span class="n">Buffer</span> <span class="n">size</span> <span class="k">for</span> <span class="n">converting</span> <span class="n">fst</span> <span class="n">files</span>
+<span class="o">--</span><span class="n">threads</span> <span class="n">THREADS</span>       <span class="n">Number</span> <span class="n">of</span> <span class="n">threads</span> <span class="n">writing</span> <span class="n">into</span> <span class="n">the</span> <span class="n">database</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../README.html" class="btn btn-neutral float-left" title="NSAPH Data Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DataLoader.html" class="btn btn-neutral float-right" title="NSAPH Data Loader" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

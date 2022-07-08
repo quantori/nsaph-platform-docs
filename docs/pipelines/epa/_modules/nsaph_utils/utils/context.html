@@ -45,6 +45,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../doc/members/airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../doc/members/aqs_tools.html">Internal scripts used for download tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../doc/members/airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/download_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/index.html">Index Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/ingest.html">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/pipeline/setup_airnow.html">Prepare environment for AirNow</a></li>
 </ul>
 
         </div>
@@ -75,13 +87,32 @@
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Utilities to create context and configuration objects</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">#  Copyright (c) 2021. Harvard University</span>
+<span class="c1">#</span>
+<span class="c1">#  Developed by Research Software Engineering,</span>
+<span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
+<span class="c1">#  Author: Michael A Bouzinier</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#         http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+<span class="c1">#</span>
+
 <span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 
-<div class="viewcode-block" id="Cardinality"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#epa.airnow_ds_def.Cardinality">[docs]</a><span class="k">class</span> <span class="nc">Cardinality</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<div class="viewcode-block" id="Cardinality"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#python.epa.airnow_ds_def.Cardinality">[docs]</a><span class="k">class</span> <span class="nc">Cardinality</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Cardinality of a configuration parameter: multiple or singular</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -90,7 +121,7 @@
     <span class="n">multiple</span> <span class="o">=</span> <span class="s2">&quot;multiple&quot;</span></div>
 
 
-<div class="viewcode-block" id="Argument"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#epa.airnow_ds_def.Argument">[docs]</a><span class="k">class</span> <span class="nc">Argument</span><span class="p">:</span>
+<div class="viewcode-block" id="Argument"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#python.epa.airnow_ds_def.Argument">[docs]</a><span class="k">class</span> <span class="nc">Argument</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A wrapper class to describe a command-line arguments</span>
 <span class="sd">    This is practically, a more rigid format for</span>
@@ -188,7 +219,8 @@
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;--&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
 
-<div class="viewcode-block" id="Context"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#epa.airnow_ds_def.Context">[docs]</a><span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
+
+<div class="viewcode-block" id="Context"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#python.epa.airnow_ds_def.Context">[docs]</a><span class="k">class</span> <span class="nc">Context</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generic class allowing to build context and configuration objects</span>
 <span class="sd">    and initialize them using command line arguments</span>
@@ -226,6 +258,7 @@
 <span class="sd">            If not specified, then it is extracted from subclass documentation</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">include_default</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">years</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="sd">&quot;&quot;&quot;</span>
@@ -244,34 +277,51 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">subclass</span><span class="o">.</span><span class="vm">__doc__</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">subclass</span><span class="o">.</span><span class="vm">__dict__</span>
-            <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span> <span class="ow">and</span> <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span>
+            <span class="n">field_name</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">subclass</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">Argument</span><span class="p">)</span>
         <span class="p">]</span>
 
         <span class="k">if</span> <span class="n">include_default</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="o">+=</span> <span class="p">[</span>
-                <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">Context</span><span class="o">.</span><span class="vm">__dict__</span>
-                <span class="k">if</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span> <span class="ow">and</span> <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span> <span class="ow">and</span> <span class="n">attr</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span>
+                <span class="n">field_name</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">Context</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">Argument</span><span class="p">)</span> <span class="ow">and</span> <span class="n">field_name</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span>
             <span class="p">]</span>
-
 
     <span class="k">def</span> <span class="nf">instantiate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">attr</span><span class="p">)</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instantiate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">set_empty_args</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">attr</span><span class="p">)</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instantiate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_instantiate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">arguments</span><span class="p">:</span>
             <span class="n">arg</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
 
         <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span><span class="p">:</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">attr</span><span class="p">)))</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">current</span><span class="p">))</span>
+            <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span><span class="p">:</span>
+            <span class="n">arg</span><span class="p">:</span> <span class="n">Argument</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">attr</span><span class="p">)</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">arg</span><span class="o">.</span><span class="n">default</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span>
         <span class="p">])</span>
 
-<div class="viewcode-block" id="Context.validate"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#epa.airnow_ds_def.Context.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="viewcode-block" id="Context.validate"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#python.epa.airnow_ds_def.Context.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Subclasses can override this method to implement custom handling</span>
 <span class="sd">        of command line arguments</span>
@@ -298,7 +348,7 @@
             <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">years</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">value</span></div>
 
-<div class="viewcode-block" id="Context.enum"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#epa.airnow_ds_def.Context.enum">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Context.enum"><a class="viewcode-back" href="../../../doc/members/aqs_ds_def.html#python.epa.airnow_ds_def.Context.enum">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">enum</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">enum_cls</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A helper method to return Enum value by its name</span>

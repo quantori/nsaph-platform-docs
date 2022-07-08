@@ -3,6 +3,13 @@
 set -e
 set -x
 
+if [ -d docs ]
+then
+  #git rm -r docs --force
+  rm -r docs
+fi
+
+
 if [ -z "$1" ]
   then
     deployment="../nsaph-platform-deployment"
@@ -22,6 +29,8 @@ for md in $(find ${deployment}/docs/*.md -name "*.md")
      md_toc --in-place --skip-lines 1 cmark $md
   done
 
+sphinx-build -b html "${deployment}" "docs/deployment"
+
 packages=("utils" "census" "cms" "epa" "gridmet" "gis" "data_platform")
 
 for name in "${packages[@]}"
@@ -33,8 +42,8 @@ do
        dest=docs/core-platform
        package="${base}/${package_prefix}core-platform"
        ;;
-     utils)
-       dest=docs/utils
+     utils|gis)
+       dest=docs/${name}
        package="${base}/${package_prefix}${name}"
        ;;
      *)
@@ -64,6 +73,8 @@ done
 
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-utils/README.md home.md nsaph_utils
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-core-platform/README.md home.md nsaph
+python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-gis/README.md home.md gis
 md_toc --in-place --skip-lines 1 cmark home.md
 
 sphinx-build -b html . docs
+git add docs

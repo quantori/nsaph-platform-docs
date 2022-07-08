@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration Object &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Howto.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Testing.html">Testing the installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/Glossary.html">Glossary and FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/UsefulCommands.html">Some useful commands:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Configuration Object</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/project/gridmet/doc/gridmet_ds_def.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration-object">
+<h1>Configuration Object<a class="headerlink" href="#configuration-object" title="Permalink to this headline"></a></h1>
+<section id="classes-used-internally">
+<h2>Classes used Internally<a class="headerlink" href="#classes-used-internally" title="Permalink to this headline"></a></h2>
+<section id="abstract-context">
+<h3>Abstract Context<a class="headerlink" href="#abstract-context" title="Permalink to this headline"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph_utils.utils.context.Context">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Context</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subclass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_default</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/nsaph_utils/utils/context.html#Context"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Context" title="Permalink to this definition"></a></dt>
+<dd><p>Generic class allowing to build context and configuration objects
+and initialize them using command line arguments</p>
+<p>Creates a new object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph_utils.utils.context.Context.params.subclass"></span><strong>subclass</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Context.params.subclass">¶</a> – A concrete class containing configuration information
+Configuration options must be defined as class memebers with names,
+starting with one ‘_’ characters and values be instances of
+:class Argument:</p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Context.params.description"></span><strong>description</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Context.params.description">¶</a> – Optional text to use as description.
+If not specified, then it is extracted from subclass documentation</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph_utils.utils.context.Context.years">
+<span class="sig-name descname"><span class="pre">years</span></span><a class="headerlink" href="#nsaph_utils.utils.context.Context.years" title="Permalink to this definition"></a></dt>
+<dd><p>Year or list of years to download. For example, 
+the following argument: 
+<cite>-y 1992:1995 1998 1999 2011 2015:2017</cite> will produce 
+the following list: 
+[1992,1993,1994,1995,1998,1999,2011,2015,2016,2017]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph_utils.utils.context.Context.compress">
+<span class="sig-name descname"><span class="pre">compress</span></span><a class="headerlink" href="#nsaph_utils.utils.context.Context.compress" title="Permalink to this definition"></a></dt>
+<dd><p>Specifies whether to use gzip compression for the result</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph_utils.utils.context.Context.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/nsaph_utils/utils/context.html#Context.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Context.validate" title="Permalink to this definition"></a></dt>
+<dd><p>Subclasses can override this method to implement custom handling
+of command line arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph_utils.utils.context.Context.validate.params.attr"></span><strong>attr</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Context.validate.params.attr">¶</a> – Command line argument name</p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Context.validate.params.value"></span><strong>value</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Context.validate.params.value">¶</a> – Value returned by argparse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>value to use</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph_utils.utils.context.Context.enum">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">enum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enum_cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/nsaph_utils/utils/context.html#Context.enum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Context.enum" title="Permalink to this definition"></a></dt>
+<dd><p>A helper method to return Enum value by its name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph_utils.utils.context.Context.enum.params.cls"></span><strong>cls</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Context.enum.params.cls">¶</a> – Enum class</p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Context.enum.params.s"></span><strong>s</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Context.enum.params.s">¶</a> – name of a member in Enum class</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>value of the member</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="argument">
+<h3>Argument<a class="headerlink" href="#argument" title="Permalink to this headline"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph_utils.utils.context.Argument">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Argument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">help:</span> <span class="pre">str</span></em>, <em class="sig-param"><span class="pre">type=&lt;class</span> <span class="pre">'str'&gt;</span></em>, <em class="sig-param"><span class="pre">aliases:</span> <span class="pre">Optional[List]</span> <span class="pre">=</span> <span class="pre">None</span></em>, <em class="sig-param"><span class="pre">default=None</span></em>, <em class="sig-param"><span class="pre">cardinality:</span> <span class="pre">nsaph_utils.utils.context.Cardinality</span> <span class="pre">=</span> <span class="pre">Cardinality.single</span></em>, <em class="sig-param"><span class="pre">valid_values=None</span></em>, <em class="sig-param"><span class="pre">required=True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/nsaph_utils/utils/context.html#Argument"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Argument" title="Permalink to this definition"></a></dt>
+<dd><p>A wrapper class to describe a command-line arguments
+This is practically, a more rigid format for
+:func ArgumentParser.add_argument:</p>
+<p>All arguments are passed to Argparser</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph_utils.utils.context.Argument.params.name"></span><strong>name</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Argument.params.name">¶</a> – </p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Argument.params.help"></span><strong>help</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Argument.params.help">¶</a> – </p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Argument.params.type"></span><strong>type</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Argument.params.type">¶</a> – </p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Argument.params.aliases"></span><strong>aliases</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Argument.params.aliases">¶</a> – </p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Argument.params.default"></span><strong>default</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Argument.params.default">¶</a> – </p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Argument.params.cardinality"></span><strong>cardinality</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Argument.params.cardinality">¶</a> – </p></li>
+<li><p><span class="target" id="nsaph_utils.utils.context.Argument.params.valid_values"></span><strong>valid_values</strong><a class="paramlink headerlink reference internal" href="#nsaph_utils.utils.context.Argument.params.valid_values">¶</a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="argument-cardinality-enum">
+<h3>Argument Cardinality Enum<a class="headerlink" href="#argument-cardinality-enum" title="Permalink to this headline"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph_utils.utils.context.Cardinality">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Cardinality</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/nsaph_utils/utils/context.html#Cardinality"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph_utils.utils.context.Cardinality" title="Permalink to this definition"></a></dt>
+<dd><p>Cardinality of a configuration parameter: multiple or singular</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -40,10 +40,23 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">NSAPH Data Platform</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nsaph-utilities">NSAPH Utilities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#core-platform">Core Platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-ingestion-and-processing-pipelines">Data Ingestion and Processing Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-database">Using the Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#glossary">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#structure">Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deploying-the-platform">Deploying the Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-packages">General Packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nsaph-utilities">NSAPH Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#core-platform">Core Platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gis-utilities">GIS Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-ingestion-and-processing-pipelines">Data Ingestion and Processing Pipelines</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -75,19 +88,82 @@
   <section id="nsaph-data-platform">
 <h1>NSAPH Data Platform<a class="headerlink" href="#nsaph-data-platform" title="Permalink to this headline"></a></h1>
 <p><strong>User and Development Documentation</strong></p>
-<!--TOC--><ul class="simple">
+<!-- toc --><ul class="simple">
+<li><p><a class="reference external" href="#introduction">Introduction</a></p>
+<ul>
+<li><p><a class="reference external" href="#overview">Overview</a></p></li>
+<li><p><a class="reference external" href="#using-the-database">Using the Database</a></p></li>
 <li><p><a class="reference external" href="#glossary">Glossary</a></p></li>
-<li><p><a class="reference external" href="#nsaph-utilities">NSAPH Utilities</a></p></li>
-<li><p><a class="reference external" href="#core-platform">Core Platform</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#structure">Structure</a></p>
+<ul>
+<li><p><a class="reference external" href="#deploying-the-platform">Deploying the Platform</a></p></li>
+<li><p><a class="reference external" href="#general-packages">General Packages</a></p></li>
 <li><p><a class="reference external" href="#data-ingestion-and-processing-pipelines">Data Ingestion and Processing Pipelines</a></p></li>
 </ul>
-<!--TOC--><section id="glossary">
-<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline"></a></h2>
-<p><a class="reference internal" href="glossary.html"><span class="doc">Glossary</span></a> provides some information about
-acronyms and other terms used throughout this documentation</p>
+</li>
+</ul>
+<!-- tocstop --><section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
+<p>This data platform is intended for development and deployment of
+ETL/ELT pipelines that includes complex data processing and data
+cleansing workflows. Complex workflows require a workflow language,
+and we have chosen
+<a class="reference external" href="https://www.commonwl.org/">Common Workflow Language (CWL)</a>.
+For deployment, we have selected CWL-Airflow to take advantage of the excellent
+user interface allowing for the control of the actual execution process.
+The
+data is eventually stored in a PostgreSQL DBMS; many processing steps
+in the
+<a class="reference external" href="#data-ingestion-and-processing-pipelines">included data processing pipelines</a>
+are being
+run inside the database itself.</p>
+<p>The data platform is based on a combination of an
+<a class="reference external" href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as Code (IaC) approach</a>
+and CWL. Beside tools written in widely used languages such as
+Python, C/C++ and
+Java, the platform also supports tools written in R and PL/pgSQL.
+Data platform consists of
+several <a class="reference external" href="#general-packages">general packages</a>,
+a <a class="reference external" href="#deploying-the-platform">package to deploy the platform</a>
+using
+<a class="reference external" href="https://cwl-airflow.readthedocs.io/en/latest/">CWL-Airflow</a>
+and a number of data ingestion pipelines.
+<a class="reference external" href="#data-ingestion-and-processing-pipelines">Data ingestion pipelines</a>
+process data from external sources and load it into the database.</p>
 </section>
+<section id="using-the-database">
+<h3>Using the Database<a class="headerlink" href="#using-the-database" title="Permalink to this headline"></a></h3>
+<p>For a sample to query the database, please look at
+<a class="reference external" href="core-platform/doc/SampleQuery.html">Sample Query</a></p>
+<p>A discussion of querying of health data can be found in
+<a class="reference external" href="pipelines/cms/doc/QueringMedicaid.html">this document</a></p>
+</section>
+<section id="glossary">
+<h3>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline"></a></h3>
+<p>Included
+<a class="reference internal" href="glossary.html"><span class="doc">Glossary</span></a> provides some information about
+acronyms and other terms used throughout this documentation.</p>
+</section>
+</section>
+<section id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
+<section id="deploying-the-platform">
+<h3>Deploying the Platform<a class="headerlink" href="#deploying-the-platform" title="Permalink to this headline"></a></h3>
+<p>The data platform is deployed as a set of Docker containers orchestrated by
+Docker-Compose. Conda (package manager) environment files and Python
+requirements are used to build Docker containers satisfying the dependencies.
+Specific parameters can be customized via environment files and shell script
+callbacks.</p>
+<p>See <a class="reference external" href="deployment">Deployment</a></p>
+</section>
+<section id="general-packages">
+<h3>General Packages<a class="headerlink" href="#general-packages" title="Permalink to this headline"></a></h3>
 <section id="nsaph-utilities">
-<h2>NSAPH Utilities<a class="headerlink" href="#nsaph-utilities" title="Permalink to this headline"></a></h2>
+<h4>NSAPH Utilities<a class="headerlink" href="#nsaph-utilities" title="Permalink to this headline"></a></h4>
 <!-- section overview from nsaph_utils --><p>The nsaph_utils package is intended to hold python
 code that will be useful
 across multiple portions of the NSAPH pipelines.</p>
@@ -106,7 +182,7 @@ documentation for NSAPH platform</p></li>
 <!-- end of section overview from nsaph_utils --><p><a class="reference external" href="utils">Package Description</a></p>
 </section>
 <section id="core-platform">
-<h2>Core Platform<a class="headerlink" href="#core-platform" title="Permalink to this headline"></a></h2>
+<h4>Core Platform<a class="headerlink" href="#core-platform" title="Permalink to this headline"></a></h4>
 <!-- section overview from nsaph --><p>The data platform provides generic infrastructure for NSAPH Data Platform
 It depends on nsaph_util package, but it augments it
 with APIs and command line utilities dependent on the infrastructure
@@ -117,8 +193,14 @@ development branches contain some obsolete modules and utilities.
 The project structure can also be in flux.</p>
 <!-- end of section overview from nsaph --><p><a class="reference external" href="core-platform">Package Description</a></p>
 </section>
+<section id="gis-utilities">
+<h4>GIS Utilities<a class="headerlink" href="#gis-utilities" title="Permalink to this headline"></a></h4>
+<!-- section overview from gis --><p>This library contains several packages, aimed to work with census shape files.</p>
+<!-- end of section overview from gis --><p><a class="reference external" href="gis">Package Description</a></p>
+</section>
+</section>
 <section id="data-ingestion-and-processing-pipelines">
-<h2>Data Ingestion and Processing Pipelines<a class="headerlink" href="#data-ingestion-and-processing-pipelines" title="Permalink to this headline"></a></h2>
+<h3>Data Ingestion and Processing Pipelines<a class="headerlink" href="#data-ingestion-and-processing-pipelines" title="Permalink to this headline"></a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -141,10 +223,11 @@ The project structure can also be in flux.</p>
 </tr>
 <tr>
 <td>CMS</td>
-<td><a href="pipelines/cms/index.html[">Medicaid Piepline</a></td>
+<td><a href="pipelines/cms/index.html">Medicaid Piepline</a></td>
 </tr>
 </tbody>
 </table></section>
+</section>
 </section>
 
 
