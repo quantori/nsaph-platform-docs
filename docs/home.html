@@ -46,15 +46,17 @@
 <li class="toctree-l3"><a class="reference internal" href="#glossary">Glossary</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#structure">Structure</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#deploying-the-platform">Deploying the Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying-the-platform">Deploying the Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-platform-documentation">Building Platform documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repositories-overview">Repositories Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deployment">Deployment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#general-packages">General Packages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#nsaph-utilities">NSAPH Utilities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#core-platform">Core Platform</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gis-utilities">GIS Utilities</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#data-ingestion-and-processing-pipelines">Data Ingestion and Processing Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-ingestion-and-processing-packages-and-pipelines">Data Ingestion and Processing Packages and Pipelines</a></li>
 </ul>
 </li>
 </ul>
@@ -88,7 +90,7 @@
   <section id="nsaph-data-platform">
 <h1>NSAPH Data Platform<a class="headerlink" href="#nsaph-data-platform" title="Permalink to this headline"></a></h1>
 <p><strong>User and Development Documentation</strong></p>
-<!-- toc --><ul class="simple">
+<!-- toc --><!--TOC--><ul class="simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p>
 <ul>
 <li><p><a class="reference external" href="#overview">Overview</a></p></li>
@@ -96,15 +98,17 @@
 <li><p><a class="reference external" href="#glossary">Glossary</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference external" href="#structure">Structure</a></p>
-<ul>
 <li><p><a class="reference external" href="#deploying-the-platform">Deploying the Platform</a></p></li>
+<li><p><a class="reference external" href="#building-platform-documentation">Building Platform documentation</a></p></li>
+<li><p><a class="reference external" href="#repositories-overview">Repositories Overview</a></p>
+<ul>
+<li><p><a class="reference external" href="#deployment">Deployment</a></p></li>
 <li><p><a class="reference external" href="#general-packages">General Packages</a></p></li>
-<li><p><a class="reference external" href="#data-ingestion-and-processing-pipelines">Data Ingestion and Processing Pipelines</a></p></li>
+<li><p><a class="reference external" href="#data-ingestion-and-processing-packages-and-pipelines">Data Ingestion and Processing Packages and Pipelines</a></p></li>
 </ul>
 </li>
 </ul>
-<!-- tocstop --><section id="introduction">
+<!--TOC--><!-- tocstop --><section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
@@ -149,16 +153,33 @@ process data from external sources and load it into the database.</p>
 acronyms and other terms used throughout this documentation.</p>
 </section>
 </section>
-<section id="structure">
-<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"></a></h2>
 <section id="deploying-the-platform">
-<h3>Deploying the Platform<a class="headerlink" href="#deploying-the-platform" title="Permalink to this headline"></a></h3>
+<h2>Deploying the Platform<a class="headerlink" href="#deploying-the-platform" title="Permalink to this headline"></a></h2>
 <p>The data platform is deployed as a set of Docker containers orchestrated by
 Docker-Compose. Conda (package manager) environment files and Python
 requirements are used to build Docker containers satisfying the dependencies.
 Specific parameters can be customized via environment files and shell script
 callbacks.</p>
-<p>See <a class="reference external" href="deployment">Deployment</a></p>
+</section>
+<section id="building-platform-documentation">
+<h2>Building Platform documentation<a class="headerlink" href="#building-platform-documentation" title="Permalink to this headline"></a></h2>
+<p>A build script goes over all repositories in the platform
+and creates a combined <a class="reference external" href="https://pages.github.com/">GitHub Pages</a> site.</p>
+<p>See <a class="reference external" href="#deployment">deployment</a> section.</p>
+</section>
+<section id="repositories-overview">
+<h2>Repositories Overview<a class="headerlink" href="#repositories-overview" title="Permalink to this headline"></a></h2>
+<section id="deployment">
+<h3>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline"></a></h3>
+<p><a class="reference internal" href="#deployment"><span class="std std-ref">Deployment repository</span></a> is based on<br />CWL-Airflow Docker Deployment developed
+by Harvard FAS RC in collaboration with Forome Association. Essentially, this is a fork of:
+<a class="reference external" href="https://github.com/ForomePlatform/airflow-cwl-docker">Apache Airflow + CWL in Docker with Optional Conda and R</a>
+It follows
+<a class="reference external" href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as Code (IaC)</a>
+approach.</p>
+<p>[Harvard FAS RC Superset] repository is a fork of
+<a class="reference external" href="https://superset.apache.org/">Apache Superset</a>
+customized for Harvard FAS RC environment.</p>
 </section>
 <section id="general-packages">
 <h3>General Packages<a class="headerlink" href="#general-packages" title="Permalink to this headline"></a></h3>
@@ -199,8 +220,8 @@ The project structure can also be in flux.</p>
 <!-- end of section overview from gis --><p><a class="reference external" href="gis">Package Description</a></p>
 </section>
 </section>
-<section id="data-ingestion-and-processing-pipelines">
-<h3>Data Ingestion and Processing Pipelines<a class="headerlink" href="#data-ingestion-and-processing-pipelines" title="Permalink to this headline"></a></h3>
+<section id="data-ingestion-and-processing-packages-and-pipelines">
+<h3>Data Ingestion and Processing Packages and Pipelines<a class="headerlink" href="#data-ingestion-and-processing-packages-and-pipelines" title="Permalink to this headline"></a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -211,19 +232,19 @@ The project structure can also be in flux.</p>
 <tbody>
 <tr>
 <td>EPA</td>
-<td><a href="pipelines/epa/index.html">EPA Pipelines</a></td>
+<td><a href="pipelines/epa/README.html">EPA Pipelines</a></td>
 </tr>
 <tr>
 <td>Census</td>
-<td><a href="pipelines/census/index.html">Census Package</a></td>
+<td><a href="pipelines/census/README.html">Census Package</a></td>
 </tr>
 <tr>
 <td>Gridmet</td>
-<td><a href="pipelines/gridmet/index.html">Gridmet package</a></td>
+<td><a href="pipelines/gridmet/README.html">Gridmet package</a></td>
 </tr>
 <tr>
 <td>CMS</td>
-<td><a href="pipelines/cms/index.html">Medicaid Piepline</a></td>
+<td><a href="pipelines/cms/README.html">Medicaid Piepline</a></td>
 </tr>
 </tbody>
 </table></section>

@@ -2,16 +2,20 @@
  **User and Development Documentation**
 
 <!-- toc -->
+<!--TOC-->
 
 - [Introduction](#introduction)
   - [Overview](#overview)
   - [Using the Database](#using-the-database)
   - [Glossary](#glossary)
-- [Structure](#structure)
-  - [Deploying the Platform](#deploying-the-platform)
+- [Deploying the Platform](#deploying-the-platform)
+- [Building Platform documentation](#building-platform-documentation)
+- [Repositories Overview](#repositories-overview)
+  - [Deployment](#deployment)
   - [General Packages](#general-packages)
-  - [Data Ingestion and Processing Pipelines](#data-ingestion-and-processing-pipelines)
+  - [Data Ingestion and Processing Packages and Pipelines](#data-ingestion-and-processing-packages-and-pipelines)
 
+<!--TOC-->
 <!-- tocstop -->
 
 ## Introduction
@@ -59,18 +63,38 @@ A discussion of querying of health data can be found in
 Included 
 [Glossary](glossary.md) provides some information about
 acronyms and other terms used throughout this documentation.
-                       
-## Structure
-
-### Deploying the Platform
+               
+## Deploying the Platform
 
 The data platform is deployed as a set of Docker containers orchestrated by
 Docker-Compose. Conda (package manager) environment files and Python
 requirements are used to build Docker containers satisfying the dependencies.
 Specific parameters can be customized via environment files and shell script
 callbacks.
+                                      
+## Building Platform documentation
 
-See [Deployment](deployment)
+A build script goes over all repositories in the platform
+and creates a combined [GitHub Pages](https://pages.github.com/) site.
+
+See [deployment](#deployment) section.
+        
+## Repositories Overview
+
+### Deployment
+
+[Deployment repository](deployment) is based on  
+CWL-Airflow Docker Deployment developed
+by Harvard FAS RC in collaboration with Forome Association. Essentially, this is a fork of: 
+[Apache Airflow + CWL in Docker with Optional Conda and R](https://github.com/ForomePlatform/airflow-cwl-docker)
+It follows 
+[Infrastructure as Code (IaC)](https://en.wikipedia.org/wiki/Infrastructure_as_code) 
+approach.
+
+[Harvard FAS RC Superset] repository is a fork of 
+[Apache Superset](https://superset.apache.org/) 
+customized for Harvard FAS RC environment.
+
 
 ### General Packages
 
@@ -134,11 +158,11 @@ This library contains several packages, aimed to work with census shape files.
 
 
    
-### Data Ingestion and Processing Pipelines
+### Data Ingestion and Processing Packages and Pipelines
 
 | Pipeline | Documentation                                   |
 |----------|-------------------------------------------------|
-| EPA | [EPA Pipelines](pipelines/epa/index.html)       |
-| Census | [Census Package](pipelines/census/index.html)   |
-| Gridmet | [Gridmet package](pipelines/gridmet/index.html) |
-| CMS | [Medicaid Piepline](pipelines/cms/index.html)  |
+| EPA | [EPA Pipelines](pipelines/epa/README.html)       |
+| Census | [Census Package](pipelines/census/README.html)   |
+| Gridmet | [Gridmet package](pipelines/gridmet/README.html) |
+| CMS | [Medicaid Piepline](pipelines/cms/README.html)  |
