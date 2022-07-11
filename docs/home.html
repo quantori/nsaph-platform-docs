@@ -138,6 +138,9 @@ using
 and a number of data ingestion pipelines.
 <a class="reference external" href="#data-ingestion-and-processing-pipelines">Data ingestion pipelines</a>
 process data from external sources and load it into the database.</p>
+<p>More details are provided in the following
+<a class="reference external" href="Rationale.html">discussion</a>
+of the platform.</p>
 </section>
 <section id="using-the-database">
 <h3>Using the Database<a class="headerlink" href="#using-the-database" title="Permalink to this headline"></a></h3>
@@ -160,12 +163,22 @@ Docker-Compose. Conda (package manager) environment files and Python
 requirements are used to build Docker containers satisfying the dependencies.
 Specific parameters can be customized via environment files and shell script
 callbacks.</p>
+<p>See <a class="reference external" href="#deployment">deployment</a> section.</p>
 </section>
 <section id="building-platform-documentation">
 <h2>Building Platform documentation<a class="headerlink" href="#building-platform-documentation" title="Permalink to this headline"></a></h2>
-<p>A build script goes over all repositories in the platform
-and creates a combined <a class="reference external" href="https://pages.github.com/">GitHub Pages</a> site.</p>
-<p>See <a class="reference external" href="#deployment">deployment</a> section.</p>
+<p>The <a class="reference external" href="https://github.com/NSAPH-Data-Platform/nsaph-platform-docs">documentation</a>
+contains general documentation pages in
+<a class="reference external" href="https://www.markdownguide.org/">MarkDown</a>
+format and a build script that goes over all other platform
+repositories in the platform
+and creates a combined <a class="reference external" href="https://pages.github.com/">GitHub Pages</a> site.
+The script supports links between repositories.</p>
+<p>Documentation utilities are contained in
+<a class="reference external" href="https://github.com/NSAPH-Data-Platform/nsaph-utils">nsaph-utils</a>
+in
+<a class="reference external" href="https://github.com/NSAPH-Data-Platform/nsaph-utils/tree/master/nsaph_utils/docutils">docutils</a>
+package.</p>
 </section>
 <section id="repositories-overview">
 <h2>Repositories Overview<a class="headerlink" href="#repositories-overview" title="Permalink to this headline"></a></h2>
@@ -222,6 +235,15 @@ The project structure can also be in flux.</p>
 </section>
 <section id="data-ingestion-and-processing-packages-and-pipelines">
 <h3>Data Ingestion and Processing Packages and Pipelines<a class="headerlink" href="#data-ingestion-and-processing-packages-and-pipelines" title="Permalink to this headline"></a></h3>
+<p>Pipelines processing data from Environmental Protection Agency and climate data
+from gridMET are ready to be used by any interested party. The pipeline to
+process claims data from Medicaid which cannot be made publicly available can be
+tested only by users who have their own data user agreement with the Centers for
+Medicare and Medicaid Services (CMS) and have access to their own Medicaid
+claims data from ResDAC. The pipeline we publish processes Medicaid MAX (
+Medicaid Analytic Extract) Personal Summary (PS) and The Medicaid MAX (Medicaid
+Analytic Extract) Inpatient (IP) files. The following table
+summarizes the included data processing pipelines.</p>
 <table border="1" class="docutils">
 <thead>
 <tr>

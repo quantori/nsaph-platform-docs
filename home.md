@@ -50,6 +50,10 @@ and a number of data ingestion pipelines.
 [Data ingestion pipelines](#data-ingestion-and-processing-pipelines)
 process data from external sources and load it into the database.
 
+More details are provided in the following
+[discussion](Rationale.html) 
+of the platform.
+
 ### Using the Database
 
 For a sample to query the database, please look at
@@ -71,13 +75,25 @@ Docker-Compose. Conda (package manager) environment files and Python
 requirements are used to build Docker containers satisfying the dependencies.
 Specific parameters can be customized via environment files and shell script
 callbacks.
+
+See [deployment](#deployment) section.
                                       
 ## Building Platform documentation
 
-A build script goes over all repositories in the platform
+The [documentation](https://github.com/NSAPH-Data-Platform/nsaph-platform-docs)
+contains general documentation pages in 
+[MarkDown](https://www.markdownguide.org/) 
+format and a build script that goes over all other platform 
+repositories in the platform
 and creates a combined [GitHub Pages](https://pages.github.com/) site.
+The script supports links between repositories. 
 
-See [deployment](#deployment) section.
+Documentation utilities are contained in 
+[nsaph-utils](https://github.com/NSAPH-Data-Platform/nsaph-utils)
+in 
+[docutils](https://github.com/NSAPH-Data-Platform/nsaph-utils/tree/master/nsaph_utils/docutils)
+package. 
+
         
 ## Repositories Overview
 
@@ -159,6 +175,16 @@ This library contains several packages, aimed to work with census shape files.
 
    
 ### Data Ingestion and Processing Packages and Pipelines
+
+Pipelines processing data from Environmental Protection Agency and climate data
+from gridMET are ready to be used by any interested party. The pipeline to
+process claims data from Medicaid which cannot be made publicly available can be
+tested only by users who have their own data user agreement with the Centers for
+Medicare and Medicaid Services (CMS) and have access to their own Medicaid
+claims data from ResDAC. The pipeline we publish processes Medicaid MAX (
+Medicaid Analytic Extract) Personal Summary (PS) and The Medicaid MAX (Medicaid
+Analytic Extract) Inpatient (IP) files. The following table 
+summarizes the included data processing pipelines.
 
 | Pipeline | Documentation                                   |
 |----------|-------------------------------------------------|

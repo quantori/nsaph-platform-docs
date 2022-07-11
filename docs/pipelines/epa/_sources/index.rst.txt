@@ -6,12 +6,16 @@
 Package Contents
 ================
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   index
 
 .. toctree::
    :maxdepth: 4
    :caption: General Description:
 
-   index
    README
    doc/usage
 

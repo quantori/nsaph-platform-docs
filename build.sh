@@ -74,7 +74,11 @@ done
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-utils/README.md home.md nsaph_utils
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-core-platform/README.md home.md nsaph
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-gis/README.md home.md gis
-md_toc --in-place --skip-lines 1 cmark home.md
+
+for document in *.md
+do
+  md_toc --in-place --skip-lines 1 cmark "${document}"
+done
 
 sphinx-build -b html . docs
 git add docs
