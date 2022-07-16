@@ -73,7 +73,24 @@
              
   <section id="medicare-files-handling">
 <h1>Medicare Files Handling<a class="headerlink" href="#medicare-files-handling" title="Permalink to this headline"></a></h1>
-<section id="ingesting-raw-files">
+<!--TOC--><ul class="simple">
+<li><p><a class="reference external" href="#ingesting-raw-files">Ingesting Raw Files</a></p>
+<ul>
+<li><p><a class="reference external" href="#overview">Overview</a></p></li>
+<li><p><a class="reference external" href="#storing-in-the-database">Storing in the Database</a></p></li>
+<li><p><a class="reference external" href="#files-for-1999-to-2010">Files for 1999 to 2010</a></p></li>
+<li><p><a class="reference external" href="#files-for-years-2011-and-later">Files for Years 2011 and later</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#combining-raw-files-into-a-single-view">Combining raw files into a single view</a></p>
+<ul>
+<li><p><a class="reference external" href="#creating-federated-patient-summary">Creating Federated Patient Summary</a></p></li>
+<li><p><a class="reference external" href="#creating-beneficiaries-table">Creating Beneficiaries table</a></p></li>
+<li><p><a class="reference external" href="#creating-enrollments-table">Creating Enrollments table</a></p></li>
+</ul>
+</li>
+</ul>
+<!--TOC--><section id="ingesting-raw-files">
 <h2>Ingesting Raw Files<a class="headerlink" href="#ingesting-raw-files" title="Permalink to this headline"></a></h2>
 <section id="overview">
 <h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
@@ -161,6 +178,210 @@ extarcted by the parser is used to:</p>
 <li><p>Generate data model (database schema)</p></li>
 <li><p>Generate metadata for the FWF Reader</p></li>
 </ul>
+</section>
+</section>
+<section id="combining-raw-files-into-a-single-view">
+<h2>Combining raw files into a single view<a class="headerlink" href="#combining-raw-files-into-a-single-view" title="Permalink to this headline"></a></h2>
+<p>Once all raw files are ingested into teh database they are combined
+into two views:</p>
+<ol class="simple">
+<li><p>Patient summary (aka MBSF, aka Beneficiary summary)</p></li>
+<li><p>Inpatient Admissions (aka hospitalizations, aka medpar)</p></li>
+</ol>
+<section id="creating-federated-patient-summary">
+<h3>Creating Federated Patient Summary<a class="headerlink" href="#creating-federated-patient-summary" title="Permalink to this headline"></a></h3>
+<p>The federated patient summary is created in two steps.
+The division into two steps is purely because of technical reasons
+given some limitations of readability in SQL.</p>
+<section id="first-step-initial-in-database-data-conditioning">
+<h4>First step: Initial in-database data conditioning<a class="headerlink" href="#first-step-initial-in-database-data-conditioning" title="Permalink to this headline"></a></h4>
+<p>The first step creates a view called <code class="docutils literal notranslate"><span class="pre">medicare.ps</span></code>.</p>
+<p>This step technically combines all <code class="docutils literal notranslate"><span class="pre">cms.mbsf_ab*</span></code> and <code class="docutils literal notranslate"><span class="pre">cms.mcr_bene_*</span></code>
+tables into a single view using <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">VIEW</span></code> SQL statement.</p>
+<p>It also cleanses and conditions data from teh following columns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code></p>
+<ul>
+<li><p>If it is a string in original file, it is converted to integer</p></li>
+<li><p>If it is two-digit, it is converted to 4 digit</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">state</span></code>: added a column with text state id</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fips2</span></code>: added a column with two digit state FIPS code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zip</span></code>: if original file uses 9-digit zip code, it is split
+into two separate columns, 5 digit <code class="docutils literal notranslate"><span class="pre">zip</span></code> and 4-digit <code class="docutils literal notranslate"><span class="pre">zip4</span></code>.
+The value is also converted to integer value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zip4</span></code>: added, when available - the last four digits of 9-digit
+zip code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dob</span></code>: converted to SQL <code class="docutils literal notranslate"><span class="pre">DATE</span></code> type, from either character or
+SAS numeric form</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dod</span></code> (date of death): converted to SQL <code class="docutils literal notranslate"><span class="pre">DATE</span></code> type,
+from either character or SAS numeric form</p></li>
+<li></li>
+</ul>
+<p>The following
+<a class="reference external" href="../src/cwl/medicare_ps.cwl">CWL tool</a>
+is responsible to perform it.</p>
+</section>
+<section id="second-step-mapping-to-county-fips-codes">
+<h4>Second step: Mapping to county FIPS codes<a class="headerlink" href="#second-step-mapping-to-county-fips-codes" title="Permalink to this headline"></a></h4>
+<p>At the second step, a view called <code class="docutils literal notranslate"><span class="pre">medicare._ps</span></code> is created.<br />The only difference between  <code class="docutils literal notranslate"><span class="pre">medicare.ps</span></code> and <code class="docutils literal notranslate"><span class="pre">medicare._ps</span></code>
+is that the latter has county FIPS code (<code class="docutils literal notranslate"><span class="pre">fips3</span></code> column)
+inferred either SSA county code (<code class="docutils literal notranslate"><span class="pre">ssa3</span></code> column), if it is
+available or from the zip code (<code class="docutils literal notranslate"><span class="pre">zip</span></code> column)
+if SSA county code is absent. The reason this has to happen
+in a separate second step is that both <code class="docutils literal notranslate"><span class="pre">ssa3</span></code> and <code class="docutils literal notranslate"><span class="pre">zip</span></code> are
+being cleansed in the first step.</p>
+<p>The second step is performed by a general loader utility
+based on the
+<a class="reference external" href="../src/python/cms/models/medicare.yaml">Medicare data model definition</a>.</p>
+</section>
+</section>
+<section id="creating-beneficiaries-table">
+<h3>Creating Beneficiaries table<a class="headerlink" href="#creating-beneficiaries-table" title="Permalink to this headline"></a></h3>
+<p>See also <a class="reference external" href="Medicaid.md#beneficiaries">creating Medicaid Beneficiaries table</a></p>
+<p>This is also a two steps operation. The first step
+creates an SQL view and the second step stores the data
+as a real table.</p>
+<p>Essentially it is a <code class="docutils literal notranslate"><span class="pre">medicare.ps</span></code> view grouped by beneficiary id
+(<code class="docutils literal notranslate"><span class="pre">bene_id</span></code> column). This step also takes care of documenting any
+discrepancies in the data related to:</p>
+<ul class="simple">
+<li><p>dob</p></li>
+<li><p>dod</p></li>
+<li><p>race</p></li>
+<li><p>sex</p></li>
+</ul>
+<p>If there is any discrepancy for a given <code class="docutils literal notranslate"><span class="pre">bene_id</span></code>, then:</p>
+<ul class="simple">
+<li><p>The earliest <em><strong>DOB</strong></em> is selected as <code class="docutils literal notranslate"><span class="pre">dob</span></code></p></li>
+<li><p>The latest <em><strong>DOD</strong></em> (date of death) is selected  as <code class="docutils literal notranslate"><span class="pre">dod</span></code></p></li>
+<li><p>A comma-separated string containing all race codes is used for <code class="docutils literal notranslate"><span class="pre">race</span></code></p></li>
+<li><p>comma-separated string containing all sex codes is used for <code class="docutils literal notranslate"><span class="pre">sex</span></code></p></li>
+</ul>
+<p>The following columns are added:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">duplciates</span></code>: a numeric column showing the number of inconsistent
+values for this beneficiary. If it is greater than 1, it means
+there is a discrepancy in the data for this beneficiary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dob_latest</span></code>: the latest DOB found in the records for this
+beneficiary. The value of this column is NULL for consistent records</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dod_earliest</span></code>: the earliest DOD found in the records for this
+beneficiary. The value of this column is NULL for consistent records</p></li>
+</ul>
+<p>This topic is discussed in more details in the
+<a class="reference external" href="Medicaid.md#deduplication-and-data-cleansing">Medicaid documentation</a></p>
+</section>
+<section id="creating-enrollments-table">
+<h3>Creating Enrollments table<a class="headerlink" href="#creating-enrollments-table" title="Permalink to this headline"></a></h3>
+<section id="enrollments-overview">
+<h4>Enrollments overview<a class="headerlink" href="#enrollments-overview" title="Permalink to this headline"></a></h4>
+<p>Enrollments table contains information about yearly beneficiaries
+enrollments in different states and tracks changes in eligibility
+(i.e. beginning of the eligibility and beneficiaries death) and
+changes in states and addresses.</p>
+<p>See also <a class="reference external" href="Medicaid.md#enrollments">Medicaid Enrollments</a> and
+<a class="reference external" href="Medicaid.md#eligibility">Medicaid Eligibility</a> tables. Please note, that
+since Medicare eligibility is not as volatile as Medicaid eligibility,
+i.e. it does not usually change month to month, there is no direct analog to
+<a class="reference external" href="Medicaid.md#eligibility">Medicaid Eligibility</a> table.</p>
+<p>As most of the other tables, <strong>Enrollments</strong> table is created in two steps.
+The first step
+creates an SQL view and the second step stores the data
+as a real table, adds primary key and builds indices to make queries
+more efficient.</p>
+</section>
+<section id="enrollments-primary-key-unique-identifier">
+<h4>Enrollments Primary key (unique identifier)<a class="headerlink" href="#enrollments-primary-key-unique-identifier" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p>bene_id</p></li>
+<li><p>year</p></li>
+<li><p>state</p></li>
+</ul>
+<p>In other words, a record in the table describes a given beneficiary
+leaving in a given state during a given year. If beneficiary has moved
+from one state to another during the year, more than one record for such
+a beneficiary will be created in the table. This is consistent with
+<a class="reference external" href="Medicaid.md#enrollments">Medicaid Enrollments</a>, though, arguably,
+makes less sense for Medicare.</p>
+</section>
+<section id="enrollments-data-cleansing">
+<h4>Enrollments data cleansing<a class="headerlink" href="#enrollments-data-cleansing" title="Permalink to this headline"></a></h4>
+<p>Beneficiaries can move during a year therefore address columns can have
+multiple values. These columns are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fips2</span></code>: state FIPS code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fips3</span></code>: county FIPS code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssa2</span></code>: SSA state code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssa3</span></code>: SSA county code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zip</span></code>: beneficiary address zip code</p></li>
+</ul>
+<p>The policy for all of this columns is the following:</p>
+<ul class="simple">
+<li><p>For corresponding column in the enrollments table, an arbitrary but
+deterministic value is selected</p></li>
+<li><p>An additional column is added, containing the list of all encountered
+values</p></li>
+</ul>
+<p>The additional columns are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ssa2_list</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssa3_list</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">residence_counties</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zips</span></code></p></li>
+</ul>
+<p>Additional columns reflecting data quality and cleansing are added to
+the <strong>Enrollments</strong> tables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">state_count</span></code>: Number of states associated with the given beneficiary
+in a given year</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fips3_is_approximated</span></code>: A boolean column, indicating whether the value
+was taken from original record as is or approximated.
+If true, it means that there was no valid county code in the original
+ResDac record, hence, the county code was inferred from other data
+(in most cases, zip code)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fips3_valdiated</span></code>: A boolean column indicating that the value
+of county code is consistent with the values of state code and zip code.</p></li>
+</ul>
+</section>
+<section id="enrollments-columns-definitions">
+<h4>Enrollments columns definitions<a class="headerlink" href="#enrollments-columns-definitions" title="Permalink to this headline"></a></h4>
+<p>The following columns are created for Enrollments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ssa2</span></code>: SSA state code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssa3</span></code>: SSA county code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssa2_list</span></code>: list of all SSA county codes</p></li>
+<li><p>state_iso: ISO code of the state, used for mapping</p></li>
+<li><p>residence_county: one of the “latest” residence
+counties where
+the beneficiary was registered, latest in
+alphabetical order</p></li>
+<li><p>residence_counties: comma separated list of all
+“latest” residence counties, where a beneficiary was
+registered during the year</p></li>
+<li><p>fips5: 5 digit FIPS code of the <code class="docutils literal notranslate"><span class="pre">residence_county</span></code></p></li>
+<li><p>zip: one of the “latest” zip codes where
+the beneficiary was registered, latest in
+numerical order</p></li>
+<li><p>zips: comma separated list of all
+“latest” zip codes, where a beneficiary was
+registered during the year</p></li>
+<li><p>state_count: number of states, where the beneficiary
+was enrolled in medicaid during the year. Note,
+this is also the number of records for this beneficiary and this year
+in the Enrollments` table.</p></li>
+<li><p>died: a boolean flag indicating that the beneficiary has
+died during this year while being registered
+for medicaid in this state.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fips3_is_approximated</span></code>: A boolean column, indicating whether the value
+was taken from original record as is or approximated.
+If true, it means that there was no valid county code in the original
+ResDac record, hence, the county code was inferred from other data
+(in most cases, zip code)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fips3_valdiated</span></code>: A boolean column indicating that the value
+of county code is consistent with the values of state code and zip code.</p></li>
+</ul>
+</section>
 </section>
 </section>
 </section>
