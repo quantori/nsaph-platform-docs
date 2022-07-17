@@ -84,9 +84,21 @@
 </li>
 <li><p><a class="reference external" href="#combining-raw-files-into-a-single-view">Combining raw files into a single view</a></p>
 <ul>
-<li><p><a class="reference external" href="#creating-federated-patient-summary">Creating Federated Patient Summary</a></p></li>
+<li><p><a class="reference external" href="#creating-federated-patient-summary">Creating Federated Patient Summary</a></p>
+<ul>
+<li><p><a class="reference external" href="#first-step-initial-in-database-data-conditioning">First step: Initial in-database data conditioning</a></p></li>
+<li><p><a class="reference external" href="#second-step-mapping-to-county-fips-codes">Second step: Mapping to county FIPS codes</a></p></li>
+</ul>
+</li>
 <li><p><a class="reference external" href="#creating-beneficiaries-table">Creating Beneficiaries table</a></p></li>
-<li><p><a class="reference external" href="#creating-enrollments-table">Creating Enrollments table</a></p></li>
+<li><p><a class="reference external" href="#creating-enrollments-table">Creating Enrollments table</a></p>
+<ul>
+<li><p><a class="reference external" href="#enrollments-overview">Enrollments overview</a></p></li>
+<li><p><a class="reference external" href="#enrollments-primary-key-unique-identifier">Enrollments Primary key (unique identifier)</a></p></li>
+<li><p><a class="reference external" href="#enrollments-data-cleansing">Enrollments data cleansing</a></p></li>
+<li><p><a class="reference external" href="#enrollments-columns-definitions">Enrollments columns definitions</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -239,7 +251,7 @@ based on the
 </section>
 <section id="creating-beneficiaries-table">
 <h3>Creating Beneficiaries table<a class="headerlink" href="#creating-beneficiaries-table" title="Permalink to this headline"></a></h3>
-<p>See also <a class="reference external" href="Medicaid.md#beneficiaries">creating Medicaid Beneficiaries table</a></p>
+<p>See also <a class="reference external" href="Medicaid.html#beneficiaries">creating Medicaid Beneficiaries table</a></p>
 <p>This is also a two steps operation. The first step
 creates an SQL view and the second step stores the data
 as a real table.</p>
@@ -270,7 +282,7 @@ beneficiary. The value of this column is NULL for consistent records</p></li>
 beneficiary. The value of this column is NULL for consistent records</p></li>
 </ul>
 <p>This topic is discussed in more details in the
-<a class="reference external" href="Medicaid.md#deduplication-and-data-cleansing">Medicaid documentation</a></p>
+<a class="reference external" href="Medicaid.html#deduplication-and-data-cleansing">Medicaid documentation</a></p>
 </section>
 <section id="creating-enrollments-table">
 <h3>Creating Enrollments table<a class="headerlink" href="#creating-enrollments-table" title="Permalink to this headline"></a></h3>
@@ -280,11 +292,11 @@ beneficiary. The value of this column is NULL for consistent records</p></li>
 enrollments in different states and tracks changes in eligibility
 (i.e. beginning of the eligibility and beneficiaries death) and
 changes in states and addresses.</p>
-<p>See also <a class="reference external" href="Medicaid.md#enrollments">Medicaid Enrollments</a> and
-<a class="reference external" href="Medicaid.md#eligibility">Medicaid Eligibility</a> tables. Please note, that
+<p>See also <a class="reference external" href="Medicaid.html#enrollments">Medicaid Enrollments</a> and
+<a class="reference external" href="Medicaid.html#eligibility">Medicaid Eligibility</a> tables. Please note, that
 since Medicare eligibility is not as volatile as Medicaid eligibility,
 i.e. it does not usually change month to month, there is no direct analog to
-<a class="reference external" href="Medicaid.md#eligibility">Medicaid Eligibility</a> table.</p>
+<a class="reference external" href="Medicaid.html#eligibility">Medicaid Eligibility</a> table.</p>
 <p>As most of the other tables, <strong>Enrollments</strong> table is created in two steps.
 The first step
 creates an SQL view and the second step stores the data
@@ -302,7 +314,7 @@ more efficient.</p>
 leaving in a given state during a given year. If beneficiary has moved
 from one state to another during the year, more than one record for such
 a beneficiary will be created in the table. This is consistent with
-<a class="reference external" href="Medicaid.md#enrollments">Medicaid Enrollments</a>, though, arguably,
+<a class="reference external" href="Medicaid.html#enrollments">Medicaid Enrollments</a>, though, arguably,
 makes less sense for Medicare.</p>
 </section>
 <section id="enrollments-data-cleansing">
