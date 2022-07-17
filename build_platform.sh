@@ -22,7 +22,7 @@ if [ -z "$1" ]
 fi
 
 # TODO: REMOVE IT
-export PYTHONPATH=${base}"/nsaph-utils"
+export PYTHONPATH=${base}"/nsaph_utils"
 
 for md in $(find ${deployment}/docs/*.md -name "*.md")
   do
@@ -40,9 +40,13 @@ do
   case "$name" in
      data_platform)
        dest=docs/core-platform
-       package="${base}/${package_prefix}core-platform"
+       package="${base}/${package_prefix}data_platform"
        ;;
-     utils|gis)
+      utils)
+       dest=docs/${name}
+       package="${base}/${package_prefix}nsaph_${name}"
+       ;;
+     gis)
        dest=docs/${name}
        package="${base}/${package_prefix}${name}"
        ;;
@@ -53,7 +57,7 @@ do
 
   pushd "$package" || exit
   git pull
-  popd || exit  
+  popd || exit
 
   for md in `find $package -name "*.md"`
   do
@@ -71,9 +75,9 @@ do
 
 done
 
-python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-utils/README.md home.md nsaph_utils
-python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-core-platform/README.md home.md nsaph
-python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-gis/README.md home.md gis
+python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph_utils/README.md home.md nsaph_utils
+python -u -m nsaph_utils.docutils.copy_section ${base}/data_platform/README.md home.md nsaph
+python -u -m nsaph_utils.docutils.copy_section ${base}/gis/README.md home.md gis
 
 for document in *.md
 do
