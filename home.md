@@ -1,7 +1,6 @@
 # NSAPH Data Platform
  **User and Development Documentation**
 
-<!-- toc -->
 <!--TOC-->
 
 - [Introduction](#introduction)
@@ -13,10 +12,12 @@
 - [Repositories Overview](#repositories-overview)
   - [Deployment](#deployment)
   - [General Packages](#general-packages)
+    - [NSAPH Utilities](#nsaph-utilities)
+    - [Core Platform](#core-platform)
+    - [GIS Utilities](#gis-utilities)
   - [Data Ingestion and Processing Packages and Pipelines](#data-ingestion-and-processing-packages-and-pipelines)
 
 <!--TOC-->
-<!-- tocstop -->
 
 ## Introduction
 

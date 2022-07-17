@@ -55,10 +55,6 @@ do
        package="${base}/${package_prefix}${name}"
      esac
 
-  pushd "$package" || exit
-  git pull
-  popd || exit
-
   for md in `find $package -name "*.md"`
   do
      md_toc --in-place --skip-lines 1 cmark --header-levels 6 $md
