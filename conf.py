@@ -46,7 +46,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx_paramlinks',
     'sphinx.ext.autosectionlabel',
-    'recommonmark',
+    'nsaph_utils.docutils.recommonmark',
     'sphinx_markdown_tables',
     'sphinx.ext.githubpages'
 ]
