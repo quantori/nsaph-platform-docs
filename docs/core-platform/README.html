@@ -51,6 +51,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#yaml-files">YAML files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#resources">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql-and-pl-pgsql-utilities">SQL and PL/pgSQL Utilities</a></li>
 </ul>
 </li>
 </ul>
@@ -89,6 +90,7 @@
              
   <section id="nsaph-data-platform">
 <h1>NSAPH Data Platform<a class="headerlink" href="#nsaph-data-platform" title="Permalink to this headline"></a></h1>
+<p><a class="reference external" href="https://nsaph-data-platform.github.io/nsaph-platform-docs/home.html">Full Platform Documentation</a></p>
 <!-- toc --><ul class="simple">
 <li><p><a class="reference external" href="#overview">Overview</a></p></li>
 <li><p><a class="reference external" href="#tool-examples">Tool Examples</a></p></li>
@@ -328,6 +330,33 @@ after a package is deployed is provided by
 <p>Another module, <a class="reference external" href="doc/members/pg_json_dump.html">pg_json_dump</a>,
 provides support for packaging tables as resources in JSONLines
 format. This format is used natively by some DBMSs.</p>
+</section>
+<section id="sql-and-pl-pgsql-utilities">
+<h3>SQL and PL/pgSQL Utilities<a class="headerlink" href="#sql-and-pl-pgsql-utilities" title="Permalink to this headline"></a></h3>
+<p>Utilities, implementing the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="src/sql/utils.sql">Functions</a>:</p>
+<ul>
+<li><p>Counting rows in tables</p></li>
+<li><p>Finding a name of the column that contains year from most tables used
+in data platform</p></li>
+<li><p>Creating a hash for <a class="reference external" href="https://en.wikipedia.org/wiki/HyperLogLog">HLL aggregations</a></p></li>
+</ul>
+</li>
+<li><p>Procedure:</p>
+<ul>
+<li><p><a class="reference external" href="src/sql/utils.sql">A procedure</a>) granting <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> privileges
+to a user on all NSAPH tables</p></li>
+<li><p><a class="reference external" href="src/sql/rename_indices.sql">A procedure to rename indices</a></p></li>
+</ul>
+</li>
+<li><p>Set of SQL statements
+<a class="reference external" href="src/sql/map_to_foreign_database.ddl">to map tables from another database</a>
+This can be used to map public tables available to anybody
+to a more secure database, containing health data</p></li>
+</ul>
+<p>Utilities used to map territorial codes are described in
+<a class="reference internal" href="doc/TerritorialCodes.html"><span class="doc">this document</span></a></p>
 </section>
 </section>
 </section>

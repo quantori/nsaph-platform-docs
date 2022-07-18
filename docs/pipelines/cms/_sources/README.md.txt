@@ -1,21 +1,32 @@
 # CMS Manipulation Package 
 **Pipelines to process CMS data: Medicaid and Medicare**
 
-<!-- toc -->
+<!--TOC-->
 
 - [Overview](#overview)
 - [Project Structure](#project-structure)
-  * [Software Sources](#software-sources)
-  * [CWL](#cwl)
-  * [Python](#python)
-    + [Package cms](#package-cms)
+  - [Software Sources](#software-sources)
+  - [CWL](#cwl)
+  - [Python](#python)
+    - [Package cms](#package-cms)
       - [Subpackage with miscellaneous tools for handling CMS data](#subpackage-with-miscellaneous-tools-for-handling-cms-data)
+  - [SQL](#sql)
 
-<!-- tocstop -->
+<!--TOC-->
 
 ## Overview
+                                               
+Data processing pipelines included in this package
+create a data warehouse with health data (Medicare and Medicaid).
+They perform ingestion of raw data into teh database, data 
+cleansing and deduplication , when possible, data quality analysis
+and optimization of the tables for efficient queries.
 
-See [Medicaid](doc/Medicaid.md) master document.
+Please see the following documents for details:
+
+* Data model and processing of [Medicaid](doc/Medicaid.md) data
+* Data model and processing of [Medicare](doc/Medicare.md) data
+* Tips on [querying of Medicaid data](doc/QueringMedicaid.md)
 
 ## Project Structure
 
@@ -45,7 +56,9 @@ Each processing step of CMS data is packaged as a
 standalone tool that can be run individually. 
 Each tool is individually documented.
 The tools are combined into a workflow represented by
-medicaid.cwl file.
+[medicaid.cwl](doc/pipeline/medicaid.md)
+and 
+[medicare.cwl](doc/pipeline/medicare.md) files.
 
 ### Python 
 
@@ -80,5 +93,18 @@ This package contains code that was written to try to extract
 corrupted medicare data for 2015. Ultimately, this attempt
 was unsuccessful.
 
+### SQL
+
+File [procedures](src/sql/procedures.sql) 
+addresses the problem that creating 
+[Medicaid eligibility table](doc/Medicaid.md#eligibility)
+in a single transaction requires too much time and memory.
+The stored procedures in this file split populating this table
+with data either by beneficiary or by year and state. Splitting by beneficiary
+(i.e. using one database transaction per beneficiary) works best.
+
+File [functions](src/sql/functions.sql) contain helper functions
+to parse dates in non-standard formats that are encountered in 
+raw medicare files that we have.
 
 
