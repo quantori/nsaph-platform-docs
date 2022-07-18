@@ -65,9 +65,8 @@ do
     mkdir -p "$package"/doc/members
   fi
 
-  python -m  nsaph_utils.docutils.collector "$package"/src/python "$package"/doc/members
+  python -m nsaph_utils.docutils.collector "$package"/src/python "$package"/doc/members
   sphinx-build -b html "$package" "$dest"
-
 
 done
 

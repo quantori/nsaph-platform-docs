@@ -187,9 +187,9 @@ Medicaid Analytic Extract) Personal Summary (PS) and The Medicaid MAX (Medicaid
 Analytic Extract) Inpatient (IP) files. The following table 
 summarizes the included data processing pipelines.
 
-| Pipeline | Documentation                                   |
-|----------|-------------------------------------------------|
-| EPA | [EPA Pipelines](pipelines/epa/README.html)       |
-| Census | [Census Package](pipelines/census/README.html)   |
-| Gridmet | [Gridmet package](pipelines/gridmet/README.html) |
-| CMS | [Medicaid Piepline](pipelines/cms/README.html)  |
+| Pipeline | Documentation                                    |
+|----------|--------------------------------------------------|
+| EPA | [EPA Pipelines](common/epa/README.html)          |
+| Census | [Census Package](common/census/README.html)   |
+| Gridmet | [Gridmet package](common/gridmet/README.html) |
+| CMS | [Medicaid Piepline](common/cms/README.html)   |
