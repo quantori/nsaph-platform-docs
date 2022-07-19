@@ -52,7 +52,7 @@ do
   fi
 done
 
-for md in $(find ../nsaph-platform-deployment -name "*.md")
+for md in $(find ../nsaph-platform-deployment/*.md)
   do
      md_toc --in-place --skip-lines 1 cmark --header-levels 6 $md
   done
