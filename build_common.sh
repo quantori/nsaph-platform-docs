@@ -39,10 +39,6 @@ do
        package="${base}/${package_prefix}${name}"
      esac
 
-  pushd "$package" || exit
-  git pull
-  popd || exit
-
   for md in $(find $package -name "*.md")
   do
      md_toc --in-place --skip-lines 1 cmark --header-levels 6 $md
@@ -76,4 +72,3 @@ python -m nsaph_utils.docutils.collector common/cms/src/python common/cms/doc/me
 python -m nsaph_utils.docutils.collector common/gridmet/src/python common/gridmet/doc/members
 
 sphinx-build -b html . docs
-git add docs

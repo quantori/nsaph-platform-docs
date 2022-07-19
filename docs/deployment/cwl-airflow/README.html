@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CWL-Airflow &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/Howto.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/Testing.html">Testing the installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/Glossary.html">Glossary and FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/UsefulCommands.html">Some useful commands:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><strong>CWL-Airflow</strong></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cwl-airflow/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><a class="reference external" href="https://zenodo.org/badge/latestdoi/103197335"><img alt="DOI" src="https://zenodo.org/badge/103197335.svg" /></a>
+<a class="reference external" href="https://www.python.org/downloads/release/python-377/"><img alt="Python 3.7" src="https://img.shields.io/badge/python-3.7-green.svg" /></a>
+<a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="Apache 2.0" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+<a class="reference external" href="https://app.travis-ci.com/Barski-lab/cwl-airflow"><img alt="Build Status" src="https://app.travis-ci.com/Barski-lab/cwl-airflow.svg?branch=master" /></a>
+<a class="reference external" href="https://coveralls.io/github/Barski-lab/cwl-airflow?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/Barski-lab/cwl-airflow/badge.svg?branch=master&amp;service=github" /></a>
+<a class="reference external" href="https://pepy.tech/project/cwl-airflow"><img alt="Downloads" src="https://pepy.tech/badge/cwl-airflow" /></a></p>
+<section id="cwl-airflow">
+<h1><strong>CWL-Airflow</strong><a class="headerlink" href="#cwl-airflow" title="Permalink to this headline"></a></h1>
+<p>Python package to extend <strong><a class="reference external" href="https://airflow.apache.org">Apache-Airflow 2.1.4</a></strong>
+functionality with <strong><a class="reference external" href="https://www.commonwl.org/v1.1/">CWL v1.1</a></strong> support</p>
+<section id="cite-as">
+<h2><strong>Cite as</strong><a class="headerlink" href="#cite-as" title="Permalink to this headline"></a></h2>
+<p>Michael Kotliar, Andrey V Kartashov, Artem Barski, CWL-Airflow: a lightweight pipeline manager supporting Common Workflow Language, GigaScience, Volume 8, Issue 7, July 2019, giz084, https://doi.org/10.1093/gigascience/giz084</p>
+</section>
+<section id="get-the-latest-version">
+<h2><strong>Get the latest version</strong><a class="headerlink" href="#get-the-latest-version" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PYTHON_VERSION=`python3 --version | cut -d &quot; &quot; -f 2 | cut -d &quot;.&quot; -f 1,2`
+pip3 install cwl-airflow --constraint https://raw.githubusercontent.com/Barski-lab/cwl-airflow/master/packaging/constraints/constraints-${PYTHON_VERSION}.txt
+</pre></div>
+</div>
+<p>Latest version <a class="reference external" href="https://cwl-airflow.readthedocs.io/en/latest/">documentation</a></p>
+</section>
+<section id="get-published-version">
+<h2><strong>Get published version</strong><a class="headerlink" href="#get-published-version" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">cwl</span><span class="o">-</span><span class="n">airflow</span><span class="o">==</span><span class="mf">1.0.18</span>
+</pre></div>
+</div>
+<p>Published version <a class="reference external" href="https://cwl-airflow.readthedocs.io/en/1.0.18/">documentation</a></p>
+</section>
+<section id="notes">
+<h2><strong>Notes</strong><a class="headerlink" href="#notes" title="Permalink to this headline"></a></h2>
+<p>Notes for developers can be found in <a class="reference external" href="https://github.com/Barski-lab/cwl-airflow/blob/master/README.dev.md">DEV README</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

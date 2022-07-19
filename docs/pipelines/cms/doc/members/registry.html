@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The registry Module &mdash; NSAPH CMS Data Processing Package 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> NSAPH CMS Data Processing Package
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/medicaid.html">Full Medicaid Processing Pipeline</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Also:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NSAPH CMS Data Processing Package</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>The registry Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/doc/members/registry.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-cms.registry">
+<span id="the-registry-module"></span><h1>The registry Module<a class="headerlink" href="#module-cms.registry" title="Permalink to this headline"></a></h1>
+<p>Medicaid Domain for NSAPH</p>
+<p>Running this module will create/update data model for raw CMS data</p>
+<p><a class="reference external" href="https://github.com/NSAPH/data_model">https://github.com/NSAPH/data_model</a></p>
+<dl class="simple">
+<dt>Demographics:   /data/incoming/rce/ci3_d_medicaid/processed_data/cms_medicaid-max/data_cms_medicaid-max-demographics_patient</dt><dd><dl class="simple">
+<dt>Description of columns:</dt><dd><p><a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/1_create_demographics_data.R">https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/1_create_demographics_data.R</a></p>
+</dd>
+</dl>
+</dd>
+<dt>Enrollments:    /data/incoming/rce/ci3_d_medicaid/processed_data/cms_medicaid-max/data_cms_medicaid-max-ps_patient-year</dt><dd><dl class="simple">
+<dt>Description of columns:</dt><dd><p><a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/2_process_enrollment_data.R">https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/2_process_enrollment_data.R</a>
+<a class="reference external" href="https://github.com/NSAPH/data_requests/tree/master/request_projects/dec2019_medicaid_platform_cvd">https://github.com/NSAPH/data_requests/tree/master/request_projects/dec2019_medicaid_platform_cvd</a></p>
+</dd>
+</dl>
+</dd>
+<dt>Admissions:     /data/incoming/rce/ci3_health_data/medicaid/cvd/1999_2012/desouza/data</dt><dd><dl class="simple">
+<dt>Description of columns:</dt><dd><p><a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/code/2_create_cvd_data.R">https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/code/2_create_cvd_data.R</a>
+<a class="reference external" href="https://github.com/NSAPH/data_requests/blob/master/request_projects/dec2019_medicaid_platform_cvd/cvd_readme.md">https://github.com/NSAPH/data_requests/blob/master/request_projects/dec2019_medicaid_platform_cvd/cvd_readme.md</a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Sample user request: <a class="reference external" href="https://github.com/NSAPH/data_requests/tree/master/request_projects/feb2021_jenny_medicaid_resp">https://github.com/NSAPH/data_requests/tree/master/request_projects/feb2021_jenny_medicaid_resp</a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="cms.registry.Registry">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Registry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="create_schema_config.html#cms.create_schema_config.CMSSchema" title="cms.create_schema_config.CMSSchema"><span class="pre">cms.create_schema_config.CMSSchema</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry" title="Permalink to this definition"></a></dt>
+<dd><p>This class parses File Transfer Summary files and
+creates YAML data model. It can either
+update built-in registry or write
+the model to a designated path</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.registry.Registry.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry.update" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.registry.Registry.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry.init" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.registry.Registry.update_medicaid">
+<span class="sig-name descname"><span class="pre">update_medicaid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry.update_medicaid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry.update_medicaid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.registry.Registry.update_medicare">
+<span class="sig-name descname"><span class="pre">update_medicare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry.update_medicare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry.update_medicare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.registry.Registry.built_in_registry_path">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">built_in_registry_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/cms/registry.html#Registry.built_in_registry_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.registry.Registry.built_in_registry_path" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

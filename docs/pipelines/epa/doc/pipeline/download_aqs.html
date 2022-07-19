@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Downloader of AQS Data &mdash; NSAPH EPA Pipelines 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Resource Loader" href="ensure_resource.html" />
+    <link rel="prev" title="Downloader of AirNow Data" href="download_airnow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> NSAPH EPA Pipelines
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Package Contents</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../README.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html">EPA Toolkit Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../members/aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../members/aqs_ds_def.html">Configuration Options for EPA AQS Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../members/airnow.html">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../members/airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../members/aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../members/airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Downloader of AQS Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html">Index Builder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ingest.html">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup_airnow.html">Prepare environment for AirNow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">General Description:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">EPA Toolkit Usage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Python Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../members/aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/aqs_ds_def.html">Configuration Options for EPA AQS Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/airnow.html">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../members/airnow_downloader.html">Downloader for AirNow</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CWL Tools and Common Workflows:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="airnow.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="airnow_local_shapes.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aqs.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_airnow.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ensure_resource.html">Resource Loader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expand_aqs.html">Downloader of AQS Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_shapes.html">Downloader of AirNow Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Index Builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ingest.html">Uploader of the EPA Data to the database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introspect.html">Introspector for downloaded data file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_airnow.html">Prepare environment for AirNow</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NSAPH EPA Pipelines</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Downloader of AQS Data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/doc/pipeline/download_aqs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="downloader-of-aqs-data">
+<h1>Downloader of AQS Data<a class="headerlink" href="#downloader-of-aqs-data" title="Permalink to this headline"></a></h1>
+<p class="rubric">Tool [‘wget’]</p>
+<p class="rubric">Description<p>This tool downloads AQS data from EPA website
+</p>
+</p>
+<p class="rubric">Inputs<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>aggregation</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>Aggregation type: annual or daily</p></td>
+</tr>
+<tr class="row-odd"><td><p>parameter_code</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: [AQS Code List](https://www.epa.gov/aqs/aqs-code-list) </p></td>
+</tr>
+<tr class="row-even"><td><p>year</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>Year to download</p></td>
+</tr>
+<tr class="row-odd"><td><p>proxy</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>Proxy for connection</p></td>
+</tr>
+</tbody>
+</table>
+</p>
+<p class="rubric">Outputs<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+</tbody>
+</table>
+</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="download_airnow.html" class="btn btn-neutral float-left" title="Downloader of AirNow Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ensure_resource.html" class="btn btn-neutral float-right" title="Resource Loader" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

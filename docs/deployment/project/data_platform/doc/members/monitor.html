@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The monitor Module &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/Howto.html">Howto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/Testing.html">Testing the installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/Glossary.html">Glossary and FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/UsefulCommands.html">Some useful commands:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>The monitor Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/project/data_platform/doc/members/monitor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-nsaph.loader.monitor">
+<span id="the-monitor-module"></span><h1>The monitor Module<a class="headerlink" href="#module-nsaph.loader.monitor" title="Permalink to this headline"></a></h1>
+<p>A utility that prints the statistics about
+currently running indexing processes</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.monitor.DBActivityMonitor">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">DBActivityMonitor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_loader.html#nsaph.loader.common.DBConnectionConfig" title="nsaph.loader.common.DBConnectionConfig"><span class="pre">nsaph.loader.common.DBConnectionConfig</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/monitor.html#DBActivityMonitor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.monitor.DBActivityMonitor" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.monitor.DBActivityMonitor.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/monitor.html#DBActivityMonitor.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.monitor.DBActivityMonitor.run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.monitor.DBActivityMonitor.get_indexing_progress">
+<span class="sig-name descname"><span class="pre">get_indexing_progress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/nsaph/loader/monitor.html#DBActivityMonitor.get_indexing_progress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.monitor.DBActivityMonitor.get_indexing_progress" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.monitor.DBActivityMonitor.get_activity">
+<span class="sig-name descname"><span class="pre">get_activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pid</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/nsaph/loader/monitor.html#DBActivityMonitor.get_activity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.monitor.DBActivityMonitor.get_activity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.monitor.Activity">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Activity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">activity:</span> <span class="pre">Dict</span></em>, <em class="sig-param"><span class="pre">now:</span> <span class="pre">&lt;module</span> <span class="pre">'datetime'</span> <span class="pre">from</span> <span class="pre">'/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/datetime.py'&gt;</span></em>, <em class="sig-param"><span class="pre">msg_len=32</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/monitor.html#Activity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.monitor.Activity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
