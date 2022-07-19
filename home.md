@@ -189,7 +189,7 @@ summarizes the included data processing pipelines.
 
 | Pipeline | Documentation                                   |
 |----------|-------------------------------------------------|
-| EPA | [EPA Pipelines](pipelines/epa/README.html) (AQS and AirNow)      |
-| Census | [Census Package](pipelines/census/README.html) (Ingesting demographics data)  |
-| Gridmet | [Gridmet package](pipelines/gridmet/README.html) (Climate data pipelines and utilities) |
-| CMS | [CMS Piepline](pipelines/cms/README.html) (Medicare and Medicaid) |
+| EPA | [EPA Pipelines](common/epa/README.html) (AQS and AirNow)      |
+| Census | [Census Package](common/census/README.html) (Ingesting demographics data)  |
+| Gridmet | [Gridmet package](common/gridmet/README.html) (Climate data pipelines and utilities) |
+| CMS | [CMS Piepline](common/cms/README.html) (Medicare and Medicaid) |
