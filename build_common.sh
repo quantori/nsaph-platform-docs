@@ -52,13 +52,15 @@ do
   fi
 done
 
-for md in $(find ../nsaph-platform-deployment -name "*.md")
+for md in $(find ../nsaph-platform-deployment -name "*.md" -maxdepth 2)
   do
      md_toc --in-place --skip-lines 1 cmark --header-levels 6 $md
   done
 
-cp -r ../nsaph-platform-deployment/*.md common/
-cp -r ../nsaph-platform-deployment/*.rst common/
+mkdir common/deployment
+cp -r ../nsaph-platform-deployment/*.md common/deployment/
+cp -r ../nsaph-platform-deployment/docs common/deployment/
+cp -r ../nsaph-platform-deployment/*.rst common/deployment/
 
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-utils/README.md home.md nsaph_utils
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-core-platform/README.md home.md nsaph

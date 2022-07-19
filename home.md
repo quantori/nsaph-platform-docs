@@ -100,7 +100,7 @@ package.
 
 ### Deployment
 
-[Deployment repository](deployment) is based on  
+[Deployment repository](common/deployment/README.md) is based on  
 CWL-Airflow Docker Deployment developed
 by Harvard FAS RC in collaboration with Forome Association. Essentially, this is a fork of: 
 [Apache Airflow + CWL in Docker with Optional Conda and R](https://github.com/ForomePlatform/airflow-cwl-docker)
