@@ -1,0 +1,10 @@
+Markdown==3.3  # https://github.com/ryanfox/sphinx-markdown-tables/issues/36
+sphinx_rtd_theme
+sphinx_paramlinks
+recommonmark
+sphinx_markdown_tables
+sphinx_sql
+md-toc
+tqdm
+git+https://github.com/NSAPH-Data-Platform/nsaph-utils.git#egg=nsaph-utils
+git+https://github.com/NSAPH-Data-Platform/nsaph-core-platform.git#egg=nsaph

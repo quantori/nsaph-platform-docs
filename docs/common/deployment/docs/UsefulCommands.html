@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Some useful commands: &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Some useful commands:</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/common/deployment/docs/UsefulCommands.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="some-useful-commands">
+<h1>Some useful commands:<a class="headerlink" href="#some-useful-commands" title="Permalink to this headline"></a></h1>
+<!--TOC--><ul class="simple">
+<li><p><a class="reference external" href="#to-view-logs-of-the-running-containers">To view logs of the running containers:</a></p></li>
+<li><p><a class="reference external" href="#to-attach-to-the-started-container-bash">To attach to the started container (bash)</a></p></li>
+<li><p><a class="reference external" href="#attach-to-a-container-when-it-does-not-start">Attach to a container when it does not start</a></p></li>
+<li><p><a class="reference external" href="#to-stop-all-your-containers">To stop all your containers:</a></p></li>
+<li><p><a class="reference external" href="#to-delete-all-images-and-containers">To delete all images and containers:</a></p></li>
+<li><p><a class="reference external" href="#to-delete-postgresql-volumes">To delete PostgreSQL volumes</a></p></li>
+<li><p><a class="reference external" href="#upgrade-airflow-database">Upgrade Airflow Database</a></p></li>
+<li><p><a class="reference external" href="#create-airflow-user">Create Airflow user</a></p></li>
+</ul>
+<!--TOC--><section id="to-view-logs-of-the-running-containers">
+<h2>To view logs of the running containers:<a class="headerlink" href="#to-view-logs-of-the-running-containers" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">usage</span><span class="p">:</span>
+    <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">logs</span> <span class="p">{</span><span class="n">container_name</span><span class="p">}</span>
+  <span class="n">example</span><span class="p">:</span>
+    <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">logs</span> <span class="n">webserver</span>
+</pre></div>
+</div>
+</section>
+<section id="to-attach-to-the-started-container-bash">
+<h2>To attach to the started container (bash)<a class="headerlink" href="#to-attach-to-the-started-container-bash" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">usage</span><span class="p">:</span>
+     <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">exec</span> <span class="p">{</span><span class="n">container_name</span><span class="p">}</span> <span class="n">bash</span>
+  <span class="n">example</span><span class="p">:</span>
+     <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">exec</span> <span class="n">webserver</span> <span class="n">bash</span>
+</pre></div>
+</div>
+</section>
+<section id="attach-to-a-container-when-it-does-not-start">
+<h2>Attach to a container when it does not start<a class="headerlink" href="#attach-to-a-container-when-it-does-not-start" title="Permalink to this headline"></a></h2>
+<p>If a container does not start because of teh startup errors,
+use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">run</span> <span class="o">--</span><span class="n">entrypoint</span> <span class="n">bash</span> <span class="n">webserver</span>
+</pre></div>
+</div>
+</section>
+<section id="to-stop-all-your-containers">
+<h2>To stop all your containers:<a class="headerlink" href="#to-stop-all-your-containers" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
+</pre></div>
+</div>
+</section>
+<section id="to-delete-all-images-and-containers">
+<h2>To delete all images and containers:<a class="headerlink" href="#to-delete-all-images-and-containers" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">docker</span> <span class="n">system</span> <span class="n">prune</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+</section>
+<section id="to-delete-postgresql-volumes">
+<h2>To delete PostgreSQL volumes<a class="headerlink" href="#to-delete-postgresql-volumes" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># find volume name</span>
+<span class="n">docker</span> <span class="n">volume</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">postgre</span>
+<span class="c1"># delete</span>
+<span class="n">docker</span> <span class="n">volume</span> <span class="n">rm</span> <span class="n">airflow</span><span class="o">-</span><span class="n">cwl</span><span class="o">-</span><span class="n">docker_postgres</span><span class="o">-</span><span class="n">db</span><span class="o">-</span><span class="n">volume</span>
+</pre></div>
+</div>
+</section>
+<section id="upgrade-airflow-database">
+<h2>Upgrade Airflow Database<a class="headerlink" href="#upgrade-airflow-database" title="Permalink to this headline"></a></h2>
+<p>If you have a problem with login and logs in containers complaining that
+“relation does not exist” execute this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">scheduler</span> <span class="n">entrypoint</span><span class="o">.</span><span class="n">sh</span> <span class="n">airflow</span> <span class="n">db</span> <span class="n">upgrade</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">webserver</span> <span class="n">entrypoint</span><span class="o">.</span><span class="n">sh</span> <span class="n">airflow</span> <span class="n">db</span> <span class="n">upgrade</span>
+</pre></div>
+</div>
+</section>
+<section id="create-airflow-user">
+<h2>Create Airflow user<a class="headerlink" href="#create-airflow-user" title="Permalink to this headline"></a></h2>
+<p>If you have a problem with login and logs in containers
+complaining that “No user yet created” execute this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker exec -it scheduler entrypoint.sh airflow users create --username $_AIRFLOW_WWW_USER_USERNAME --password $_AIRFLOW_WWW_USER_PASSWORD -r Admin -e 1@example.com -f Airflow -l Airflow
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

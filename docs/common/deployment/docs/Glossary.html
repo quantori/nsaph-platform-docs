@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossary and FAQ &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Glossary and FAQ</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/common/deployment/docs/Glossary.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="glossary-and-faq">
+<h1>Glossary and FAQ<a class="headerlink" href="#glossary-and-faq" title="Permalink to this headline"></a></h1>
+<!--TOC--><ul class="simple">
+<li><p><a class="reference external" href="#what-is-cwl">What is CWL?</a></p></li>
+<li><p><a class="reference external" href="#what-is-airflow">What is Airflow</a></p></li>
+<li><p><a class="reference external" href="#what-is-cwl-airflow">What is CWL-Airflow</a></p></li>
+<li><p><a class="reference external" href="#what-is-docker">What is Docker</a></p></li>
+<li><p><a class="reference external" href="#what-is-docker-compose">What is Docker-compose</a></p></li>
+<li><p><a class="reference external" href="#what-is-conda">What is Conda</a></p></li>
+<li><p><a class="reference external" href="#what-is-postgresql">What is PostgreSQL</a></p></li>
+</ul>
+<!--TOC--><section id="what-is-cwl">
+<h2>What is CWL?<a class="headerlink" href="#what-is-cwl" title="Permalink to this headline"></a></h2>
+<p>CWL stands for the <a class="reference external" href="https://www.commonwl.org/">Common Workflow Language</a>
+Citing the CWL website:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CWL</span> <span class="ow">is</span> <span class="n">an</span> <span class="nb">open</span> <span class="n">standard</span> <span class="k">for</span> <span class="n">describing</span> <span class="n">analysis</span> <span class="n">workflows</span> 
+<span class="ow">and</span> <span class="n">tools</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">way</span> <span class="n">that</span> <span class="n">makes</span> <span class="n">them</span> <span class="n">portable</span> <span class="ow">and</span> <span class="n">scalable</span> 
+<span class="n">across</span> <span class="n">a</span> <span class="n">variety</span> <span class="n">of</span> <span class="n">software</span> <span class="ow">and</span> <span class="n">hardware</span> <span class="n">environments</span><span class="p">,</span> 
+<span class="kn">from</span> <span class="nn">workstations</span> <span class="n">to</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">cloud</span><span class="p">,</span> <span class="ow">and</span> <span class="n">high</span> <span class="n">performance</span> 
+<span class="n">computing</span> <span class="p">(</span><span class="n">HPC</span><span class="p">)</span> <span class="n">environments</span><span class="o">.</span> <span class="n">CWL</span> <span class="ow">is</span> <span class="n">designed</span> <span class="n">to</span> <span class="n">meet</span> <span class="n">the</span> 
+<span class="n">needs</span> <span class="n">of</span> <span class="n">data</span><span class="o">-</span><span class="n">intensive</span> <span class="n">science</span><span class="p">,</span> <span class="n">such</span> <span class="k">as</span> <span class="n">Bioinformatics</span><span class="p">,</span> 
+<span class="n">Medical</span> <span class="n">Imaging</span><span class="p">,</span> <span class="n">Astronomy</span><span class="p">,</span> <span class="n">High</span> <span class="n">Energy</span> <span class="n">Physics</span><span class="p">,</span> <span class="ow">and</span> <span class="n">Machine</span> <span class="n">Learning</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="what-is-airflow">
+<h2>What is Airflow<a class="headerlink" href="#what-is-airflow" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://airflow.apache.org/">Apache Airflow</a>
+is a platform to programmatically author, schedule and monitor workflows.
+It represents workflows as graphs, visualizes them and provides a nice
+Graphical User
+Interface (GUI) to manage, control and monitor workflows.</p>
+</section>
+<section id="what-is-cwl-airflow">
+<h2>What is CWL-Airflow<a class="headerlink" href="#what-is-cwl-airflow" title="Permalink to this headline"></a></h2>
+<p><strong><em>CWL-Airflow</em></strong> implements CWL by translating CWL workflows into
+<a class="reference external" href="https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags">Airflow DAGs</a>,
+hence providing a nice GUI to manage, control and
+monitor <strong><em>CWL</em></strong> workflows.</p>
+</section>
+<section id="what-is-docker">
+<h2>What is Docker<a class="headerlink" href="#what-is-docker" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.docker.com/">Docker</a>, is a software framework for managing
+<a class="reference external" href="https://www.docker.com/resources/what-container">containers</a> on
+servers and the cloud.</p>
+</section>
+<section id="what-is-docker-compose">
+<h2>What is Docker-compose<a class="headerlink" href="#what-is-docker-compose" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://docs.docker.com/compose/">Docker-compose</a> is a tool for defining
+and running multi-container Docker applications.</p>
+<p>Airflow uses multiple containers (at least webserver and scheduler) and
+also interacts with other applications, such as a RDBMSs where it stores
+it state. These applications can also be deployed as containers. We use
+docker-compose to orchestrate all required containers.</p>
+</section>
+<section id="what-is-conda">
+<h2>What is Conda<a class="headerlink" href="#what-is-conda" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a></p>
+</section>
+<section id="what-is-postgresql">
+<h2>What is PostgreSQL<a class="headerlink" href="#what-is-postgresql" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://www.postgresql.org/">PostgreSQL</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

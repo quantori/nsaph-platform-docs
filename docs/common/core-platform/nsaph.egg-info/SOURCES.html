@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/common/core-platform/nsaph.egg-info/SOURCES.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>LICENSE.md
+README.md
+setup.py
+./resources/__init__.py
+./resources/public/hud_zip2fips.ddl
+./resources/public/hud_zip2fips.json.gz
+./resources/public/us_iso.ddl
+./resources/public/us_iso.json.gz
+./resources/public/us_states.ddl
+./resources/public/us_states.json.gz
+./resources/shapes/counties/shapes_counties_2019.tgz.REMOVED.git-id
+./resources/shapes/zips/shapes_zip_2017.tgz.REMOVED.git-id
+./src/python/nsaph/__init__.py
+./src/python/nsaph/adi.py
+./src/python/nsaph/analyze.py
+./src/python/nsaph/create.py
+./src/python/nsaph/db.py
+./src/python/nsaph/ds.py
+./src/python/nsaph/fips.py
+./src/python/nsaph/index.py
+./src/python/nsaph/ingest.py
+./src/python/nsaph/link_gis.py
+./src/python/nsaph/pg_keywords.py
+./src/python/nsaph/data_model/__init__.py
+./src/python/nsaph/data_model/domain.py
+./src/python/nsaph/data_model/inserter.py
+./src/python/nsaph/data_model/model.py
+./src/python/nsaph/data_model/utils.py
+./src/python/nsaph/loader/__init__.py
+./src/python/nsaph/loader/common.py
+./src/python/nsaph/loader/data_loader.py
+./src/python/nsaph/loader/index_builder.py
+./src/python/nsaph/loader/introspector.py
+./src/python/nsaph/loader/loader_config.py
+./src/python/nsaph/loader/monitor.py
+./src/python/nsaph/loader/project_loader.py
+./src/python/nsaph/loader/vacuum.py
+./src/python/nsaph/requests/__init__.py
+./src/python/nsaph/requests/hdf5_export.py
+./src/python/nsaph/requests/query.py
+./src/python/nsaph/util/__init__.py
+./src/python/nsaph/util/cwl_collect_outputs.py
+./src/python/nsaph/util/executors.py
+./src/python/nsaph/util/net.py
+./src/python/nsaph/util/pg_json_dump.py
+./src/python/nsaph/util/resources.py
+./src/python/nsaph/util/sas_explorer.py
+./src/python/nsaph/util/shapes.py
+./src/python/nsaph/util/ssa2fips.py
+./src/python/nsaph/util/zip2fips.py
+./src/yml/epa.yaml
+./src/yml/example_request.yaml
+./src/yml/gridmet.yaml
+./src/yml/medicaid_obs.yaml
+./src/yml/ssa2fips.yaml
+nsaph.egg-info/PKG-INFO
+nsaph.egg-info/SOURCES.txt
+nsaph.egg-info/dependency_links.txt
+nsaph.egg-info/requires.txt
+nsaph.egg-info/top_level.txt</p>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
