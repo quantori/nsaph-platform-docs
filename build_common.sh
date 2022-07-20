@@ -76,4 +76,6 @@ python -m nsaph_utils.docutils.collector common/cms/src/python common/cms/doc/me
 python -m nsaph_utils.docutils.collector common/gridmet/src/python common/gridmet/doc/members
 
 sphinx-build -b html . docs
+
+touch docs/.nojekyll
 git add docs
