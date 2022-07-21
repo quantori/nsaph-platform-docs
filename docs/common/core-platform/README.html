@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NSAPH Data Platform &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>NSAPH Data Platform Core &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -18,7 +18,9 @@
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="NSAPH GIS python package" href="../gis/README.html" />
+    <link rel="prev" title="NSAPH Utils python package" href="../utils/README.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,8 +39,30 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../home.html">NSAPH Data Platform</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/README.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NSAPH Data Platform Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tool-examples">Tool Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#software-sources">Software Sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-packages">Python packages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#nsaph-package">NSAPH Package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#yaml-files">YAML files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resources">Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql-and-pl-pgsql-utilities">SQL and PL/pgSQL Utilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gis/README.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../epa/README.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cms/README.html">CMS Manipulation Package</a></li>
 </ul>
 
         </div>
@@ -55,7 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>NSAPH Data Platform</li>
+      <li>NSAPH Data Platform Core</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/common/core-platform/README.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -65,8 +89,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nsaph-data-platform">
-<h1>NSAPH Data Platform<a class="headerlink" href="#nsaph-data-platform" title="Permalink to this headline"></a></h1>
+  <section id="nsaph-data-platform-core">
+<h1>NSAPH Data Platform Core<a class="headerlink" href="#nsaph-data-platform-core" title="Permalink to this headline"></a></h1>
 <p><a class="reference external" href="https://nsaph-data-platform.github.io/nsaph-platform-docs/home.html">Full Platform Documentation</a></p>
 <!-- toc --><ul class="simple">
 <li><p><a class="reference external" href="#overview">Overview</a></p></li>
@@ -322,7 +346,7 @@ in data platform</p></li>
 </li>
 <li><p>Procedure:</p>
 <ul>
-<li><p><a class="reference external" href="src/sql/utils.sql">A procedure</a>) granting <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> privileges
+<li><p><a class="reference external" href="src/sql/utils.sql">A procedure</a> granting <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> privileges
 to a user on all NSAPH tables</p></li>
 <li><p><a class="reference external" href="src/sql/rename_indices.sql">A procedure to rename indices</a></p></li>
 </ul>
@@ -341,7 +365,10 @@ to a more secure database, containing health data</p></li>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../utils/README.html" class="btn btn-neutral float-left" title="NSAPH Utils python package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../gis/README.html" class="btn btn-neutral float-right" title="NSAPH GIS python package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

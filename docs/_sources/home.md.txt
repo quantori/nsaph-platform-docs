@@ -1,5 +1,8 @@
-# NSAPH Data Platform
- **User and Development Documentation**
+# NSAPH Data Platform: Documentation Home
+ **User and Development Documentation** &nbsp;&nbsp;&nbsp;&nbsp; 
+ [index](genindex.html)
+
+<!-- &nbsp;&nbsp;&nbsp;&nbsp; [search](search.html) -->
 
 <!--TOC-->
 
@@ -58,10 +61,10 @@ of the platform.
 ### Using the Database
 
 For a sample to query the database, please look at
-[Sample Query](core-platform/doc/SampleQuery.html)
+[Sample Query](common/core-platform/doc/SampleQuery.html)
 
 A discussion of querying of health data can be found in 
-[this document](pipelines/cms/doc/QueringMedicaid.html)
+[this document](common/cms/doc/QueringMedicaid.html)
 
 ### Glossary
 
@@ -140,7 +143,7 @@ Included utilities:
 
 <!-- end of section overview from nsaph_utils -->
 
-[Package Description](utils)
+[NSAPH Utils Package Description](common/utils)
 
 
 #### Core Platform
@@ -159,7 +162,7 @@ The project structure can also be in flux.
 
 <!-- end of section overview from nsaph -->
 
-[Package Description](core-platform)
+[Core Platform Package Description](common/core-platform)
 
 
 #### GIS Utilities
@@ -171,7 +174,7 @@ This library contains several packages, aimed to work with census shape files.
 
 <!-- end of section overview from gis -->
 
-[Package Description](gis)
+[NSAPH GIS Package Description](common/gis)
 
 
    

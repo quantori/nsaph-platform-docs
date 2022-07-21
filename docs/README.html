@@ -38,7 +38,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="home.html">NSAPH Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/utils/README.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/core-platform/README.html">NSAPH Data Platform Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/gis/README.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/epa/README.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/cms/README.html">CMS Manipulation Package</a></li>
 </ul>
 
         </div>
@@ -68,8 +75,24 @@
   <section id="nsaph-data-ingestion-pipelines">
 <h1>NSAPH Data Ingestion Pipelines<a class="headerlink" href="#nsaph-data-ingestion-pipelines" title="Permalink to this headline"></a></h1>
 <p>This repository contains pipelines for preprocessing data
-to make it available to NSPAH projects</p>
-<p><a class="reference external" href="https://nsaph.github.io/pipelines/">Go to Documentation</a></p>
+to make it available to NSPAH projects.</p>
+<p><a class="reference external" href="https://nsaph-data-platform.github.io/nsaph-platform-docs/">Go to Documentation</a></p>
+<section id="building-documentation">
+<h2>Building documentation<a class="headerlink" href="#building-documentation" title="Permalink to this headline"></a></h2>
+<p>Building documentation requires Python 3.8 or later.
+First, install all requirements by executing command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> 
+</pre></div>
+</div>
+<p>To build the documentation, all project repositories should be
+cloned to the same root directory. This root directory is given to the
+build script as an argument. Run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>./build_common.sh ${path_to_common_root_dir}    
+</pre></div>
+</div>
+<p>See also <a class="reference external" href="home.html#building-platform-documentation">Building documentation</a>
+section in the main doc.</p>
+</section>
 </section>
 
 

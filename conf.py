@@ -53,6 +53,8 @@ extensions = [
     'nsaph_utils.docutils.cwl_directive'
 ]
 
+sphinxsql_include_table_attributes = True
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
