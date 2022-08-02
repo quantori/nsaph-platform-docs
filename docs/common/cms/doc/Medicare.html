@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="medicare-files-handling">
-<h1>Medicare Files Handling<a class="headerlink" href="#medicare-files-handling" title="Permalink to this headline"></a></h1>
+<h1>Medicare Files Handling<a class="headerlink" href="#medicare-files-handling" title="Permalink to this heading"></a></h1>
 <!--TOC--><ul class="simple">
 <li><p><a class="reference external" href="#ingesting-raw-files">Ingesting Raw Files</a></p>
 <ul>
@@ -104,9 +105,9 @@
 </li>
 </ul>
 <!--TOC--><section id="ingesting-raw-files">
-<h2>Ingesting Raw Files<a class="headerlink" href="#ingesting-raw-files" title="Permalink to this headline"></a></h2>
+<h2>Ingesting Raw Files<a class="headerlink" href="#ingesting-raw-files" title="Permalink to this heading"></a></h2>
 <section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
 <p>There are two types of tables:</p>
 <ul class="simple">
 <li><p>Patient summary, aka enrollment, aka denominator</p></li>
@@ -132,7 +133,7 @@ have original files, but preprocessed files with patient summary
 however columns are also different for different years.</p>
 </section>
 <section id="storing-in-the-database">
-<h3>Storing in the Database<a class="headerlink" href="#storing-in-the-database" title="Permalink to this headline"></a></h3>
+<h3>Storing in the Database<a class="headerlink" href="#storing-in-the-database" title="Permalink to this heading"></a></h3>
 <p>Given the difference in file structures we create a separate table
 for every file. However, to make it easier to join these tables we:</p>
 <ul class="simple">
@@ -163,7 +164,7 @@ number column. This column ha sno meaning but allows to trace a record to the
 original data.</p>
 </section>
 <section id="files-for-1999-to-2010">
-<h3>Files for 1999 to 2010<a class="headerlink" href="#files-for-1999-to-2010" title="Permalink to this headline"></a></h3>
+<h3>Files for 1999 to 2010<a class="headerlink" href="#files-for-1999-to-2010" title="Permalink to this heading"></a></h3>
 <p>These files are in SAS7BDAT format. They have been stored on RCE
 in two directories:</p>
 <ul class="simple">
@@ -179,7 +180,7 @@ names and types. We use this metadata to generate appropriate database schema.</
 </ul>
 </section>
 <section id="files-for-years-2011-and-later">
-<h3>Files for Years 2011 and later<a class="headerlink" href="#files-for-years-2011-and-later" title="Permalink to this headline"></a></h3>
+<h3>Files for Years 2011 and later<a class="headerlink" href="#files-for-years-2011-and-later" title="Permalink to this heading"></a></h3>
 <p>These files are original files from Resdac. They come in Fixed Width Format
 (FWF). For each file the structure is described in File Transfer
 Summary (FTS) file. Unfortunately these files are intended for reading by
@@ -194,7 +195,7 @@ extarcted by the parser is used to:</p>
 </section>
 </section>
 <section id="combining-raw-files-into-a-single-view">
-<h2>Combining raw files into a single view<a class="headerlink" href="#combining-raw-files-into-a-single-view" title="Permalink to this headline"></a></h2>
+<h2>Combining raw files into a single view<a class="headerlink" href="#combining-raw-files-into-a-single-view" title="Permalink to this heading"></a></h2>
 <p>Once all raw files are ingested into teh database they are combined
 into two views:</p>
 <ol class="simple">
@@ -202,12 +203,12 @@ into two views:</p>
 <li><p>Inpatient Admissions (aka hospitalizations, aka medpar)</p></li>
 </ol>
 <section id="creating-federated-patient-summary">
-<h3>Creating Federated Patient Summary<a class="headerlink" href="#creating-federated-patient-summary" title="Permalink to this headline"></a></h3>
+<h3>Creating Federated Patient Summary<a class="headerlink" href="#creating-federated-patient-summary" title="Permalink to this heading"></a></h3>
 <p>The federated patient summary is created in two steps.
 The division into two steps is purely because of technical reasons
 given some limitations of readability in SQL.</p>
 <section id="first-step-initial-in-database-data-conditioning">
-<h4>First step: Initial in-database data conditioning<a class="headerlink" href="#first-step-initial-in-database-data-conditioning" title="Permalink to this headline"></a></h4>
+<h4>First step: Initial in-database data conditioning<a class="headerlink" href="#first-step-initial-in-database-data-conditioning" title="Permalink to this heading"></a></h4>
 <p>The first step creates a view called <code class="docutils literal notranslate"><span class="pre">medicare.ps</span></code>.</p>
 <p>This step technically combines all <code class="docutils literal notranslate"><span class="pre">cms.mbsf_ab*</span></code> and <code class="docutils literal notranslate"><span class="pre">cms.mcr_bene_*</span></code>
 tables into a single view using <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">VIEW</span></code> SQL statement.</p>
@@ -237,7 +238,7 @@ from either character or SAS numeric form</p></li>
 is responsible to perform it.</p>
 </section>
 <section id="second-step-mapping-to-county-fips-codes">
-<h4>Second step: Mapping to county FIPS codes<a class="headerlink" href="#second-step-mapping-to-county-fips-codes" title="Permalink to this headline"></a></h4>
+<h4>Second step: Mapping to county FIPS codes<a class="headerlink" href="#second-step-mapping-to-county-fips-codes" title="Permalink to this heading"></a></h4>
 <p>At the second step, a view called <code class="docutils literal notranslate"><span class="pre">medicare._ps</span></code> is created.<br />The only difference between  <code class="docutils literal notranslate"><span class="pre">medicare.ps</span></code> and <code class="docutils literal notranslate"><span class="pre">medicare._ps</span></code>
 is that the latter has county FIPS code (<code class="docutils literal notranslate"><span class="pre">fips3</span></code> column)
 inferred either SSA county code (<code class="docutils literal notranslate"><span class="pre">ssa3</span></code> column), if it is
@@ -251,7 +252,7 @@ based on the
 </section>
 </section>
 <section id="creating-beneficiaries-table">
-<h3>Creating Beneficiaries table<a class="headerlink" href="#creating-beneficiaries-table" title="Permalink to this headline"></a></h3>
+<h3>Creating Beneficiaries table<a class="headerlink" href="#creating-beneficiaries-table" title="Permalink to this heading"></a></h3>
 <p>See also <a class="reference external" href="Medicaid.html#beneficiaries">creating Medicaid Beneficiaries table</a></p>
 <p>This is also a two steps operation. The first step
 creates an SQL view and the second step stores the data
@@ -286,9 +287,9 @@ beneficiary. The value of this column is NULL for consistent records</p></li>
 <a class="reference external" href="Medicaid.html#deduplication-and-data-cleansing">Medicaid documentation</a></p>
 </section>
 <section id="creating-enrollments-table">
-<h3>Creating Enrollments table<a class="headerlink" href="#creating-enrollments-table" title="Permalink to this headline"></a></h3>
+<h3>Creating Enrollments table<a class="headerlink" href="#creating-enrollments-table" title="Permalink to this heading"></a></h3>
 <section id="enrollments-overview">
-<h4>Enrollments overview<a class="headerlink" href="#enrollments-overview" title="Permalink to this headline"></a></h4>
+<h4>Enrollments overview<a class="headerlink" href="#enrollments-overview" title="Permalink to this heading"></a></h4>
 <p>Enrollments table contains information about yearly beneficiaries
 enrollments in different states and tracks changes in eligibility
 (i.e. beginning of the eligibility and beneficiaries death) and
@@ -305,7 +306,7 @@ as a real table, adds primary key and builds indices to make queries
 more efficient.</p>
 </section>
 <section id="enrollments-primary-key-unique-identifier">
-<h4>Enrollments Primary key (unique identifier)<a class="headerlink" href="#enrollments-primary-key-unique-identifier" title="Permalink to this headline"></a></h4>
+<h4>Enrollments Primary key (unique identifier)<a class="headerlink" href="#enrollments-primary-key-unique-identifier" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>bene_id</p></li>
 <li><p>year</p></li>
@@ -319,7 +320,7 @@ a beneficiary will be created in the table. This is consistent with
 makes less sense for Medicare.</p>
 </section>
 <section id="enrollments-data-cleansing">
-<h4>Enrollments data cleansing<a class="headerlink" href="#enrollments-data-cleansing" title="Permalink to this headline"></a></h4>
+<h4>Enrollments data cleansing<a class="headerlink" href="#enrollments-data-cleansing" title="Permalink to this heading"></a></h4>
 <p>Beneficiaries can move during a year therefore address columns can have
 multiple values. These columns are:</p>
 <ul class="simple">
@@ -358,7 +359,7 @@ of county code is consistent with the values of state code and zip code.</p></li
 </ul>
 </section>
 <section id="enrollments-columns-definitions">
-<h4>Enrollments columns definitions<a class="headerlink" href="#enrollments-columns-definitions" title="Permalink to this headline"></a></h4>
+<h4>Enrollments columns definitions<a class="headerlink" href="#enrollments-columns-definitions" title="Permalink to this heading"></a></h4>
 <p>The following columns are created for Enrollments:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ssa2</span></code>: SSA state code</p></li>

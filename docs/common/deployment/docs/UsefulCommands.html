@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="some-useful-commands">
-<h1>Some useful commands:<a class="headerlink" href="#some-useful-commands" title="Permalink to this headline"></a></h1>
+<h1>Some useful commands:<a class="headerlink" href="#some-useful-commands" title="Permalink to this heading"></a></h1>
 <!--TOC--><ul class="simple">
 <li><p><a class="reference external" href="#to-view-logs-of-the-running-containers">To view logs of the running containers:</a></p></li>
 <li><p><a class="reference external" href="#to-attach-to-the-started-container-bash">To attach to the started container (bash)</a></p></li>
@@ -85,7 +86,7 @@
 <li><p><a class="reference external" href="#create-airflow-user">Create Airflow user</a></p></li>
 </ul>
 <!--TOC--><section id="to-view-logs-of-the-running-containers">
-<h2>To view logs of the running containers:<a class="headerlink" href="#to-view-logs-of-the-running-containers" title="Permalink to this headline"></a></h2>
+<h2>To view logs of the running containers:<a class="headerlink" href="#to-view-logs-of-the-running-containers" title="Permalink to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">usage</span><span class="p">:</span>
     <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">logs</span> <span class="p">{</span><span class="n">container_name</span><span class="p">}</span>
   <span class="n">example</span><span class="p">:</span>
@@ -94,7 +95,7 @@
 </div>
 </section>
 <section id="to-attach-to-the-started-container-bash">
-<h2>To attach to the started container (bash)<a class="headerlink" href="#to-attach-to-the-started-container-bash" title="Permalink to this headline"></a></h2>
+<h2>To attach to the started container (bash)<a class="headerlink" href="#to-attach-to-the-started-container-bash" title="Permalink to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">usage</span><span class="p">:</span>
      <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">exec</span> <span class="p">{</span><span class="n">container_name</span><span class="p">}</span> <span class="n">bash</span>
   <span class="n">example</span><span class="p">:</span>
@@ -103,7 +104,7 @@
 </div>
 </section>
 <section id="attach-to-a-container-when-it-does-not-start">
-<h2>Attach to a container when it does not start<a class="headerlink" href="#attach-to-a-container-when-it-does-not-start" title="Permalink to this headline"></a></h2>
+<h2>Attach to a container when it does not start<a class="headerlink" href="#attach-to-a-container-when-it-does-not-start" title="Permalink to this heading"></a></h2>
 <p>If a container does not start because of teh startup errors,
 use the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">run</span> <span class="o">--</span><span class="n">entrypoint</span> <span class="n">bash</span> <span class="n">webserver</span>
@@ -111,19 +112,19 @@ use the following command:</p>
 </div>
 </section>
 <section id="to-stop-all-your-containers">
-<h2>To stop all your containers:<a class="headerlink" href="#to-stop-all-your-containers" title="Permalink to this headline"></a></h2>
+<h2>To stop all your containers:<a class="headerlink" href="#to-stop-all-your-containers" title="Permalink to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
 </pre></div>
 </div>
 </section>
 <section id="to-delete-all-images-and-containers">
-<h2>To delete all images and containers:<a class="headerlink" href="#to-delete-all-images-and-containers" title="Permalink to this headline"></a></h2>
+<h2>To delete all images and containers:<a class="headerlink" href="#to-delete-all-images-and-containers" title="Permalink to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">docker</span> <span class="n">system</span> <span class="n">prune</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 </div>
 </section>
 <section id="to-delete-postgresql-volumes">
-<h2>To delete PostgreSQL volumes<a class="headerlink" href="#to-delete-postgresql-volumes" title="Permalink to this headline"></a></h2>
+<h2>To delete PostgreSQL volumes<a class="headerlink" href="#to-delete-postgresql-volumes" title="Permalink to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># find volume name</span>
 <span class="n">docker</span> <span class="n">volume</span> <span class="n">ls</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">postgre</span>
 <span class="c1"># delete</span>
@@ -132,7 +133,7 @@ use the following command:</p>
 </div>
 </section>
 <section id="upgrade-airflow-database">
-<h2>Upgrade Airflow Database<a class="headerlink" href="#upgrade-airflow-database" title="Permalink to this headline"></a></h2>
+<h2>Upgrade Airflow Database<a class="headerlink" href="#upgrade-airflow-database" title="Permalink to this heading"></a></h2>
 <p>If you have a problem with login and logs in containers complaining that
 “relation does not exist” execute this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">scheduler</span> <span class="n">entrypoint</span><span class="o">.</span><span class="n">sh</span> <span class="n">airflow</span> <span class="n">db</span> <span class="n">upgrade</span>
@@ -141,7 +142,7 @@ use the following command:</p>
 </div>
 </section>
 <section id="create-airflow-user">
-<h2>Create Airflow user<a class="headerlink" href="#create-airflow-user" title="Permalink to this headline"></a></h2>
+<h2>Create Airflow user<a class="headerlink" href="#create-airflow-user" title="Permalink to this heading"></a></h2>
 <p>If you have a problem with login and logs in containers
 complaining that “No user yet created” execute this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>docker exec -it scheduler entrypoint.sh airflow users create --username $_AIRFLOW_WWW_USER_USERNAME --password $_AIRFLOW_WWW_USER_PASSWORD -r Admin -e 1@example.com -f Airflow -l Airflow

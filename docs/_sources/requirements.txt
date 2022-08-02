@@ -1,4 +1,4 @@
-Markdown==3.3  # https://github.com/ryanfox/sphinx-markdown-tables/issues/36
+Markdown==3.4  # https://github.com/ryanfox/sphinx-markdown-tables/issues/36
 sphinx_rtd_theme
 sphinx_paramlinks
 recommonmark

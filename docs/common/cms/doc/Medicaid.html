@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="handling-medicaid-data">
-<h1>Handling Medicaid data<a class="headerlink" href="#handling-medicaid-data" title="Permalink to this headline"></a></h1>
+<h1>Handling Medicaid data<a class="headerlink" href="#handling-medicaid-data" title="Permalink to this heading"></a></h1>
 <!-- toc --><ul class="simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
 <li><p><a class="reference external" href="#legacy-pipeline">Legacy Pipeline</a></p></li>
@@ -99,7 +100,7 @@
 <li><p><a class="reference external" href="#sample-user-request">Sample user request:</a></p></li>
 </ul>
 <!-- tocstop --><section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.cms.gov/">Centers for Medicare &amp; Medicaid Services (CMS)</a>
 provide
 <a class="reference external" href="https://www.cms.gov/Research-Statistics-Data-and-Systems/Computer-Data-and-Systems/MedicaidDataSourcesGenInfo/MAXGeneralInformation">Medicaid Medicaid Analytic eXtract (MAX) data</a>.
@@ -111,13 +112,13 @@ We refer to the original MAX data as RAW data.</p>
 as CWL workflows.</p>
 </section>
 <section id="legacy-pipeline">
-<h2>Legacy Pipeline<a class="headerlink" href="#legacy-pipeline" title="Permalink to this headline"></a></h2>
+<h2>Legacy Pipeline<a class="headerlink" href="#legacy-pipeline" title="Permalink to this heading"></a></h2>
 <p>See <a class="reference external" href="LegacyMedicaid.html#links-to-legacy-documentation">documentation and path references</a></p>
 </section>
 <section id="importing-raw-data">
-<h2>Importing raw data<a class="headerlink" href="#importing-raw-data" title="Permalink to this headline"></a></h2>
+<h2>Importing raw data<a class="headerlink" href="#importing-raw-data" title="Permalink to this heading"></a></h2>
 <section id="parsing-fts-files-to-generate-schema">
-<h3>Parsing FTS files to generate schema<a class="headerlink" href="#parsing-fts-files-to-generate-schema" title="Permalink to this headline"></a></h3>
+<h3>Parsing FTS files to generate schema<a class="headerlink" href="#parsing-fts-files-to-generate-schema" title="Permalink to this heading"></a></h3>
 <p><strong>Pipeline step</strong>: <a class="reference internal" href="pipeline/parse_fts.html"><span class="doc">parse_fts</span></a></p>
 <p>The first step is to parse File transfer summary (FTS)
 included with the data and generate YAML schema for
@@ -143,10 +144,10 @@ by running the following command:</p>
 </section>
 </section>
 <section id="processing-data">
-<h2>Processing data<a class="headerlink" href="#processing-data" title="Permalink to this headline"></a></h2>
+<h2>Processing data<a class="headerlink" href="#processing-data" title="Permalink to this heading"></a></h2>
 </section>
 <section id="data-model">
-<h2>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline"></a></h2>
+<h2>Data Model<a class="headerlink" href="#data-model" title="Permalink to this heading"></a></h2>
 <p>The resulting data model for Medicaid domain is defined by
 <a class="reference external" href="../src/python/cms/models/medicaid.yaml">medicaid.yaml</a></p>
 <p>Four main tables are used to fulfill user requests:</p>
@@ -179,11 +180,11 @@ as with materialized views or physical tables, but many
 <p>Materializing a view and building indices takes time,
 often hours but is much faster than importing raw data.</p>
 <section id="beneficiaries">
-<h3>Beneficiaries<a class="headerlink" href="#beneficiaries" title="Permalink to this headline"></a></h3>
+<h3>Beneficiaries<a class="headerlink" href="#beneficiaries" title="Permalink to this heading"></a></h3>
 <p><strong>Pipeline step</strong>: <a class="reference internal" href="pipeline/load_ps.html"><span class="doc">load_ps</span></a></p>
 <p>See also <a class="reference external" href="Medicare.html#creating-beneficiaries-table">creating Medicare Beneficiaries table</a></p>
 <section id="bene-id-column">
-<h4>BENE_ID column<a class="headerlink" href="#bene-id-column" title="Permalink to this headline"></a></h4>
+<h4>BENE_ID column<a class="headerlink" href="#bene-id-column" title="Permalink to this heading"></a></h4>
 <p>Beneficiaries table is based on BENE_ID column in the raw data.
 The <a class="reference external" href="https://resdac.org/cms-data/variables/encrypted-723-ccw-beneficiary-id">BENE_ID</a>
 is a unique beneficiary identifier encrypted
@@ -214,7 +215,7 @@ attempts to reassign those with missing BENE_IDs.</p>
 </div></blockquote>
 </section>
 <section id="deduplication-and-data-cleansing">
-<h4>Deduplication and data cleansing<a class="headerlink" href="#deduplication-and-data-cleansing" title="Permalink to this headline"></a></h4>
+<h4>Deduplication and data cleansing<a class="headerlink" href="#deduplication-and-data-cleansing" title="Permalink to this heading"></a></h4>
 <p>As discussed above, about 7% of patient summary records are missing
 <code class="docutils literal notranslate"><span class="pre">BENE_ID</span></code> column and thus are excluded from <code class="docutils literal notranslate"><span class="pre">Beneficiaries</span></code> and all
 subsequent tables, containing processed data.</p>
@@ -278,7 +279,7 @@ this data.</p>
 </section>
 </section>
 <section id="enrollments">
-<h3>Enrollments<a class="headerlink" href="#enrollments" title="Permalink to this headline"></a></h3>
+<h3>Enrollments<a class="headerlink" href="#enrollments" title="Permalink to this heading"></a></h3>
 <p>See also <a class="reference external" href="Medicare.html#creating-enrollments-table">Medicare Enrollments</a> table.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Enrollments</span></code> table summarizes enrollments of
 beneficiaries in medicaid in specific states
@@ -326,13 +327,13 @@ rather than a simple fact that a beneficiary could have
 moved during the year.</p>
 </section>
 <section id="eligibility">
-<h3>Eligibility<a class="headerlink" href="#eligibility" title="Permalink to this headline"></a></h3>
+<h3>Eligibility<a class="headerlink" href="#eligibility" title="Permalink to this heading"></a></h3>
 <p>This is in fact a monthly detalization of beneficiaries
 enrollments in medicaid.</p>
 </section>
 </section>
 <section id="pipeline">
-<h2>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline"></a></h2>
+<h2>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this heading"></a></h2>
 <p>See <a class="reference internal" href="pipeline/medicaid.html"><span class="doc">Medicaid workflow</span></a> for details</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌────────────────────────────────────┐
 │ Initialize and prepare the database│
@@ -394,7 +395,7 @@ enrollments in medicaid.</p>
 </div>
 </section>
 <section id="sample-user-request">
-<h2>Sample user request:<a class="headerlink" href="#sample-user-request" title="Permalink to this headline"></a></h2>
+<h2>Sample user request:<a class="headerlink" href="#sample-user-request" title="Permalink to this heading"></a></h2>
 <p>See <a class="reference external" href="https://github.com/NSAPH/data_requests/tree/master/request_projects/feb2021_jenny_medicaid_resp">Jenny Lee Request from February 2021</a></p>
 </section>
 </section>

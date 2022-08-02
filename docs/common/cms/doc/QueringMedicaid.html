@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,9 +74,9 @@
            <div itemprop="articleBody">
              
   <section id="querying-medicaid-data">
-<h1>Querying Medicaid Data<a class="headerlink" href="#querying-medicaid-data" title="Permalink to this headline"></a></h1>
+<h1>Querying Medicaid Data<a class="headerlink" href="#querying-medicaid-data" title="Permalink to this heading"></a></h1>
 <!-- toc --><!-- tocstop --><section id="querying-diagnoses">
-<h2>Querying diagnoses<a class="headerlink" href="#querying-diagnoses" title="Permalink to this headline"></a></h2>
+<h2>Querying diagnoses<a class="headerlink" href="#querying-diagnoses" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><p>Querying by diagnoses might be expensive.
 Use EXPLAIN to understand and optimize your queries
@@ -83,7 +84,7 @@ See
 <a class="reference external" href="../../core-platform/doc/SampleQuery.html#using-explain-to-optimize-queries">SampleQuery</a>.</p>
 </div></blockquote>
 <section id="listing-patients">
-<h3>Listing patients<a class="headerlink" href="#listing-patients" title="Permalink to this headline"></a></h3>
+<h3>Listing patients<a class="headerlink" href="#listing-patients" title="Permalink to this heading"></a></h3>
 <p>The following sample lists all patient hospitalized with specified diagnosis
 codes. The code can be either primary or secondary diagnosis.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> 
@@ -116,7 +117,7 @@ It also uses two conditions in WHERE clause:</p>
 </ul>
 </section>
 <section id="problem-no-wildcarding">
-<h3>Problem: no wildcarding<a class="headerlink" href="#problem-no-wildcarding" title="Permalink to this headline"></a></h3>
+<h3>Problem: no wildcarding<a class="headerlink" href="#problem-no-wildcarding" title="Permalink to this heading"></a></h3>
 <p>Here we encounter to one of the problems.
 The  syntax above (based on array operators) does not support wildcards.
 You must write all the ICD codes explicitly,
@@ -129,7 +130,7 @@ You would need to download ICD9 data for it, e.g. from
 <a class="reference external" href="https://www.nlm.nih.gov/research/umls/index.html">UMLS</a> website.</p>
 </section>
 <section id="calculating-numbers">
-<h3>Calculating numbers<a class="headerlink" href="#calculating-numbers" title="Permalink to this headline"></a></h3>
+<h3>Calculating numbers<a class="headerlink" href="#calculating-numbers" title="Permalink to this heading"></a></h3>
 <p>Instead of listing patients we can just calculate the number of those patients
 that are of interest to us, without seeing individual records. This is done
 through aggregate queries.</p>

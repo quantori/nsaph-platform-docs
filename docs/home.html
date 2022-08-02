@@ -15,6 +15,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -96,7 +97,7 @@
            <div itemprop="articleBody">
              
   <section id="nsaph-data-platform-documentation-home">
-<h1>NSAPH Data Platform: Documentation Home<a class="headerlink" href="#nsaph-data-platform-documentation-home" title="Permalink to this headline"></a></h1>
+<h1>NSAPH Data Platform: Documentation Home<a class="headerlink" href="#nsaph-data-platform-documentation-home" title="Permalink to this heading"></a></h1>
 <p><strong>User and Development Documentation</strong>     
 <a class="reference external" href="genindex.html">index</a></p>
 <!-- &nbsp;&nbsp;&nbsp;&nbsp; [search](search.html) --><!--TOC--><ul class="simple">
@@ -124,9 +125,9 @@
 </li>
 </ul>
 <!--TOC--><section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h3>
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
 <p>This data platform is intended for development and deployment of
 ETL/ELT pipelines that includes complex data processing and data
 cleansing workflows. Complex workflows require a workflow language,
@@ -158,21 +159,21 @@ process data from external sources and load it into the database.</p>
 of the platform.</p>
 </section>
 <section id="using-the-database">
-<h3>Using the Database<a class="headerlink" href="#using-the-database" title="Permalink to this headline"></a></h3>
+<h3>Using the Database<a class="headerlink" href="#using-the-database" title="Permalink to this heading"></a></h3>
 <p>For a sample to query the database, please look at
 <a class="reference external" href="common/core-platform/doc/SampleQuery.html">Sample Query</a></p>
 <p>A discussion of querying of health data can be found in
 <a class="reference external" href="common/cms/doc/QueringMedicaid.html">this document</a></p>
 </section>
 <section id="glossary">
-<h3>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline"></a></h3>
+<h3>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading"></a></h3>
 <p>Included
 <a class="reference internal" href="glossary.html"><span class="doc">Glossary</span></a> provides some information about
 acronyms and other terms used throughout this documentation.</p>
 </section>
 </section>
 <section id="deploying-the-platform">
-<h2>Deploying the Platform<a class="headerlink" href="#deploying-the-platform" title="Permalink to this headline"></a></h2>
+<h2>Deploying the Platform<a class="headerlink" href="#deploying-the-platform" title="Permalink to this heading"></a></h2>
 <p>The data platform is deployed as a set of Docker containers orchestrated by
 Docker-Compose. Conda (package manager) environment files and Python
 requirements are used to build Docker containers satisfying the dependencies.
@@ -181,7 +182,7 @@ callbacks.</p>
 <p>See <a class="reference external" href="#deployment">deployment</a> section.</p>
 </section>
 <section id="building-platform-documentation">
-<h2>Building Platform documentation<a class="headerlink" href="#building-platform-documentation" title="Permalink to this headline"></a></h2>
+<h2>Building Platform documentation<a class="headerlink" href="#building-platform-documentation" title="Permalink to this heading"></a></h2>
 <p>The <a class="reference external" href="https://github.com/NSAPH-Data-Platform/nsaph-platform-docs">documentation</a>
 contains general documentation pages in
 <a class="reference external" href="https://www.markdownguide.org/">MarkDown</a>
@@ -196,9 +197,9 @@ in
 package.</p>
 </section>
 <section id="repositories-overview">
-<h2>Repositories Overview<a class="headerlink" href="#repositories-overview" title="Permalink to this headline"></a></h2>
+<h2>Repositories Overview<a class="headerlink" href="#repositories-overview" title="Permalink to this heading"></a></h2>
 <section id="deployment">
-<h3>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline"></a></h3>
+<h3>Deployment<a class="headerlink" href="#deployment" title="Permalink to this heading"></a></h3>
 <p><a class="reference internal" href="common/deployment/README.html"><span class="doc">Deployment repository</span></a> is based on<br />CWL-Airflow Docker Deployment developed
 by Harvard FAS RC in collaboration with Forome Association. Essentially, this is a fork of:
 <a class="reference external" href="https://github.com/ForomePlatform/airflow-cwl-docker">Apache Airflow + CWL in Docker with Optional Conda and R</a>
@@ -210,9 +211,9 @@ approach.</p>
 customized for Harvard FAS RC environment.</p>
 </section>
 <section id="general-packages">
-<h3>General Packages<a class="headerlink" href="#general-packages" title="Permalink to this headline"></a></h3>
+<h3>General Packages<a class="headerlink" href="#general-packages" title="Permalink to this heading"></a></h3>
 <section id="nsaph-utilities">
-<h4>NSAPH Utilities<a class="headerlink" href="#nsaph-utilities" title="Permalink to this headline"></a></h4>
+<h4>NSAPH Utilities<a class="headerlink" href="#nsaph-utilities" title="Permalink to this heading"></a></h4>
 <!-- section overview from nsaph_utils --><p>The nsaph_utils package is intended to hold python
 code that will be useful
 across multiple portions of the NSAPH pipelines.</p>
@@ -231,7 +232,7 @@ documentation for NSAPH platform</p></li>
 <!-- end of section overview from nsaph_utils --><p><a class="reference external" href="common/utils">NSAPH Utils Package Description</a></p>
 </section>
 <section id="core-platform">
-<h4>Core Platform<a class="headerlink" href="#core-platform" title="Permalink to this headline"></a></h4>
+<h4>Core Platform<a class="headerlink" href="#core-platform" title="Permalink to this heading"></a></h4>
 <!-- section overview from nsaph --><p>The data platform provides generic infrastructure for NSAPH Data Platform
 It depends on nsaph_util package, but it augments it
 with APIs and command line utilities dependent on the infrastructure
@@ -243,13 +244,13 @@ The project structure can also be in flux.</p>
 <!-- end of section overview from nsaph --><p><a class="reference external" href="common/core-platform">Core Platform Package Description</a></p>
 </section>
 <section id="gis-utilities">
-<h4>GIS Utilities<a class="headerlink" href="#gis-utilities" title="Permalink to this headline"></a></h4>
+<h4>GIS Utilities<a class="headerlink" href="#gis-utilities" title="Permalink to this heading"></a></h4>
 <!-- section overview from gis --><p>This library contains several packages, aimed to work with census shape files.</p>
 <!-- end of section overview from gis --><p><a class="reference external" href="common/gis">NSAPH GIS Package Description</a></p>
 </section>
 </section>
 <section id="data-ingestion-and-processing-packages-and-pipelines">
-<h3>Data Ingestion and Processing Packages and Pipelines<a class="headerlink" href="#data-ingestion-and-processing-packages-and-pipelines" title="Permalink to this headline"></a></h3>
+<h3>Data Ingestion and Processing Packages and Pipelines<a class="headerlink" href="#data-ingestion-and-processing-packages-and-pipelines" title="Permalink to this heading"></a></h3>
 <p>Pipelines processing data from Environmental Protection Agency and climate data
 from gridMET are ready to be used by any interested party. The pipeline to
 process claims data from Medicaid which cannot be made publicly available can be

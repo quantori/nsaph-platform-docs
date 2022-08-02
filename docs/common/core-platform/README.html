@@ -15,6 +15,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -90,7 +91,7 @@
            <div itemprop="articleBody">
              
   <section id="nsaph-data-platform-core">
-<h1>NSAPH Data Platform Core<a class="headerlink" href="#nsaph-data-platform-core" title="Permalink to this headline"></a></h1>
+<h1>NSAPH Data Platform Core<a class="headerlink" href="#nsaph-data-platform-core" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://nsaph-data-platform.github.io/nsaph-platform-docs/home.html">Full Platform Documentation</a></p>
 <!-- toc --><ul class="simple">
 <li><p><a class="reference external" href="#overview">Overview</a></p></li>
@@ -117,7 +118,7 @@
 </li>
 </ul>
 <!-- tocstop --><section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
 <p>The data platform provides generic infrastructure for NSAPH Data Platform
 It depends on nsaph_util package, but it augments it
 with APIs and command line utilities dependent on the infrastructure
@@ -128,7 +129,7 @@ development branches contain some obsolete modules and utilities.
 The project structure can also be in flux.</p>
 </section>
 <section id="tool-examples">
-<h2>Tool Examples<a class="headerlink" href="#tool-examples" title="Permalink to this headline"></a></h2>
+<h2>Tool Examples<a class="headerlink" href="#tool-examples" title="Permalink to this heading"></a></h2>
 <p>Examples of tools included in this package are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="doc/members/data_loader.html">Universal Data Loader</a></p></li>
@@ -145,7 +146,7 @@ files into/from PostgreSQL</p></li>
 </ul>
 </section>
 <section id="project-structure">
-<h2>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this headline"></a></h2>
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Permalink to this heading"></a></h2>
 <p><strong>The package is under intensive development, the
 project structure is in flux</strong></p>
 <p>Top level directories are:</p>
@@ -162,7 +163,7 @@ See details in <a class="reference external" href="#Resources">Resources</a> sec
 <p>Src directory contains software source code.
 See details in <a class="reference external" href="#software-sources">Software Sources</a> section.</p>
 <section id="software-sources">
-<h3>Software Sources<a class="headerlink" href="#software-sources" title="Permalink to this headline"></a></h3>
+<h3>Software Sources<a class="headerlink" href="#software-sources" title="Permalink to this heading"></a></h3>
 <p>The directories under sources are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">airflow</span>
 <span class="o">-</span> <span class="n">commonwl</span>
@@ -199,13 +200,13 @@ datasets and dashboards</p></li>
 </ul>
 </section>
 <section id="python-packages">
-<h3>Python packages<a class="headerlink" href="#python-packages" title="Permalink to this headline"></a></h3>
+<h3>Python packages<a class="headerlink" href="#python-packages" title="Permalink to this heading"></a></h3>
 <section id="nsaph-package">
-<h4>NSAPH Package<a class="headerlink" href="#nsaph-package" title="Permalink to this headline"></a></h4>
+<h4>NSAPH Package<a class="headerlink" href="#nsaph-package" title="Permalink to this heading"></a></h4>
 <p>This is the main package containing the majority of the code.
 Modules and subpackages included in <code class="docutils literal notranslate"><span class="pre">nsaph</span></code> package are described below.</p>
 <section id="subpackage-for-data-modelling">
-<h5>Subpackage for Data Modelling<a class="headerlink" href="#subpackage-for-data-modelling" title="Permalink to this headline"></a></h5>
+<h5>Subpackage for Data Modelling<a class="headerlink" href="#subpackage-for-data-modelling" title="Permalink to this heading"></a></h5>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nsaph.data_model</span></code></p></li>
 </ul>
@@ -235,7 +236,7 @@ to reading columnar files in two (potentially more)
 different formats.</p>
 </section>
 <section id="module-database-connection-wrapper">
-<h5>Module Database Connection Wrapper<a class="headerlink" href="#module-database-connection-wrapper" title="Permalink to this headline"></a></h5>
+<h5>Module Database Connection Wrapper<a class="headerlink" href="#module-database-connection-wrapper" title="Permalink to this heading"></a></h5>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nsaph.db</span></code></p></li>
 </ul>
@@ -245,7 +246,7 @@ an <code class="docutils literal notranslate"><span class="pre">ini</span></code
 transparently connect over <em><strong>ssh tunnel</strong></em> when required.</p>
 </section>
 <section id="loader-subpackage">
-<h5>Loader Subpackage<a class="headerlink" href="#loader-subpackage" title="Permalink to this headline"></a></h5>
+<h5>Loader Subpackage<a class="headerlink" href="#loader-subpackage" title="Permalink to this heading"></a></h5>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nsaph.loader</span></code></p></li>
 </ul>
@@ -258,7 +259,7 @@ both virtual and materialized.</p>
 is a utility to build indices and monitor the build progress.</p>
 </section>
 <section id="subpackage-to-describe-and-implement-user-requests-incomplete">
-<h5>Subpackage to describe and implement user requests [Incomplete]<a class="headerlink" href="#subpackage-to-describe-and-implement-user-requests-incomplete" title="Permalink to this headline"></a></h5>
+<h5>Subpackage to describe and implement user requests [Incomplete]<a class="headerlink" href="#subpackage-to-describe-and-implement-user-requests-incomplete" title="Permalink to this heading"></a></h5>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nsaph.requests</span></code></p></li>
 </ul>
@@ -272,7 +273,7 @@ described by a YAML request definition.</p>
 from a YAML request definition.</p>
 </section>
 <section id="subpackage-with-miscellaneous-utilities">
-<h5>Subpackage with miscellaneous utilities<a class="headerlink" href="#subpackage-with-miscellaneous-utilities" title="Permalink to this headline"></a></h5>
+<h5>Subpackage with miscellaneous utilities<a class="headerlink" href="#subpackage-with-miscellaneous-utilities" title="Permalink to this heading"></a></h5>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">nsaph.util</span></code></p></li>
 </ul>
@@ -296,7 +297,7 @@ the whole file into memory before dispatching it for processing).</p></li>
 </section>
 </section>
 <section id="yaml-files">
-<h3>YAML files<a class="headerlink" href="#yaml-files" title="Permalink to this headline"></a></h3>
+<h3>YAML files<a class="headerlink" href="#yaml-files" title="Permalink to this heading"></a></h3>
 <p>The majority of files are data model definitions. For now, they
 are included in <strong><em>nsaph</em></strong> package because they are used by
 different utilities and thus, expected to be stored in
@@ -314,7 +315,7 @@ that create user workspaces from the database. File
 </ul>
 </section>
 <section id="resources">
-<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline"></a></h3>
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this heading"></a></h3>
 <p>Resources are organized in the following way:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- ${database schema}/
     - ddl file for ${resource1}
@@ -333,7 +334,7 @@ provides support for packaging tables as resources in JSONLines
 format. This format is used natively by some DBMSs.</p>
 </section>
 <section id="sql-and-pl-pgsql-utilities">
-<h3>SQL and PL/pgSQL Utilities<a class="headerlink" href="#sql-and-pl-pgsql-utilities" title="Permalink to this headline"></a></h3>
+<h3>SQL and PL/pgSQL Utilities<a class="headerlink" href="#sql-and-pl-pgsql-utilities" title="Permalink to this heading"></a></h3>
 <p>Utilities, implementing the following:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="src/sql/utils.sql">Functions</a>:</p>

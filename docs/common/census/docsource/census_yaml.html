@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="census-variable-file-structure">
-<h1>Census Variable File Structure<a class="headerlink" href="#census-variable-file-structure" title="Permalink to this headline"></a></h1>
+<h1>Census Variable File Structure<a class="headerlink" href="#census-variable-file-structure" title="Permalink to this heading"></a></h1>
 <p>The variables used to create the census data using the <code class="docutils literal notranslate"><span class="pre">get_census</span></code>
 package must be formally described in a yaml file. Each variable is defined by a top
 level entry in this file. The format for a variable is as follows:</p>
@@ -92,7 +93,7 @@ level entry in this file. The format for a variable is as follows:</p>
 to ask for from which api and how to calculate the desired variable from
 the information available in the API.</p>
 <section id="field-definitions">
-<h2>Field Definitions<a class="headerlink" href="#field-definitions" title="Permalink to this headline"></a></h2>
+<h2>Field Definitions<a class="headerlink" href="#field-definitions" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p><cite>var_name</cite>: The user chosen name for a variable</p></li>
@@ -116,7 +117,7 @@ variables is divided by this to produce the final reported value.</p></li>
 </div></blockquote>
 </section>
 <section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
 <ul>
 <li><p>% of the population that is Black,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blk_pct</span><span class="p">:</span>
@@ -166,7 +167,7 @@ reported. This value was missing from the 2010 census, so from 2009-2018
 the acs variable <code class="docutils literal notranslate"><span class="pre">B19013_001</span></code> will be used instead.</p>
 </section>
 <section id="skipping-years-for-a-variable">
-<h2>Skipping years for a Variable<a class="headerlink" href="#skipping-years-for-a-variable" title="Permalink to this headline"></a></h2>
+<h2>Skipping years for a Variable<a class="headerlink" href="#skipping-years-for-a-variable" title="Permalink to this heading"></a></h2>
 <p>Sometimes, you may want to skip getting data for a variable for a given year.
 The most common reason to do this is when working with ZCTAs. ZCTA level data
 is not available from the 5 year ACS (acs5) for 2009 and 2010, despite the acs5 being
@@ -208,7 +209,7 @@ and population might look something like this:</p>
 2009 and 2010 will be skipped.</p>
 </section>
 <section id="census-variable-documentation">
-<h2>Census Variable Documentation<a class="headerlink" href="#census-variable-documentation" title="Permalink to this headline"></a></h2>
+<h2>Census Variable Documentation<a class="headerlink" href="#census-variable-documentation" title="Permalink to this heading"></a></h2>
 <p>Assembling these files will require reading through the census variable documentation,
 which can be quite tedious, especially when trying to figure out how to assemble more
 complex estimates. Links to this documentation can be found here:</p>

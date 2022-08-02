@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="data-modelling-for-nsaph-data-platform">
-<h1>Data Modelling for NSAPH Data Platform<a class="headerlink" href="#data-modelling-for-nsaph-data-platform" title="Permalink to this headline"></a></h1>
+<h1>Data Modelling for NSAPH Data Platform<a class="headerlink" href="#data-modelling-for-nsaph-data-platform" title="Permalink to this heading"></a></h1>
 <p><strong>How data models are defined and handled</strong></p>
 <!-- toc --><ul class="simple">
 <li><p><a class="reference external" href="#introduction">Introduction</a></p></li>
@@ -98,7 +99,7 @@
 <li><p><a class="reference external" href="#ingesting-data">Ingesting Data</a></p></li>
 </ul>
 <!-- tocstop --><section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>Data models consist of database tables, relations between them
 (e.g. foreign keys), indices and conventions that govern things
 like namings and roles of specific columns.</p>
@@ -116,7 +117,7 @@ following domains</p>
 </ul>
 </section>
 <section id="domain">
-<h2>Domain<a class="headerlink" href="#domain" title="Permalink to this headline"></a></h2>
+<h2>Domain<a class="headerlink" href="#domain" title="Permalink to this heading"></a></h2>
 <p>Handling domains is implemented by the
 <a class="reference external" href="members/domain.html">Domain</a> class.</p>
 <p>For each domain, its data model is defined by a YAML file in
@@ -180,7 +181,7 @@ structures of tables. It can contain one or several root tables</p>
 </tbody>
 </table></section>
 <section id="table">
-<h2>Table<a class="headerlink" href="#table" title="Permalink to this headline"></a></h2>
+<h2>Table<a class="headerlink" href="#table" title="Permalink to this heading"></a></h2>
 <p>The following parameters can be defined for a table:</p>
 <table border="1" class="docutils">
 <thead>
@@ -238,7 +239,7 @@ structures of tables. It can contain one or several root tables</p>
 </tr>
 </tbody>
 </table><section id="invalid-record">
-<h3>Invalid Record<a class="headerlink" href="#invalid-record" title="Permalink to this headline"></a></h3>
+<h3>Invalid Record<a class="headerlink" href="#invalid-record" title="Permalink to this heading"></a></h3>
 <p>By default, an exception is raised if an invalid
 record is encountered during data ingestion. However,
 it is possible to override this behaviour by instructing
@@ -277,7 +278,7 @@ in a special audit table.</p>
 </table></section>
 </section>
 <section id="column">
-<h2>Column<a class="headerlink" href="#column" title="Permalink to this headline"></a></h2>
+<h2>Column<a class="headerlink" href="#column" title="Permalink to this heading"></a></h2>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -327,7 +328,7 @@ records)</p></li>
 name in input source is different from a column name in the
 database, such column also must define <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
 <section id="source">
-<h3>Source<a class="headerlink" href="#source" title="Permalink to this headline"></a></h3>
+<h3>Source<a class="headerlink" href="#source" title="Permalink to this heading"></a></h3>
 <p>Source must be defined for special columns and for columns
 with the name in the database different from the name
 in the input source.</p>
@@ -373,7 +374,7 @@ in the input source.</p>
 </tbody>
 </table></section>
 <section id="generated-columns">
-<h3>Generated columns<a class="headerlink" href="#generated-columns" title="Permalink to this headline"></a></h3>
+<h3>Generated columns<a class="headerlink" href="#generated-columns" title="Permalink to this heading"></a></h3>
 <p>Generated columns are columns that are not present in the source
 (e.g. CSV or FST file) but whose value
 is automatically computed using other columns values,
@@ -396,7 +397,7 @@ materialized view (except that it is always updated automatically).</p>
 </div></blockquote>
 </section>
 <section id="computed-columns">
-<h3>Computed Columns<a class="headerlink" href="#computed-columns" title="Permalink to this headline"></a></h3>
+<h3>Computed Columns<a class="headerlink" href="#computed-columns" title="Permalink to this heading"></a></h3>
 <p>Computed columns are columns that are not present in the source
 (e.g. CSV or FST file) but whose value is computed
 using provided Python code by the Universal Database Loader.
@@ -434,22 +435,22 @@ table column <code class="docutils literal notranslate"><span class="pre">state<
 would be inserted into the table column <code class="docutils literal notranslate"><span class="pre">residence_county</span></code>.</p>
 </section>
 <section id="file-column">
-<h3>File column<a class="headerlink" href="#file-column" title="Permalink to this headline"></a></h3>
+<h3>File column<a class="headerlink" href="#file-column" title="Permalink to this heading"></a></h3>
 <p>File columns are of type <code class="docutils literal notranslate"><span class="pre">file</span></code>. They store the name of the file,
 from which the data has been ingested.</p>
 </section>
 <section id="record-column">
-<h3>Record column<a class="headerlink" href="#record-column" title="Permalink to this headline"></a></h3>
+<h3>Record column<a class="headerlink" href="#record-column" title="Permalink to this heading"></a></h3>
 <p>Record columns are of type <code class="docutils literal notranslate"><span class="pre">record</span></code>. They store the sequential
 index of the record (line number) in the file,
 from which the data has been ingested.</p>
 </section>
 <section id="transposing-columns">
-<h3>Transposing Columns<a class="headerlink" href="#transposing-columns" title="Permalink to this headline"></a></h3>
+<h3>Transposing Columns<a class="headerlink" href="#transposing-columns" title="Permalink to this heading"></a></h3>
 </section>
 </section>
 <section id="multi-column-indices">
-<h2>Multi-column indices<a class="headerlink" href="#multi-column-indices" title="Permalink to this headline"></a></h2>
+<h2>Multi-column indices<a class="headerlink" href="#multi-column-indices" title="Permalink to this heading"></a></h2>
 <p>Multi-column indices of a table are defined in <code class="docutils literal notranslate"><span class="pre">indices</span></code> section
 (spelling <code class="docutils literal notranslate"><span class="pre">indexes</span></code> is also acceptable). This is a dictionary with an
 index name as a key and its definition as the value. At the very minimum,
@@ -460,14 +461,14 @@ index.</p>
 (e.g. btree, hash, etc.)  and data to be included with teh index.</p>
 </section>
 <section id="generation-of-the-database-schema-ddl">
-<h2>Generation of the database schema (DDL)<a class="headerlink" href="#generation-of-the-database-schema-ddl" title="Permalink to this headline"></a></h2>
+<h2>Generation of the database schema (DDL)<a class="headerlink" href="#generation-of-the-database-schema-ddl" title="Permalink to this heading"></a></h2>
 <p>From a domain YAML file, the database schema is
 generated in the form of PostgreSQL dialect of DDL.</p>
 <p>The main class responsible for the generation of DDL is
 <a class="reference external" href="../src/python/nsaph/data_model/domain.py#Domain">Domain</a></p>
 </section>
 <section id="indexing-policies">
-<h2>Indexing Policies<a class="headerlink" href="#indexing-policies" title="Permalink to this headline"></a></h2>
+<h2>Indexing Policies<a class="headerlink" href="#indexing-policies" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>explicit</strong>. Indices are only created for columns that
 define an index</p></li>
@@ -480,9 +481,9 @@ not explicitly excluded</p></li>
 </ul>
 </section>
 <section id="linking-with-nomenclature">
-<h2>Linking with nomenclature<a class="headerlink" href="#linking-with-nomenclature" title="Permalink to this headline"></a></h2>
+<h2>Linking with nomenclature<a class="headerlink" href="#linking-with-nomenclature" title="Permalink to this heading"></a></h2>
 <section id="us-states">
-<h3>US States<a class="headerlink" href="#us-states" title="Permalink to this headline"></a></h3>
+<h3>US States<a class="headerlink" href="#us-states" title="Permalink to this heading"></a></h3>
 <p>Database includes a table with codes for US states. It is taken from:</p>
 <p>https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/technical/nra/nri/results/?cid=nrcs143_013696</p>
 <p>The data leaves locally in <a class="reference external" href="members/fips.html">fips.py</a></p>
@@ -491,7 +492,7 @@ not explicitly excluded</p></li>
 </section>
 </section>
 <section id="ingesting-data">
-<h2>Ingesting Data<a class="headerlink" href="#ingesting-data" title="Permalink to this headline"></a></h2>
+<h2>Ingesting Data<a class="headerlink" href="#ingesting-data" title="Permalink to this heading"></a></h2>
 <p>The following command ingests data into a table and all hard-linked
 child tables:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">python</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">m</span> <span class="n">nsaph</span><span class="o">.</span><span class="n">data_model</span><span class="o">.</span><span class="n">model2</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">domain</span> <span class="n">DOMAIN</span><span class="p">]</span> 

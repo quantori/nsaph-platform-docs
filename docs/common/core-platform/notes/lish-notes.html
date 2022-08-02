@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -74,10 +75,10 @@
              
   <hr class="docutils" />
 <section id="building-a-level-3-vm-with-postgresql-and-apache-superset">
-<h1>Building a Level 3 VM with PostgreSQL and Apache Superset<a class="headerlink" href="#building-a-level-3-vm-with-postgresql-and-apache-superset" title="Permalink to this headline"></a></h1>
+<h1>Building a Level 3 VM with PostgreSQL and Apache Superset<a class="headerlink" href="#building-a-level-3-vm-with-postgresql-and-apache-superset" title="Permalink to this heading"></a></h1>
 </section>
 <section id="add-dns-records">
-<h1>Add DNS Records<a class="headerlink" href="#add-dns-records" title="Permalink to this headline"></a></h1>
+<h1>Add DNS Records<a class="headerlink" href="#add-dns-records" title="Permalink to this heading"></a></h1>
 <p>Follow <a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/ops/dns">FAS RC DNS Documentation</a>
 to add  DNS data.</p>
 <p>If you are installing Apache Airflow, Apache Superset or any other
@@ -90,7 +91,7 @@ virtual hosts for every service.</p>
 </div>
 </section>
 <section id="create-a-vm-in-opennebula">
-<h1>Create A VM in OpenNebula<a class="headerlink" href="#create-a-vm-in-opennebula" title="Permalink to this headline"></a></h1>
+<h1>Create A VM in OpenNebula<a class="headerlink" href="#create-a-vm-in-opennebula" title="Permalink to this heading"></a></h1>
 <p>Follow <a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/common/cloud-docs/-/blob/master/opennebula_new_vm_on_rc_puppet.md">this document</a>
 to create a VM. Follow <a class="reference external" href="https://docs-int.rc.fas.harvard.edu/puppet-certificate-signing-process/">Puppet Certificate Signing</a>.
 To log in to puppetmaster, ssh there as root. This is important, only root user can see the certificate signing requests.</p>
@@ -98,9 +99,9 @@ To log in to puppetmaster, ssh there as root. This is important, only root user 
 <p>NSAPH VMs managed on https://cloud-int-holy.rc.fas.harvard.edu</p>
 </section>
 <section id="create-and-attach-a-disk-for-data">
-<h1>Create and attach a disk for data<a class="headerlink" href="#create-and-attach-a-disk-for-data" title="Permalink to this headline"></a></h1>
+<h1>Create and attach a disk for data<a class="headerlink" href="#create-and-attach-a-disk-for-data" title="Permalink to this heading"></a></h1>
 <section id="create-disk-in-opennebula">
-<h2>Create disk in OpenNebula<a class="headerlink" href="#create-disk-in-opennebula" title="Permalink to this headline"></a></h2>
+<h2>Create disk in OpenNebula<a class="headerlink" href="#create-disk-in-opennebula" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Go to Storage -&gt; Images tab</p></li>
 <li><p>Click green “+” icon</p></li>
@@ -118,7 +119,7 @@ To log in to puppetmaster, ssh there as root. This is important, only root user 
 </ul>
 </section>
 <section id="attach-file-system-to-the-vm">
-<h2>Attach file system to the VM<a class="headerlink" href="#attach-file-system-to-the-vm" title="Permalink to this headline"></a></h2>
+<h2>Attach file system to the VM<a class="headerlink" href="#attach-file-system-to-the-vm" title="Permalink to this heading"></a></h2>
 <p>On the VM:</p>
 <ul class="simple">
 <li><p>Make sure the disk is physically attached by running <code class="docutils literal notranslate"><span class="pre">lsblk</span></code></p></li>
@@ -162,28 +163,28 @@ To log in to puppetmaster, ssh there as root. This is important, only root user 
 </section>
 </section>
 <section id="create-and-sign-ssl-certificate">
-<h1>Create and Sign SSL Certificate<a class="headerlink" href="#create-and-sign-ssl-certificate" title="Permalink to this headline"></a></h1>
+<h1>Create and Sign SSL Certificate<a class="headerlink" href="#create-and-sign-ssl-certificate" title="Permalink to this heading"></a></h1>
 <p>Follow the <a class="reference external" href="https://docs-int.rc.fas.harvard.edu/generate-csr-and-ssl-cert/">instructions</a></p>
 <p>Because we are creating virtual hosts we need to generate a multi-domain CSR</p>
 </section>
 <section id="puppet-host-file">
-<h1>Puppet Host File<a class="headerlink" href="#puppet-host-file" title="Permalink to this headline"></a></h1>
+<h1>Puppet Host File<a class="headerlink" href="#puppet-host-file" title="Permalink to this heading"></a></h1>
 <p>You need to create a host file here:
 https://gitlab-int.rc.fas.harvard.edu/puppet/puppet/-/tree/production/hieradata%2Fhosts</p>
 <p>Include all Level 3 stuff as described
 <a class="reference external" href="https://docs-int.rc.fas.harvard.edu/security-tooling-overview/#Auditbeat">here</a>.
 In particular, remember Level 3 block, CrowdStrike and Auditbeat.</p>
 <section id="host-file-general">
-<h2>Host File General<a class="headerlink" href="#host-file-general" title="Permalink to this headline"></a></h2>
+<h2>Host File General<a class="headerlink" href="#host-file-general" title="Permalink to this heading"></a></h2>
 <section id="roles-and-classes">
-<h3>Roles and Classes<a class="headerlink" href="#roles-and-classes" title="Permalink to this headline"></a></h3>
+<h3>Roles and Classes<a class="headerlink" href="#roles-and-classes" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">role</span><span class="p">:</span> <span class="n">roles</span><span class="p">::</span><span class="n">service</span><span class="p">::</span><span class="n">docker</span><span class="p">::</span><span class="n">web</span>
 <span class="n">mount_staff_nfs_vol</span><span class="p">:</span> <span class="n">false</span>
 </pre></div>
 </div>
 </section>
 <section id="proxies">
-<h3>Proxies<a class="headerlink" href="#proxies" title="Permalink to this headline"></a></h3>
+<h3>Proxies<a class="headerlink" href="#proxies" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum_proxy</span><span class="p">:</span> <span class="s1">&#39;http://holyyumproxy:8123&#39;</span>
 </pre></div>
 </div>
@@ -193,7 +194,7 @@ Environment=”HTTPS_PROXY=http://rcproxy.rc.fas.harvard.edu:3128”</p>
 </section>
 </section>
 <section id="firewall">
-<h2>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline"></a></h2>
+<h2>Firewall<a class="headerlink" href="#firewall" title="Permalink to this heading"></a></h2>
 <p>We need to add rules to:</p>
 <ul class="simple">
 <li><p>Allow HTTPS (TCP 443) traffic at least from HPRC VPN
@@ -202,11 +203,11 @@ realm (10.255.12.0/26) (or wider)</p></li>
 </ul>
 </section>
 <section id="fas-rc-resources">
-<h2>FAS RC Resources<a class="headerlink" href="#fas-rc-resources" title="Permalink to this headline"></a></h2>
+<h2>FAS RC Resources<a class="headerlink" href="#fas-rc-resources" title="Permalink to this heading"></a></h2>
 <section id="files">
-<h3>Files<a class="headerlink" href="#files" title="Permalink to this headline"></a></h3>
+<h3>Files<a class="headerlink" href="#files" title="Permalink to this heading"></a></h3>
 <section id="miscellaneous">
-<h4>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline"></a></h4>
+<h4>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this heading"></a></h4>
 <ul class="simple">
 <li><p>Docker requires setting up HTTP proxies,
 this is done in <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/docker.service.d/http-proxy.conf</span></code></p></li>
@@ -253,26 +254,26 @@ which is referenced where needed. <a class="reference external" href="https://pg
 </section>
 </section>
 <section id="exec">
-<h3>Exec<a class="headerlink" href="#exec" title="Permalink to this headline"></a></h3>
+<h3>Exec<a class="headerlink" href="#exec" title="Permalink to this heading"></a></h3>
 <p>We use exec resource in Puppet to install additional software.</p>
 <section id="installing-docker-compose">
-<h4>Installing docker-compose<a class="headerlink" href="#installing-docker-compose" title="Permalink to this headline"></a></h4>
+<h4>Installing docker-compose<a class="headerlink" href="#installing-docker-compose" title="Permalink to this heading"></a></h4>
 <p>Installation of docker-compose is described <a class="reference external" href="https://docs.docker.com/compose/install/">here</a>.</p>
 <p>In host file this is done in <code class="docutils literal notranslate"><span class="pre">'/usr/local/bin/docker-compose'</span></code> section</p>
 </section>
 <section id="installing-the-latest-version-of-postgresql">
-<h4>Installing the latest version of PostgreSQL<a class="headerlink" href="#installing-the-latest-version-of-postgresql" title="Permalink to this headline"></a></h4>
+<h4>Installing the latest version of PostgreSQL<a class="headerlink" href="#installing-the-latest-version-of-postgresql" title="Permalink to this heading"></a></h4>
 <p>The procedure is described in <a class="reference external" href="https://www.postgresql.org/download/linux/redhat/">PostgreSQL Documentation</a></p>
 <p>We do it in <code class="docutils literal notranslate"><span class="pre">'Installs</span> <span class="pre">PostgreSQL</span> <span class="pre">13'</span></code> section</p>
 </section>
 </section>
 <section id="setting-system-wide-http-proxy">
-<h3>Setting system-wide HTTP proxy<a class="headerlink" href="#setting-system-wide-http-proxy" title="Permalink to this headline"></a></h3>
+<h3>Setting system-wide HTTP proxy<a class="headerlink" href="#setting-system-wide-http-proxy" title="Permalink to this heading"></a></h3>
 <p>We are setting system-wide environment variable to define HTTP proxy.
 See <code class="docutils literal notranslate"><span class="pre">'Set</span> <span class="pre">HTTP</span> <span class="pre">Proxy'</span></code> section.</p>
 </section>
 <section id="memory-configuration-for-postgresql">
-<h3>Memory configuration for PostgreSQL<a class="headerlink" href="#memory-configuration-for-postgresql" title="Permalink to this headline"></a></h3>
+<h3>Memory configuration for PostgreSQL<a class="headerlink" href="#memory-configuration-for-postgresql" title="Permalink to this heading"></a></h3>
 <p>Most memory configuration parameters are defined in the file <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code>
 located in the PostgreSQL data directory. We override the default location of
 data directory, hence we are placing the new configuration in the location
@@ -296,7 +297,7 @@ for Information Systems. More information can be found in
 simply replace the original <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code> with our custom one.</p>
 </section>
 <section id="authentication-configuration-for-postgresql">
-<h3>Authentication Configuration for PostgreSQL<a class="headerlink" href="#authentication-configuration-for-postgresql" title="Permalink to this headline"></a></h3>
+<h3>Authentication Configuration for PostgreSQL<a class="headerlink" href="#authentication-configuration-for-postgresql" title="Permalink to this heading"></a></h3>
 <p>One parameter in <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code> must be changed if any access, other than local
 via unix sockets is required: <code class="docutils literal notranslate"><span class="pre">listen_addresses</span></code>. This is almost always the case
 as any third-party database tool or driver would need TCP/IP access besides
@@ -310,7 +311,7 @@ docker container, then, at the very minimum, we shoudl allow access
 from docker networks (172.17.0.0/16 and 172.18.0.0/16 ).</p>
 </section>
 <section id="possible-issue-with-postgresql-client">
-<h3>Possible issue with PostgreSQL Client<a class="headerlink" href="#possible-issue-with-postgresql-client" title="Permalink to this headline"></a></h3>
+<h3>Possible issue with PostgreSQL Client<a class="headerlink" href="#possible-issue-with-postgresql-client" title="Permalink to this heading"></a></h3>
 <p>PostgreSQL client is an executable called psql. Once PostgreSQL is installed,
 one should be able to run:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">postgres</span> <span class="pre">psql</span></code></p>
@@ -348,7 +349,7 @@ For example:</p>
 </div>
 </section>
 <section id="postgresql-extensions">
-<h3>PostgreSQL Extensions<a class="headerlink" href="#postgresql-extensions" title="Permalink to this headline"></a></h3>
+<h3>PostgreSQL Extensions<a class="headerlink" href="#postgresql-extensions" title="Permalink to this heading"></a></h3>
 <p>First, install modules:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">postgresql13</span><span class="o">-</span><span class="n">contrib</span>    
 </pre></div>
@@ -366,16 +367,16 @@ In psql:</p>
 </section>
 </section>
 <section id="nginx">
-<h2>Nginx<a class="headerlink" href="#nginx" title="Permalink to this headline"></a></h2>
+<h2>Nginx<a class="headerlink" href="#nginx" title="Permalink to this heading"></a></h2>
 <section id="general-server-setup">
-<h3>General Server Setup<a class="headerlink" href="#general-server-setup" title="Permalink to this headline"></a></h3>
+<h3>General Server Setup<a class="headerlink" href="#general-server-setup" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Set Nginx to true</p></li>
 <li><p>Define actual virtual hosts in <code class="docutils literal notranslate"><span class="pre">nginx::nginx_vhosts</span></code></p></li>
 </ul>
 </section>
 <section id="ssl-setup">
-<h3>SSL Setup<a class="headerlink" href="#ssl-setup" title="Permalink to this headline"></a></h3>
+<h3>SSL Setup<a class="headerlink" href="#ssl-setup" title="Permalink to this heading"></a></h3>
 <p><a class="reference external" href="https://docs-int.rc.fas.harvard.edu/generate-csr-and-ssl-cert/">FAS RC SSL Documentation</a>
 describes how to put the certificates. Put them for each of teh virtual hosts</p>
 <ul class="simple">
@@ -383,7 +384,7 @@ describes how to put the certificates. Put them for each of teh virtual hosts</p
 </ul>
 </section>
 <section id="setting-up-proxy-servers-for-flask-gunicorn-applications">
-<h3>Setting up proxy servers for Flask Gunicorn Applications<a class="headerlink" href="#setting-up-proxy-servers-for-flask-gunicorn-applications" title="Permalink to this headline"></a></h3>
+<h3>Setting up proxy servers for Flask Gunicorn Applications<a class="headerlink" href="#setting-up-proxy-servers-for-flask-gunicorn-applications" title="Permalink to this heading"></a></h3>
 <p>Applications such as <a class="reference external" href="https://airflow.apache.org/docs/apache-airflow/stable/">Apache Airflow</a>
 or <a class="reference external" href="https://superset.apache.org/">Apache Superset</a> are using
 <a class="reference external" href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> running on

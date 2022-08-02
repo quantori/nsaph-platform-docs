@@ -15,6 +15,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="module-nsaph.loader.loader_config">
-<span id="the-loader-config-module"></span><h1>The loader_config Module<a class="headerlink" href="#module-nsaph.loader.loader_config" title="Permalink to this headline"></a></h1>
+<span id="the-loader-config-module"></span><h1>The loader_config Module<a class="headerlink" href="#module-nsaph.loader.loader_config" title="Permalink to this heading"></a></h1>
 <p>Domain Loader Configurator</p>
 <p>Intended to configure loading of a single or a set of column-formatted files
 into NSAPH PostgreSQL Database.
@@ -83,28 +84,28 @@ A separate tool is available to introspect source files and infer possible
 database schema.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.Parallelization">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Parallelization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#Parallelization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Parallelization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#Parallelization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization" title="Permalink to this definition"></a></dt>
 <dd><p>An enumeration.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.Parallelization.lines">
-<span class="sig-name descname"><span class="pre">lines</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'lines'</span></em><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization.lines" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">lines</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lines'</span></em><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization.lines" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.Parallelization.files">
-<span class="sig-name descname"><span class="pre">files</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'files'</span></em><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization.files" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">files</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'files'</span></em><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization.files" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.Parallelization.none">
-<span class="sig-name descname"><span class="pre">none</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'none'</span></em><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization.none" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">none</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'none'</span></em><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization.none" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">LoaderConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#LoaderConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LoaderConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#LoaderConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig" title="Permalink to this definition"></a></dt>
 <dd><p>Configurator class for data loader</p>
 <p>Creates a new object</p>
 <dl class="field-list simple">
@@ -121,7 +122,7 @@ If not specified, then it is extracted from subclass documentation</p></li>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.drop">
-<span class="sig-name descname"><span class="pre">drop</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.drop" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">drop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.drop" title="Permalink to this definition"></a></dt>
 <dd><p>If this option is given, then the whole domain schema will be dropped</p>
 </dd></dl>
 
@@ -194,6 +195,12 @@ have already been ingested</p>
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.sloppy">
 <span class="sig-name descname"><span class="pre">sloppy</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.sloppy" title="Permalink to this definition"></a></dt>
 <dd><p>Do not update existing tables and views</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.dryrun">
+<span class="sig-name descname"><span class="pre">dryrun</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.dryrun" title="Permalink to this definition"></a></dt>
+<dd><p>Dry run: prepare everything then exit</p>
 </dd></dl>
 
 <dl class="py method">

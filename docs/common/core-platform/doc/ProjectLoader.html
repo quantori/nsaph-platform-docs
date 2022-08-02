@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="project-directory-loading-utility">
-<h1>Project (Directory) Loading Utility<a class="headerlink" href="#project-directory-loading-utility" title="Permalink to this headline"></a></h1>
+<h1>Project (Directory) Loading Utility<a class="headerlink" href="#project-directory-loading-utility" title="Permalink to this heading"></a></h1>
 <!-- toc --><ul class="simple">
 <li><p><a class="reference external" href="#overview">Overview</a></p></li>
 <li><p><a class="reference external" href="#configuration-options">Configuration options</a></p></li>
@@ -82,7 +83,7 @@
 <li><p><a class="reference external" href="#api-usage">API Usage</a></p></li>
 </ul>
 <!-- tocstop --><section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="members/project_loader.html">Project Loader</a>
 is a command line tool to introspect and ingest into a database
 a directory, containing CSV (or CSV-like, e.g. FST, JSON, SAS, etc.) files.
@@ -98,14 +99,14 @@ replaced with underscores (’_’).</p>
 <a class="reference internal" href="DataLoader.html"><span class="doc">Data Loader</span></a> functionality.</p>
 </section>
 <section id="configuration-options">
-<h2>Configuration options<a class="headerlink" href="#configuration-options" title="Permalink to this headline"></a></h2>
+<h2>Configuration options<a class="headerlink" href="#configuration-options" title="Permalink to this heading"></a></h2>
 <p>Configuration options are provided by
 <a class="reference external" href="members/loader_config.html">LoaderConfig</a> object.
 Usually, they are provided as command line arguments but can also be provided
 via an API call.</p>
 </section>
 <section id="usage-from-command-line">
-<h2>Usage from command line<a class="headerlink" href="#usage-from-command-line" title="Permalink to this headline"></a></h2>
+<h2>Usage from command line<a class="headerlink" href="#usage-from-command-line" title="Permalink to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">m</span> <span class="n">nsaph</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">project_loader</span>
     <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">drop</span><span class="p">]</span>
     <span class="p">[</span><span class="o">--</span><span class="n">data</span> <span class="n">DATA</span> <span class="p">[</span><span class="n">DATA</span> <span class="o">...</span><span class="p">]]</span>
@@ -172,14 +173,14 @@ via an API call.</p>
 </div>
 </section>
 <section id="dry-runs-introspect-only">
-<h2>Dry runs (introspect only)<a class="headerlink" href="#dry-runs-introspect-only" title="Permalink to this headline"></a></h2>
+<h2>Dry runs (introspect only)<a class="headerlink" href="#dry-runs-introspect-only" title="Permalink to this heading"></a></h2>
 <p>To just introspect files in a directory and generate YAML schema for
 the project (see <a class="reference internal" href="Datamodels.html"><span class="doc">domain schema specification</span></a> for
 the description of the format) without modifications in the database,
 use dry run. On the command line, just give <code class="docutils literal notranslate"><span class="pre">--dryrun</span></code> option.</p>
 </section>
 <section id="api-usage">
-<h2>API Usage<a class="headerlink" href="#api-usage" title="Permalink to this headline"></a></h2>
+<h2>API Usage<a class="headerlink" href="#api-usage" title="Permalink to this heading"></a></h2>
 <p>Example of API usage retrieving command line arguments:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loader</span> <span class="o">=</span> <span class="n">ProjectLoader</span><span class="p">()</span>
 <span class="n">loader</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>

@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,9 +74,9 @@
            <div itemprop="articleBody">
              
   <section id="testing-the-installation">
-<h1>Testing the installation<a class="headerlink" href="#testing-the-installation" title="Permalink to this headline"></a></h1>
+<h1>Testing the installation<a class="headerlink" href="#testing-the-installation" title="Permalink to this heading"></a></h1>
 <section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline"></a></h2>
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading"></a></h2>
 <!--TOC--><ul class="simple">
 <li><p><a class="reference external" href="#table-of-contents">Table of Contents</a></p></li>
 <li><p><a class="reference external" href="#included-examples">Included examples</a></p></li>
@@ -99,7 +100,7 @@
 <!--TOC--><p>To keep in mind: a few <a class="reference internal" href="UsefulCommands.html"><span class="doc">useful commands</span></a>.</p>
 </section>
 <section id="included-examples">
-<h2>Included examples<a class="headerlink" href="#included-examples" title="Permalink to this headline"></a></h2>
+<h2>Included examples<a class="headerlink" href="#included-examples" title="Permalink to this heading"></a></h2>
 <p>This distribution include 3 tests:</p>
 <ul class="simple">
 <li><p>Basic CWL, aka “Hello World” example</p></li>
@@ -112,9 +113,9 @@ conda environment.</p>
 and in Airflow UI.</p>
 </section>
 <section id="testing-command-line-mode">
-<h2>Testing command line mode<a class="headerlink" href="#testing-command-line-mode" title="Permalink to this headline"></a></h2>
+<h2>Testing command line mode<a class="headerlink" href="#testing-command-line-mode" title="Permalink to this heading"></a></h2>
 <section id="test-1-basic-cwl-hello-world">
-<h3>Test 1: basic CWL (Hello World)<a class="headerlink" href="#test-1-basic-cwl-hello-world" title="Permalink to this headline"></a></h3>
+<h3>Test 1: basic CWL (Hello World)<a class="headerlink" href="#test-1-basic-cwl-hello-world" title="Permalink to this heading"></a></h3>
 <p>Execute:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="n">webserver</span> <span class="n">bash</span> <span class="o">-</span><span class="n">ic</span> <span class="s1">&#39;cwl-runner /dependencies/examples/1st-tool.cwl /dependencies/examples/echo-job.yaml&#39;</span>
 </pre></div>
@@ -131,7 +132,7 @@ and in Airflow UI.</p>
 </div></blockquote>
 </section>
 <section id="test-2-cwl-using-python-project">
-<h3>Test 2: CWL, using python project<a class="headerlink" href="#test-2-cwl-using-python-project" title="Permalink to this headline"></a></h3>
+<h3>Test 2: CWL, using python project<a class="headerlink" href="#test-2-cwl-using-python-project" title="Permalink to this heading"></a></h3>
 <p>Execute:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="n">webserver</span> <span class="n">bash</span> <span class="o">-</span><span class="n">ic</span> <span class="s1">&#39;cwl-runner /dependencies/examples/pi.cwl --iterations 1000&#39;</span>
 </pre></div>
@@ -154,7 +155,7 @@ INFO Final process status is success
 </div></blockquote>
 </section>
 <section id="test-3-cwl-using-r-script">
-<h3>Test 3: CWL, using R script<a class="headerlink" href="#test-3-cwl-using-r-script" title="Permalink to this headline"></a></h3>
+<h3>Test 3: CWL, using R script<a class="headerlink" href="#test-3-cwl-using-r-script" title="Permalink to this heading"></a></h3>
 <blockquote>
 <div><p>This test only works if Conda has been installed. It will fail in “noconda”
 mode</p>
@@ -180,7 +181,7 @@ INFO Final process status is success
 </div></blockquote>
 </section>
 <section id="alternative-way-to-test-command-line">
-<h3>Alternative way to test command line<a class="headerlink" href="#alternative-way-to-test-command-line" title="Permalink to this headline"></a></h3>
+<h3>Alternative way to test command line<a class="headerlink" href="#alternative-way-to-test-command-line" title="Permalink to this heading"></a></h3>
 <p>Instead of executing <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">webserver</span></code> command for each test,
 you can enter the container once and then run all the tests inside
 the container environment</p>
@@ -203,9 +204,9 @@ the container environment</p>
 </section>
 </section>
 <section id="testing-airflow-user-interface">
-<h2>Testing Airflow User Interface<a class="headerlink" href="#testing-airflow-user-interface" title="Permalink to this headline"></a></h2>
+<h2>Testing Airflow User Interface<a class="headerlink" href="#testing-airflow-user-interface" title="Permalink to this heading"></a></h2>
 <section id="preparation">
-<h3>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline"></a></h3>
+<h3>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading"></a></h3>
 <ol>
 <li><p>Point your browser to http://localhost:8080</p></li>
 <li><p>Log in with the username and passowrd you have defined by</p>
@@ -219,7 +220,7 @@ the container environment</p>
 </ol>
 </section>
 <section id="ui-test-1-basic-cwl-hello-world">
-<h3>UI Test 1: basic CWL (Hello World)<a class="headerlink" href="#ui-test-1-basic-cwl-hello-world" title="Permalink to this headline"></a></h3>
+<h3>UI Test 1: basic CWL (Hello World)<a class="headerlink" href="#ui-test-1-basic-cwl-hello-world" title="Permalink to this heading"></a></h3>
 <ol>
 <li><p>Click Play button to the right of the DAG name <code class="docutils literal notranslate"><span class="pre">1st-tool</span></code></p></li>
 <li><p>Enter the following code into  box:</p>
@@ -236,7 +237,7 @@ the container environment</p>
 </ol>
 </section>
 <section id="ui-test-2-cwl-using-python-project">
-<h3>UI Test 2: CWL, using python project<a class="headerlink" href="#ui-test-2-cwl-using-python-project" title="Permalink to this headline"></a></h3>
+<h3>UI Test 2: CWL, using python project<a class="headerlink" href="#ui-test-2-cwl-using-python-project" title="Permalink to this heading"></a></h3>
 <ol>
 <li><p>Click Play button to the right of the DAG name <code class="docutils literal notranslate"><span class="pre">pi</span></code></p></li>
 <li><p>Enter the following code into  box:</p>
@@ -254,7 +255,7 @@ the container environment</p>
 </ol>
 </section>
 <section id="ui-test-3-cwl-using-r-script">
-<h3>UI Test 3: CWL, using R script<a class="headerlink" href="#ui-test-3-cwl-using-r-script" title="Permalink to this headline"></a></h3>
+<h3>UI Test 3: CWL, using R script<a class="headerlink" href="#ui-test-3-cwl-using-r-script" title="Permalink to this heading"></a></h3>
 <ol>
 <li><p>Click Play button to the right of the DAG name <code class="docutils literal notranslate"><span class="pre">rpi</span></code></p></li>
 <li><p>Enter the following code into  box:</p>

@@ -1,3 +1,0 @@
-PyYAML
-rpy2
-tqdm

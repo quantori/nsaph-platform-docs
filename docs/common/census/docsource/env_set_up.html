@@ -15,6 +15,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -73,7 +74,7 @@
            <div itemprop="articleBody">
              
   <section id="setting-up-environment">
-<h1>Setting Up Environment<a class="headerlink" href="#setting-up-environment" title="Permalink to this headline"></a></h1>
+<h1>Setting Up Environment<a class="headerlink" href="#setting-up-environment" title="Permalink to this heading"></a></h1>
 <p>Here are the steps for setting up the environment. Please make sure that you have <a class="reference external" href="https://docs.anaconda.com/anaconda/install/index.html">anaconda</a> installed on your system. You can also install <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a>, which is the lightweight version of anaconda. On HPC systmes you may need to load the modules. Developers environment requires extra packages and libraries to surpport generating documentation.</p>
 <blockquote>
 <div><ul class="simple">
@@ -83,14 +84,14 @@
 </div></blockquote>
 <p>The following exmaples are based on <cite>environment_dev.yml</cite> file.</p>
 <section id="setting-up-a-new-environment">
-<h2>Setting up a new environment<a class="headerlink" href="#setting-up-a-new-environment" title="Permalink to this headline"></a></h2>
+<h2>Setting up a new environment<a class="headerlink" href="#setting-up-a-new-environment" title="Permalink to this heading"></a></h2>
 <p>If you have not set up any environment for the project, you need to create a new environment. The following command will generate a new environment using the <cite>environment_dev.yml</cite> file.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda env create --name your_env_name --file environment_dev.yml
 </pre></div>
 </div>
 </section>
 <section id="updating-an-existing-environment">
-<h2>Updating an existing environment<a class="headerlink" href="#updating-an-existing-environment" title="Permalink to this headline"></a></h2>
+<h2>Updating an existing environment<a class="headerlink" href="#updating-an-existing-environment" title="Permalink to this heading"></a></h2>
 <p>If you have set up the environment and you want to make sure that it is the latest version, you can use the following command.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda env update --name your_env_name --file environment_dev.yml
 </pre></div>
@@ -98,7 +99,7 @@
 <p>After setting up the environment, you need to install the <cite>census</cite> package.</p>
 </section>
 <section id="installing-census">
-<h2>Installing census<a class="headerlink" href="#installing-census" title="Permalink to this headline"></a></h2>
+<h2>Installing census<a class="headerlink" href="#installing-census" title="Permalink to this heading"></a></h2>
 <p>Navigate to the package folder and use the following code to install the package.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip3 install -e .
 </pre></div>
@@ -106,7 +107,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">-e</span></code> flag installs the package in the development mode. As a result, you do not need to reintall the package by chaning the code.</p>
 </section>
 <section id="installing-nsaph-utils">
-<h2>Installing nsaph_utils<a class="headerlink" href="#installing-nsaph-utils" title="Permalink to this headline"></a></h2>
+<h2>Installing nsaph_utils<a class="headerlink" href="#installing-nsaph-utils" title="Permalink to this heading"></a></h2>
 <p>The package is dependent on the <cite>nsaph_utils</cite> package. This package is not available on CRAN or PyPI. You need to get the source code from the <a class="reference external" href="https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/tools/nsaph_utils">Gitlab repository</a> and install it similar to the <cite>census</cite> package.
 You can skip <cite>-e</cite> flag. While inside the package folder, you can run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip3 install -e .
@@ -114,7 +115,7 @@ You can skip <cite>-e</cite> flag. While inside the package folder, you can run:
 </div>
 </section>
 <section id="setting-up-census-api-key">
-<h2>Setting up Census API Key<a class="headerlink" href="#setting-up-census-api-key" title="Permalink to this headline"></a></h2>
+<h2>Setting up Census API Key<a class="headerlink" href="#setting-up-census-api-key" title="Permalink to this heading"></a></h2>
 <p>In order to interact with the US Census API at scale, you’ll a Census API
 key. You can get one <a class="reference external" href="https://api.census.gov/data/key_signup.html">here</a>. Once
 you have your key, you’ll need to add it to your environment. You can either do that
@@ -123,7 +124,7 @@ the key directly in your <code class="docutils literal notranslate"><span class=
 (this only affects your current session, and isn’t permanent).</p>
 </section>
 <section id="registering-the-conda-kernal">
-<h2>Registering the Conda Kernal<a class="headerlink" href="#registering-the-conda-kernal" title="Permalink to this headline"></a></h2>
+<h2>Registering the Conda Kernal<a class="headerlink" href="#registering-the-conda-kernal" title="Permalink to this heading"></a></h2>
 <p>If you plan onn testing the package using Jupyter Notebook, you need to register the package using the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda activate your_env_name
 <span class="gp">$ </span>python3 -m ipykernel install --user --name your_env_name
@@ -131,7 +132,7 @@ the key directly in your <code class="docutils literal notranslate"><span class=
 </div>
 </section>
 <section id="updating-the-environment-recipe">
-<h2>Updating the Environment Recipe<a class="headerlink" href="#updating-the-environment-recipe" title="Permalink to this headline"></a></h2>
+<h2>Updating the Environment Recipe<a class="headerlink" href="#updating-the-environment-recipe" title="Permalink to this heading"></a></h2>
 <p>If you added new features to the package which is dependent on a library that is not available in the current environment, you need to update the environment recipe. While the conda environment is activated, use the following command:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda env <span class="nb">export</span> &gt; environment_dev.yml
 </pre></div>
