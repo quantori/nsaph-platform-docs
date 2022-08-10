@@ -51,7 +51,7 @@ a [package to deploy the platform](#deploying-the-platform)
 using 
 [CWL-Airflow](https://cwl-airflow.readthedocs.io/en/latest/)
 and a number of data ingestion pipelines. 
-[Data ingestion pipelines](#data-ingestion-and-processing-pipelines)
+[Data ingestion pipelines](#data-ingestion-and-processing-packages-and-pipelines)
 process data from external sources and load it into the database.
 
 More details are provided in the following

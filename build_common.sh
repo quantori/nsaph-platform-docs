@@ -65,6 +65,12 @@ mkdir common/deployment
 cp -r ../nsaph-platform-deployment/*.md common/deployment/
 cp -r ../nsaph-platform-deployment/docs common/deployment/
 cp -r ../nsaph-platform-deployment/*.rst common/deployment/
+cp -r ../nsaph-platform-deployment/project/*.yml common/deployment/
+cp -r ../nsaph-platform-deployment/*.txt common/deployment/
+cat ../nsaph-platform-deployment/install_conda.sh > common/deployment/install_conda.txt
+cat ../nsaph-platform-deployment/install_projects.sh > common/deployment/install_projects.txt
+cp -r ../nsaph-platform-deployment/docker-compose.yaml common/deployment/
+
 
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-utils/README.md home.md nsaph_utils
 python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-core-platform/README.md home.md nsaph
