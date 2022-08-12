@@ -18,5 +18,5 @@ build script as an argument. Run:
 
     ./build_common.sh ${path_to_common_root_dir}    
 
-See also [Building documentation](home.md#building-platform-documentation)
+See also [Building documentation](doc/home.md#building-platform-documentation)
 section in the main doc.

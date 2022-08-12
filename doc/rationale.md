@@ -1,14 +1,10 @@
 # Data Platform Rationale
 
-<!--TOC-->
-
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Supported Programming Languages and Tools](#supported-programming-languages-and-tools)
-- [Development Mode](#development-mode)
-- [Deployment](#deployment)
-
-<!--TOC-->
+```{contents}
+---
+local:
+---
+```
 
 ## Overview
 
