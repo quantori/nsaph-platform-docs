@@ -15,20 +15,20 @@ do
   git pull
   popd || exit
 
+  # copy the whole repo to compile documentation
+  cp -r $package doc/common/$name
+
   # install library with dependencies
-  if [ -a $package/setup.py ]
+  if [ -a doc/common/$name/setup.py ]
   then
-    pip install $package
+    pip install doc/common/$name
   fi
 
   # install dependencies if exists
-  if [ -a $package/requirements.txt ]
+  if [ -a doc/common/$name/requirements.txt ]
   then
-    pip install $package/requirements.txt
+    pip install doc/common/$name/requirements.txt
   fi
-
-  # copy the whole repo to compile documentation
-  cp -r $package doc/common/$name
 
   # make python sources available for autodoc
   abs_path=`realpath doc/common/$name/src/python`
