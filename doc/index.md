@@ -12,6 +12,7 @@ common/core-platform/doc/index
 common/platform-deployment/doc/index
 common/utils/doc/index
 common/gis/doc/index
+common/gridmet/doc/index
 common/epa/doc/index
 common/cms/doc/index
 ```

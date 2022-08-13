@@ -46,7 +46,7 @@ For a sample to query the database, please look at
 [Sample Query](common/core-platform/doc/SampleQuery)
 
 A discussion of querying of health data can be found in 
-[this document](common/cms/doc/QueringMedicaid)
+[this document](common/cms/doc/members/QueringMedicaid)
 
 ### Glossary
 
