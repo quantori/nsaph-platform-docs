@@ -1,8 +1,5 @@
 #!/bin/bash
 
-set -e
-set -x
-
 read -r -d '' help_text <<- EOM
 Usage:
   -b - specify custom branch to clone. Default is 'develop'
@@ -42,7 +39,7 @@ do
   # install dependencies if exists
   if [ -a doc/common/$name/requirements.txt ]
   then
-    pip install doc/common/$name/requirements.txt
+    pip install -r doc/common/$name/requirements.txt
   fi
 
   # make python sources available for autodoc
