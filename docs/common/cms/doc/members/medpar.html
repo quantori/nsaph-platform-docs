@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The medpar Module &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -15,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -36,16 +36,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -72,74 +75,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-cms.tools.cms.medpar">
-<span id="the-medpar-module"></span><h1>The medpar Module<a class="headerlink" href="#module-cms.tools.cms.medpar" title="Permalink to this headline"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.log">
-<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#log"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.log" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.width">
-<span class="sig-name descname"><span class="pre">width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#width"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.width" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py exception">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.MedparParseException">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-name descname"><span class="pre">MedparParseException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#MedparParseException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.MedparParseException" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.ColumnAttribute">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ColumnAttribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conv</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#ColumnAttribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.ColumnAttribute" title="Permalink to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.ColumnAttribute.arg">
-<span class="sig-name descname"><span class="pre">arg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#ColumnAttribute.arg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.ColumnAttribute.arg" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.ColumnDef">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ColumnDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#ColumnDef"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.ColumnDef" title="Permalink to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.ColumnDef.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#ColumnDef.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.ColumnDef.read" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.Column">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Column</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desc</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#Column"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.Column" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.Medpar">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Medpar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#Medpar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.Medpar" title="Permalink to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.Medpar.init">
-<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#Medpar.init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.Medpar.init" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.Medpar.read_record">
-<span class="sig-name descname"><span class="pre">read_record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ln</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#Medpar.read_record"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.Medpar.read_record" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.Medpar.validate">
-<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#Medpar.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.Medpar.validate" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cms.tools.cms.medpar.Medpar.export">
-<span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/cms/medpar.html#Medpar.export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.cms.medpar.Medpar.export" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
+  <div class="section" id="the-medpar-module">
+<h1>The medpar Module<a class="headerlink" href="#the-medpar-module" title="Permalink to this heading"></a></h1>
+</div>
 
 
            </div>

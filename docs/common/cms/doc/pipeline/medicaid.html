@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Full Medicaid Processing Pipeline &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -15,10 +14,13 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Medicare Files Handling" href="../Medicare.html" />
+    <link rel="prev" title="Patient Summary Loader" href="load_ps.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,16 +38,47 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">CMS Manipulation Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="parse_fts.html">FTS Parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../members/create_schema_config.html">The create_schema_config Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../members/medicaid_yaml.html">Medicaid.yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="load_ps.html">Patient Summary Loader</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Full Medicaid Processing Pipeline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inputs">Inputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#steps">Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#legacy-pipeline">Legacy Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#importing-raw-data">Importing raw data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#processing-data">Processing data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#data-model">Data Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#pipeline">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#sample-user-request">Sample user request:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Medicare.html">Medicare Files Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QueringMedicaid.html">Querying Medicaid Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#project-structure">Project Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -62,6 +95,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">CMS Manipulation Package</a> &raquo;</li>
+          <li><a href="../Medicaid.html">Handling Medicaid data</a> &raquo;</li>
       <li>Full Medicaid Processing Pipeline</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/common/cms/doc/pipeline/medicaid.md.txt" rel="nofollow"> View page source</a>
@@ -72,18 +107,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="full-medicaid-processing-pipeline">
-<h1>Full Medicaid Processing Pipeline<a class="headerlink" href="#full-medicaid-processing-pipeline" title="Permalink to this headline"></a></h1>
+  <div class="section" id="full-medicaid-processing-pipeline">
+<h1>Full Medicaid Processing Pipeline<a class="headerlink" href="#full-medicaid-processing-pipeline" title="Permalink to this heading"></a></h1>
 <p><strong>Workflow</strong></p>
-<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/medicaid.cwl">medicaid.cwl</a></p>
-<!-- toc --><ul class="simple">
-<li><p><a class="reference external" href="#description">Description</a></p></li>
-<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
-<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
-<li><p><a class="reference external" href="#steps">Steps</a></p></li>
+<p><strong>Source</strong>: <a class="reference internal" href="../members/medicaid_cwl.html"><span class="doc std std-doc">medicaid.cwl</span></a></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#inputs" id="id2">Inputs</a></p></li>
+<li><p><a class="reference internal" href="#outputs" id="id3">Outputs</a></p></li>
+<li><p><a class="reference internal" href="#steps" id="id4">Steps</a></p></li>
 </ul>
-<!-- tocstop --><section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="description">
+<h2><a class="toc-backref" href="#id1">Description</a><a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
 <p>This workflow ingests Medicaid data, provided by
 Centers for Medicare &amp; Medicaid Services (CMS)
 to researches. The expected input format is
@@ -91,398 +128,333 @@ Medicaid Analytic eXtract (MAX) data.</p>
 <p>The workflow parses File transfer summary (FTS) files,
 loads the raw data into a PostgreSQL DBMS and then processes
 the data to prepare it for using by NSAPH researches.
-See <a class="reference internal" href="../Medicaid.html"><span class="doc">documentation</span></a> for detailed
+See <a class="reference internal" href="../Medicaid.html"><span class="doc std std-doc">documentation</span></a> for detailed
 information.</p>
-</section>
-<section id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+</div>
+<div class="section" id="inputs">
+<h2><a class="toc-backref" href="#id2">Inputs</a><a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>database</td>
-<td>File</td>
-<td></td>
-<td>Path to database connection file, usually database.ini</td>
+<tr class="row-even"><td><p>database</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
+<td><p>Path to database connection file, usually database.ini</p></td>
 </tr>
-<tr>
-<td>connection_name</td>
-<td>string</td>
-<td></td>
-<td>The name of the section in the database.ini file</td>
+<tr class="row-odd"><td><p>connection_name</p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p>The name of the section in the database.ini file</p></td>
 </tr>
-<tr>
-<td>input</td>
-<td>Directory</td>
-<td></td>
-<td>A path to directory, containing unpacked CMS files. The tool will recursively look for data files according to provided pattern</td>
+<tr class="row-even"><td><p>input</p></td>
+<td><p>Directory</p></td>
+<td><p></p></td>
+<td><p>A path to directory, containing unpacked CMS files. The tool will recursively look for data files according to provided pattern</p></td>
 </tr>
 </tbody>
-</table></section>
-<section id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+</table>
+</div>
+<div class="section" id="outputs">
+<h2><a class="toc-backref" href="#id3">Outputs</a><a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>resource1_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>resource1_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>resource2_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>resource2_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>parse_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>parse_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ps_reset_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ps_reset_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ps_create_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ps_create_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ps_index_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ps_index_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ps_vacuum_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ps_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ip_reset_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ip_reset_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ip_create_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ip_create_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ip_index_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ip_index_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ip_vacuum_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ip_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ben_create_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ben_create_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ben_index_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ben_index_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ben_vacuum_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ben_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>mnth_create_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>mnth_create_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>mnth_index_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>mnth_index_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>mnth_vacuum_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>mnth_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>enrlm_create_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>enrlm_create_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>enrlm_index_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>enrlm_index_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>enrlm_vacuum_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>enrlm_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>elgb_prepare_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>elgb_prepare_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>elgb_create_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>elgb_create_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>elgb_index_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>elgb_index_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>elgb_vacuum_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>elgb_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>admissions_reset_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>admissions_reset_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>admissions_create_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>admissions_create_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>admissions_index_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>admissions_index_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>admissions_vacuum_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>admissions_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>parse_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>parse_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ps_reset_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ps_reset_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ps_create_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ps_create_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ps_index_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ps_index_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ps_vacuum_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ps_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ip_reset_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ip_reset_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ip_create_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ip_create_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ip_index_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ip_index_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ip_vacuum_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ip_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ben_create_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ben_create_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ben_index_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>ben_index_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>ben_vacuum_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>ben_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>mnth_create_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>mnth_create_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>mnth_index_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>mnth_index_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>mnth_vacuum_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>mnth_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>enrlm_create_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>enrlm_create_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>enrlm_index_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>enrlm_index_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>enrlm_vacuum_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>enrlm_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>elgb_create_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>elgb_create_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>elgb_prepare_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>elgb_prepare_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>elgb_index_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>elgb_index_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>elgb_vacuum_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>elgb_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>admissions_reset_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>admissions_reset_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>admissions_create_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>admissions_create_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>admissions_index_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>admissions_index_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>admissions_vacuum_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>admissions_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
-</table></section>
-<section id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+</table>
+</div>
+<div class="section" id="steps">
+<h2><a class="toc-backref" href="#id4">Steps</a><a class="headerlink" href="#steps" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr>
-<th>Name</th>
-<th>Runs</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Runs</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>states</td>
-<td><a href="ensure_resource.md">ensure_resource.cwl</a></td>
-<td>Ensures the presence of <code>us_states</code> table in the database. The table contains mapping between state names, ids (two letter abbreviations), FIPS codes and <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO-3166-2 codes</a></td>
+<tr class="row-even"><td><p>states</p></td>
+<td><p><a class="reference internal" href="ensure_resource.html"><span class="doc std std-doc">ensure_resource.cwl</span></a></p></td>
+<td><p>Ensures the presence of <code class="docutils literal notranslate"><span class="pre">us_states</span></code> table in the database. The table contains mapping between state names, ids (two letter abbreviations), FIPS codes and <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO-3166-2 codes</a></p></td>
 </tr>
-<tr>
-<td>iso</td>
-<td><a href="ensure_resource.md">ensure_resource.cwl</a></td>
-<td>Ensures the presence of <code>us_iso</code> table in the database. The table provides a mapping between states, counties and zip codes. It contains FIPS and <a href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO-3166-2 codes</a></td>
+<tr class="row-odd"><td><p>iso</p></td>
+<td><p><a class="reference internal" href="ensure_resource.html"><span class="doc std std-doc">ensure_resource.cwl</span></a></p></td>
+<td><p>Ensures the presence of <code class="docutils literal notranslate"><span class="pre">us_iso</span></code> table in the database. The table provides a mapping between states, counties and zip codes. It contains FIPS and <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_3166-2">ISO-3166-2 codes</a></p></td>
 </tr>
-<tr>
-<td>fts</td>
-<td><a href="parse_fts.md">parse_fts.cwl</a></td>
-<td></td>
+<tr class="row-even"><td><p>fts</p></td>
+<td><p><a class="reference internal" href="parse_fts.html"><span class="doc std std-doc">parse_fts.cwl</span></a></p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>load_ps</td>
-<td><a href="ingest.md">ingest.cwl</a></td>
-<td>Loads Patient Summaries</td>
+<tr class="row-odd"><td><p>load_ps</p></td>
+<td><p><a class="reference internal" href="ingest.html"><span class="doc std std-doc">ingest.cwl</span></a></p></td>
+<td><p>Loads Patient Summaries</p></td>
 </tr>
-<tr>
-<td>load_ip</td>
-<td><a href="ingest.md">ingest.cwl</a></td>
-<td>Loads inpatient admissions</td>
+<tr class="row-even"><td><p>load_ip</p></td>
+<td><p><a class="reference internal" href="ingest.html"><span class="doc std std-doc">ingest.cwl</span></a></p></td>
+<td><p>Loads inpatient admissions</p></td>
 </tr>
-<tr>
-<td>create_beneficiaries</td>
-<td><a href="matview.md">matview.cwl</a></td>
-<td>Creates <code>Beneficiaries</code> Table</td>
+<tr class="row-odd"><td><p>create_beneficiaries</p></td>
+<td><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
+<td><p>Creates <code class="docutils literal notranslate"><span class="pre">Beneficiaries</span></code> Table</p></td>
 </tr>
-<tr>
-<td>create_monthly_view</td>
-<td><a href="matview.md">matview.cwl</a></td>
-<td>Creates internally used <code>Monthly View</code></td>
+<tr class="row-even"><td><p>create_monthly_view</p></td>
+<td><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
+<td><p>Creates internally used <code class="docutils literal notranslate"><span class="pre">Monthly</span> <span class="pre">View</span></code></p></td>
 </tr>
-<tr>
-<td>create_enrollments</td>
-<td><a href="matview.md">matview.cwl</a></td>
-<td>Creates <code>Enrollment</code> Table</td>
+<tr class="row-odd"><td><p>create_enrollments</p></td>
+<td><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
+<td><p>Creates <code class="docutils literal notranslate"><span class="pre">Enrollment</span></code> Table</p></td>
 </tr>
-<tr>
-<td>prepare_eligibility</td>
-<td><a href="create.md">create.cwl</a></td>
-<td>Creates <code>_Eligibility</code> View, prerequisit for creation of Eligibility table</td>
+<tr class="row-even"><td><p>prepare_eligibility</p></td>
+<td><p><a class="reference internal" href="create.html"><span class="doc std std-doc">create.cwl</span></a></p></td>
+<td><p>Creates <code class="docutils literal notranslate"><span class="pre">_Eligibility</span></code> View, prerequisit for creation of Eligibility table</p></td>
 </tr>
-<tr>
-<td>create_eligibility</td>
-<td><a href="matview.md">matview.cwl</a></td>
-<td>Creates <code>Eligibility</code> Table</td>
+<tr class="row-odd"><td><p>create_eligibility</p></td>
+<td><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
+<td><p>Creates <code class="docutils literal notranslate"><span class="pre">Eligibility</span></code> Table</p></td>
 </tr>
-<tr>
-<td>load_admissions</td>
-<td><a href="ingest.md">ingest.cwl</a></td>
-<td>Processes and loads inpatient admissions</td>
+<tr class="row-even"><td><p>load_admissions</p></td>
+<td><p><a class="reference internal" href="ingest.html"><span class="doc std std-doc">ingest.cwl</span></a></p></td>
+<td><p>Processes and loads inpatient admissions</p></td>
 </tr>
 </tbody>
-</table></section>
-</section>
+</table>
+</div>
+</div>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="load_ps.html" class="btn btn-neutral float-left" title="Patient Summary Loader" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Medicare.html" class="btn btn-neutral float-right" title="Medicare Files Handling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

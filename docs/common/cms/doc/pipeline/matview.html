@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Materialized View Creator &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -15,6 +14,7 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -36,16 +36,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -72,143 +75,130 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="materialized-view-creator">
-<h1>Materialized View Creator<a class="headerlink" href="#materialized-view-creator" title="Permalink to this headline"></a></h1>
+  <div class="section" id="materialized-view-creator">
+<h1>Materialized View Creator<a class="headerlink" href="#materialized-view-creator" title="Permalink to this heading"></a></h1>
 <p><strong>Workflow</strong></p>
-<p><strong>Source</strong>: <a class="reference external" href="../../src/cwl/matview.cwl">matview.cwl</a></p>
-<!-- toc --><ul class="simple">
-<li><p><a class="reference external" href="#description">Description</a></p></li>
-<li><p><a class="reference external" href="#inputs">Inputs</a></p></li>
-<li><p><a class="reference external" href="#outputs">Outputs</a></p></li>
-<li><p><a class="reference external" href="#steps">Steps</a></p></li>
+<p><strong>Source</strong>: <a class="reference internal" href="../members/matview_cwl.html"><span class="doc std std-doc">matview.cwl</span></a></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#inputs" id="id2">Inputs</a></p></li>
+<li><p><a class="reference internal" href="#outputs" id="id3">Outputs</a></p></li>
+<li><p><a class="reference internal" href="#steps" id="id4">Steps</a></p></li>
 </ul>
-<!-- tocstop --><section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h2>
+</div>
+<div class="section" id="description">
+<h2><a class="toc-backref" href="#id1">Description</a><a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
 <p>This tool is a shortcut to create a materialized view and build
 all indices associated with the view</p>
-</section>
-<section id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+</div>
+<div class="section" id="inputs">
+<h2><a class="toc-backref" href="#id2">Inputs</a><a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>database</td>
-<td>File</td>
-<td></td>
-<td>Path to database connection file, usually database.ini</td>
+<tr class="row-even"><td><p>database</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
+<td><p>Path to database connection file, usually database.ini</p></td>
 </tr>
-<tr>
-<td>connection_name</td>
-<td>string</td>
-<td></td>
-<td>The name of the section in the database.ini file</td>
+<tr class="row-odd"><td><p>connection_name</p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p>The name of the section in the database.ini file</p></td>
 </tr>
-<tr>
-<td>table</td>
-<td>string</td>
-<td></td>
-<td>the name of the table to be created</td>
+<tr class="row-even"><td><p>table</p></td>
+<td><p>string</p></td>
+<td><p></p></td>
+<td><p>the name of the table to be created</p></td>
 </tr>
-<tr>
-<td>domain</td>
-<td>string</td>
-<td><code>medicaid</code></td>
-<td>the name of the domain</td>
+<tr class="row-odd"><td><p>domain</p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">medicaid</span></code></p></td>
+<td><p>the name of the domain</p></td>
 </tr>
-<tr>
-<td>incremental</td>
-<td>boolean</td>
-<td><code>False</code></td>
-<td></td>
+<tr class="row-even"><td><p>incremental</p></td>
+<td><p>boolean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>depends_on</td>
-<td>File</td>
-<td></td>
-<td>a special field used to enforce dependencies and execution order</td>
+<tr class="row-odd"><td><p>depends_on</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
+<td><p>a special field used to enforce dependencies and execution order</p></td>
 </tr>
 </tbody>
-</table></section>
-<section id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+</table>
+</div>
+<div class="section" id="outputs">
+<h2><a class="toc-backref" href="#id3">Outputs</a><a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>create_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>create_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>index_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>index_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>vacuum_log</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>create_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>create_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>index_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-even"><td><p>index_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
-<tr>
-<td>vacuum_err</td>
-<td>File</td>
-<td></td>
+<tr class="row-odd"><td><p>vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
-</table></section>
-<section id="steps">
-<h2>Steps<a class="headerlink" href="#steps" title="Permalink to this headline"></a></h2>
-<table border="1" class="docutils">
+</table>
+</div>
+<div class="section" id="steps">
+<h2><a class="toc-backref" href="#id4">Steps</a><a class="headerlink" href="#steps" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr>
-<th>Name</th>
-<th>Runs</th>
-<th>Description</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Runs</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>create</td>
-<td><a href="create.md">create.cwl</a></td>
-<td>Execute DDL</td>
+<tr class="row-even"><td><p>create</p></td>
+<td><p><a class="reference internal" href="create.html"><span class="doc std std-doc">create.cwl</span></a></p></td>
+<td><p>Execute DDL</p></td>
 </tr>
-<tr>
-<td>index</td>
-<td><a href="index.md">index.cwl</a></td>
-<td>Build indices</td>
+<tr class="row-odd"><td><p>index</p></td>
+<td><p><a class="reference internal" href="index.html"><span class="doc std std-doc">index.cwl</span></a></p></td>
+<td><p>Build indices</p></td>
 </tr>
-<tr>
-<td>vacuum</td>
-<td><a href="vacuum.md">vacuum.cwl</a></td>
-<td>Vacuum the view</td>
+<tr class="row-even"><td><p>vacuum</p></td>
+<td><p><a class="reference internal" href="vacuum.html"><span class="doc std std-doc">vacuum.cwl</span></a></p></td>
+<td><p>Vacuum the view</p></td>
 </tr>
 </tbody>
-</table></section>
-</section>
+</table>
+</div>
+</div>
 
 
            </div>

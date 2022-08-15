@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Types of Shape &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -15,10 +14,13 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Rasterization Strategy" href="strategy.html" />
+    <link rel="prev" title="Types of Geography" href="geo.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,16 +38,34 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cms/README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Gridmet Computational Utilities</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="classes.html">Main Classes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="enums.html">Parameters (Enums)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="bands.html">Bands (Gridmet Variables)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geo.html">Types of Geography</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Types of Shape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="strategy.html">Rasterization Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gridmet_tools.html">Tools and Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#what-is-gridmet">What is GRIDMET?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -62,6 +82,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Gridmet Computational Utilities</a> &raquo;</li>
+          <li><a href="enums.html">Parameters (Enums)</a> &raquo;</li>
       <li>Types of Shape</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/common/gridmet/doc/shapes.rst.txt" rel="nofollow"> View page source</a>
@@ -72,14 +94,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="types-of-shape">
-<h1>Types of Shape<a class="headerlink" href="#types-of-shape" title="Permalink to this headline"></a></h1>
-</section>
+  <div class="section" id="types-of-shape">
+<h1>Types of Shape<a class="headerlink" href="#types-of-shape" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gridmet.config.Shape">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gridmet/config.html#Shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.config.Shape" title="Permalink to this definition"></a></dt>
+<dd><p>Type of shape</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gridmet.config.Shape.point">
+<span class="sig-name descname"><span class="pre">point</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'point'</span></em><a class="headerlink" href="#gridmet.config.Shape.point" title="Permalink to this definition"></a></dt>
+<dd><p>Point</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gridmet.config.Shape.polygon">
+<span class="sig-name descname"><span class="pre">polygon</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'polygon'</span></em><a class="headerlink" href="#gridmet.config.Shape.polygon" title="Permalink to this definition"></a></dt>
+<dd><p>Polygon</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="geo.html" class="btn btn-neutral float-left" title="Types of Geography" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="strategy.html" class="btn btn-neutral float-right" title="Rasterization Strategy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

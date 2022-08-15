@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -35,16 +36,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/cms/README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../common/census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -72,10 +76,30 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gridmet.config</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span><span class="p">,</span> <span class="n">Enum</span>
+<span></span><span class="c1">#  Copyright (c) 2021. Harvard University</span>
+<span class="c1">#</span>
+<span class="c1">#  Developed by Research Software Engineering,</span>
+<span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
+<span class="c1">#  Author: Michael A Bouzinier</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#         http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
+<span class="kn">from</span> <span class="nn">nsaph_gis.constants</span> <span class="kn">import</span> <span class="n">Geography</span><span class="p">,</span> <span class="n">RasterizationStrategy</span>
 <span class="kn">from</span> <span class="nn">nsaph_utils.utils.context</span> <span class="kn">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Argument</span><span class="p">,</span> <span class="n">Cardinality</span>
 
 <span class="n">var_doc_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -84,38 +108,51 @@
 <span class="s2">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="DateFilter"><a class="viewcode-back" href="../../common/gridmet/doc/members/config.html#gridmet.config.DateFilter">[docs]</a><span class="k">class</span> <span class="nc">DateFilter</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">DateFilter</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
             <span class="k">return</span>
         <span class="k">if</span> <span class="s1">&#39;:&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Filter spec must include &#39;:&#39;&quot;</span><span class="p">)</span>
         <span class="n">bounds</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dayofmonth&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">=</span> <span class="s2">&quot;range&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-<div class="viewcode-block" id="DateFilter.accept"><a class="viewcode-back" href="../../common/gridmet/doc/members/config.html#gridmet.config.DateFilter.accept">[docs]</a>    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s2">&quot;dayofmonth&quot;</span><span class="p">:</span>
+            <span class="n">dom</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dom</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s2">&quot;month&quot;</span><span class="p">:</span>
+            <span class="n">mnth</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mnth</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftype</span> <span class="o">==</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">day</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">dt</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">dt</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">min</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span> <span class="ow">and</span> <span class="n">day</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="kc">True</span></div></div>
+        <span class="k">return</span> <span class="kc">True</span>
 
 
-<div class="viewcode-block" id="Geography"><a class="viewcode-back" href="../../common/gridmet/doc/members/config.html#gridmet.config.Geography">[docs]</a><span class="k">class</span> <span class="nc">Geography</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Type of geography&quot;&quot;&quot;</span>
-
-    <span class="nb">zip</span> <span class="o">=</span> <span class="s2">&quot;zip&quot;</span>
-    <span class="sd">&quot;&quot;&quot;Zip Code Area&quot;&quot;&quot;</span>
-    <span class="n">county</span> <span class="o">=</span> <span class="s2">&quot;county&quot;</span>
-    <span class="sd">&quot;&quot;&quot;County&quot;&quot;&quot;</span>
-    <span class="n">custom</span> <span class="o">=</span> <span class="s2">&quot;custom&quot;</span>
-    <span class="sd">&quot;&quot;&quot;User custom&quot;&quot;&quot;</span></div>
-
-
-<div class="viewcode-block" id="Shape"><a class="viewcode-back" href="../../common/gridmet/doc/members/config.html#gridmet.config.Shape">[docs]</a><span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<div class="viewcode-block" id="Shape"><a class="viewcode-back" href="../../common/gridmet/doc/shapes.html#gridmet.config.Shape">[docs]</a><span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Type of shape&quot;&quot;&quot;</span>
 
     <span class="n">point</span> <span class="o">=</span> <span class="s2">&quot;point&quot;</span>
@@ -124,32 +161,7 @@
     <span class="sd">&quot;&quot;&quot;Polygon&quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="RasterizationStrategy"><a class="viewcode-back" href="../../common/gridmet/doc/members/config.html#gridmet.config.RasterizationStrategy">[docs]</a><span class="k">class</span> <span class="nc">RasterizationStrategy</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Rasterization Strategy, see details at</span>
-<span class="sd">    https://pythonhosted.org/rasterstats/manual.html#rasterization-strategy</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    The default strategy is to include all pixels along the line render path</span>
-<span class="sd">    (for lines), or cells where the center point is within the polygon</span>
-<span class="sd">    (for polygons). </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">all_touched</span> <span class="o">=</span> <span class="s2">&quot;all_touched&quot;</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Alternate, all_touched strategy, rasterizes the geometry</span>
-<span class="sd">    by including all pixels that it touches.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">combined</span> <span class="o">=</span> <span class="s2">&quot;combined&quot;</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calculate statistics using both default and all_touched strategy and</span>
-<span class="sd">    combine results, e.g. using arithmetic means </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">downscale</span> <span class="o">=</span> <span class="s2">&quot;downscale&quot;</span>
-    <span class="sd">&quot;&quot;&quot;Use disaggregate with factor = 5&quot;&quot;&quot;</span></div>
-
-
-<div class="viewcode-block" id="GridmetVariable"><a class="viewcode-back" href="../../common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable">[docs]</a><span class="k">class</span> <span class="nc">GridmetVariable</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+<div class="viewcode-block" id="GridmetVariable"><a class="viewcode-back" href="../../common/gridmet/doc/bands.html#gridmet.config.GridmetVariable">[docs]</a><span class="k">class</span> <span class="nc">GridmetVariable</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    `Gridmet Bands &lt;https://gee.stac.cloud/WUtw2spmec7AM9rk6xMXUtStkMtbviDtHK?t=bands&gt;`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -187,7 +199,7 @@
     <span class="sd">&quot;&quot;&quot;Wind velocity at 10m: m/s&quot;&quot;&quot;</span></div>
 
 
-<div class="viewcode-block" id="GridmetContext"><a class="viewcode-back" href="../../common/gridmet/doc/members/config.html#gridmet.config.GridmetContext">[docs]</a><span class="k">class</span> <span class="nc">GridmetContext</span><span class="p">(</span><span class="n">Context</span><span class="p">):</span>
+<div class="viewcode-block" id="GridmetContext"><a class="viewcode-back" href="../../common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext">[docs]</a><span class="k">class</span> <span class="nc">GridmetContext</span><span class="p">(</span><span class="n">Context</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Defines a context for running a gridmet pipeline.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -248,6 +260,11 @@
     <span class="n">_dates</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;dates&quot;</span><span class="p">,</span>
                       <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Filter dates - for debugging purposes only&quot;</span><span class="p">,</span>
                       <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">_shape_files</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;shape_files&quot;</span><span class="p">,</span>
+                       <span class="n">cardinality</span><span class="o">=</span><span class="n">Cardinality</span><span class="o">.</span><span class="n">multiple</span><span class="p">,</span>
+                       <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                       <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to shape files&quot;</span><span class="p">,</span>
+                       <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -287,6 +304,7 @@
 <span class="sd">        </span>
 <span class="sd">        :type: Shape</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shape_files</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="sd">&#39;&#39;&#39;Path to CSV file containing points&#39;&#39;&#39;</span>
@@ -297,9 +315,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">dates</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DateFilter</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="sd">&#39;&#39;&#39;Filter on dates - for debugging purposes only&#39;&#39;&#39;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">GridmetContext</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
-        <span class="k">return</span>
 
-<div class="viewcode-block" id="GridmetContext.validate"><a class="viewcode-back" href="../../common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">[</span><span class="n">GridmetVariable</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
@@ -312,8 +329,7 @@
         <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dates</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">DateFilter</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">value</span></div></div>
-
+        <span class="k">return</span> <span class="n">value</span></div>
 </pre></div>
 
            </div>

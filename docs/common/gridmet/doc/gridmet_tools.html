@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tools and Utilities &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -15,10 +14,13 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="NSAPH EPA Package Description" href="../../epa/doc/index.html" />
+    <link rel="prev" title="Rasterization Strategy" href="strategy.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,16 +38,28 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cms/README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Gridmet Computational Utilities</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="classes.html">Main Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html">Parameters (Enums)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tools and Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#what-is-gridmet">What is GRIDMET?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -62,6 +76,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Gridmet Computational Utilities</a> &raquo;</li>
       <li>Tools and Utilities</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/common/gridmet/doc/gridmet_tools.rst.txt" rel="nofollow"> View page source</a>
@@ -72,15 +87,159 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="tools-and-utilities">
-<h1>Tools and Utilities<a class="headerlink" href="#tools-and-utilities" title="Permalink to this headline"></a></h1>
+  <div class="section" id="tools-and-utilities">
+<h1>Tools and Utilities<a class="headerlink" href="#tools-and-utilities" title="Permalink to this heading"></a></h1>
 <p>Tools and Utilities wrappers used by NSAPH Gridmet package</p>
-</section>
+<span class="target" id="module-gridmet.gridmet_tools"></span><dl class="py function">
+<dt class="sig sig-object py" id="gridmet.gridmet_tools.get_atmos_url">
+<span class="sig-name descname"><span class="pre">get_atmos_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PM25'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../_modules/gridmet/gridmet_tools.html#get_atmos_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.gridmet_tools.get_atmos_url" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs URL to download data from the
+Atmospheric Composition Analysis Group
+given a year and a band</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet.gridmet_tools.get_atmos_url.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_atmos_url.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet.gridmet_tools.get_atmos_url.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_atmos_url.params.variable">¶</a> – Gridmet band (variable)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>URL for download</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gridmet.gridmet_tools.get_nkn_url">
+<span class="sig-name descname"><span class="pre">get_nkn_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../_modules/gridmet/gridmet_tools.html#get_nkn_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.gridmet_tools.get_nkn_url" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs URL to download data from University of Idaho (UI)
+Northwest Knowledge Network
+given a year and a band</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet.gridmet_tools.get_nkn_url.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_nkn_url.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet.gridmet_tools.get_nkn_url.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_nkn_url.params.variable">¶</a> – Gridmet band (variable)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>URL for download</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gridmet.gridmet_tools.find_shape_file">
+<span class="sig-name descname"><span class="pre">find_shape_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shapes_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">geography_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../_modules/gridmet/gridmet_tools.html#find_shape_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.gridmet_tools.find_shape_file" title="Permalink to this definition"></a></dt>
+<dd><p>Finds shapefile for a given type of geographies for the
+closest available year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet.gridmet_tools.find_shape_file.params.shapes_dir"></span><strong>shapes_dir</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.find_shape_file.params.shapes_dir">¶</a> – Directory containing shape files organized as
+${year}/${geo_type}/{point|polygon}</p></li>
+<li><p><span class="target" id="gridmet.gridmet_tools.find_shape_file.params.year"></span><strong>year</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.find_shape_file.params.year">¶</a> – year</p></li>
+<li><p><span class="target" id="gridmet.gridmet_tools.find_shape_file.params.geography_type"></span><strong>geography_type</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.find_shape_file.params.geography_type">¶</a> – Geography type, e.g. zip, county, etc.</p></li>
+<li><p><span class="target" id="gridmet.gridmet_tools.find_shape_file.params.shape_type"></span><strong>shape_type</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.find_shape_file.params.shape_type">¶</a> – Shape type: polygon, point, etc.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a shape file for a given year if it exists or for the latest
+year before the given</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gridmet.gridmet_tools.get_variable">
+<span class="sig-name descname"><span class="pre">get_variable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gridmet/gridmet_tools.html#get_variable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.gridmet_tools.get_variable" title="Permalink to this definition"></a></dt>
+<dd><p>Extracts a variable (column) name by a variable “standard name”
+from NCDF4 dataset</p>
+<p>Standard name is a name of a band as described here:
+<a class="reference external" href="https://gee.stac.cloud/WUtw2spmec7AM9rk6xMXUtStkMtbviDtHK?t=bands">https://gee.stac.cloud/WUtw2spmec7AM9rk6xMXUtStkMtbviDtHK?t=bands</a></p>
+<p>A column name is a name of the column in the dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet.gridmet_tools.get_variable.params.dataset"></span><strong>dataset</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_variable.params.dataset">¶</a> – an NCDF4 dataset</p></li>
+<li><p><span class="target" id="gridmet.gridmet_tools.get_variable.params.variable"></span><strong>variable</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_variable.params.variable">¶</a> – “standard name” of a variable, e.g. “tmmx”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gridmet.gridmet_tools.get_days">
+<span class="sig-name descname"><span class="pre">get_days</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dataset</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="reference internal" href="../../../_modules/gridmet/gridmet_tools.html#get_days"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.gridmet_tools.get_days" title="Permalink to this definition"></a></dt>
+<dd><p>Extracts a table fo days from NCDF4 dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><span class="target" id="gridmet.gridmet_tools.get_days.params.dataset"></span><strong>dataset</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_days.params.dataset">¶</a> – NCDF4 dataset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List, containing days</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gridmet.gridmet_tools.get_affine_transform">
+<span class="sig-name descname"><span class="pre">get_affine_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nc_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gridmet/gridmet_tools.html#get_affine_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.gridmet_tools.get_affine_transform" title="Permalink to this definition"></a></dt>
+<dd><p>Returns affine transformation for a NCDF4 dataset.</p>
+<p>Uses rasterio package: <a class="reference external" href="https://rasterio.readthedocs.io/en/latest/index.html">https://rasterio.readthedocs.io/en/latest/index.html</a></p>
+<p>The <cite>Affine</cite> object is a named tuple with elements
+<cite>a, b, c, d, e, f</cite> corresponding to the elements in
+the matrix equation below, in which a pixel’s image
+coordinates are <cite>x, y</cite> and its world coordinates are <cite>x’, y’</cite></p>
+<p>See more:
+<a class="reference external" href="https://rasterio.readthedocs.io/en/latest/topics/georeferencing.html">https://rasterio.readthedocs.io/en/latest/topics/georeferencing.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet.gridmet_tools.get_affine_transform.params.factor"></span><strong>factor</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_affine_transform.params.factor">¶</a> – factor used for disaggregation, None or 0 means
+no disaggregation</p></li>
+<li><p><span class="target" id="gridmet.gridmet_tools.get_affine_transform.params.nc_file"></span><strong>nc_file</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.get_affine_transform.params.nc_file">¶</a> – path to file, containing dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Instance of affine transformation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gridmet.gridmet_tools.disaggregate">
+<span class="sig-name descname"><span class="pre">disaggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/gridmet/gridmet_tools.html#disaggregate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.gridmet_tools.disaggregate" title="Permalink to this definition"></a></dt>
+<dd><p>Implementation of R <cite>disaggregate</cite> function with method == ‘’.</p>
+<p>See details:
+<a class="reference external" href="https://www.rdocumentation.org/packages/raster/versions/3.4-5/topics/disaggregate">https://www.rdocumentation.org/packages/raster/versions/3.4-5/topics/disaggregate</a></p>
+<p>or, original source code:</p>
+<p><a class="reference external" href="https://github.com/r-forge/raster/blob/master/pkg/raster/R/disaggregate.R">https://github.com/r-forge/raster/blob/master/pkg/raster/R/disaggregate.R</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="gridmet.gridmet_tools.disaggregate.params.layer"></span><strong>layer</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.disaggregate.params.layer">¶</a> – </p></li>
+<li><p><span class="target" id="gridmet.gridmet_tools.disaggregate.params.factor"></span><strong>factor</strong><a class="paramlink headerlink reference internal" href="#gridmet.gridmet_tools.disaggregate.params.factor">¶</a> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="strategy.html" class="btn btn-neutral float-left" title="Rasterization Strategy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../epa/doc/index.html" class="btn btn-neutral float-right" title="NSAPH EPA Package Description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

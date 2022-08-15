@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install projects script &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Install projects script</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/common/platform-deployment/doc/members/install_projects.sh.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="install-projects-script">
+<h1>Install projects script<a class="headerlink" href="#install-projects-script" title="Permalink to this heading"></a></h1>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+<span class="c1">#</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Installing local projects&quot;</span>
+<span class="nb">cd</span> /dependencies <span class="o">||</span> <span class="nb">exit</span>
+<span class="c1"># if projects list is not specified, create it by</span>
+<span class="c1"># listing all folders with setup.py file</span>
+<span class="nv">PROJECT_LIST</span><span class="o">=</span><span class="s2">&quot;projects.lst&quot;</span>
+<span class="k">if</span> <span class="o">[</span> ! -f <span class="si">${</span><span class="nv">PROJECT_LIST</span><span class="si">}</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">PROJECT_LIST</span><span class="si">}</span><span class="s2"> Not found, creating&quot;</span>
+  touch <span class="si">${</span><span class="nv">PROJECT_LIST</span><span class="si">}</span>
+  <span class="k">for</span> dir <span class="k">in</span> */setup.py <span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="si">${</span><span class="nv">dir</span><span class="p">%/*</span><span class="si">}</span> &gt;&gt; <span class="si">${</span><span class="nv">PROJECT_LIST</span><span class="si">}</span> <span class="p">;</span> <span class="k">done</span>
+  cat <span class="si">${</span><span class="nv">PROJECT_LIST</span><span class="si">}</span>
+<span class="k">fi</span>
+<span class="c1"># Install all projects</span>
+<span class="k">while</span> <span class="nb">read</span> -r project<span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Installing &quot;</span> <span class="s2">&quot;</span><span class="nv">$project</span><span class="s2">&quot;</span>
+  <span class="nb">pushd</span> <span class="s2">&quot;</span><span class="nv">$project</span><span class="s2">&quot;</span> <span class="o">||</span> <span class="nb">exit</span>
+  <span class="k">if</span> <span class="o">[</span> ! -f setup.py <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Not a valid project (no setup.py): &quot;</span> <span class="s2">&quot;</span><span class="nv">$project</span><span class="s2">&quot;</span>
+  <span class="k">fi</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Calling pip3 install .&quot;</span>
+  pip3 install . <span class="c1"># || cd dist &amp;&amp; pip3 install *.whl</span>
+  <span class="nb">popd</span> <span class="o">||</span> <span class="nb">exit</span>
+<span class="k">done</span> &lt; <span class="si">${</span><span class="nv">PROJECT_LIST</span><span class="si">}</span>
+<span class="nb">cd</span> ~ <span class="o">||</span> <span class="nb">exit</span>
+<span class="nb">echo</span> <span class="s1">&#39;Installed: local projects&#39;</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Install Conda script &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Install Conda script</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/common/platform-deployment/doc/members/install_conda.sh.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="install-conda-script">
+<h1>Install Conda script<a class="headerlink" href="#install-conda-script" title="Permalink to this heading"></a></h1>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+<span class="c1">#</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Installing Anaconda&quot;</span>
+<span class="nb">echo</span> <span class="nv">https_proxy</span><span class="o">=</span><span class="si">${</span><span class="nv">https_proxy</span><span class="si">}</span>   <span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HTTPS_PROXY</span><span class="si">}</span><span class="s2">&quot;</span>
+wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh -O anaconda.sh
+chmod a+x ./anaconda.sh
+bash ./anaconda.sh -b -p <span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/anaconda
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/anaconda/condabin:<span class="nv">$PATH</span>
+<span class="nb">echo</span> <span class="s2">&quot;Activating conda&quot;</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>conda shell.bash hook<span class="k">)</span><span class="s2">&quot;</span>
+conda init
+conda config --set auto_activate_base False
+<span class="nb">source</span> ~/.bashrc
+pip3 uninstall -y typing
+<span class="nb">echo</span> <span class="s1">&#39;Installing cwl-airflow in the base environment&#39;</span>
+conda activate base
+<span class="nb">pushd</span> /cwl-airflow <span class="o">||</span> <span class="nb">exit</span>
+pip3 install pathlib
+pip3 install .
+pip3 install -r requirements.txt
+<span class="nb">popd</span> <span class="o">||</span> <span class="nb">exit</span>
+conda deactivate
+<span class="nb">echo</span> <span class="s1">&#39;Installing conda environments&#39;</span>
+<span class="nb">cd</span> /dependencies/ <span class="o">||</span> <span class="nb">exit</span>
+<span class="k">for</span> cenv_file <span class="k">in</span> <span class="k">$(</span>ls . <span class="p">|</span> grep <span class="s2">&quot;yml\|yaml&quot;</span><span class="k">)</span>
+<span class="k">do</span>
+  <span class="nv">cenv</span><span class="o">=</span><span class="si">${</span><span class="nv">cenv_file</span><span class="p">%.*</span><span class="si">}</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Creating </span><span class="nv">$cenv</span><span class="s2"> Conda environment&quot;</span>
+  <span class="c1">#conda create -y --name $cenv  python=3.8</span>
+  conda env create -f <span class="si">${</span><span class="nv">cenv_file</span><span class="si">}</span>
+  <span class="nb">source</span> /root/anaconda/etc/profile.d/conda.sh
+  <span class="nb">echo</span> <span class="s1">&#39;from /root/anaconda/etc/profile.d/conda.sh&#39;</span>
+  conda activate <span class="si">${</span><span class="nv">cenv</span><span class="si">}</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Installing conda packages&quot;</span>
+  conda install -y --name <span class="si">${</span><span class="nv">cenv</span><span class="si">}</span> -c conda-forge r-remotes r-optparse numpy scipy dataclasses r rpy2
+  <span class="k">if</span> <span class="nb">command</span> -v R <span class="p">&amp;</span>&gt; /dev/null
+  <span class="k">then</span>
+    <span class="k">while</span> <span class="nb">read</span> -r package<span class="p">;</span> <span class="k">do</span>
+      <span class="nb">echo</span> <span class="s2">&quot;Installing R package from GitHub: </span><span class="nv">$package</span><span class="s2">&quot;</span>
+      <span class="nb">export</span> <span class="nv">R_SCRIPT_INSTALL1</span><span class="o">=</span><span class="s2">&quot;remotes::install_github(\&quot;</span><span class="nv">$package</span><span class="s2">\&quot;, repos=&#39;http://cran.us.r-project.org&#39;)&quot;</span>
+      <span class="nb">echo</span> <span class="s2">&quot;command to install: </span><span class="si">${</span><span class="nv">R_SCRIPT_INSTALL1</span><span class="si">}</span><span class="s2">&quot;</span>
+      R -e <span class="s2">&quot;</span><span class="si">${</span><span class="nv">R_SCRIPT_INSTALL1</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">done</span> &lt; r-github-packages.txt
+  <span class="k">fi</span>
+  <span class="nb">echo</span> <span class="s2">&quot;In </span><span class="nv">$cenv</span><span class="s2"> Conda environment: &quot;</span>
+  install_cwl_airflow.sh
+  <span class="nb">echo</span> <span class="s2">&quot;In </span><span class="nv">$cenv</span><span class="s2"> Conda environment: &quot;</span>
+  install_projects.sh
+  <span class="nb">echo</span> <span class="s1">&#39;#!/bin/bash&#39;</span> &gt; /usr/bin/RScript
+  <span class="nb">echo</span> <span class="s1">&#39;exec conda run --no-capture-output -n $CONDA_ENV Rscript &quot;$@&quot;&#39;</span> &gt;&gt; /usr/bin/Rscript
+  chmod a+x /usr/bin/Rscript
+  conda deactivate
+  <span class="nb">echo</span> <span class="s2">&quot;Installed: </span><span class="nv">$cenv</span><span class="s2"> Conda environment&quot;</span>
+  conda env list
+  <span class="c1">#exit</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

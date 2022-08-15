@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NSAPH Data Loader &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -15,10 +14,13 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Project (Directory) Loading Utility" href="ProjectLoader.html" />
+    <link rel="prev" title="Data Modelling for NSAPH Data Platform" href="Datamodels.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,16 +38,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cms/README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -62,6 +67,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">NSAPH Core Data Platform</a> &raquo;</li>
       <li>NSAPH Data Loader</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/common/core-platform/doc/DataLoader.md.txt" rel="nofollow"> View page source</a>
@@ -72,63 +78,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="nsaph-data-loader">
-<h1>NSAPH Data Loader<a class="headerlink" href="#nsaph-data-loader" title="Permalink to this headline"></a></h1>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">m</span> <span class="n">nsaph</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">data_loader</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> 
-       <span class="p">[</span><span class="o">--</span><span class="n">data</span> <span class="n">DATA</span> <span class="p">[</span><span class="n">DATA</span> <span class="o">...</span><span class="p">]]</span> <span class="p">[</span><span class="o">--</span><span class="n">pattern</span> <span class="n">PATTERN</span> <span class="p">[</span><span class="n">PATTERN</span> <span class="o">...</span><span class="p">]]</span>
-       <span class="p">[</span><span class="o">--</span><span class="n">reset</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">incremental</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">page</span> <span class="n">PAGE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">log</span> <span class="n">LOG</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">limit</span> <span class="n">LIMIT</span><span class="p">]</span>
-       <span class="p">[</span><span class="o">--</span><span class="n">buffer</span> <span class="n">BUFFER</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">threads</span> <span class="n">THREADS</span><span class="p">]</span>
-       <span class="p">[</span><span class="o">--</span><span class="n">parallelization</span> <span class="p">{</span><span class="n">lines</span><span class="p">,</span><span class="n">files</span><span class="p">,</span><span class="n">none</span><span class="p">}]</span> <span class="o">--</span><span class="n">domain</span> <span class="n">DOMAIN</span>
-       <span class="p">[</span><span class="o">--</span><span class="n">registry</span> <span class="n">REGISTRY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">table</span> <span class="n">TABLE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">autocommit</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">db</span> <span class="n">DB</span><span class="p">]</span>
-       <span class="p">[</span><span class="o">--</span><span class="n">connection</span> <span class="n">CONNECTION</span><span class="p">]</span>
+  <div class="section" id="nsaph-data-loader">
+<h1>NSAPH Data Loader<a class="headerlink" href="#nsaph-data-loader" title="Permalink to this heading"></a></h1>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    python -u -m nsaph.loader.data_loader [-h]
+           [--data DATA [DATA ...]] [--pattern PATTERN [PATTERN ...]]
+           [--reset] [--incremental] [--page PAGE] [--log LOG] [--limit LIMIT]
+           [--buffer BUFFER] [--threads THREADS]
+           [--parallelization {lines,files,none}] --domain DOMAIN
+           [--registry REGISTRY] [--table TABLE] [--autocommit] [--db DB]
+           [--connection CONNECTION]
 
-<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
-  <span class="o">--</span><span class="n">data</span> <span class="n">DATA</span> <span class="p">[</span><span class="n">DATA</span> <span class="o">...</span><span class="p">]</span>
-                        <span class="n">Path</span> <span class="n">to</span> <span class="n">a</span> <span class="n">data</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span><span class="o">.</span> <span class="n">Can</span> <span class="n">be</span> <span class="n">a</span> <span class="n">single</span> <span class="n">CSV</span><span class="p">,</span>
-                        <span class="n">gzipped</span> <span class="n">CSV</span> <span class="ow">or</span> <span class="n">FST</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">directory</span> <span class="n">recursively</span>
-                        <span class="n">containing</span> <span class="n">CSV</span> <span class="n">files</span><span class="o">.</span> <span class="n">Can</span> <span class="n">also</span> <span class="n">be</span> <span class="n">a</span> <span class="n">tar</span><span class="p">,</span> <span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="p">(</span><span class="ow">or</span>
-                        <span class="n">tgz</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">zip</span> <span class="n">archive</span> <span class="n">containing</span> <span class="n">CSV</span> <span class="n">files</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span>
-                        <span class="kc">None</span>
-  <span class="o">--</span><span class="n">pattern</span> <span class="n">PATTERN</span> <span class="p">[</span><span class="n">PATTERN</span> <span class="o">...</span><span class="p">]</span>
-                        <span class="n">pattern</span> <span class="k">for</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">directory</span> <span class="ow">or</span> <span class="n">an</span> <span class="n">archive</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span>
-                        <span class="s2">&quot;**/maxdata_*_ps_*.csv&quot;</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="kc">None</span>
-  <span class="o">--</span><span class="n">reset</span>               <span class="n">Force</span> <span class="n">recreating</span> <span class="n">table</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">if</span> <span class="n">it</span><span class="o">/</span><span class="n">they</span> <span class="n">already</span> <span class="n">exist</span><span class="p">,</span>
-                        <span class="n">default</span><span class="p">:</span> <span class="kc">False</span>
-  <span class="o">--</span><span class="n">incremental</span>         <span class="n">Commit</span> <span class="n">every</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">skip</span> <span class="n">over</span> <span class="n">files</span> <span class="n">that</span> <span class="n">have</span>
-                        <span class="n">already</span> <span class="n">been</span> <span class="n">ingested</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="kc">False</span>
-  <span class="o">--</span><span class="n">page</span> <span class="n">PAGE</span>           <span class="n">Explicit</span> <span class="n">page</span> <span class="n">size</span> <span class="k">for</span> <span class="n">the</span> <span class="n">database</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="kc">None</span>
-  <span class="o">--</span><span class="n">log</span> <span class="n">LOG</span>             <span class="n">Explicit</span> <span class="n">interval</span> <span class="k">for</span> <span class="n">logging</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="kc">None</span>
-  <span class="o">--</span><span class="n">limit</span> <span class="n">LIMIT</span>         <span class="n">Load</span> <span class="n">at</span> <span class="n">most</span> <span class="n">specified</span> <span class="n">number</span> <span class="n">of</span> <span class="n">records</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span>
-                        <span class="kc">None</span>
-  <span class="o">--</span><span class="n">buffer</span> <span class="n">BUFFER</span>       <span class="n">Buffer</span> <span class="n">size</span> <span class="k">for</span> <span class="n">converting</span> <span class="n">fst</span> <span class="n">files</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="kc">None</span>
-  <span class="o">--</span><span class="n">threads</span> <span class="n">THREADS</span>     <span class="n">Number</span> <span class="n">of</span> <span class="n">threads</span> <span class="n">writing</span> <span class="n">into</span> <span class="n">the</span> <span class="n">database</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span>
-                        <span class="mi">1</span>
-  <span class="o">--</span><span class="n">parallelization</span> <span class="p">{</span><span class="n">lines</span><span class="p">,</span><span class="n">files</span><span class="p">,</span><span class="n">none</span><span class="p">}</span>
-                        <span class="n">Type</span> <span class="n">of</span> <span class="n">parallelization</span><span class="p">,</span> <span class="k">if</span> <span class="nb">any</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">lines</span>
-  <span class="o">--</span><span class="n">domain</span> <span class="n">DOMAIN</span>       <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">domain</span>
-  <span class="o">--</span><span class="n">registry</span> <span class="n">REGISTRY</span>   <span class="n">Path</span> <span class="n">to</span> <span class="n">domain</span> <span class="n">registry</span><span class="o">.</span> <span class="n">Registry</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">directory</span> <span class="ow">or</span> <span class="n">an</span>
-                        <span class="n">archive</span> <span class="n">containing</span> <span class="n">YAML</span> <span class="n">files</span> <span class="k">with</span> <span class="n">domain</span> <span class="n">definition</span><span class="o">.</span>
-                        <span class="n">Default</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">use</span> <span class="n">the</span> <span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">registry</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="kc">None</span>
-  <span class="o">--</span><span class="n">table</span> <span class="n">TABLE</span><span class="p">,</span> <span class="o">-</span><span class="n">t</span> <span class="n">TABLE</span>
-                        <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">table</span> <span class="n">to</span> <span class="n">load</span> <span class="n">data</span> <span class="n">into</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="kc">None</span>
-  <span class="o">--</span><span class="n">autocommit</span>          <span class="n">Use</span> <span class="n">autocommit</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="kc">False</span>
-  <span class="o">--</span><span class="n">db</span> <span class="n">DB</span>               <span class="n">Path</span> <span class="n">to</span> <span class="n">a</span> <span class="n">database</span> <span class="n">connection</span> <span class="n">parameters</span> <span class="n">file</span><span class="p">,</span>
-                        <span class="n">default</span><span class="p">:</span> <span class="n">database</span><span class="o">.</span><span class="n">ini</span>
-  <span class="o">--</span><span class="n">connection</span> <span class="n">CONNECTION</span>
-                        <span class="n">Section</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">database</span> <span class="n">connection</span> <span class="n">parameters</span> <span class="n">file</span><span class="p">,</span>
-                        <span class="n">default</span><span class="p">:</span> <span class="n">nsaph2</span>
+    optional arguments:
+        -h, --help            show this help message and exit
+
+        --data DATA [DATA ...]
+                            Path to a data file or directory. Can be a single CSV,
+                            gzipped CSV or FST file or a directory recursively
+                            containing CSV files. Can also be a tar, tar.gz (or
+                            tgz) or zip archive containing CSV files, default:
+                            None
+        --pattern PATTERN [PATTERN ...]
+                            pattern for files in a directory or an archive, e.g.
+                            `**/maxdata_*_ps_*.csv`, default: None
+        --reset               Force recreating table(s) if it/they already exist,
+                              default: False
+        --incremental         Commit every file and skip over files that have
+                            already been ingested, default: False
+        --page PAGE           Explicit page size for the database, default: None
+        --log LOG             Explicit interval for logging, default: None
+        --limit LIMIT         Load at most specified number of records, default:
+                            None
+        --buffer BUFFER       Buffer size for converting fst files, default: None
+        --threads THREADS     Number of threads writing into the database, default:
+                            1
+        --parallelization {lines,files,none}
+                            Type of parallelization, if any, default: lines
+        --domain DOMAIN       Name of the domain
+        --registry REGISTRY   Path to domain registry. Registry is a directory or an
+                            archive containing YAML files with domain definition.
+                            Default is to use the built-in registry, default: None
+        --table TABLE, -t TABLE
+                            Name of the table to load data into, default: None
+        --autocommit          Use autocommit, default: False
+        --db DB               Path to a database connection parameters file,
+                            default: database.ini
+        --connection CONNECTION
+                            Section in the database connection parameters file,
+                            default: nsaph2
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Datamodels.html" class="btn btn-neutral float-left" title="Data Modelling for NSAPH Data Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ProjectLoader.html" class="btn btn-neutral float-right" title="Project (Directory) Loading Utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

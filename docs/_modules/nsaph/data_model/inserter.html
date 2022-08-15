@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -35,16 +36,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../common/deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../common/utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../common/core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../common/gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../common/epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../common/cms/README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common/core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common/platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common/utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common/gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common/gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common/epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common/cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../common/census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -72,7 +76,27 @@
            <div itemprop="articleBody">
              
   <h1>Source code for nsaph.data_model.inserter</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">os.path</span>
+<span></span><span class="c1">#  Copyright (c) 2021. Harvard University</span>
+<span class="c1">#</span>
+<span class="c1">#  Developed by Research Software Engineering,</span>
+<span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
+<span class="c1">#  Author: Michael A Bouzinier</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#         http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">datetime</span>
@@ -88,7 +112,11 @@
 <span class="kn">from</span> <span class="nn">nsaph.data_model.domain</span> <span class="kn">import</span> <span class="n">Domain</span>
 <span class="kn">from</span> <span class="nn">nsaph.data_model.utils</span> <span class="kn">import</span> <span class="n">split</span><span class="p">,</span> <span class="n">DataReader</span><span class="p">,</span> <span class="n">regex</span>
 <span class="kn">from</span> <span class="nn">nsaph.fips</span> <span class="kn">import</span> <span class="n">fips_dict</span>
+<span class="kn">from</span> <span class="nn">nsaph.pg_keywords</span> <span class="kn">import</span> <span class="n">PG_SERIAL_TYPE</span><span class="p">,</span> <span class="n">PG_SM_SERIAL_TYPE</span>
 <span class="kn">from</span> <span class="nn">nsaph.util.executors</span> <span class="kn">import</span> <span class="n">BlockingThreadPoolExecutor</span>
+<span class="kn">from</span> <span class="nn">nsaph_utils.utils.io_utils</span> <span class="kn">import</span> <span class="n">sizeof_fmt</span><span class="p">,</span> <span class="n">SpecialValues</span>
+
+<span class="n">EMPTY_LIST_SIZE</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">([])</span>
 
 
 <div class="viewcode-block" id="compute"><a class="viewcode-back" href="../../../common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.compute">[docs]</a><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="n">how</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
@@ -102,7 +130,7 @@
 <div class="viewcode-block" id="Inserter"><a class="viewcode-back" href="../../../common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter">[docs]</a><span class="k">class</span> <span class="nc">Inserter</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">root_table_name</span><span class="p">,</span> <span class="n">reader</span><span class="p">:</span> <span class="n">DataReader</span><span class="p">,</span> <span class="n">connections</span><span class="p">,</span> <span class="n">page_size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">tables</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Inserter</span><span class="o">.</span><span class="n">_Table</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">page_size</span> <span class="o">=</span> <span class="n">page_size</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reader</span> <span class="o">=</span> <span class="n">reader</span>
@@ -127,6 +155,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">timestamps</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">current_row</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pushed_rows</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">volume</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">last_logged_row</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">in_wait_state</span> <span class="o">=</span> <span class="kc">False</span>
 
@@ -146,6 +175,7 @@
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_lock</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">rows</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">current_row</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">volume</span> <span class="o">+=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">-</span> <span class="n">EMPTY_LIST_SIZE</span>
                 <span class="n">is_valid</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">:</span>
                     <span class="n">records</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
@@ -280,14 +310,19 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">last_logged_row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pushed_rows</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">stamp_time</span><span class="p">(</span><span class="s2">&quot;last_logged&quot;</span><span class="p">)</span>
             <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">get_path</span><span class="p">())</span>
+            <span class="n">sz</span> <span class="o">=</span> <span class="n">sizeof_fmt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">volume</span><span class="p">)</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="s2">&quot;Records imported from </span><span class="si">{}</span><span class="s2">: </span><span class="si">{:d}</span><span class="s2"> =&gt; </span><span class="si">{:d}</span><span class="s2">; rate: </span><span class="si">{:f}</span><span class="s2"> rec/sec; read: </span><span class="si">{:d}</span><span class="s2">% / store: </span><span class="si">{:d}</span><span class="s2">%&quot;</span>
-                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_row</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pushed_rows</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">rt</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">t</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">st</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">t</span><span class="p">))</span>
+                <span class="s2">&quot;Records imported from </span><span class="si">{}</span><span class="s2">: </span><span class="si">{:,}</span><span class="s2"> =&gt; </span><span class="si">{:,}</span><span class="s2">; rate: </span><span class="si">{:,.2f}</span><span class="s2"> rec/sec; read: </span><span class="si">{:d}</span><span class="s2">% / store: </span><span class="si">{:d}</span><span class="s2">%; size: </span><span class="si">{}</span><span class="s2">&quot;</span>
+                    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_row</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pushed_rows</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">rt</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">t</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">st</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="n">t</span><span class="p">),</span> <span class="n">sz</span><span class="p">)</span>
             <span class="p">)</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                <span class="s2">&quot;Current rate: </span><span class="si">{:f}</span><span class="s2"> rec/sec, time read: </span><span class="si">{}</span><span class="s2">; time store: </span><span class="si">{}</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;Current rate: </span><span class="si">{:,.2f}</span><span class="s2"> rec/sec, time read: </span><span class="si">{}</span><span class="s2">; time store: </span><span class="si">{}</span><span class="s2">&quot;</span>
                     <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rate1</span><span class="p">,</span> <span class="n">rts</span><span class="p">,</span> <span class="n">sts</span><span class="p">)</span>
-            <span class="p">)</span></div>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">count</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span>
+                    <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">count</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_row</span>
+            <span class="p">):</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Continue ingesting over the file size&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Inserter.Batch"><a class="viewcode-back" href="../../../common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.Batch">[docs]</a>    <span class="k">def</span> <span class="nf">Batch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Batch</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
@@ -348,69 +383,80 @@
             <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
                 <span class="n">name</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
                 <span class="n">source</span> <span class="o">=</span> <span class="kc">None</span>
-                <span class="k">if</span> <span class="s2">&quot;source&quot;</span> <span class="ow">in</span> <span class="n">column</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
-                        <span class="n">source</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span>
-                    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
-                        <span class="n">t</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
-                        <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;column&quot;</span><span class="p">:</span>
-                            <span class="n">source</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">][</span><span class="s2">&quot;column&quot;</span><span class="p">]</span>
-                        <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;multi_column&quot;</span><span class="p">:</span>
-                            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">:</span>
-                                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Multi columns require range: &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
-                            <span class="n">pattern</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">][</span><span class="s2">&quot;pattern&quot;</span><span class="p">]</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">range_columns</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-                            <span class="n">_</span><span class="p">,</span> <span class="n">rng</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span>
-                            <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">rng</span><span class="p">:</span>
-                                <span class="n">source</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-                                <span class="bp">self</span><span class="o">.</span><span class="n">range_columns</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-                            <span class="k">continue</span>
-                        <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span><span class="p">:</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">computes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span>
-                            <span class="k">continue</span>
-                        <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;range&quot;</span><span class="p">:</span>
-                            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">:</span>
-                                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Only one range is supported column </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">])))</span>
-                            <span class="k">if</span> <span class="s2">&quot;values&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]:</span>
-                                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Range must specify values for column </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">])))</span>
-                            <span class="n">values</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">][</span><span class="s2">&quot;values&quot;</span><span class="p">]</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-                            <span class="k">continue</span>
-                        <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;generated&quot;</span><span class="p">:</span>
-                            <span class="k">continue</span>
-                        <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;file&quot;</span><span class="p">:</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">file_column</span> <span class="o">=</span> <span class="n">name</span>
-                            <span class="k">continue</span>
+                <span class="n">source_index</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s2">&quot;source&quot;</span> <span class="ow">in</span> <span class="n">column</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+                            <span class="n">source</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span>
+                        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
+                            <span class="n">source_index</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span>
+                        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                            <span class="n">t</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span>
+                            <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;column&quot;</span><span class="p">:</span>
+                                <span class="n">source</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">][</span><span class="s2">&quot;column&quot;</span><span class="p">]</span>
+                            <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;multi_column&quot;</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">:</span>
+                                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Multi columns require range: &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+                                <span class="n">pattern</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">][</span><span class="s2">&quot;pattern&quot;</span><span class="p">]</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">range_columns</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+                                <span class="n">_</span><span class="p">,</span> <span class="n">rng</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span>
+                                <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">rng</span><span class="p">:</span>
+                                    <span class="n">source</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                                    <span class="bp">self</span><span class="o">.</span><span class="n">range_columns</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+                                <span class="k">continue</span>
+                            <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;compute&quot;</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">computes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span>
+                                <span class="k">continue</span>
+                            <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;range&quot;</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">range</span><span class="p">:</span>
+                                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Only one range is supported column </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">])))</span>
+                                <span class="k">if</span> <span class="s2">&quot;values&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]:</span>
+                                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Range must specify values for column </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">])))</span>
+                                <span class="n">values</span> <span class="o">=</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">][</span><span class="s2">&quot;values&quot;</span><span class="p">]</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">range</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+                                <span class="k">continue</span>
+                            <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;generated&quot;</span><span class="p">:</span>
+                                <span class="k">continue</span>
+                            <span class="k">elif</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;file&quot;</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">file_column</span> <span class="o">=</span> <span class="n">name</span>
+                                <span class="k">continue</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid source for column </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">])))</span>
                         <span class="k">else</span><span class="p">:</span>
                             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid source for column </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">])))</span>
+                    <span class="k">elif</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">column</span> <span class="ow">and</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="n">PG_SERIAL_TYPE</span><span class="p">,</span> <span class="n">PG_SM_SERIAL_TYPE</span><span class="p">]:</span>
+                        <span class="k">continue</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid source for column </span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">column</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">])))</span>
-                <span class="k">elif</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">column</span> <span class="ow">and</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;SERIAL&quot;</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-                        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">f</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-                            <span class="n">source</span> <span class="o">=</span> <span class="n">f</span>
-                            <span class="k">break</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">source</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Source was not found for column </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-                <span class="k">if</span> <span class="n">Domain</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
-                    <span class="n">r</span> <span class="o">=</span> <span class="n">regex</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-                    <span class="n">i0</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-                    <span class="n">i1</span> <span class="o">=</span> <span class="mi">0</span>
-                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">clmn</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
-                        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">clmn</span><span class="p">):</span>
-                            <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
-                            <span class="n">i0</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-                            <span class="n">i1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">arrays</span><span class="p">[</span><span class="n">i0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">source_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">source_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
-                    <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">column</span> <span class="ow">and</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()[:</span><span class="mi">4</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
-                        <span class="s2">&quot;varc&quot;</span><span class="p">,</span> <span class="s2">&quot;char&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span>
-                    <span class="p">]:</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">no_empty_str</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">source_index</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">f</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                                <span class="n">source</span> <span class="o">=</span> <span class="n">f</span>
+                                <span class="k">break</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">source</span> <span class="ow">and</span> <span class="n">source_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Source was not found for column </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+                    <span class="k">if</span> <span class="n">Domain</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
+                        <span class="n">r</span> <span class="o">=</span> <span class="n">regex</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+                        <span class="n">i0</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+                        <span class="n">i1</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">clmn</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+                            <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">clmn</span><span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+                                <span class="n">i0</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                                <span class="n">i1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">i1</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">arrays</span><span class="p">[</span><span class="n">i0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">source</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">source_index</span><span class="p">:</span>
+                            <span class="n">source_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">[</span><span class="n">source_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+                        <span class="k">if</span> <span class="s2">&quot;type&quot;</span> <span class="ow">in</span> <span class="n">column</span> <span class="ow">and</span> <span class="n">column</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()[:</span><span class="mi">4</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                            <span class="s2">&quot;varc&quot;</span><span class="p">,</span> <span class="s2">&quot;char&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span>
+                        <span class="p">]:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">no_empty_str</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">source_index</span><span class="p">)</span>
+
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">x</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+                        <span class="s2">&quot;Invalid specification for column </span><span class="si">{}</span><span class="s2">; error: </span><span class="si">{}</span><span class="s2">&quot;</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                    <span class="p">)</span> <span class="kn">from</span> <span class="nn">x</span>
             <span class="n">inverse_mapping</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
             <span class="p">}</span>
@@ -462,8 +508,11 @@
                     <span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
                     <span class="n">array_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrays</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
                 <span class="n">is_end</span> <span class="o">=</span> <span class="n">array_end</span> <span class="o">==</span> <span class="n">i</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">raise</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span> <span class="ow">or</span> <span class="n">SpecialValues</span><span class="o">.</span><span class="n">is_missing</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
                     <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pk</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">audit</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                         <span class="k">return</span> <span class="kc">False</span>
                     <span class="k">else</span><span class="p">:</span>
