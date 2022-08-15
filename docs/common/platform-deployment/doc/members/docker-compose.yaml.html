@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docker-compose file &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Docker-compose file</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/common/platform-deployment/doc/members/docker-compose.yaml.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="docker-compose-file">
+<h1>Docker-compose file<a class="headerlink" href="#docker-compose-file" title="Permalink to this heading"></a></h1>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Licensed to the Apache Software Foundation (ASF) under one</span>
+<span class="c1"># or more contributor license agreements.  See the NOTICE file</span>
+<span class="c1"># distributed with this work for additional information</span>
+<span class="c1"># regarding copyright ownership.  The ASF licenses this file</span>
+<span class="c1"># to you under the Apache License, Version 2.0 (the</span>
+<span class="c1"># &quot;License&quot;); you may not use this file except in compliance</span>
+<span class="c1"># with the License.  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#   http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing,</span>
+<span class="c1"># software distributed under the License is distributed on an</span>
+<span class="c1"># &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1"># KIND, either express or implied.  See the License for the</span>
+<span class="c1"># specific language governing permissions and limitations</span>
+<span class="c1"># under the License.</span>
+<span class="c1">#</span>
+
+<span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3.9&#39;</span>
+
+<span class="nt">x-aliases</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nl">&amp;common_parameters</span>
+      <span class="nt">networks</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">airflow-cwl-docker</span>
+  <span class="p p-Indicator">-</span> <span class="nl">&amp;airflow_build_params</span>
+      <span class="nt">build</span><span class="p">:</span>
+        <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">.</span>
+        <span class="nt">dockerfile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
+        <span class="nt">args</span><span class="p">:</span>
+          <span class="nt">AIRFLOW_CONDA_ENV</span><span class="p">:</span> <span class="s">&quot;${AIRFLOW_CONDA_ENV:-none}&quot;</span>
+
+  <span class="p p-Indicator">-</span> <span class="nl">&amp;airflow_env</span>
+      <span class="nt">environment</span><span class="p">:</span>
+        <span class="nt">AIRFLOW_HOME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/opt/airflow</span>
+        <span class="nt">AIRFLOW__CORE__EXECUTOR</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LocalExecutor</span>
+        <span class="nt">AIRFLOW__CORE__SQL_ALCHEMY_CONN</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgresql+psycopg2://${POSTGRE_USER:-airflow}:${POSTGRE_PASS:-airflow}@${POSTGRE_SERVER:-postgres}/${POSTGRE_DB:-airflow}</span>
+        <span class="nt">AIRFLOW__CORE__FERNET_KEY</span><span class="p">:</span>
+        <span class="nt">AIRFLOW_CONN_METADATA_DB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgresql+psycopg2://${POSTGRE_USER:-airflow}:${POSTGRE_PASS:-airflow}@${POSTGRE_SERVER:-postgres}/${POSTGRE_DB:-airflow}</span>
+        <span class="nt">AIRFLOW_VAR__METADATA_DB_SCHEMA</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRE_DB:-airflow}</span>
+        <span class="nt">AIRFLOW__SCHEDULER__SCHEDULER_HEARTBEAT_SEC</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+        <span class="nt">AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION</span><span class="p">:</span> <span class="s">&quot;True&quot;</span>
+        <span class="nt">AIRFLOW__CORE__LOAD_EXAMPLES</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${AIRFLOW__CORE__LOAD_EXAMPLES:-False}</span>
+        <span class="nt">AIRFLOW__CORE__DAGS_FOLDER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${DAGS_FOLDER:-/opt/airflow/dags}</span>
+        <span class="nt">_AIRFLOW_DB_UPGRADE</span><span class="p">:</span> <span class="s">&quot;True&quot;</span>
+        <span class="nt">_AIRFLOW_WWW_USER_CREATE</span><span class="p">:</span> <span class="s">&quot;True&quot;</span>
+        <span class="nt">AIRFLOW__WEBSERVER__ENABLE_PROXY_FIX</span><span class="p">:</span> <span class="s">&quot;True&quot;</span>
+        <span class="nt">AIRFLOW__WEBSERVER__EXPOSE_CONFIG</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${AIRFLOW__WEBSERVER__EXPOSE_CONFIG:-True}</span>
+        <span class="nt">_AIRFLOW_WWW_USER_USERNAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${_AIRFLOW_WWW_USER_USERNAME:-airflow}</span>
+        <span class="nt">_AIRFLOW_WWW_USER_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${_AIRFLOW_WWW_USER_PASSWORD:-airflow}</span>
+        <span class="nt">AIRFLOW__WEBSERVER__BASE_URL</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${BASE_URL:-http://localhost:8080}</span>
+        <span class="nt">AIRFLOW__LOGGING__BASE_LOG_FOLDER</span><span class="p">:</span> <span class="s">&quot;/opt/airflow/logs&quot;</span>
+        <span class="nt">PROJECT_DIR</span><span class="p">:</span> <span class="s">&quot;/opt/airflow/project&quot;</span>
+        <span class="nt">AIRFLOW_CONDA_ENV</span><span class="p">:</span> <span class="s">&quot;${AIRFLOW_CONDA_ENV:-none}&quot;</span>
+
+  <span class="p p-Indicator">-</span> <span class="nl">&amp;airflow_volumes</span>
+      <span class="nt">volumes</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${PROJECT_DIR:-./project}:/opt/airflow/project</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${DAGS_DIR:-./dags}:/opt/airflow/dags</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${LOGS_DIR:-./airflow-logs}:/opt/airflow/logs</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${CWL_TMP_FOLDER:-./cwl_tmp_folder}:/opt/airflow/cwl_tmp_folder</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${CWL_INPUTS_FOLDER:-./cwl_inputs_folder}:/opt/airflow/cwl_inputs_folder</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${CWL_OUTPUTS_FOLDER:-./cwl_outputs_folder}:/opt/airflow/cwl_outputs_folder</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${CWL_PICKLE_FOLDER:-./cwl_pickle_folder}:/opt/airflow/cwl_pickle_folder</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/data/incoming:/data/incoming</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/scratch/cwl/rundir:/opt/airflow/cwl_rundir</span>
+        <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bind</span>
+          <span class="nt">source</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span>
+          <span class="nt">target</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span>
+
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">scheduler</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;${AIRFLOW_IMAGE_NAME:-myairflow-conda}&quot;</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*airflow_build_params</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scheduler</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="nt">webserver</span><span class="p">:</span>
+        <span class="nt">condition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*airflow_env</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*airflow_volumes</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*common_parameters</span>
+    <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;airflow&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;scheduler&quot;</span> <span class="p p-Indicator">]</span>
+
+  <span class="nt">webserver</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="s">&quot;${AIRFLOW_IMAGE_NAME:-myairflow-conda}&quot;</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*airflow_build_params</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">webserver</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*airflow_env</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*airflow_volumes</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*common_parameters</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;${WEB_SERVER_PORT:-8080}:8080&quot;</span>
+    <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&quot;airflow&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;webserver&quot;</span> <span class="p p-Indicator">]</span>
+    <span class="nt">healthcheck</span><span class="p">:</span>
+      <span class="nt">test</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;curl&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;--fail&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;http://localhost:8080/health&quot;</span><span class="p p-Indicator">]</span>
+      <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30s</span>
+      <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4s</span>
+      <span class="nt">retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+
+  <span class="nt">postgres</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres:13</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">postgres-db-volume:/var/lib/postgresql/data</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="nt">POSTGRES_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRE_USER:-airflow}</span>
+      <span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRE_PASS:-airflow}</span>
+      <span class="nt">POSTGRES_DB</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${POSTGRE_DB:-airflow}</span>
+      <span class="nt">POSTGRES_HOST_AUTH_METHOD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trust</span>
+    <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*common_parameters</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;${POSTGRES_PORT:-5432}:5432&quot;</span>
+    <span class="nt">profiles</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
+    <span class="nt">healthcheck</span><span class="p">:</span>
+      <span class="nt">test</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;CMD-SHELL&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;pg_isready</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">${POSTGRE_USER}</span><span class="nv"> </span><span class="s">-d</span><span class="nv"> </span><span class="s">${POSTGRE_DB}&quot;</span><span class="p p-Indicator">]</span>
+      <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3s</span>
+      <span class="nt">timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5s</span>
+      <span class="nt">retries</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+  <span class="nt">postgres-db-volume</span><span class="p">:</span>
+<span class="nt">networks</span><span class="p">:</span>
+  <span class="nt">airflow-cwl-docker</span><span class="p">:</span>
+    <span class="nt">driver</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bridge</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">airflow</span>
+    <span class="nt">ipam</span><span class="p">:</span>
+      <span class="nt">config</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">subnet</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">172.16.238.0/24</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

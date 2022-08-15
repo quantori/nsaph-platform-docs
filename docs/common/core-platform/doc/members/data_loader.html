@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The data_loader Module &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -37,16 +36,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cms/README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -73,7 +75,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="the-data-loader-module">
+  <div class="section" id="the-data-loader-module">
 <h1>The data_loader Module<a class="headerlink" href="#the-data-loader-module" title="Permalink to this heading"></a></h1>
 <p>Implements parallel loading data into a PostgreSQL database.
 It is also responsible for loading DDL and creation of view,
@@ -84,7 +86,7 @@ both virtual and materialized.</p>
 <li class="toctree-l1"><a class="reference internal" href="../DataLoader.html">NSAPH Data Loader</a></li>
 </ul>
 </div>
-<section id="module-nsaph.loader.data_loader">
+<div class="section" id="module-nsaph.loader.data_loader">
 <span id="api"></span><h2>API<a class="headerlink" href="#module-nsaph.loader.data_loader" title="Permalink to this heading"></a></h2>
 <p>Domain Data Loader</p>
 <p>Provides Command line interface for loading data from a
@@ -96,8 +98,23 @@ into NSAPH PostgreSQL Database.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="loader_config.html#nsaph.loader.loader_config.LoaderConfig" title="nsaph.loader.loader_config.LoaderConfig"><span class="pre">LoaderConfig</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader" title="Permalink to this definition"></a></dt>
 <dd><p>Class for data loader</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.set_table">
+<span class="sig-name descname"><span class="pre">set_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.set_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.set_table" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.print_ddl">
 <span class="sig-name descname"><span class="pre">print_ddl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.print_ddl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.print_ddl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.print_table_ddl">
+<span class="sig-name descname"><span class="pre">print_table_ddl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.print_table_ddl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.print_table_ddl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.insert_from_select">
+<span class="sig-name descname"><span class="pre">insert_from_select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.insert_from_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.insert_from_select" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -167,8 +184,8 @@ into NSAPH PostgreSQL Database.</p>
 
 </dd></dl>
 
-</section>
-<section id="module-nsaph.loader.common">
+</div>
+<div class="section" id="module-nsaph.loader.common">
 <span id="configuration"></span><h2>Configuration<a class="headerlink" href="#module-nsaph.loader.common" title="Permalink to this heading"></a></h2>
 <p>Common options for data manipulation</p>
 <dl class="py class">
@@ -204,6 +221,18 @@ If not specified, then it is extracted from subclass documentation</p></li>
 <dt class="sig sig-object py" id="nsaph.loader.common.DBConnectionConfig.connection">
 <span class="sig-name descname"><span class="pre">connection</span></span><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig.connection" title="Permalink to this definition"></a></dt>
 <dd><p>Section in the database connection parameters file</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.common.DBConnectionConfig.verbose">
+<span class="sig-name descname"><span class="pre">verbose</span></span><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig.verbose" title="Permalink to this definition"></a></dt>
+<dd><p>Generate verbose output</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.common.DBConnectionConfig.dryrun">
+<span class="sig-name descname"><span class="pre">dryrun</span></span><a class="headerlink" href="#nsaph.loader.common.DBConnectionConfig.dryrun" title="Permalink to this definition"></a></dt>
+<dd><p>Dry run: do no database modifications</p>
 </dd></dl>
 
 </dd></dl>
@@ -281,6 +310,12 @@ database schema.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.DataLoaderAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataLoaderAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#DataLoaderAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.DataLoaderAction" title="Permalink to this definition"></a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LoaderConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#LoaderConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig" title="Permalink to this definition"></a></dt>
 <dd><p>Configurator class for data loader</p>
@@ -298,8 +333,8 @@ If not specified, then it is extracted from subclass documentation</p></li>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.drop">
-<span class="sig-name descname"><span class="pre">drop</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.drop" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.action">
+<span class="sig-name descname"><span class="pre">action</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="loader_config.html#nsaph.loader.loader_config.DataLoaderAction" title="nsaph.loader.loader_config.DataLoaderAction"><span class="pre">DataLoaderAction</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.action" title="Permalink to this definition"></a></dt>
 <dd><p>If this option is given, then the whole domain schema will be dropped</p>
 </dd></dl>
 
@@ -374,12 +409,6 @@ have already been ingested</p>
 <dd><p>Do not update existing tables and views</p>
 </dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.dryrun">
-<span class="sig-name descname"><span class="pre">dryrun</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.dryrun" title="Permalink to this definition"></a></dt>
-<dd><p>Dry run: prepare everything then exit</p>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.validate">
 <span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#LoaderConfig.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.validate" title="Permalink to this definition"></a></dt>
@@ -410,15 +439,15 @@ of command line arguments</p>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#column">Column</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#multi-column-indices">Multi-column indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#generation-of-the-database-schema-ddl">Generation of the database schema (DDL)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#indexing-policies">Indexing Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#indexing-policies">Indexing policies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#linking-with-nomenclature">Linking with nomenclature</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#ingesting-data">Ingesting Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Datamodels.html#ingesting-data">Ingesting data</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

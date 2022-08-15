@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environment example without conda and with existing PostgreSQL &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Environment example without conda and with existing PostgreSQL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/common/platform-deployment/doc/members/env_example_nopostgres_noconda.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="environment-example-without-conda-and-with-existing-postgresql">
+<h1>Environment example without conda and with existing PostgreSQL<a class="headerlink" href="#environment-example-without-conda-and-with-existing-postgresql" title="Permalink to this heading"></a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">### Profiles of Docker-Compose and the Conda usage pointer</span>
+<span class="c1">#</span>
+<span class="c1"># COMPOSE_PROFILES [postgres,null]</span>
+<span class="c1"># AIRFLOW_CONDA_ENV [conda_default,null]</span>
+<span class="c1">#</span>
+<span class="c1">###</span>
+<span class="n">COMPOSE_PROFILES</span><span class="o">=</span>
+<span class="n">AIRFLOW_CONDA_ENV</span><span class="o">=</span>
+<span class="c1">###</span>
+<span class="c1"># Postgresql </span>
+<span class="n">POSTGRE_SERVER</span><span class="o">=</span><span class="mf">172.16</span><span class="o">.</span><span class="mf">238.1</span>
+<span class="n">POSTGRE_DB</span><span class="o">=</span><span class="n">airflow</span>
+<span class="n">POSTGRE_USER</span><span class="o">=</span><span class="n">airflow</span>
+<span class="n">POSTGRE_PASS</span><span class="o">=</span><span class="n">airflow</span>
+
+
+<span class="c1">### Available options and default values</span>
+<span class="c1">## Postgres</span>
+<span class="c1"># POSTGRE_USER=airflow</span>
+<span class="c1"># POSTGRE_PASS=airflow</span>
+<span class="c1"># POSTGRE_DB=airflow</span>
+<span class="c1"># POSTGRES_PORT=5432</span>
+<span class="c1">#</span>
+<span class="c1">## Airflow parameters</span>
+<span class="c1"># POSTGRE_SERVER=postgres</span>
+<span class="c1"># WEB_SERVER_PORT=8080</span>
+<span class="c1"># AIRFLOW__CORE__LOAD_EXAMPLES=False</span>
+<span class="c1">## DAGS_FOLDER -- Environment variable inside container. Do not override if you set DAGS_DIR variable</span>
+<span class="c1"># DAGS_FOLDER=/opt/airflow/dags</span>
+<span class="c1"># _AIRFLOW_WWW_USER_USERNAME=airflow</span>
+<span class="c1"># _AIRFLOW_WWW_USER_PASSWORD=airflow</span>
+<span class="c1"># BASE_URL=http://localhost:8080</span>
+<span class="c1"># AIRFLOW__WEBSERVER__EXPOSE_CONFIG: &quot;True&quot;</span>
+<span class="c1">#</span>
+<span class="c1">### Mapped volumes</span>
+<span class="c1"># PROJECT_DIR=&quot;./project&quot;</span>
+<span class="c1">## DAGS_DIR -- Environment variable on host! Do not override if you set DAGS_FOLDER variable</span>
+<span class="c1"># DAGS_DIR=&quot;./dags&quot;</span>
+<span class="c1"># LOGS_DIR=&quot;./airflow-logs&quot;</span>
+<span class="c1"># CWL_TMP_FOLDER=&quot;./cwl_tmp_folder&quot;</span>
+<span class="c1"># CWL_INPUTS_FOLDER=&quot;./cwl_inputs_folder&quot;</span>
+<span class="c1"># CWL_OUTPUTS_FOLDER=&quot;./cwl_outputs_folder&quot;</span>
+<span class="c1"># CWL_PICKLE_FOLDER=&quot;./cwl_pickle_folder&quot;</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

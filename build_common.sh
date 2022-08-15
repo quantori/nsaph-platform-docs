@@ -22,7 +22,7 @@ rm -rf docs
 rm -rf doc/common && mkdir doc/common
 
 package_prefix="nsaph-"
-packages=("platform-deployment" "utils" "core-platform" "gis" "epa" "gridmet" "cms")
+packages=("platform-deployment" "utils" "core-platform" "gis" "epa" "gridmet" "cms" "census")
 
 for name in "${packages[@]}"
 do

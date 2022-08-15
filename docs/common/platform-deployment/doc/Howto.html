@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Howto &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Configuration Guide" href="Configuration.html" />
+    <link rel="prev" title="CWL-Airflow Deployment Guide" href="Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Howto</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deployment-steps">Deployment Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-containers">Building Containers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#docker-build-command">Docker build command</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rebuilding-the-containers">Rebuilding the Containers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#when-building-goes-wrong">When building goes wrong</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#copying-dags-to-airflow-folder">Copying DAGs to Airflow folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-development">Local development</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html">Glossary and FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">NSAPH Data Platform Deployment</a> &raquo;</li>
+      <li>Howto</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/common/platform-deployment/doc/Howto.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="howto">
+<h1>Howto<a class="headerlink" href="#howto" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#deployment-steps" id="id1">Deployment Steps</a></p></li>
+<li><p><a class="reference internal" href="#building-containers" id="id2">Building Containers</a></p>
+<ul>
+<li><p><a class="reference internal" href="#docker-build-command" id="id3">Docker build command</a></p></li>
+<li><p><a class="reference internal" href="#rebuilding-the-containers" id="id4">Rebuilding the Containers</a></p></li>
+<li><p><a class="reference internal" href="#when-building-goes-wrong" id="id5">When building goes wrong</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#copying-dags-to-airflow-folder" id="id6">Copying DAGs to Airflow folder</a></p></li>
+<li><p><a class="reference internal" href="#local-development" id="id7">Local development</a></p></li>
+</ul>
+</div>
+<p>For a simple quick start with the most common options for test
+environment see the <a class="reference internal" href="index.html#quick-start"><span class="std std-doc">Quick Start</span></a> section
+of README. It will allow you to quickly crete an environment</p>
+<p>where you can try whether it works for you.</p>
+<p>To keep in mind: a few <a class="reference internal" href="UsefulCommands.html"><span class="doc std std-doc">useful commands</span></a>.</p>
+<div class="section" id="deployment-steps">
+<h2><a class="toc-backref" href="#id1">Deployment Steps</a><a class="headerlink" href="#deployment-steps" title="Permalink to this heading"></a></h2>
+<p>In order to build and deploy CWL-Airflow in your custom environment
+with your custom options, you will need to follow these steps:</p>
+<ol class="arabic">
+<li><p>Clone the repository. Sample commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ForomePlatform/airflow-cwl-docker.git
+<span class="nb">cd</span> airflow-cwl-docker
+</pre></div>
+</div>
+</li>
+<li><p>Init git submodules (<em>simple command below is required to fetch CWL-airflow,
+see <a class="reference internal" href="Configuration.html#configure-git-submodules"><span class="std std-doc">Configuration</span></a>
+for advanced options</em>):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git submodule update --init --recursive
+</pre></div>
+</div>
+</li>
+<li><p><strong>[Optional]</strong> <a class="reference internal" href="Configuration.html#configurations-related-to-postgresql"><span class="std std-doc">Configure PostgreSQL</span></a>
+and how Airflow connects to it.</p></li>
+<li><p><strong>[Optional]</strong> <a class="reference internal" href="Configuration.html#configuring-installation-of-third-party-requirements"><span class="std std-doc">Configure prerequisites</span></a></p></li>
+<li><p><strong>[Optional]</strong> Configure <a class="reference internal" href="Configuration.html#configuring-user-projects"><span class="std std-doc">your own projects</span></a>
+that have to be installed
+in the workflow execution environment.</p></li>
+<li><p>Copy <a class="reference internal" href="Configuration.html#selecting-base-configuration"><span class="std std-doc">environment template</span></a>
+to <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. Sample command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp .env_example_postgres_noconda .env
+</pre></div>
+</div>
+</li>
+<li><p><strong>[Optional]</strong> Adjust environment settings:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Configuration.html#overriding-base-url"><span class="std std-doc">Base URL</span></a></p></li>
+<li><p>How Airflow connects to PostgreSQL</p></li>
+<li><p><a class="reference internal" href="Configuration.html#airflow-admin-username-and-password"><span class="std std-doc">Airflow admin username and password</span></a></p></li>
+<li><p><a class="reference internal" href="Configuration.html#full-list-of-available-environment-variables"><span class="std std-doc">Anything else</span></a></p></li>
+</ul>
+</li>
+<li><p>Build the containers. Sample command (see <a class="reference internal" href="#building-containers"><span class="std std-doc">advanced options</span></a>):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span> <span class="nv">BUILDKIT_PROGRESS</span><span class="o">=</span>plain docker-compose --env-file ./.env build
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference internal" href="#copying-dags-to-airflow-folder"><span class="std std-doc">Copy DAGs</span></a> from examples
+to a directory in Airflow path (and your own DAGs)
+Sample command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p ./dags <span class="o">&amp;&amp;</span> cp -rf ./project/examples/* ./dags
+</pre></div>
+</div>
+</li>
+<li><p><strong>[Optional]</strong> Delete postgres volume to recreate the Airflow database.</p>
+<blockquote>
+<div><p>This step is required if you have changed PostgreSQL
+configuration or authentication
+(<code class="docutils literal notranslate"><span class="pre">POSTGRE_DB</span></code>/<code class="docutils literal notranslate"><span class="pre">POSTGRE_USER</span></code>/<code class="docutils literal notranslate"><span class="pre">POSTGRE_PASS</span></code>),<br />
+and you are using PostgreSQL in a container (not on the host).</p>
+</div></blockquote>
+<p>See <a class="reference internal" href="UsefulCommands.html#to-delete-postgresql-volumes"><span class="std std-doc">commands</span></a>
+to be executed.</p>
+</li>
+<li><p>Start the containers:</p>
+<ul>
+<li><p>Daemon mode</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose down <span class="o">&amp;&amp;</span> docker-compose --env-file ./.env up -d
+</pre></div>
+</div>
+</li>
+<li><p>Or, console mode:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose down <span class="o">&amp;&amp;</span> docker-compose --env-file ./.env up 
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Wait for the Airflow to initialize and start up. The first time
+you run the containers, Airflow will need to perform some
+initialization tasks, e.g., upgrading its database and
+creating an admin user</p>
+<ul>
+<li><p>If you use daemon mode then use the following command to examine how
+the Airflow starts up</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose logs -f webserver
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="Testing.html"><span class="doc std std-doc">Test your deployment</span></a></p></li>
+</ol>
+</div>
+<div class="section" id="building-containers">
+<h2><a class="toc-backref" href="#id2">Building Containers</a><a class="headerlink" href="#building-containers" title="Permalink to this heading"></a></h2>
+<div class="section" id="docker-build-command">
+<h3><a class="toc-backref" href="#id3">Docker build command</a><a class="headerlink" href="#docker-build-command" title="Permalink to this heading"></a></h3>
+<p>Use the following command for docker build:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span> <span class="nv">BUILDKIT_PROGRESS</span><span class="o">=</span>plain docker-compose build
+</pre></div>
+</div>
+<p>Variable <code class="docutils literal notranslate"><span class="pre">DOCKER_BUILDKIT=1</span></code> instructs Docker to use
+<a class="reference external" href="https://docs.docker.com/develop/develop-images/build_enhancements/">BuildKit</a>
+(only during build)</p>
+<p>Variable <code class="docutils literal notranslate"><span class="pre">BUILDKIT_PROGRESS=plain</span></code> instructs Docker
+to use plain text progress output (only during build)</p>
+</div>
+<div class="section" id="rebuilding-the-containers">
+<h3><a class="toc-backref" href="#id4">Rebuilding the Containers</a><a class="headerlink" href="#rebuilding-the-containers" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><p><em><strong>NB:</strong></em>
+If you have changed the configuration mode,
+you must completely rebuild containers, clearing the cache. Use
+the following command:</p>
+</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>docker-compose down &amp;&amp; docker-compose --env-file ./.env build --no-cache
+</pre></div>
+</div>
+</div>
+<div class="section" id="when-building-goes-wrong">
+<h3><a class="toc-backref" href="#id5">When building goes wrong</a><a class="headerlink" href="#when-building-goes-wrong" title="Permalink to this heading"></a></h3>
+<p>Build the containers with a detailed log. One possible command is:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">log</span><span class="o">=</span>build-<span class="sb">`</span>date +%Y-%m-%d-%H-%M<span class="sb">`</span>.log <span class="o">&amp;&amp;</span> date &gt; <span class="nv">$log</span> <span class="o">&amp;&amp;</span> cat .env &gt;&gt; <span class="nv">$log</span> <span class="o">&amp;&amp;</span> <span class="nv">DOCKER_BUILDKIT</span><span class="o">=</span><span class="m">1</span> <span class="nv">BUILDKIT_PROGRESS</span><span class="o">=</span>plain docker-compose --env-file ./.env  build --no-cache <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> tee -a <span class="nv">$log</span> <span class="o">&amp;&amp;</span> date &gt;&gt; <span class="nv">$log</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="copying-dags-to-airflow-folder">
+<h2><a class="toc-backref" href="#id6">Copying DAGs to Airflow folder</a><a class="headerlink" href="#copying-dags-to-airflow-folder" title="Permalink to this heading"></a></h2>
+<p>After the build, copy the DAGs you will be using into dags fle.
+Examples can be copied by the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p ./dags <span class="o">&amp;&amp;</span> cp -rf ./project/examples/* ./dags
+</pre></div>
+</div>
+<p>If you have changed <code class="docutils literal notranslate"><span class="pre">DAGS_DIR</span></code> environment variable
+(e.g. in .env file), then the command will be:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p ./dags <span class="o">&amp;&amp;</span> cp -rf ./project/examples/* <span class="si">${</span><span class="nv">DAGS_DIR</span><span class="si">}</span>/
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-development">
+<h2><a class="toc-backref" href="#id7">Local development</a><a class="headerlink" href="#local-development" title="Permalink to this heading"></a></h2>
+<p>If you want to run cwl in container and edit libraries, you can copy docker-compose config by the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp docker-compose.sample.yaml docker-compose.local.yaml
+docker-compose --env-file ./.env -f docker-compose.local.yaml up
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Guide.html" class="btn btn-neutral float-left" title="CWL-Airflow Deployment Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Configuration.html" class="btn btn-neutral float-right" title="Configuration Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The create_schema_config Module &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -19,7 +18,9 @@
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Medicaid.yaml" href="medicaid_yaml.html" />
+    <link rel="prev" title="FTS Parser" href="../pipeline/parse_fts.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,16 +38,41 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">CMS Manipulation Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../pipeline/parse_fts.html">FTS Parser</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The create_schema_config Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="medicaid_yaml.html">Medicaid.yaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pipeline/load_ps.html">Patient Summary Loader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pipeline/medicaid.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#legacy-pipeline">Legacy Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#importing-raw-data">Importing raw data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#processing-data">Processing data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#data-model">Data Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#pipeline">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Medicaid.html#sample-user-request">Sample user request:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Medicare.html">Medicare Files Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../QueringMedicaid.html">Querying Medicaid Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#project-structure">Project Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -63,6 +89,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">CMS Manipulation Package</a> &raquo;</li>
+          <li><a href="../Medicaid.html">Handling Medicaid data</a> &raquo;</li>
       <li>The create_schema_config Module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/common/cms/doc/members/create_schema_config.rst.txt" rel="nofollow"> View page source</a>
@@ -73,14 +101,88 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="the-create-schema-config-module">
+  <div class="section" id="the-create-schema-config-module">
 <h1>The create_schema_config Module<a class="headerlink" href="#the-create-schema-config-module" title="Permalink to this heading"></a></h1>
-</section>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Copyright (c) 2021. Harvard University</span>
+<span class="c1">#</span>
+<span class="c1">#  Developed by Research Software Engineering,</span>
+<span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
+<span class="c1">#  Author: Michael A Bouzinier</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#         http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="kn">from</span> <span class="nn">nsaph_utils.utils.context</span> <span class="kn">import</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Argument</span><span class="p">,</span> <span class="n">Cardinality</span>
+
+
+<span class="k">class</span> <span class="nc">CMSSchema</span><span class="p">(</span><span class="n">Context</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Configuration object to configure parsing</span>
+<span class="sd">    File Transfer Summary files and creating</span>
+<span class="sd">    YAML data model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_output</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">,</span>
+            <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Output path for schema&quot;</span><span class="p">,</span>
+            <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">cardinality</span> <span class="o">=</span> <span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span>
+        <span class="p">)</span>
+
+    <span class="n">_input</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span>
+            <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Path to directory containing FTS files.&quot;</span>
+                   <span class="o">+</span> <span class="s2">&quot;Files are looked for by using &quot;</span>
+                   <span class="o">+</span> <span class="s2">&quot; &#39;**/maxdata_(ps|ip)_*.fts&#39; pattern&quot;</span><span class="p">,</span>
+            <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">cardinality</span> <span class="o">=</span> <span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span>
+        <span class="p">)</span>
+
+    <span class="n">_type</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span>
+            <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Type of data: medicare or medicaid&quot;</span><span class="p">,</span>
+            <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">default</span> <span class="o">=</span> <span class="s1">&#39;medicaid&#39;</span><span class="p">,</span>
+            <span class="n">cardinality</span> <span class="o">=</span> <span class="n">Cardinality</span><span class="o">.</span><span class="n">single</span>
+        <span class="p">)</span>
+
+    <span class="n">_reset</span> <span class="o">=</span> <span class="n">Argument</span><span class="p">(</span><span class="s2">&quot;reset&quot;</span><span class="p">,</span>
+                      <span class="n">help</span> <span class="o">=</span> <span class="s2">&quot;Reset content of the data model&quot;</span><span class="p">,</span>
+                      <span class="nb">type</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">,</span>
+                      <span class="n">default</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inpt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">reset</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="sd">&#39;&#39;&#39; Output path for schema &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="n">inpt</span>
+        <span class="sd">&#39;&#39;&#39; Path to directory containing FTS files &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">tp</span>
+        <span class="sd">&#39;&#39;&#39;Type of data: medicare or medicaid&#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset</span> <span class="o">=</span> <span class="n">reset</span>
+        <span class="sd">&#39;&#39;&#39;Reset content of the data model&#39;&#39;&#39;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">CMSSchema</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">include_default</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../pipeline/parse_fts.html" class="btn btn-neutral float-left" title="FTS Parser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="medicaid_yaml.html" class="btn btn-neutral float-right" title="Medicaid.yaml" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

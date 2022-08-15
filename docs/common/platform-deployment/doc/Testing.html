@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing the installation &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Glossary and FAQ" href="Glossary.html" />
+    <link rel="prev" title="Configuration Guide" href="Configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Howto.html">Howto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Testing the installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#included-examples">Included examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-command-line-mode">Testing command line mode</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#test-1-basic-cwl-hello-world">Test 1: basic CWL (Hello World)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-2-cwl-using-python-project">Test 2: CWL, using python project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-3-cwl-using-r-script">Test 3: CWL, using R script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alternative-way-to-test-command-line">Alternative way to test command line</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-airflow-user-interface">Testing Airflow User Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparation">Preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ui-test-1-basic-cwl-hello-world">UI Test 1: basic CWL (Hello World)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ui-test-2-cwl-using-python-project">UI Test 2: CWL, using python project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ui-test-3-cwl-using-r-script">UI Test 3: CWL, using R script</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Glossary.html">Glossary and FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">NSAPH Data Platform Deployment</a> &raquo;</li>
+      <li>Testing the installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/common/platform-deployment/doc/Testing.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="testing-the-installation">
+<h1>Testing the installation<a class="headerlink" href="#testing-the-installation" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#included-examples" id="id1">Included examples</a></p></li>
+<li><p><a class="reference internal" href="#testing-command-line-mode" id="id2">Testing command line mode</a></p>
+<ul>
+<li><p><a class="reference internal" href="#test-1-basic-cwl-hello-world" id="id3">Test 1: basic CWL (Hello World)</a></p></li>
+<li><p><a class="reference internal" href="#test-2-cwl-using-python-project" id="id4">Test 2: CWL, using python project</a></p></li>
+<li><p><a class="reference internal" href="#test-3-cwl-using-r-script" id="id5">Test 3: CWL, using R script</a></p></li>
+<li><p><a class="reference internal" href="#alternative-way-to-test-command-line" id="id6">Alternative way to test command line</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#testing-airflow-user-interface" id="id7">Testing Airflow User Interface</a></p>
+<ul>
+<li><p><a class="reference internal" href="#preparation" id="id8">Preparation</a></p></li>
+<li><p><a class="reference internal" href="#ui-test-1-basic-cwl-hello-world" id="id9">UI Test 1: basic CWL (Hello World)</a></p></li>
+<li><p><a class="reference internal" href="#ui-test-2-cwl-using-python-project" id="id10">UI Test 2: CWL, using python project</a></p></li>
+<li><p><a class="reference internal" href="#ui-test-3-cwl-using-r-script" id="id11">UI Test 3: CWL, using R script</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>To keep in mind: a few <a class="reference internal" href="UsefulCommands.html"><span class="doc std std-doc">useful commands</span></a>.</p>
+<div class="section" id="included-examples">
+<h2><a class="toc-backref" href="#id1">Included examples</a><a class="headerlink" href="#included-examples" title="Permalink to this heading"></a></h2>
+<p>This distribution include 3 tests:</p>
+<ul class="simple">
+<li><p>Basic CWL, aka “Hello World” example</p></li>
+<li><p>CWL, using a python project</p></li>
+<li><p>CWL, using an R program</p></li>
+</ul>
+<p>The first two examples should run in all modes, the third requires
+conda environment.</p>
+<p>The examples should run in both command-line mode (from a terminal)
+and in Airflow UI.</p>
+</div>
+<div class="section" id="testing-command-line-mode">
+<h2><a class="toc-backref" href="#id2">Testing command line mode</a><a class="headerlink" href="#testing-command-line-mode" title="Permalink to this heading"></a></h2>
+<div class="section" id="test-1-basic-cwl-hello-world">
+<h3><a class="toc-backref" href="#id3">Test 1: basic CWL (Hello World)</a><a class="headerlink" href="#test-1-basic-cwl-hello-world" title="Permalink to this heading"></a></h3>
+<p>Execute:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> webserver bash -ic <span class="s1">&#39;cwl-runner /dependencies/examples/1st-tool.cwl /dependencies/examples/echo-job.yaml&#39;</span>
+</pre></div>
+</div>
+<p>Look for the words “Hello World” and a message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INFO</span> <span class="n">Final</span> <span class="n">process</span> <span class="n">status</span> <span class="ow">is</span> <span class="n">success</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>You might need to use sudo to run docker commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo docker <span class="nb">exec</span> webserver bash -ic <span class="s1">&#39;cwl-runner /dependencies/examples/1st-tool.cwl /dependencies/examples/echo-job.yaml&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="test-2-cwl-using-python-project">
+<h3><a class="toc-backref" href="#id4">Test 2: CWL, using python project</a><a class="headerlink" href="#test-2-cwl-using-python-project" title="Permalink to this heading"></a></h3>
+<p>Execute:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> webserver bash -ic <span class="s1">&#39;cwl-runner /dependencies/examples/pi.cwl --iterations 1000&#39;</span>
+</pre></div>
+</div>
+<p>Look for the words a message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INFO [job calculate] /tmp/l416_dsl$ python \
+    -m \
+    pi \
+    1000
+3.140592653839794
+...
+INFO Final process status is success
+</pre></div>
+</div>
+<blockquote>
+<div><p>You might need to use sudo to run docker commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo docker <span class="nb">exec</span> webserver bash -ic <span class="s1">&#39;cwl-runner /dependencies/examples/pi.cwl --iterations 1000&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="test-3-cwl-using-r-script">
+<h3><a class="toc-backref" href="#id5">Test 3: CWL, using R script</a><a class="headerlink" href="#test-3-cwl-using-r-script" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><p>This test only works if Conda has been installed. It will fail in “noconda”
+mode</p>
+</div></blockquote>
+<p>Execute:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> webserver bash -ic <span class="s1">&#39;cwl-runner /dependencies/examples/rpi.cwl --script /dependencies/r_sample_project/rpi.R --iterations 1000&#39;</span>
+</pre></div>
+</div>
+<p>Look for the words a message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INFO [job calculate] /tmp/s7tumyy5$ Rscript \
+  /tmp/tmpmkit67pd/stg19d1507c-992d-4722-82a7-fb24a87ff427/rpi.R \
+  1000
+1000  -&gt;  3.059059 
+...
+INFO Final process status is success
+</pre></div>
+</div>
+<blockquote>
+<div><p>You might need to use sudo to run docker commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo docker <span class="nb">exec</span> webserver bash -ic <span class="s1">&#39;cwl-runner /dependencies/examples/rpi.cwl --script /dependencies/r_sample_project/rpi.R --iterations 1000&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="alternative-way-to-test-command-line">
+<h3><a class="toc-backref" href="#id6">Alternative way to test command line</a><a class="headerlink" href="#alternative-way-to-test-command-line" title="Permalink to this heading"></a></h3>
+<p>Instead of executing <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">exec</span> <span class="pre">webserver</span></code> command for each test,
+you can enter the container once and then run all the tests inside
+the container environment</p>
+<p>Execute the following command to enter the container:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it webserver bash
+</pre></div>
+</div>
+<blockquote>
+<div><p>You might need to use sudo to run docker commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo docker <span class="nb">exec</span> -it webserver bash
+</pre></div>
+</div>
+</div></blockquote>
+<p>Inside the container, execute the following commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cwl-runner /dependencies/examples/1st-tool.cwl /dependencies/examples/echo-job.yaml
+cwl-runner /dependencies/examples/pi.cwl --iterations <span class="m">1000</span>
+cwl-runner /dependencies/examples/rpi.cwl --script /dependencies/r_sample_project/rpi.R --iterations <span class="m">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-airflow-user-interface">
+<h2><a class="toc-backref" href="#id7">Testing Airflow User Interface</a><a class="headerlink" href="#testing-airflow-user-interface" title="Permalink to this heading"></a></h2>
+<div class="section" id="preparation">
+<h3><a class="toc-backref" href="#id8">Preparation</a><a class="headerlink" href="#preparation" title="Permalink to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Point your browser to http://localhost:8080</p></li>
+<li><p>Log in with the username and passowrd you have defined by</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">_AIRFLOW_WWW_USER_USERNAME</span>
+<span class="n">_AIRFLOW_WWW_USER_PASSWORD</span>
+</pre></div>
+</div>
+<p>environment variables (default <code class="docutils literal notranslate"><span class="pre">airflow/airflow</span></code>).</p>
+</li>
+<li><p>Go to the DAGs Tab and <strong>enable</strong> all dags (at least <code class="docutils literal notranslate"><span class="pre">1st-tool</span></code> and <code class="docutils literal notranslate"><span class="pre">pi</span></code>)</p></li>
+</ol>
+</div>
+<div class="section" id="ui-test-1-basic-cwl-hello-world">
+<h3><a class="toc-backref" href="#id9">UI Test 1: basic CWL (Hello World)</a><a class="headerlink" href="#ui-test-1-basic-cwl-hello-world" title="Permalink to this heading"></a></h3>
+<ol class="arabic" start="4">
+<li><p>Click Play button to the right of the DAG name <code class="docutils literal notranslate"><span class="pre">1st-tool</span></code></p></li>
+<li><p>Enter the following code into  box:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;job&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nt">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello World&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Trigger</span></code> button</p></li>
+<li><p>Examine the Graph and the Log for the “Hello World” result.</p></li>
+</ol>
+</div>
+<div class="section" id="ui-test-2-cwl-using-python-project">
+<h3><a class="toc-backref" href="#id10">UI Test 2: CWL, using python project</a><a class="headerlink" href="#ui-test-2-cwl-using-python-project" title="Permalink to this heading"></a></h3>
+<ol class="arabic" start="8">
+<li><p>Click Play button to the right of the DAG name <code class="docutils literal notranslate"><span class="pre">pi</span></code></p></li>
+<li><p>Enter the following code into  box:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;job&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;iterations&quot;</span><span class="p">:</span> <span class="s2">&quot;1000&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note, that the number of iterations must be a quoted string.</p>
+</li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Trigger</span></code> button</p></li>
+<li><p>Examine the Graph and the Log.</p></li>
+</ol>
+</div>
+<div class="section" id="ui-test-3-cwl-using-r-script">
+<h3><a class="toc-backref" href="#id11">UI Test 3: CWL, using R script</a><a class="headerlink" href="#ui-test-3-cwl-using-r-script" title="Permalink to this heading"></a></h3>
+<ol class="arabic" start="8">
+<li><p>Click Play button to the right of the DAG name <code class="docutils literal notranslate"><span class="pre">rpi</span></code></p></li>
+<li><p>Enter the following code into  box:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;job&quot;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="nt">&quot;script&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;File&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;/dependencies/r_sample_project/rpi.R&quot;</span>
+       <span class="p">},</span>
+       <span class="nt">&quot;iterations&quot;</span><span class="p">:</span> <span class="s2">&quot;1000&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note, that the number of iterations must be a quoted string.</p>
+</li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Trigger</span></code> button</p></li>
+<li><p>Examine the Graph and the Log.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Configuration.html" class="btn btn-neutral float-left" title="Configuration Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Glossary.html" class="btn btn-neutral float-right" title="Glossary and FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

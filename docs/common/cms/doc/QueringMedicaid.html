@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Querying Medicaid Data &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -19,7 +18,9 @@
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="NSAPH Census Pipelines" href="../../census/doc/index.html" />
+    <link rel="prev" title="Medicare.yaml" href="members/medicare_yaml.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,16 +38,35 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">CMS Manipulation Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Medicare.html">Medicare Files Handling</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Querying Medicaid Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#querying-diagnoses">Querying diagnoses</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#listing-patients">Listing patients</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#problem-no-wildcarding">Problem: no wildcarding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calculating-numbers">Calculating numbers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#project-structure">Project Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -63,6 +83,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">CMS Manipulation Package</a> &raquo;</li>
       <li>Querying Medicaid Data</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/common/cms/doc/QueringMedicaid.md.txt" rel="nofollow"> View page source</a>
@@ -73,38 +94,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="querying-medicaid-data">
+  <div class="section" id="querying-medicaid-data">
 <h1>Querying Medicaid Data<a class="headerlink" href="#querying-medicaid-data" title="Permalink to this heading"></a></h1>
-<!-- toc --><!-- tocstop --><section id="querying-diagnoses">
-<h2>Querying diagnoses<a class="headerlink" href="#querying-diagnoses" title="Permalink to this heading"></a></h2>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#querying-diagnoses" id="id1">Querying diagnoses</a></p>
+<ul>
+<li><p><a class="reference internal" href="#listing-patients" id="id2">Listing patients</a></p></li>
+<li><p><a class="reference internal" href="#problem-no-wildcarding" id="id3">Problem: no wildcarding</a></p></li>
+<li><p><a class="reference internal" href="#calculating-numbers" id="id4">Calculating numbers</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="querying-diagnoses">
+<h2><a class="toc-backref" href="#id1">Querying diagnoses</a><a class="headerlink" href="#querying-diagnoses" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><p>Querying by diagnoses might be expensive.
 Use EXPLAIN to understand and optimize your queries
 See
-<a class="reference external" href="../../core-platform/doc/SampleQuery.html#using-explain-to-optimize-queries">SampleQuery</a>.</p>
+<a class="reference internal" href="../../core-platform/doc/SampleQuery.html#using-explain-to-optimize-queries"><span class="std std-doc">SampleQuery</span></a>.</p>
 </div></blockquote>
-<section id="listing-patients">
-<h3>Listing patients<a class="headerlink" href="#listing-patients" title="Permalink to this heading"></a></h3>
+<div class="section" id="listing-patients">
+<h3><a class="toc-backref" href="#id2">Listing patients</a><a class="headerlink" href="#listing-patients" title="Permalink to this heading"></a></h3>
 <p>The following sample lists all patient hospitalized with specified diagnosis
 codes. The code can be either primary or secondary diagnosis.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> 
-    <span class="n">state</span><span class="p">,</span> 
-    <span class="nb">zip</span><span class="p">,</span>
-    <span class="n">YEAR</span><span class="p">,</span> 
-    <span class="n">age</span><span class="p">(</span><span class="n">admission_date</span><span class="p">::</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">dob</span><span class="p">::</span><span class="n">timestamp</span><span class="p">)</span> <span class="k">as</span> <span class="n">bene_age</span><span class="p">,</span> 
-    <span class="n">admission_date</span><span class="p">,</span> 
-    <span class="n">discharge_date</span><span class="p">,</span> 
-    <span class="n">diagnosis</span><span class="p">,</span> 
-    <span class="n">file</span><span class="p">,</span> 
-    <span class="n">bene_id</span> 
-<span class="n">FROM</span> 
-    <span class="n">medicaid</span><span class="o">.</span><span class="n">admissions</span> 
-        <span class="n">natural</span> <span class="n">join</span> <span class="n">medicaid</span><span class="o">.</span><span class="n">enrollments</span>
-        <span class="n">natural</span> <span class="n">join</span> <span class="n">medicaid</span><span class="o">.</span><span class="n">beneficiaries</span>
-<span class="n">WHERE</span> 
-    <span class="n">diagnosis</span> <span class="o">&amp;&amp;</span> <span class="n">ARRAY</span><span class="p">[</span><span class="s1">&#39;29620&#39;</span><span class="p">::</span><span class="n">varchar</span><span class="p">,</span> <span class="s1">&#39;29633&#39;</span><span class="p">::</span><span class="n">varchar</span><span class="p">]</span>
-    <span class="n">AND</span> <span class="n">EXTRACT</span> <span class="p">(</span><span class="n">YEAR</span> <span class="n">FROM</span> <span class="n">age</span><span class="p">(</span><span class="n">admission_date</span><span class="p">::</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">dob</span><span class="p">::</span><span class="n">timestamp</span><span class="p">))</span> 
-        <span class="n">BETWEEN</span> <span class="mi">10</span> <span class="ow">and</span> <span class="mi">18</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT 
+    state, 
+    zip,
+    YEAR, 
+    age(admission_date::timestamp, dob::timestamp) as bene_age, 
+    admission_date, 
+    discharge_date, 
+    diagnosis, 
+    file, 
+    bene_id 
+FROM 
+    medicaid.admissions 
+        natural join medicaid.enrollments
+        natural join medicaid.beneficiaries
+WHERE 
+    diagnosis &amp;&amp; ARRAY[&#39;29620&#39;::varchar, &#39;29633&#39;::varchar]
+    AND EXTRACT (YEAR FROM age(admission_date::timestamp, dob::timestamp)) 
+        BETWEEN 10 and 18
 </pre></div>
 </div>
 <p>This query uses array operator <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>.
@@ -115,51 +147,52 @@ It also uses two conditions in WHERE clause:</p>
 <li><p>Diagnosis has to be one of those listed (ICD9 29620 or 29633)</p></li>
 <li><p>Age at a date of admission has to be between 10 and 18 years.</p></li>
 </ul>
-</section>
-<section id="problem-no-wildcarding">
-<h3>Problem: no wildcarding<a class="headerlink" href="#problem-no-wildcarding" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="problem-no-wildcarding">
+<h3><a class="toc-backref" href="#id3">Problem: no wildcarding</a><a class="headerlink" href="#problem-no-wildcarding" title="Permalink to this heading"></a></h3>
 <p>Here we encounter to one of the problems.
 The  syntax above (based on array operators) does not support wildcards.
 You must write all the ICD codes explicitly,
 something like this ‘2962*’ or ‘2962%’ will not fly.
 You technically can get around this with UNNEST function,
-but then the index built on<br />diagnosis column will not be used and query performance might become horrible.</p>
+but then the index built on<br />
+diagnosis column will not be used and query performance might become horrible.</p>
 <p>One solution can be to write a Python program that will generate the query
 explicitly listing all required ICD codes, i.e. ‘2962’, ‘29620’,’29621’, etc.
 You would need to download ICD9 data for it, e.g. from
 <a class="reference external" href="https://www.nlm.nih.gov/research/umls/index.html">UMLS</a> website.</p>
-</section>
-<section id="calculating-numbers">
-<h3>Calculating numbers<a class="headerlink" href="#calculating-numbers" title="Permalink to this heading"></a></h3>
+</div>
+<div class="section" id="calculating-numbers">
+<h3><a class="toc-backref" href="#id4">Calculating numbers</a><a class="headerlink" href="#calculating-numbers" title="Permalink to this heading"></a></h3>
 <p>Instead of listing patients we can just calculate the number of those patients
 that are of interest to us, without seeing individual records. This is done
 through aggregate queries.</p>
 <p>If we want to calculate hospitalizations in every zip code for every year
 separately, we can use the following query:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span>
-    <span class="nb">zip</span><span class="p">,</span>
-    <span class="n">year</span><span class="p">,</span>
-    <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">enrollees</span><span class="p">,</span>
-    <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FILTER</span> <span class="p">(</span>
-        <span class="n">WHERE</span> <span class="n">bene_id</span> <span class="n">IN</span> <span class="p">(</span>
-            <span class="n">SELECT</span> <span class="n">bene_id</span> 
-            <span class="n">FROM</span> <span class="n">medicaid</span><span class="o">.</span><span class="n">admissions</span> <span class="n">natural</span> <span class="n">join</span> <span class="n">medicaid</span><span class="o">.</span><span class="n">beneficiaries</span>
-            <span class="n">WHERE</span> 
-                <span class="n">diagnosis</span> <span class="o">&amp;&amp;</span> <span class="n">ARRAY</span><span class="p">[</span><span class="s1">&#39;2962&#39;</span><span class="p">::</span><span class="n">varchar</span><span class="p">,</span> <span class="s1">&#39;2963&#39;</span><span class="p">::</span><span class="n">varchar</span><span class="p">]</span>
-                <span class="n">AND</span> <span class="n">EXTRACT</span> <span class="p">(</span>
-                    <span class="n">YEAR</span> <span class="n">FROM</span> <span class="n">age</span><span class="p">(</span><span class="n">admission_date</span><span class="p">::</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">dob</span><span class="p">::</span><span class="n">timestamp</span><span class="p">)</span>
-                <span class="p">)</span> <span class="n">BETWEEN</span> <span class="mi">10</span> <span class="ow">and</span> <span class="mi">18</span>
-        <span class="p">)</span>
-    <span class="p">)</span>  <span class="n">AS</span> <span class="n">hospitalized</span>  
-<span class="n">FROM</span> 
-    <span class="n">medicaid</span><span class="o">.</span><span class="n">enrollments</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT
+    zip,
+    year,
+    count(*) as enrollees,
+    COUNT(*) FILTER (
+        WHERE bene_id IN (
+            SELECT bene_id 
+            FROM medicaid.admissions natural join medicaid.beneficiaries
+            WHERE 
+                diagnosis &amp;&amp; ARRAY[&#39;2962&#39;::varchar, &#39;2963&#39;::varchar]
+                AND EXTRACT (
+                    YEAR FROM age(admission_date::timestamp, dob::timestamp)
+                ) BETWEEN 10 and 18
+        )
+    )  AS hospitalized  
+FROM 
+    medicaid.enrollments
     
-<span class="n">GROUP</span> <span class="n">BY</span>
-    <span class="n">year</span><span class="p">,</span> 
-    <span class="nb">zip</span>    
-<span class="n">ORDER</span> <span class="n">BY</span> 
-    <span class="n">year</span><span class="p">,</span> 
-    <span class="nb">zip</span>    
+GROUP BY
+    year, 
+    zip    
+ORDER BY 
+    year, 
+    zip    
 </pre></div>
 </div>
 <p>This query uses an
@@ -171,38 +204,41 @@ zip code. Instead you might want to calculate just those whos age is between 10
 and 18 years. To do this you should use FILTER clause to calculate enrollees
 similar to how it is used to calculate hospitalized patients.</p>
 <p>Now, to calculate hospitalizations in every Zip code over all years:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span>
-    <span class="nb">zip</span><span class="p">,</span>
-    <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">enrollees</span><span class="p">,</span>
-    <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FILTER</span> <span class="p">(</span>
-        <span class="n">WHERE</span> <span class="n">bene_id</span> <span class="n">IN</span> <span class="p">(</span>
-            <span class="n">SELECT</span> <span class="n">bene_id</span> 
-            <span class="n">FROM</span> <span class="n">medicaid</span><span class="o">.</span><span class="n">admissions</span> <span class="n">natural</span> <span class="n">join</span> <span class="n">medicaid</span><span class="o">.</span><span class="n">beneficiaries</span>
-            <span class="n">WHERE</span> 
-                <span class="n">diagnosis</span> <span class="o">&amp;&amp;</span> <span class="n">ARRAY</span><span class="p">[</span><span class="s1">&#39;2962&#39;</span><span class="p">::</span><span class="n">varchar</span><span class="p">,</span> <span class="s1">&#39;2963&#39;</span><span class="p">::</span><span class="n">varchar</span><span class="p">]</span>
-                <span class="n">AND</span> <span class="n">EXTRACT</span> <span class="p">(</span>
-                    <span class="n">YEAR</span> <span class="n">FROM</span> <span class="n">age</span><span class="p">(</span><span class="n">admission_date</span><span class="p">::</span><span class="n">timestamp</span><span class="p">,</span> <span class="n">dob</span><span class="p">::</span><span class="n">timestamp</span><span class="p">)</span>
-                <span class="p">)</span> <span class="n">BETWEEN</span> <span class="mi">10</span> <span class="ow">and</span> <span class="mi">18</span>
-        <span class="p">)</span>
-    <span class="p">)</span>  <span class="n">AS</span> <span class="n">hospitalized</span>  
-<span class="n">FROM</span> 
-    <span class="n">medicaid</span><span class="o">.</span><span class="n">enrollments</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT
+    zip,
+    count(*) as enrollees,
+    COUNT(*) FILTER (
+        WHERE bene_id IN (
+            SELECT bene_id 
+            FROM medicaid.admissions natural join medicaid.beneficiaries
+            WHERE 
+                diagnosis &amp;&amp; ARRAY[&#39;2962&#39;::varchar, &#39;2963&#39;::varchar]
+                AND EXTRACT (
+                    YEAR FROM age(admission_date::timestamp, dob::timestamp)
+                ) BETWEEN 10 and 18
+        )
+    )  AS hospitalized  
+FROM 
+    medicaid.enrollments
     
-<span class="n">GROUP</span> <span class="n">BY</span>
-    <span class="nb">zip</span>    
-<span class="n">ORDER</span> <span class="n">BY</span> 
-    <span class="mi">3</span> <span class="n">desc</span><span class="p">,</span> 
-    <span class="nb">zip</span>    
+GROUP BY
+    zip    
+ORDER BY 
+    3 desc, 
+    zip    
 </pre></div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="members/medicare_yaml.html" class="btn btn-neutral float-left" title="Medicare.yaml" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../census/doc/index.html" class="btn btn-neutral float-right" title="NSAPH Census Pipelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

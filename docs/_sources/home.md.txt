@@ -1,26 +1,13 @@
 # NSAPH Data Platform: Documentation Home
- **User and Development Documentation** &nbsp;&nbsp;&nbsp;&nbsp; 
- [index](genindex.html)
+ **User and Development Documentation**
 
-<!-- &nbsp;&nbsp;&nbsp;&nbsp; [search](search.html) -->
+ [index](genindex)
 
-<!--TOC-->
-
-- [Introduction](#introduction)
-  - [Overview](#overview)
-  - [Using the Database](#using-the-database)
-  - [Glossary](#glossary)
-- [Deploying the Platform](#deploying-the-platform)
-- [Building Platform documentation](#building-platform-documentation)
-- [Repositories Overview](#repositories-overview)
-  - [Deployment](#deployment)
-  - [General Packages](#general-packages)
-    - [NSAPH Utilities](#nsaph-utilities)
-    - [Core Platform](#core-platform)
-    - [GIS Utilities](#gis-utilities)
-  - [Data Ingestion and Processing Packages and Pipelines](#data-ingestion-and-processing-packages-and-pipelines)
-
-<!--TOC-->
+```{contents}
+---
+local:
+---
+```
 
 ## Introduction
 
@@ -33,38 +20,33 @@ and we have chosen
 [Common Workflow Language (CWL)](https://www.commonwl.org/).
 For deployment, we have selected CWL-Airflow to take advantage of the excellent
 user interface allowing for the control of the actual execution process. 
-The
-data is eventually stored in a PostgreSQL DBMS; many processing steps 
-in the 
-[included data processing pipelines](#data-ingestion-and-processing-pipelines) 
-are being
-run inside the database itself. 
+The data is eventually stored in a PostgreSQL DBMS; many processing steps 
+in the [included data processing pipelines](#data-ingestion-and-processing-packages-and-pipelines) 
+are being run inside the database itself. 
 
 The data platform is based on a combination of an 
 [Infrastructure as Code (IaC) approach](https://en.wikipedia.org/wiki/Infrastructure_as_code) 
 and CWL. Beside tools written in widely used languages such as 
 Python, C/C++ and
 Java, the platform also supports tools written in R and PL/pgSQL.
-Data platform consists of 
-several [general packages](#general-packages), 
+Data platform consists of several [general packages](#general-packages), 
 a [package to deploy the platform](#deploying-the-platform)
-using 
-[CWL-Airflow](https://cwl-airflow.readthedocs.io/en/latest/)
+using [CWL-Airflow](https://cwl-airflow.readthedocs.io/en/latest/)
 and a number of data ingestion pipelines. 
-[Data ingestion pipelines](#data-ingestion-and-processing-pipelines)
+[Data ingestion pipelines](#data-ingestion-and-processing-packages-and-pipelines)
 process data from external sources and load it into the database.
 
 More details are provided in the following
-[discussion](Rationale.html) 
+[discussion](rationale) 
 of the platform.
 
 ### Using the Database
 
 For a sample to query the database, please look at
-[Sample Query](common/core-platform/doc/SampleQuery.html)
+[Sample Query](common/core-platform/doc/SampleQuery)
 
 A discussion of querying of health data can be found in 
-[this document](common/cms/doc/QueringMedicaid.html)
+[this document](common/cms/doc/QueringMedicaid)
 
 ### Glossary
 
@@ -103,7 +85,7 @@ package.
 
 ### Deployment
 
-[Deployment repository](common/deployment/README.md) is based on  
+[Deployment repository](common/platform-deployment/doc/index) is based on  
 CWL-Airflow Docker Deployment developed
 by Harvard FAS RC in collaboration with Forome Association. Essentially, this is a fork of: 
 [Apache Airflow + CWL in Docker with Optional Conda and R](https://github.com/ForomePlatform/airflow-cwl-docker)
@@ -143,7 +125,7 @@ Included utilities:
 
 <!-- end of section overview from nsaph_utils -->
 
-[NSAPH Utils Package Description](common/utils)
+[NSAPH Utils Package Description](common/utils/doc/index)
 
 
 #### Core Platform
@@ -162,7 +144,7 @@ The project structure can also be in flux.
 
 <!-- end of section overview from nsaph -->
 
-[Core Platform Package Description](common/core-platform)
+[Core Platform Package Description](common/core-platform/doc/index)
 
 
 #### GIS Utilities
@@ -174,7 +156,7 @@ This library contains several packages, aimed to work with census shape files.
 
 <!-- end of section overview from gis -->
 
-[NSAPH GIS Package Description](common/gis)
+[NSAPH GIS Package Description](common/gis/doc/index)
 
 
    
@@ -190,9 +172,9 @@ Medicaid Analytic Extract) Personal Summary (PS) and The Medicaid MAX (Medicaid
 Analytic Extract) Inpatient (IP) files. The following table 
 summarizes the included data processing pipelines.
 
-| Pipeline | Documentation                                   |
-|----------|-------------------------------------------------|
-| EPA | [EPA Pipelines](common/epa/README.html) (AQS and AirNow)      |
-| Census | [Census Package](common/census/README.html) (Ingesting demographics data)  |
-| Gridmet | [Gridmet package](common/gridmet/README.html) (Climate data pipelines and utilities) |
-| CMS | [CMS Piepline](common/cms/README.html) (Medicare and Medicaid) |
+| Pipeline | Documentation                                                                      |
+|----------|------------------------------------------------------------------------------------|
+| EPA      | [EPA Pipelines](common/epa/doc/index) (AQS and AirNow)                             |
+| Census   | [Census Package](common/census/doc/index) (Ingesting demographics data)            |
+| Gridmet  | [Gridmet package](common/gridmet/doc/index) (Climate data pipelines and utilities) |
+| CMS      | [CMS Piepline](common/cms/doc/index) (Medicare and Medicaid)                       |

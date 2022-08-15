@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicare.cwl &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Medicare.cwl</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/common/cms/doc/members/medicare_cwl.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="medicare-cwl">
+<h1>Medicare.cwl<a class="headerlink" href="#medicare-cwl" title="Permalink to this heading"></a></h1>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1">#!/usr/bin/env cwl-runner</span>
+<span class="c1">### Medicare in-database processing pipeline</span>
+<span class="c1">#  Copyright (c) 2022. Harvard University</span>
+<span class="c1">#</span>
+<span class="c1">#  Developed by Research Software Engineering,</span>
+<span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
+<span class="c1">#  Author: Michael A Bouzinier</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#  you may not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#         http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#  See the License for the specific language governing permissions and</span>
+<span class="c1">#  limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="nt">cwlVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.2</span>
+<span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Workflow</span>
+
+<span class="nt">requirements</span><span class="p">:</span>
+  <span class="nt">SubworkflowFeatureRequirement</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+  <span class="nt">StepInputExpressionRequirement</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+  <span class="nt">InlineJavascriptRequirement</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+
+<span class="nt">doc</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+  <span class="no">This workflow processes raw Medicare data. The assumed initial state</span>
+  <span class="no">is that raw data is already in the database. We assume that the data</span>
+  <span class="no">for each year is in a separate set of tables consisting of at least</span>
+  <span class="no">two tables: patient summary and inpatient admissions. The first step</span>
+  <span class="no">combines these disparate tables into a single view, creating uniform</span>
+  <span class="no">columns.</span>
+
+<span class="nt">inputs</span><span class="p">:</span>
+  <span class="nt">database</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">doc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Path to database connection file, usually database.ini</span>
+  <span class="nt">connection_name</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class="nt">doc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The name of the section in the database.ini file</span>
+
+<span class="nt">steps</span><span class="p">:</span>
+  <span class="nt">create_ps</span><span class="p">:</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">medicare_ps.cwl</span>
+    <span class="nt">doc</span><span class="p">:</span> <span class="p p-Indicator">&gt;</span>
+      <span class="no">Combines patient summaries from disparate summary tables</span>
+      <span class="no">(one table per year) into a single view</span>
+    <span class="nt">in</span><span class="p">:</span>
+      <span class="nt">database</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
+      <span class="nt">connection_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection_name</span>
+    <span class="nt">out</span><span class="p">:</span>  <span class="p p-Indicator">[</span> <span class="nv">log</span><span class="p p-Indicator">,</span> <span class="nv">errors</span> <span class="p p-Indicator">]</span>
+
+  <span class="nt">create__ps_view</span><span class="p">:</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create.cwl</span>
+    <span class="nt">doc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Create _ps view from ps</span> 
+    <span class="nt">in</span><span class="p">:</span>
+      <span class="nt">table</span><span class="p">:</span>
+        <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;_ps&quot;</span>
+      <span class="nt">database</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
+      <span class="nt">connection_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection_name</span>
+      <span class="nt">domain</span><span class="p">:</span>
+        <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;medicare&quot;</span>
+      <span class="nt">depends_on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_ps/log</span>
+    <span class="nt">out</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">log</span><span class="p p-Indicator">,</span> <span class="nv">errors</span> <span class="p p-Indicator">]</span>
+
+  <span class="nt">create_bene_view</span><span class="p">:</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create.cwl</span>
+    <span class="nt">doc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Creates preliminary beneficiaries view</span>
+    <span class="nt">in</span><span class="p">:</span>
+      <span class="nt">table</span><span class="p">:</span>
+        <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;_beneficiaries&quot;</span>
+      <span class="nt">database</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
+      <span class="nt">connection_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection_name</span>
+      <span class="nt">domain</span><span class="p">:</span>
+        <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;medicare&quot;</span>
+      <span class="nt">depends_on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_ps/log</span>
+    <span class="nt">out</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">log</span><span class="p p-Indicator">,</span> <span class="nv">errors</span> <span class="p p-Indicator">]</span>
+
+  <span class="nt">create_bene_table</span><span class="p">:</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">matview.cwl</span>
+    <span class="nt">doc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Creates `Beneficiaries` Table from the view</span>
+    <span class="nt">in</span><span class="p">:</span>
+      <span class="nt">depends_on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_view/log</span>
+      <span class="nt">table</span><span class="p">:</span>
+        <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;beneficiaries&quot;</span>
+      <span class="nt">domain</span><span class="p">:</span>
+         <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;medicare&quot;</span>
+      <span class="nt">database</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
+      <span class="nt">connection_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection_name</span>
+    <span class="nt">out</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">create_log</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">index_log</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">vacuum_log</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">create_err</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">index_err</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">vacuum_err</span>
+
+  <span class="nt">create_enrlm_view</span><span class="p">:</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create.cwl</span>
+    <span class="nt">doc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Creates preliminary _enrollments view</span>
+    <span class="nt">in</span><span class="p">:</span>
+      <span class="nt">table</span><span class="p">:</span>
+        <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;_enrollments&quot;</span>
+      <span class="nt">database</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
+      <span class="nt">connection_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection_name</span>
+      <span class="nt">domain</span><span class="p">:</span>
+        <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;medicare&quot;</span>
+      <span class="nt">depends_on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_ps/log</span>
+    <span class="nt">out</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">log</span><span class="p p-Indicator">,</span> <span class="nv">errors</span> <span class="p p-Indicator">]</span>
+
+  <span class="nt">create_enrlm_table</span><span class="p">:</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">matview.cwl</span>
+    <span class="nt">doc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Creates `Enrollments` Table from the view</span>
+    <span class="nt">in</span><span class="p">:</span>
+      <span class="nt">depends_on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_table/vacuum_log</span>
+      <span class="nt">table</span><span class="p">:</span>
+        <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;enrollments&quot;</span>
+      <span class="nt">domain</span><span class="p">:</span>
+         <span class="nt">valueFrom</span><span class="p">:</span> <span class="s">&quot;medicare&quot;</span>
+      <span class="nt">database</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">database</span>
+      <span class="nt">connection_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">connection_name</span>
+    <span class="nt">out</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">create_log</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">index_log</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">vacuum_log</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">create_err</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">index_err</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">vacuum_err</span>
+
+<span class="nt">outputs</span><span class="p">:</span>
+  <span class="nt">ps_create_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_ps/log</span>
+  <span class="nt">ps_create_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_ps/errors</span>
+  <span class="nt">ps2_create_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create__ps_view/log</span>
+  <span class="nt">ps2_create_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create__ps_view/errors</span>
+
+  <span class="c1"># bene_view</span>
+  <span class="nt">bene_view_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_view/log</span>
+  <span class="nt">bene_view_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_view/errors</span>
+  <span class="c1"># bene_table  </span>
+  <span class="nt">bene_table_create_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_table/create_log</span>
+  <span class="nt">bene_table_index_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_table/index_log</span>
+  <span class="nt">bene_table_vacuum_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_table/vacuum_log</span>
+  <span class="nt">bene_table_create_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_table/create_err</span>
+  <span class="nt">bene_table_index_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_table/index_err</span>
+  <span class="nt">bene_table_vacuum_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_bene_table/vacuum_err</span>
+
+  <span class="c1"># enrollments view</span>
+  <span class="nt">enrlm_view_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_enrlm_view/log</span>
+  <span class="nt">enrlm_view_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_enrlm_view/errors</span>
+
+  <span class="c1"># enrollments table</span>
+  <span class="nt">enrlm_table_create_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_enrlm_table/create_log</span>
+  <span class="nt">enrlm_table_index_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_enrlm_table/index_log</span>
+  <span class="nt">enrlm_table_vacuum_log</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_enrlm_table/vacuum_log</span>
+  <span class="nt">enrlm_table_create_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_enrlm_table/create_err</span>
+  <span class="nt">enrlm_table_index_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_enrlm_table/index_err</span>
+  <span class="nt">enrlm_table_vacuum_err</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="nt">outputSource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_enrlm_table/vacuum_err</span>
+
+  
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

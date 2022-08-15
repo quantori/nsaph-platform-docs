@@ -16,7 +16,7 @@ To build the documentation, all project repositories should be
 cloned to the same root directory. This root directory is given to the
 build script as an argument. Run:
 
-    ./build_common.sh ${path_to_common_root_dir}    
+    ./build_common.sh
 
 See also [Building documentation](doc/home.md#building-platform-documentation)
 section in the main doc.

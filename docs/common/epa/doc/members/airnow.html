@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Main Class for EPA AirNow Package &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -19,7 +18,9 @@
         <script src="../../../../_static/doctools.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Downloader for AirNow" href="airnow_downloader.html" />
+    <link rel="prev" title="Python Components" href="../python_components.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,16 +38,40 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../deployment/README.html">NSAPH Data Platform Deployment Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../utils/README.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/README.html">NSAPH Data Platform Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../gis/README.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../README.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../cms/README.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">Data Platform Rationale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gis/doc/index.html">NSAPH GIS python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">NSAPH EPA Package Description</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#package-contents">Package Contents</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../usage.html">EPA Toolkit Usage</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../python_components.html">Python Components</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Main Class for EPA AirNow Package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airnow_downloader.html">Downloader for AirNow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airnow_ds_def.html">Configuration Options for EPA AirNow Package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airnow_setup.html">The airnow_setup Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="airnow_shapes.html">The airnow_shapes Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aqs.html">Main Class for EPA AQS Package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aqs_ds_def.html">Configuration Options for EPA AQS Package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aqs_expand.html">The aqs_expand Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="aqs_tools.html">Internal scripts used for download tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="registry.html">The registry Module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../cwl_tools.html">CWL Tools and Common Workflows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cms/doc/index.html">CMS Manipulation Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../census/doc/index.html">NSAPH Census Pipelines</a></li>
 </ul>
 
         </div>
@@ -63,6 +88,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">NSAPH EPA Package Description</a> &raquo;</li>
+          <li><a href="../python_components.html">Python Components</a> &raquo;</li>
       <li>Main Class for EPA AirNow Package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/common/epa/doc/members/airnow.rst.txt" rel="nofollow"> View page source</a>
@@ -73,14 +100,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="main-class-for-epa-airnow-package">
-<h1>Main Class for EPA AirNow Package<a class="headerlink" href="#main-class-for-epa-airnow-package" title="Permalink to this heading"></a></h1>
-</section>
+  <div class="section" id="module-epa.airnow">
+<span id="main-class-for-epa-airnow-package"></span><h1>Main Class for EPA AirNow Package<a class="headerlink" href="#module-epa.airnow" title="Permalink to this heading"></a></h1>
+<p>Python module to download EPA AirNow Data using WebServices API</p>
+<p><a class="reference external" href="https://docs.airnowapi.org/webservices">https://docs.airnowapi.org/webservices</a></p>
+<p>AirNow contains real-time up-to-date pollution data but is less reliable
+than AQS</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="epa.airnow.AirNow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AirNow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="airnow_ds_def.html#epa.airnow_ds_def.AirNowContext" title="epa.airnow_ds_def.AirNowContext"><span class="pre">AirNowContext</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/epa/airnow.html#AirNow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#epa.airnow.AirNow" title="Permalink to this definition"></a></dt>
+<dd><p>Main class</p>
+</dd></dl>
+
+</div>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../python_components.html" class="btn btn-neutral float-left" title="Python Components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="airnow_downloader.html" class="btn btn-neutral float-right" title="Downloader for AirNow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
