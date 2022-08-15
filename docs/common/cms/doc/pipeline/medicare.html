@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Medicare in-database processing pipeline &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>medicare.cwl &mdash; NSAPH Data Platform 0.0.1 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -65,9 +65,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Medicare in-database processing pipeline</li>
+      <li>medicare.cwl</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/common/cms/doc/pipeline/medicare.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/common/cms/doc/pipeline/medicare.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -75,181 +75,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="medicare-in-database-processing-pipeline">
-<h1>Medicare in-database processing pipeline<a class="headerlink" href="#medicare-in-database-processing-pipeline" title="Permalink to this heading"></a></h1>
-<p><strong>Workflow</strong></p>
-<p><strong>Source</strong>: <a class="reference internal" href="../members/medicare_cwl.html"><span class="doc std std-doc">medicare.cwl</span></a></p>
-<div class="contents local topic" id="contents">
-<ul class="simple">
-<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
-<li><p><a class="reference internal" href="#inputs" id="id2">Inputs</a></p></li>
-<li><p><a class="reference internal" href="#outputs" id="id3">Outputs</a></p></li>
-<li><p><a class="reference internal" href="#steps" id="id4">Steps</a></p></li>
-</ul>
-</div>
-<div class="section" id="description">
-<h2><a class="toc-backref" href="#id1">Description</a><a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
-<p>This workflow processes raw Medicare data. The assumed initial state
-is that raw data is already in the database. We assume that the data
-for each year is in a separate set of tables consisting of at least
-two tables: patient summary and inpatient admissions. The first step
-combines these disparate tables into a single view, creating uniform
-columns.</p>
-</div>
-<div class="section" id="inputs">
-<h2><a class="toc-backref" href="#id2">Inputs</a><a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
-<table class="colwidths-auto docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>database</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-<td><p>Path to database connection file, usually database.ini</p></td>
-</tr>
-<tr class="row-odd"><td><p>connection_name</p></td>
-<td><p>string</p></td>
-<td><p></p></td>
-<td><p>The name of the section in the database.ini file</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="outputs">
-<h2><a class="toc-backref" href="#id3">Outputs</a><a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
-<table class="colwidths-auto docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>ps_create_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>ps_create_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>ps2_create_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>ps2_create_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>bene_view_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>bene_view_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>bene_table_create_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>bene_table_index_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>bene_table_vacuum_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>bene_table_create_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>bene_table_index_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>bene_table_vacuum_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>enrlm_view_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>enrlm_view_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>enrlm_table_create_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>enrlm_table_index_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>enrlm_table_vacuum_log</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>enrlm_table_create_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p>enrlm_table_index_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p>enrlm_table_vacuum_err</p></td>
-<td><p>File</p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="steps">
-<h2><a class="toc-backref" href="#id4">Steps</a><a class="headerlink" href="#steps" title="Permalink to this heading"></a></h2>
-<table class="colwidths-auto docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Runs</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>create_ps</p></td>
-<td><p><a class="reference internal" href="medicare_ps.html"><span class="doc std std-doc">medicare_ps.cwl</span></a></p></td>
-<td><p>Combines patient summaries from disparate summary tables (one table per year) into a single view</p></td>
-</tr>
-<tr class="row-odd"><td><p>create__ps_view</p></td>
-<td><p><a class="reference internal" href="create.html"><span class="doc std std-doc">create.cwl</span></a></p></td>
-<td><p>Execute DDL</p></td>
-</tr>
-<tr class="row-even"><td><p>create_bene_view</p></td>
-<td><p><a class="reference internal" href="create.html"><span class="doc std std-doc">create.cwl</span></a></p></td>
-<td><p>Execute DDL</p></td>
-</tr>
-<tr class="row-odd"><td><p>create_bene_table</p></td>
-<td><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
-<td><p>Creates <code class="docutils literal notranslate"><span class="pre">Beneficiaries</span></code> Table</p></td>
-</tr>
-<tr class="row-even"><td><p>create_enrlm_view</p></td>
-<td><p><a class="reference internal" href="create.html"><span class="doc std std-doc">create.cwl</span></a></p></td>
-<td><p>Execute DDL</p></td>
-</tr>
-<tr class="row-odd"><td><p>create_enrlm_table</p></td>
-<td><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
-<td><p>Creates <code class="docutils literal notranslate"><span class="pre">Enrollments</span></code> Table</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+  <div class="section" id="medicare-cwl">
+<h1>medicare.cwl<a class="headerlink" href="#medicare-cwl" title="Permalink to this heading"></a></h1>
 </div>
 
 

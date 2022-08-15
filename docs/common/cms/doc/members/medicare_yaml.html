@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Querying Medicaid Data" href="../QueringMedicaid.html" />
-    <link rel="prev" title="Medicare_ps.cwl" href="medicare_ps_cwl.html" /> 
+    <link rel="prev" title="Partial parser" href="fts2yaml.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,10 +53,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../Medicare.html">Medicare Files Handling</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="mcr_sas2yaml_py.html">SASIntrospector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="mcr_sas2db_py.html">SASLoader</a></li>
-<li class="toctree-l3"><a class="reference internal" href="fts2yaml_py.html">Partial parser</a></li>
-<li class="toctree-l3"><a class="reference internal" href="medicare_ps_cwl.html">Medicare_ps.cwl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mcr_sas2yaml.html">SASIntrospector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mcr_sas2db.html">SASLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fts2yaml.html">Partial parser</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Medicare.yaml</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Medicaid.html">Handling Medicaid data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Medicare.html#ingesting-raw-files">Ingesting Raw Files</a></li>
@@ -232,6 +231,15 @@
             <span class="nt">cast</span><span class="p">:</span>
               <span class="nt">numeric</span><span class="p">:</span> <span class="s">&quot;(CASE</span><span class="nv"> </span><span class="s">WHEN</span><span class="nv"> </span><span class="s">{column_name}</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">100000</span><span class="nv"> </span><span class="s">THEN</span><span class="nv"> </span><span class="s">NULL</span><span class="nv"> </span><span class="s">ELSE</span><span class="nv"> </span><span class="s">({column_name}%10000)::INT</span><span class="nv"> </span><span class="s">END)&quot;</span>
               <span class="s">&quot;character</span><span class="nv"> </span><span class="s">varying&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;(CASE</span><span class="nv"> </span><span class="s">WHEN</span><span class="nv"> </span><span class="s">LENGTH({column_name})</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">6</span><span class="nv"> </span><span class="s">THEN</span><span class="nv"> </span><span class="s">NULL</span><span class="nv"> </span><span class="s">ELSE</span><span class="nv"> </span><span class="s">SUBSTRING({column_name}</span><span class="nv"> </span><span class="s">FROM</span><span class="nv"> </span><span class="s">6</span><span class="nv"> </span><span class="s">FOR</span><span class="nv"> </span><span class="s">4)::INT</span><span class="nv"> </span><span class="s">END)&quot;</span>
+        <span class="p p-Indicator">-</span> <span class="nt">admission_date_raw</span><span class="p">:</span>
+            <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VARCHAR</span>
+            <span class="nt">cast</span><span class="p">:</span>
+              <span class="nt">numeric</span><span class="p">:</span> <span class="s">&quot;TRIM(to_char({column_name},</span><span class="nv"> </span><span class="s">&#39;999999999&#39;))&quot;</span>
+              <span class="s">&#39;*&#39;</span><span class="p p-Indicator">:</span> <span class="s">&quot;{column_name}::VARCHAR&quot;</span>
+            <span class="nt">source</span><span class="p">:</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">medpar_admsn_dt</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">admsn_dt</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">admsndt</span>
         <span class="p p-Indicator">-</span> <span class="nt">admission_date</span><span class="p">:</span>
             <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DATE</span>
             <span class="nt">cast</span><span class="p">:</span>
@@ -242,6 +250,15 @@
               <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">admsn_dt</span>
               <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">admsndt</span>
 
+        <span class="p p-Indicator">-</span> <span class="nt">discharge_date_raw</span><span class="p">:</span>
+            <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VARCHAR</span>
+            <span class="nt">cast</span><span class="p">:</span>
+              <span class="nt">numeric</span><span class="p">:</span> <span class="s">&quot;TRIM(to_char({column_name},</span><span class="nv"> </span><span class="s">&#39;999999999&#39;))&quot;</span>
+              <span class="s">&#39;*&#39;</span><span class="p p-Indicator">:</span> <span class="s">&quot;{column_name}::VARCHAR&quot;</span>
+            <span class="nt">source</span><span class="p">:</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">medpar_dschrg_dt</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dschrg_dt</span>
+              <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dschrgdt</span>
         <span class="p p-Indicator">-</span> <span class="nt">discharge_date</span><span class="p">:</span>
             <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DATE</span>
             <span class="nt">cast</span><span class="p">:</span>
@@ -480,12 +497,14 @@
                   <span class="no">bene_id,</span>
                   <span class="no">file,</span>
                   <span class="no">record,</span>
-                  <span class="no">YEAR,</span>
+                  <span class="no">year,</span>
                   <span class="no">state,</span>
                   <span class="no">ssa2,</span>
                   <span class="no">fips2,</span>
                   <span class="no">zip,</span>
                   <span class="no">zip4,</span>
+                  <span class="no">admission_date_raw,</span>
+                  <span class="no">discharge_date_raw,</span>
                   <span class="no">admission_date,</span>
                   <span class="no">discharge_date,</span>
                   <span class="no">adm_day_of_week,</span>
@@ -516,6 +535,7 @@
                   <span class="no">diag24,</span>
                   <span class="no">diag25], NULL) As diagnoses</span>
                 <span class="nt">from</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ip</span>
+                <span class="nt">populate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
               <span class="nt">columns</span><span class="p">:</span>
                 <span class="p p-Indicator">-</span> <span class="nt">admission_year</span><span class="p">:</span>
                     <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;INT&quot;</span>
@@ -574,7 +594,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="medicare_ps_cwl.html" class="btn btn-neutral float-left" title="Medicare_ps.cwl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fts2yaml.html" class="btn btn-neutral float-left" title="Partial parser" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../QueringMedicaid.html" class="btn btn-neutral float-right" title="Querying Medicaid Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
