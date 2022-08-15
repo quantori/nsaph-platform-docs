@@ -19,8 +19,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="SASIntrospector" href="members/mcr_sas2yaml_py.html" />
-    <link rel="prev" title="Full Medicaid Processing Pipeline" href="pipeline/medicaid.html" /> 
+    <link rel="next" title="SASIntrospector" href="members/mcr_sas2yaml.html" />
+    <link rel="prev" title="medicaid.cwl" href="pipeline/medicaid.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,10 +53,9 @@
 <li class="toctree-l2"><a class="reference internal" href="LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Medicare Files Handling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="members/mcr_sas2yaml_py.html">SASIntrospector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="members/mcr_sas2db_py.html">SASLoader</a></li>
-<li class="toctree-l3"><a class="reference internal" href="members/fts2yaml_py.html">Partial parser</a></li>
-<li class="toctree-l3"><a class="reference internal" href="members/medicare_ps_cwl.html">Medicare_ps.cwl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="members/mcr_sas2yaml.html">SASIntrospector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="members/mcr_sas2db.html">SASLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="members/fts2yaml.html">Partial parser</a></li>
 <li class="toctree-l3"><a class="reference internal" href="members/medicare_yaml.html">Medicare.yaml</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ingesting-raw-files">Ingesting Raw Files</a><ul>
@@ -213,8 +212,8 @@ in two directories:</p>
 names and types. We use this metadata to generate appropriate database schema.</p>
 <p>See the code for handling these files:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="members/mcr_sas2yaml_py.html"><span class="doc std std-doc">Metadata and data model</span></a></p></li>
-<li><p><a class="reference internal" href="members/mcr_sas2db_py.html"><span class="doc std std-doc">Ingesting data</span></a></p></li>
+<li><p><a class="reference internal" href="members/mcr_sas2yaml.html"><span class="doc std std-doc">Metadata and data model</span></a></p></li>
+<li><p><a class="reference internal" href="members/mcr_sas2db.html"><span class="doc std std-doc">Ingesting data</span></a></p></li>
 </ul>
 </div>
 <div class="section" id="files-for-years-2011-and-later">
@@ -223,7 +222,7 @@ names and types. We use this metadata to generate appropriate database schema.</
 (FWF). For each file the structure is described in File Transfer
 Summary (FTS) file. Unfortunately these files are intended for reading by
 a human and is difficult to parse automatically. A
-<a class="reference internal" href="members/fts2yaml_py.html"><span class="doc std std-doc">partial parser</span></a> that
+<a class="reference internal" href="members/fts2yaml.html"><span class="doc std std-doc">partial parser</span></a> that
 relies on a known file type is implemented in Python. The information
 extarcted by the parser is used to:</p>
 <ul class="simple">
@@ -272,7 +271,7 @@ from either character or SAS numeric form</p></li>
 <li></li>
 </ul>
 <p>The following
-<a class="reference internal" href="members/medicare_ps_cwl.html"><span class="doc std std-doc">CWL tool</span></a>
+<a class="reference internal" href="pipeline/medicare_combine_tables.html"><span class="doc std std-doc">CWL tool</span></a>
 is responsible to perform it.</p>
 </div>
 <div class="section" id="second-step-mapping-to-county-fips-codes">
@@ -443,8 +442,8 @@ of county code is consistent with the values of state code and zip code.</p></li
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pipeline/medicaid.html" class="btn btn-neutral float-left" title="Full Medicaid Processing Pipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="members/mcr_sas2yaml_py.html" class="btn btn-neutral float-right" title="SASIntrospector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pipeline/medicaid.html" class="btn btn-neutral float-left" title="medicaid.cwl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="members/mcr_sas2yaml.html" class="btn btn-neutral float-right" title="SASIntrospector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

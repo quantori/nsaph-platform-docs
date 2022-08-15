@@ -19,7 +19,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="FTS Parser" href="pipeline/parse_fts.html" />
+    <link rel="next" title="parse_fts.cwl" href="pipeline/parse_fts.html" />
     <link rel="prev" title="Importing Medicaid Data Processed by the Legacy Pipeline" href="LegacyMedicaid.html" /> 
 </head>
 
@@ -52,11 +52,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">CMS Manipulation Package</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Handling Medicaid data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pipeline/parse_fts.html">FTS Parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline/parse_fts.html">parse_fts.cwl</a></li>
 <li class="toctree-l3"><a class="reference internal" href="members/create_schema_config.html">The create_schema_config Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="members/medicaid_yaml.html">Medicaid.yaml</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipeline/load_ps.html">Patient Summary Loader</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pipeline/medicaid.html">Full Medicaid Processing Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline/ingest.html">ingest.cwl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline/medicaid.html">medicaid.cwl</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#legacy-pipeline">Legacy Pipeline</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#importing-raw-data">Importing raw data</a><ul>
@@ -220,7 +220,7 @@ as with materialized views or physical tables, but many
 often hours but is much faster than importing raw data.</p>
 <div class="section" id="beneficiaries">
 <h3><a class="toc-backref" href="#id7">Beneficiaries</a><a class="headerlink" href="#beneficiaries" title="Permalink to this heading"></a></h3>
-<p><strong>Pipeline step</strong>: <a class="reference internal" href="pipeline/load_ps.html"><span class="doc std std-doc">load_ps</span></a></p>
+<p><strong>Pipeline step</strong>: <a class="reference internal" href="pipeline/ingest.html"><span class="doc std std-doc">ingest</span></a></p>
 <p>See also <a class="reference internal" href="Medicare.html#creating-beneficiaries-table"><span class="std std-doc">creating Medicare Beneficiaries table</span></a></p>
 <div class="section" id="bene-id-column">
 <h4><a class="toc-backref" href="#id8">BENE_ID column</a><a class="headerlink" href="#bene-id-column" title="Permalink to this heading"></a></h4>
@@ -444,7 +444,7 @@ enrollments in medicaid.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="LegacyMedicaid.html" class="btn btn-neutral float-left" title="Importing Medicaid Data Processed by the Legacy Pipeline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pipeline/parse_fts.html" class="btn btn-neutral float-right" title="FTS Parser" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pipeline/parse_fts.html" class="btn btn-neutral float-right" title="parse_fts.cwl" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
