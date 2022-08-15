@@ -3,79 +3,61 @@
 set -e
 set -x
 
-if [ -z "$1" ]
-  then
-    deployment="../nsaph-platform-deployment"
-    base="${deployment}/project"
-    package_prefix=""
-  else
-    base=$1
-    deployment="${base}/nsaph-platform-deployment"
-    package_prefix="nsaph-"
-fi
+read -r -d '' help_text <<- EOM
+Usage:
+  -b - specify custom branch to clone. Default is 'develop'
+  -n - custom namespace on github to clone from. Default is 'NSAPH-Data-Platform'
+EOM
 
-export PYTHONPATH=${base}"/nsaph-utils"
+branch="develop"
+namespace="NSAPH-Data-Platform"
+
+while getopts b:n: flag
+do
+    case "${flag}" in
+        b) branch=${OPTARG};;
+        n) namespace=${OPTARG};;
+        *) echo "$help_text"; exit;;
+    esac
+done
 
 rm -rf docs
-rm -rf common && mkdir common
+rm -rf doc/common && mkdir doc/common
 
-packages=("utils" "census" "cms" "epa" "gridmet" "gis" "core-platform")
+package_prefix="nsaph-"
+packages=("platform-deployment" "utils" "core-platform" "gis" "epa" "gridmet" "cms")
 
 for name in "${packages[@]}"
 do
-  echo "$name"
+  package="${package_prefix}${name}"
 
-  case "$name" in
-     core-platform)
-       dest=docs/core-platform
-       package="${base}/${package_prefix}core-platform"
-       ;;
-     utils|gis)
-       dest=docs/${name}
-       package="${base}/${package_prefix}${name}"
-       ;;
-     *)
-       dest=docs/pipelines/$name
-       package="${base}/${package_prefix}${name}"
-     esac
+  git clone --branch $branch https://github.com/$namespace/$package doc/common/$name
 
-  pushd "$package" || exit
-  git pull
-  popd || exit
-
-  for md in $(find $package -name "*.md")
-  do
-     md_toc --in-place --skip-lines 1 cmark --header-levels 6 $md
-  done
-
-  cp -r $package common/$name
-
-  if [ ! -d common/$name/doc/members ]
+  # install library with dependencies
+  if [ -a doc/common/$name/setup.py ]
   then
-    mkdir -p common/$name/doc/members
+    pip install doc/common/$name
   fi
+
+  # install dependencies if exists
+  if [ -a doc/common/$name/requirements.txt ]
+  then
+    pip install doc/common/$name/requirements.txt
+  fi
+
+  # make python sources available for autodoc
+  abs_path=`realpath doc/common/$name/src/python`
+  if [ -n "$abs_path" ]
+  then
+    export PATH="$abs_path:$PATH"
+  fi
+
 done
 
-for md in $(find ../nsaph-platform-deployment -name "*.md" -maxdepth 2)
-  do
-     md_toc --in-place --skip-lines 1 cmark --header-levels 6 $md
-  done
-
-mkdir common/deployment
-cp -r ../nsaph-platform-deployment/*.md common/deployment/
-cp -r ../nsaph-platform-deployment/docs common/deployment/
-cp -r ../nsaph-platform-deployment/*.rst common/deployment/
-
-python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-utils/README.md home.md nsaph_utils
-python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-core-platform/README.md home.md nsaph
-python -u -m nsaph_utils.docutils.copy_section ${base}/nsaph-gis/README.md home.md gis
-
-python -m nsaph_utils.docutils.collector common/epa/src/python common/epa/doc/members
-python -m nsaph_utils.docutils.collector common/census/src/python common/census/doc/members
-python -m nsaph_utils.docutils.collector common/cms/src/python common/cms/doc/members
-python -m nsaph_utils.docutils.collector common/gridmet/src/python common/gridmet/doc/members
-
-sphinx-build -b html . docs
-
+# build documentation
+sphinx-build doc docs
 touch docs/.nojekyll
+
+# remove copied repos
+rm -rf doc/common
 git add docs
