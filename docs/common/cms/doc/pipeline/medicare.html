@@ -77,6 +77,207 @@
              
   <div class="section" id="medicare-cwl">
 <h1>medicare.cwl<a class="headerlink" href="#medicare-cwl" title="Permalink to this heading"></a></h1>
+<p class="rubric">Workflow</p>
+<p class="rubric">Description<p>This workflow processes raw Medicare data. The assumed initial state
+is that raw data is already in the database. We assume that the data
+for each year is in a separate set of tables consisting of at least
+two tables: patient summary and inpatient admissions. The first step
+combines these disparate tables into a single view, creating uniform
+columns.
+</p>
+</p>
+<p class="rubric">Inputs<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>database</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+<td><p>Path to database connection file, usually database.ini</p></td>
+</tr>
+<tr class="row-odd"><td><p>connection_name</p></td>
+<td><p>string</p></td>
+<td><p> </p></td>
+<td><p>The name of the section in the database.ini file</p></td>
+</tr>
+</tbody>
+</table>
+</p>
+<p class="rubric">Outputs<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ps_create_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>ps_create_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>ps2_create_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>ps2_create_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>bene_view_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>bene_view_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>bene_table_create_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>bene_table_index_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>bene_table_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>bene_table_create_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>bene_table_index_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>bene_table_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>enrlm_view_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>enrlm_view_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>enrlm_table_create_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>enrlm_table_index_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>enrlm_table_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>enrlm_table_create_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>enrlm_table_index_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>enrlm_table_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>ip_create_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>ip_create_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>adm_create_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>adm_create_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>adm_populate_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>adm_populate_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>adm_index_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>adm_index_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-even"><td><p>adm_vacuum_log</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+<tr class="row-odd"><td><p>adm_vacuum_err</p></td>
+<td><p>File</p></td>
+<td><p> </p></td>
+</tr>
+</tbody>
+</table>
+</p>
+<p class="rubric">Steps<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Runs</p></th>
+<th class="head"><p>Target</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enrollments</p></td>
+<td><p>medicare_beneficiaries.cwl</p></td>
+<td><p><a class="reference external" href="medicare_beneficiaries.html">medicare_beneficiaries.html</a></p></td>
+<td><p>Process beneficiaries enrollment data </p></td>
+</tr>
+<tr class="row-odd"><td><p>admissions</p></td>
+<td><p>medicare_admissions.cwl</p></td>
+<td><p><a class="reference external" href="medicare_admissions.html">medicare_admissions.html</a></p></td>
+<td><p>Process medicare inpatient admissions (aka Medpar) data</p></td>
+</tr>
+</tbody>
+</table>
+</p>
 </div>
 
 
