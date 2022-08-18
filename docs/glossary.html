@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Glossary &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>Terms and acronyms used in this documentation &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Platform Rationale" href="rationale.html" />
-    <link rel="prev" title="NSAPH Data Platform: Documentation Home" href="home.html" /> 
+    <link rel="next" title="Indices" href="docindices.html" />
+    <link rel="prev" title="Some useful commands" href="common/platform-deployment/doc/UsefulCommands.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,20 +40,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#fts">FTS</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -70,7 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Glossary</li>
+      <li>Terms and acronyms used in this documentation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/glossary.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -80,8 +74,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="glossary">
-<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading"></a></h1>
+  <div class="section" id="terms-and-acronyms-used-in-this-documentation">
+<h1>Terms and acronyms used in this documentation<a class="headerlink" href="#terms-and-acronyms-used-in-this-documentation" title="Permalink to this heading"></a></h1>
 <table class="colwidths-auto docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Term</p></th>
@@ -140,7 +134,7 @@
 </tr>
 <tr class="row-even"><td><p>FTS</p></td>
 <td><p>File Transfer Summary, often created by SAS</p></td>
-<td><p><a class="reference internal" href="#fts"><span class="std std-ref">More details</span></a></p></td>
+<td><p><a class="reference internal" href="fts.html"><span class="doc std std-doc">More details</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p>gridMET</p></td>
 <td><p>a dataset of daily high-spatial resolution surface meteorological data</p></td>
@@ -172,25 +166,14 @@
 </tr>
 </tbody>
 </table>
-<div class="section" id="fts">
-<h2>FTS<a class="headerlink" href="#fts" title="Permalink to this heading"></a></h2>
-<p>File transfer summary (FTS) document contains information about
-the data extract. These are plain text files containing
-information such as the number of
-columns in the data extract, number of rows and the size of the
-data file. The FTS document provides the
-starting positions, the length and the generic format of
-each of the column (such as character, numeric or date)</p>
-<p>These files are often generated by export from <a class="reference external" href="https://www.sas.com/">SAS</a></p>
-</div>
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="home.html" class="btn btn-neutral float-left" title="NSAPH Data Platform: Documentation Home" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="rationale.html" class="btn btn-neutral float-right" title="Data Platform Rationale" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="common/platform-deployment/doc/UsefulCommands.html" class="btn btn-neutral float-left" title="Some useful commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="docindices.html" class="btn btn-neutral float-right" title="Indices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

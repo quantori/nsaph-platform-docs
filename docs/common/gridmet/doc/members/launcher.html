@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The launcher Module &mdash; NSAPH Data Platform 0.0.2 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docindices.html">Indices</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>The launcher Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/common/gridmet/doc/members/launcher.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-gridmet.launcher">
+<span id="the-launcher-module"></span><h1>The launcher Module<a class="headerlink" href="#module-gridmet.launcher" title="Permalink to this heading"></a></h1>
+<p>Executing pipelines through this class requires a collection of shape files
+corresponding to geographies for which data is aggregated
+(for example, zip code areas or counties).</p>
+<p>The data has to be placed in the following directory structure:
+${year}/${geo_type: zip|county|etc.}/${shape:point|polygon}/</p>
+<p>Which geography is used is defined by <cite>geography</cite> argument that defaults
+to “zip”. Only actually used geographies must have their shape files
+for the years actually used.</p>
+<p>Output file format:
+At the moment output is a simple 3+ columns file (most files contain 3
+columns, but parameter “metadata” can define more columns to include):</p>
+<ol class="arabic simple">
+<li><p>Variable (aka band) mean value. The actual band is given in the arguments
+(or configuration object) and is printed in the header line of the file</p></li>
+<li><p>Date in YYYY-mm-dd format (SQL date format)</p></li>
+<li><p>Label, associated with location. E.g., zip code for zip shapes,
+county fips for county shapes or custom label for point file.
+For points file, the label is taken from the first column defined by
+“metadata” argument.</p></li>
+</ol>
+<dl class="simple">
+<dt>4+. If more than one column is included in metadata, the output file</dt><dd><p>will contain more than 3 columns</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="gridmet.launcher.Gridmet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Gridmet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="config.html#gridmet.config.GridmetContext" title="gridmet.config.GridmetContext"><span class="pre">GridmetContext</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gridmet/launcher.html#Gridmet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.launcher.Gridmet" title="Permalink to this definition"></a></dt>
+<dd><p>Main class, describes the whole download and processing job for climate data</p>
+<p>The pipeline consists of the collection of Task Objects</p>
+<p>Creates a new instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><span class="target" id="gridmet.launcher.Gridmet.params.context"></span><strong>context</strong><a class="paramlink headerlink reference internal" href="#gridmet.launcher.Gridmet.params.context">¶</a> – An optional GridmetContext object, if not specified,
+then it is constructed from the command line arguments</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet.launcher.Gridmet.collect_tasks">
+<span class="sig-name descname"><span class="pre">collect_tasks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="reference internal" href="../../../../_modules/gridmet/launcher.html#Gridmet.collect_tasks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.launcher.Gridmet.collect_tasks" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gridmet.launcher.Gridmet.execute_sequentially">
+<span class="sig-name descname"><span class="pre">execute_sequentially</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/gridmet/launcher.html#Gridmet.execute_sequentially"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gridmet.launcher.Gridmet.execute_sequentially" title="Permalink to this definition"></a></dt>
+<dd><p>Executes all tasks in the pipeline sequentially
+without any parallelization
+:return: None</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cms.random_selector &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>cms.random_selector &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -38,17 +38,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -146,6 +143,16 @@
 
 
 <div class="viewcode-block" id="args"><a class="viewcode-back" href="../../common/cms/doc/members/random_selector.html#cms.random_selector.args">[docs]</a><span class="k">def</span> <span class="nf">args</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parses command line arguments</span>
+
+<span class="sd">      --in INPUT           pattern to select incoming files</span>
+<span class="sd">      --out OUT            Directory to output the random selection</span>
+<span class="sd">      --selector SELECTOR  A float value specifying the share of data to be</span>
+<span class="sd">                           selected</span>
+
+<span class="sd">    :return: arguments as dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span> <span class="p">(</span><span class="s2">&quot;Random records selector&quot;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--in&quot;</span><span class="p">,</span>
                         <span class="n">help</span><span class="o">=</span><span class="s2">&quot;pattern to select incoming files&quot;</span><span class="p">,</span>

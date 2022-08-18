@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>gridmet.gridmet_tools &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>gridmet.gridmet_tools &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -38,17 +38,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -104,7 +101,7 @@
 <span class="kn">import</span> <span class="nn">geopy</span>
 
 
-<div class="viewcode-block" id="get_atmos_url"><a class="viewcode-back" href="../../common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url">[docs]</a><span class="k">def</span> <span class="nf">get_atmos_url</span><span class="p">(</span><span class="n">year</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">variable</span> <span class="o">=</span><span class="s2">&quot;PM25&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="get_atmos_url"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url">[docs]</a><span class="k">def</span> <span class="nf">get_atmos_url</span><span class="p">(</span><span class="n">year</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">variable</span> <span class="o">=</span><span class="s2">&quot;PM25&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constructs URL to download data from the</span>
 <span class="sd">    Atmospheric Composition Analysis Group</span>
@@ -120,7 +117,7 @@
     <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_nkn_url"><a class="viewcode-back" href="../../common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url">[docs]</a><span class="k">def</span> <span class="nf">get_nkn_url</span><span class="p">(</span><span class="n">variable</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="viewcode-block" id="get_nkn_url"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url">[docs]</a><span class="k">def</span> <span class="nf">get_nkn_url</span><span class="p">(</span><span class="n">variable</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Constructs URL to download data from University of Idaho (UI)</span>
 <span class="sd">    Northwest Knowledge Network</span>
@@ -136,7 +133,7 @@
     <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span></div>
 
 
-<span class="k">def</span> <span class="nf">check_shape_file</span><span class="p">(</span><span class="n">shapes_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<div class="viewcode-block" id="check_shape_file"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.check_shape_file">[docs]</a><span class="k">def</span> <span class="nf">check_shape_file</span><span class="p">(</span><span class="n">shapes_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                      <span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                      <span class="n">geography_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                      <span class="n">shape_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
@@ -145,10 +142,10 @@
         <span class="n">f</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">/ESRI</span><span class="si">{:02d}</span><span class="s2">USZIP5_POLY_WGS84.shp&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">geography_type</span><span class="p">,</span> <span class="n">shape_type</span><span class="p">,</span>  <span class="n">year</span> <span class="o">-</span> <span class="mi">2000</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-    <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
 
 
-<div class="viewcode-block" id="find_shape_file"><a class="viewcode-back" href="../../common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file">[docs]</a><span class="k">def</span> <span class="nf">find_shape_file</span><span class="p">(</span><span class="n">shapes_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<div class="viewcode-block" id="find_shape_file"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file">[docs]</a><span class="k">def</span> <span class="nf">find_shape_file</span><span class="p">(</span><span class="n">shapes_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">year</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
                     <span class="n">geography_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">shape_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Finds shapefile for a given type of geographies for the</span>
@@ -177,7 +174,7 @@
                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">year</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">shape_file</span></div>
 
-<div class="viewcode-block" id="get_variable"><a class="viewcode-back" href="../../common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_variable">[docs]</a><span class="k">def</span> <span class="nf">get_variable</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span>  <span class="n">variable</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="viewcode-block" id="get_variable"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_variable">[docs]</a><span class="k">def</span> <span class="nf">get_variable</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span>  <span class="n">variable</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extracts a variable (column) name by a variable &quot;standard name&quot;</span>
 <span class="sd">    from NCDF4 dataset</span>
@@ -200,7 +197,7 @@
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Not found in the dataset: &quot;</span> <span class="o">+</span> <span class="n">standard_name</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="get_days"><a class="viewcode-back" href="../../common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_days">[docs]</a><span class="k">def</span> <span class="nf">get_days</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+<div class="viewcode-block" id="get_days"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_days">[docs]</a><span class="k">def</span> <span class="nf">get_days</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extracts a table fo days from NCDF4 dataset</span>
 
@@ -211,7 +208,7 @@
     <span class="k">return</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;day&quot;</span><span class="p">][:]</span></div>
 
 
-<div class="viewcode-block" id="get_affine_transform"><a class="viewcode-back" href="../../common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform">[docs]</a><span class="k">def</span> <span class="nf">get_affine_transform</span><span class="p">(</span><span class="n">nc_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<div class="viewcode-block" id="get_affine_transform"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform">[docs]</a><span class="k">def</span> <span class="nf">get_affine_transform</span><span class="p">(</span><span class="n">nc_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Returns affine transformation for a NCDF4 dataset.</span>
 
@@ -244,7 +241,7 @@
     <span class="k">return</span> <span class="n">affine</span></div>
 
 
-<div class="viewcode-block" id="disaggregate"><a class="viewcode-back" href="../../common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.disaggregate">[docs]</a><span class="k">def</span> <span class="nf">disaggregate</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<div class="viewcode-block" id="disaggregate"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.disaggregate">[docs]</a><span class="k">def</span> <span class="nf">disaggregate</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">factor</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Implementation of R `disaggregate` function with method == &#39;&#39;.</span>
 
@@ -267,9 +264,9 @@
 
 
 <span class="n">geolocator</span> <span class="o">=</span> <span class="n">geopy</span><span class="o">.</span><span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s1">&#39;NSAPH&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">get_address</span><span class="p">(</span><span class="n">latitude</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<div class="viewcode-block" id="get_address"><a class="viewcode-back" href="../../common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_address">[docs]</a><span class="k">def</span> <span class="nf">get_address</span><span class="p">(</span><span class="n">latitude</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
     <span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">reverse</span><span class="p">((</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">location</span>
+    <span class="k">return</span> <span class="n">location</span></div>
 </pre></div>
 
            </div>

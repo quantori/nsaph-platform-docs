@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Querying Medicaid Data &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>Querying Medicaid Data &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -19,7 +19,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="NSAPH Census Pipelines" href="../../census/doc/index.html" />
+    <link rel="next" title="Gridmet Computational Utilities" href="../../gridmet/doc/index.html" />
     <link rel="prev" title="Medicare.yaml" href="members/medicare_yaml.html" /> 
 </head>
 
@@ -40,34 +40,32 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">CMS Manipulation Package</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Medicare.html">Medicare Files Handling</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Querying Medicaid Data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#querying-diagnoses">Querying diagnoses</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#listing-patients">Listing patients</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#problem-no-wildcarding">Problem: no wildcarding</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#calculating-numbers">Calculating numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../domains.html">Data Domains</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Health</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Medicare.html">Medicare Files Handling</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Querying Medicaid Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#querying-diagnoses">Querying diagnoses</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#overview-of-health-data-medicare-and-medicaid">Overview of health data (Medicare and Medicaid)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#project-structure">Project Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#documentation-indices">Documentation Indices</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#project-structure">Project Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gridmet/doc/index.html">Climate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../epa/doc/index.html">Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../census/doc/index.html">Demographics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -84,7 +82,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">CMS Manipulation Package</a> &raquo;</li>
+          <li><a href="../../../domains.html">Data Domains</a> &raquo;</li>
+          <li><a href="index.html">Health Data</a> &raquo;</li>
       <li>Querying Medicaid Data</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/common/cms/doc/QueringMedicaid.md.txt" rel="nofollow"> View page source</a>
@@ -238,7 +237,7 @@ ORDER BY
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="members/medicare_yaml.html" class="btn btn-neutral float-left" title="Medicare.yaml" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../census/doc/index.html" class="btn btn-neutral float-right" title="NSAPH Census Pipelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../gridmet/doc/index.html" class="btn btn-neutral float-right" title="Gridmet Computational Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

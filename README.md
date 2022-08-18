@@ -1,9 +1,7 @@
-# NSAPH Data Ingestion Pipelines
+# NSAPH Data Platform Documentation Toolkit
 
-This repository contains pipelines for preprocessing data 
-to make it available to NSPAH projects.
-
-[Go to Documentation](https://nsaph-data-platform.github.io/nsaph-platform-docs/)
+Tools and utilities to build  
+[NSAPH Data Platform Documentation](https://nsaph-data-platform.github.io/nsaph-platform-docs/)
                                        
 ## Building documentation
         
@@ -18,5 +16,6 @@ build script as an argument. Run:
 
     ./build.sh
 
-See also [Building documentation](doc/home.md#building-platform-documentation)
+See also [Building documentation](https://nsaph-data-platform.github.io/nsaph-platform-docs/home.html#building-platform-documentation)
 section in the main doc.
+

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cms.registry &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>cms.registry &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -38,17 +38,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../common/census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -76,27 +73,11 @@
            <div itemprop="articleBody">
              
   <h1>Source code for cms.registry</h1><div class="highlight"><pre>
-<span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">Medicaid Domain for NSAPH</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Command line tool to create and/or update</span>
+<span class="sd">Data model for raw CMS data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
-<span class="sd">Running this module will create/update data model for raw CMS data</span>
-
-<span class="sd">https://github.com/NSAPH/data_model</span>
-
-<span class="sd">Demographics:   /data/incoming/rce/ci3_d_medicaid/processed_data/cms_medicaid-max/data_cms_medicaid-max-demographics_patient</span>
-<span class="sd">    Description of columns:</span>
-<span class="sd">        https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/1_create_demographics_data.R</span>
-<span class="sd">Enrollments:    /data/incoming/rce/ci3_d_medicaid/processed_data/cms_medicaid-max/data_cms_medicaid-max-ps_patient-year</span>
-<span class="sd">    Description of columns:</span>
-<span class="sd">        https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/2_process_enrollment_data.R</span>
-<span class="sd">        https://github.com/NSAPH/data_requests/tree/master/request_projects/dec2019_medicaid_platform_cvd</span>
-<span class="sd">Admissions:     /data/incoming/rce/ci3_health_data/medicaid/cvd/1999_2012/desouza/data</span>
-<span class="sd">    Description of columns:</span>
-<span class="sd">        https://gitlab-int.rc.fas.harvard.edu/rse/francesca_dominici/dominici_data_pipelines/-/blob/master/medicaid/code/2_create_cvd_data.R</span>
-<span class="sd">        https://github.com/NSAPH/data_requests/blob/master/request_projects/dec2019_medicaid_platform_cvd/cvd_readme.md</span>
-
-<span class="sd">Sample user request: https://github.com/NSAPH/data_requests/tree/master/request_projects/feb2021_jenny_medicaid_resp</span>
-<span class="sd">&#39;&#39;&#39;</span>
 
 <span class="c1">#  Copyright (c) 2021. Harvard University</span>
 <span class="c1">#</span>

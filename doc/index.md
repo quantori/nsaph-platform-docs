@@ -2,23 +2,20 @@
 
 ```{toctree}
 ---
-maxdepth: 1
+maxdepth: 2
 caption: Contents
 ---
-home
-glossary
-rationale
-common/core-platform/doc/index
-common/platform-deployment/doc/index
-common/utils/doc/index
-common/gis/doc/index
-common/gridmet/doc/index
-common/epa/doc/index
-common/cms/doc/index
-common/census/doc/index
+Documentation Home <home>
+What is Data Platform <rationale>
+domains
+pipelines
+packages
+guts
+Terms and Acronyms <glossary>
+docindices
 ```
 
-## Indices and tables
+## Documentation Indices
 
-* [](genindex)
-* [](modindex)
+* [General Index](genindex)
+* [Python Module Index](modindex)

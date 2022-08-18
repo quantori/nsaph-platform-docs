@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Medicare Files Handling &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>Medicare Files Handling &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -19,7 +19,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="SASIntrospector" href="members/mcr_sas2yaml.html" />
+    <link rel="next" title="The mcr_sas2yaml Module" href="members/mcr_sas2yaml.html" />
     <link rel="prev" title="medicaid.cwl" href="pipeline/medicaid.html" /> 
 </head>
 
@@ -40,46 +40,38 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">CMS Manipulation Package</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Medicare Files Handling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="members/mcr_sas2yaml.html">SASIntrospector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="members/mcr_sas2db.html">SASLoader</a></li>
-<li class="toctree-l3"><a class="reference internal" href="members/fts2yaml.html">Partial parser</a></li>
-<li class="toctree-l3"><a class="reference internal" href="members/medicare_yaml.html">Medicare.yaml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../domains.html">Data Domains</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Health</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="LegacyMedicaid.html">Importing Medicaid Data Processed by the Legacy Pipeline</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ingesting-raw-files">Ingesting Raw Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#storing-in-the-database">Storing in the Database</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#files-for-1999-to-2010">Files for 1999 to 2010</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#files-for-years-2011-and-later">Files for Years 2011 and later</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Medicare Files Handling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="members/mcr_sas2yaml.html">The mcr_sas2yaml Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="members/mcr_sas2db.html">The mcr_sas2db Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="members/fts2yaml.html">The fts2yaml Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="members/medicare_yaml.html">Medicare.yaml</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Medicaid.html">Handling Medicaid data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ingesting-raw-files">Ingesting Raw Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#combining-raw-files-into-a-single-view">Combining raw files into a single view</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#combining-raw-files-into-a-single-view">Combining raw files into a single view</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#creating-federated-patient-summary">Creating Federated Patient Summary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#creating-beneficiaries-table">Creating Beneficiaries table</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#creating-enrollments-table">Creating Enrollments table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="QueringMedicaid.html">Querying Medicaid Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#overview-of-health-data-medicare-and-medicaid">Overview of health data (Medicare and Medicaid)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#project-structure">Project Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#documentation-indices">Documentation Indices</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../gridmet/doc/index.html">Climate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../epa/doc/index.html">Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../census/doc/index.html">Demographics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="QueringMedicaid.html">Querying Medicaid Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#project-structure">Project Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -96,7 +88,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">CMS Manipulation Package</a> &raquo;</li>
+          <li><a href="../../../domains.html">Data Domains</a> &raquo;</li>
+          <li><a href="index.html">Health Data</a> &raquo;</li>
       <li>Medicare Files Handling</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/common/cms/doc/Medicare.md.txt" rel="nofollow"> View page source</a>
@@ -138,6 +131,8 @@
 <li><p><a class="reference internal" href="#enrollments-columns-definitions" id="id15">Enrollments columns definitions</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#creating-federated-admissions-view" id="id16">Creating Federated Admissions view</a></p></li>
+<li><p><a class="reference internal" href="#creating-inpatient-admissions-table" id="id17">Creating Inpatient Admissions table</a></p></li>
 </ul>
 </li>
 </ul>
@@ -250,7 +245,7 @@ given some limitations of readability in SQL.</p>
 <p>The first step creates a view called <code class="docutils literal notranslate"><span class="pre">medicare.ps</span></code>.</p>
 <p>This step technically combines all <code class="docutils literal notranslate"><span class="pre">cms.mbsf_ab*</span></code> and <code class="docutils literal notranslate"><span class="pre">cms.mcr_bene_*</span></code>
 tables into a single view using <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">VIEW</span></code> SQL statement.</p>
-<p>It also cleanses and conditions data from teh following columns:</p>
+<p>It also cleanses and conditions data from the following columns:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">year</span></code></p>
 <ul>
@@ -269,7 +264,6 @@ zip code</p></li>
 SAS numeric form</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dod</span></code> (date of death): converted to SQL <code class="docutils literal notranslate"><span class="pre">DATE</span></code> type,
 from either character or SAS numeric form</p></li>
-<li></li>
 </ul>
 <p>The following
 <a class="reference internal" href="pipeline/medicare_combine_tables.html"><span class="doc std std-doc">CWL tool</span></a>
@@ -436,6 +430,39 @@ of county code is consistent with the values of state code and zip code.</p></li
 </ul>
 </div>
 </div>
+<div class="section" id="creating-federated-admissions-view">
+<h3><a class="toc-backref" href="#id16">Creating Federated Admissions view</a><a class="headerlink" href="#creating-federated-admissions-view" title="Permalink to this heading"></a></h3>
+<p>This step technically combines all <code class="docutils literal notranslate"><span class="pre">cms.medpar*</span></code> and <code class="docutils literal notranslate"><span class="pre">cms.mcr_ip_*</span></code>
+tables into a single view using <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">VIEW</span></code> SQL statement.</p>
+<p>It also cleanses and conditions data from teh following columns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code></p>
+<ul>
+<li><p>If it is a string in original file, it is converted to integer</p></li>
+<li><p>If it is two-digit, it is converted to 4 digit</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">state</span></code>: added a column with text state id</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fips2</span></code>: added a column with two digit state FIPS code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zip</span></code>: if original file uses 9-digit zip code, it is split
+into two separate columns, 5 digit <code class="docutils literal notranslate"><span class="pre">zip</span></code> and 4-digit <code class="docutils literal notranslate"><span class="pre">zip4</span></code>.
+The value is also converted to integer value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zip4</span></code>: added, when available - the last four digits of 9-digit
+zip code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">admission_date</span></code>: converted to SQL <code class="docutils literal notranslate"><span class="pre">DATE</span></code> type, from either character or
+SAS numeric form</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">discharge_date</span></code>: converted to SQL <code class="docutils literal notranslate"><span class="pre">DATE</span></code> type,
+from either character or SAS numeric form</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">adm_day_of_week</span></code>: converted to <code class="docutils literal notranslate"><span class="pre">integer</span></code></p></li>
+<li><p>Diagnoses: separate columns combined into a single <code class="docutils literal notranslate"><span class="pre">ARRAY</span></code> column
+(read more about <a class="reference external" href="https://www.postgresql.org/docs/current/arrays.html">PostgreSQL Arrays</a>)</p></li>
+</ul>
+</div>
+<div class="section" id="creating-inpatient-admissions-table">
+<h3><a class="toc-backref" href="#id17">Creating Inpatient Admissions table</a><a class="headerlink" href="#creating-inpatient-admissions-table" title="Permalink to this heading"></a></h3>
+<p>Table with all inpatient admissions billed to Medicare with
+admission and discharge dates and ICD codes.</p>
+</div>
 </div>
 </div>
 
@@ -444,7 +471,7 @@ of county code is consistent with the values of state code and zip code.</p></li
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="pipeline/medicaid.html" class="btn btn-neutral float-left" title="medicaid.cwl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="members/mcr_sas2yaml.html" class="btn btn-neutral float-right" title="SASIntrospector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="members/mcr_sas2yaml.html" class="btn btn-neutral float-right" title="The mcr_sas2yaml Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

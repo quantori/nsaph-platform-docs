@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Some useful commands &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>Some useful commands &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -19,8 +19,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="NSAPH Utils python package" href="../../utils/doc/index.html" />
-    <link rel="prev" title="Glossary and FAQ" href="Glossary.html" /> 
+    <link rel="next" title="Terms and acronyms used in this documentation" href="../../../glossary.html" />
+    <link rel="prev" title="Airflow/CWL Glossary and FAQ" href="Glossary.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,41 +40,42 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Howto.html">Howto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Configuration.html">Configuration Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Glossary.html">Glossary and FAQ</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Some useful commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#to-view-logs-of-the-running-containers">To view logs of the running containers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#to-attach-to-the-started-container-bash">To attach to the started container (bash)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#attach-to-a-container-when-it-does-not-start">Attach to a container when it does not start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#to-stop-all-your-containers">To stop all your containers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#to-delete-all-images-and-containers">To delete all images and containers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#to-delete-postgresql-volumes">To delete PostgreSQL volumes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#upgrade-airflow-database">Upgrade Airflow Database</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#create-airflow-user">Create Airflow user</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../guts.html">Data Platform Internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html">Introduction to Deployment of NSAPH Data Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Howto.html">Howto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Glossary.html">Airflow/CWL Glossary and FAQ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Some useful commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#to-view-logs-of-the-running-containers">To view logs of the running containers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-attach-to-the-started-container-bash">To attach to the started container (bash)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#attach-to-a-container-when-it-does-not-start">Attach to a container when it does not start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-stop-all-your-containers">To stop all your containers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-delete-all-images-and-containers">To delete all images and containers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-delete-postgresql-volumes">To delete PostgreSQL volumes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upgrade-airflow-database">Upgrade Airflow Database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-airflow-user">Create Airflow user</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#quick-start">Quick Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#quick-start-deployment">Quick Start Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#testing">Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -91,6 +92,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../guts.html">Data Platform Internals</a> &raquo;</li>
           <li><a href="index.html">NSAPH Data Platform Deployment</a> &raquo;</li>
       <li>Some useful commands</li>
       <li class="wy-breadcrumbs-aside">
@@ -192,8 +194,8 @@ complaining that “No user yet created” execute this:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Glossary.html" class="btn btn-neutral float-left" title="Glossary and FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../utils/doc/index.html" class="btn btn-neutral float-right" title="NSAPH Utils python package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Glossary.html" class="btn btn-neutral float-left" title="Airflow/CWL Glossary and FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../glossary.html" class="btn btn-neutral float-right" title="Terms and acronyms used in this documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

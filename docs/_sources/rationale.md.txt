@@ -1,4 +1,4 @@
-# Data Platform Rationale
+# Why Data Platform and what does it do?
 
 ```{contents}
 ---
@@ -6,7 +6,7 @@ local:
 ---
 ```
 
-## Overview
+## Why we need a Data Platform 
 
 Reproducible research is a keystone of modern scientific work. In data
 engineering for data science it presents a challenge on two sides. On the one
@@ -81,7 +81,7 @@ utility. They are automatically prebuilt into all of the runtime containers but
 can also be updated in the running containers without rebuilding. We use user
 projects to define specific pipelines.
     
-## Deployment
+## Where it can be deployed 
 
 The platform has been deployed in the Harvard University’s FAS RC
 high-performance computing (HPC) cluster on CentOS 7, on various versions of

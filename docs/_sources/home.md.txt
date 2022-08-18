@@ -1,7 +1,7 @@
 # NSAPH Data Platform: Documentation Home
  **User and Development Documentation**
 
- [index](genindex)
+ [Index](genindex)
 
 ```{contents}
 ---
@@ -9,9 +9,9 @@ local:
 ---
 ```
 
-## Introduction
+## Introduction to Data Platform
 
-### Overview
+### What is Data Platform?  
                                                
 This data platform is intended for development and deployment of 
 ETL/ELT pipelines that includes complex data processing and data 
@@ -48,7 +48,7 @@ For a sample to query the database, please look at
 A discussion of querying of health data can be found in 
 [this document](common/cms/doc/QueringMedicaid)
 
-### Glossary
+### Terms and Acronyms 
 
 Included 
 [Glossary](glossary.md) provides some information about
@@ -137,10 +137,6 @@ It depends on nsaph_util package, but it augments it
 with APIs and command line utilities dependent on the infrastructure 
 and the environment. For instance, its components assume presence of PostgreSQL
 DBMS (version 13 or later) and CWL runtime environment.
-
-The package is under intensive development, therefore its 
-development branches contain some obsolete modules and utilities.
-The project structure can also be in flux.
 
 <!-- end of section overview from nsaph -->
 

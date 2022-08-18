@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>Index &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
@@ -38,17 +38,14 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -109,6 +106,8 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="common/gridmet/doc/members/config.html#gridmet.config.DateFilter.accept">accept() (DateFilter method)</a>
+</li>
       <li><a href="common/census/doc/glossary.html#term-acs"><strong>acs</strong></a>
 </li>
       <li><a href="common/census/doc/glossary.html#term-acs1"><strong>acs1</strong></a>
@@ -127,7 +126,7 @@
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.add_fk_validation">add_fk_validation() (Domain method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.add_geoid">add_geoid() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.add_geoid">add_geoid() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.add_geoid">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/adi.html#nsaph.adi.add_gis_columns">add_gis_columns() (in module nsaph.adi)</a>
 
@@ -153,7 +152,7 @@
 </li>
       <li><a href="common/core-platform/doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.add_state_fips">add_state_fips() (in module nsaph.util.pg_json_dump)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.adjust_geo_fields">adjust_geo_fields() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.adjust_geo_fields">adjust_geo_fields() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.adjust_geo_fields">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.aggregation">aggregation (AQSContext attribute)</a>
 </li>
@@ -177,19 +176,25 @@
 </li>
       <li><a href="common/gis/doc/members/constants.html#nsaph_gis.constants.RasterizationStrategy.all_touched">all_touched (RasterizationStrategy attribute)</a>
 </li>
+      <li><a href="common/core-platform/doc/members/analyze.html#nsaph.analyze.analyze">analyze() (in module nsaph.analyze)</a>
+
+      <ul>
+        <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.analyze">(Table method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.analyze">analyze() (Table method)</a>
-</li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.FTSColumn.analyze_format">analyze_format() (FTSColumn method)</a>
 </li>
       <li><a href="common/cms/doc/members/duplicates.html#cms.duplicates.DuplicatesExplorer.analyze_inconsistent_age">analyze_inconsistent_age() (DuplicatesExplorer method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.make_iso_column.params.anchor">anchor (nsaph.data_model.model.Table.make_iso_column parameter)</a>
 </li>
+      <li><a href="common/gridmet/doc/members/geop.html#test.geop.ZipAnnotator.annotate">annotate() (ZipAnnotator method)</a>
+</li>
       <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.Aggregation.ANNUAL">ANNUAL (Aggregation attribute)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.query.api_geography">api_geography() (in module census.query)</a>
+      <li><a href="common/census/doc/members/query.html#census.query.api_geography">api_geography() (in module census.query)</a>, <a href="common/census/doc/modules.html#census.query.api_geography">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.api_key">api_key (AirNowContext attribute)</a>
 
@@ -217,12 +222,14 @@
 </li>
       <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext">AQSContext (class in epa.aqs_ds_def)</a>
 </li>
-      <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.ColumnAttribute.arg">arg() (ColumnAttribute method)</a>
+      <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.ColumnAttribute.arg">arg() (ColumnAttribute method)</a>, <a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.ColumnAttribute.arg">[1]</a>
 </li>
       <li><a href="common/cms/doc/members/duplicates.html#cms.duplicates.args">args() (in module cms.duplicates)</a>
 
       <ul>
         <li><a href="common/cms/doc/members/random_selector.html#cms.random_selector.args">(in module cms.random_selector)</a>
+</li>
+        <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.args">(in module cms.tools.medpar_converter)</a>
 </li>
       </ul></li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Argument">Argument (class in nsaph_utils.utils.context)</a>, <a href="common/epa/doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Argument">[1]</a>, <a href="common/gridmet/doc/gridmet_ds_def.html#nsaph_utils.utils.context.Argument">[2]</a>
@@ -235,14 +242,18 @@
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream">as_stream() (in module nsaph_utils.utils.io_utils)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.assemble_data">assemble_data() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.assemble_data">assemble_data() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.assemble_data">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.cli.CensusContext.validate.params.attr">attr (census.cli.CensusContext.validate parameter)</a>
+      <li><a href="common/census/doc/members/cli.html#census.cli.CensusContext.validate.params.attr">attr (census.cli.CensusContext.validate parameter)</a>, <a href="common/census/doc/modules.html#census.cli.CensusContext.validate.params.attr">[1]</a>
 
       <ul>
+        <li><a href="common/census/doc/members/interpolate_data.html#census.interpolate_data.CensusInterpolateContext.validate.params.attr">(census.interpolate_data.CensusInterpolateContext.validate parameter)</a>
+</li>
         <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.validate.params.attr">(epa.airnow_ds_def.AirNowContext.validate parameter)</a>
 </li>
         <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.validate.params.attr">(epa.aqs_ds_def.AQSContext.validate parameter)</a>
+</li>
+        <li><a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.validate.params.attr">(gridmet.config.GridmetContext.validate parameter)</a>
 </li>
         <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.validate.params.attr">(nsaph.loader.loader_config.LoaderConfig.validate parameter)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.validate.params.attr">[1]</a>
 </li>
@@ -257,6 +268,8 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.Parallel.bands">bands (Parallel attribute)</a>
+</li>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.basename">basename() (in module nsaph.data_model.utils)</a>
 
       <ul>
@@ -265,12 +278,14 @@
       </ul></li>
       <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.Batch">Batch() (Inserter method)</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.bi">bi (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.bi">bi (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.bi">[1]</a>
 </li>
       <li><a href="common/gis/doc/members/geometry.html#nsaph_gis.geometry.PointInRaster.bilinear">bilinear() (PointInRaster method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.BLOCK_SIZE">BLOCK_SIZE (DownloadGridmetTask attribute)</a>
+</li>
       <li><a href="common/core-platform/doc/members/executors.html#nsaph.util.executors.BlockingThreadPoolExecutor">BlockingThreadPoolExecutor (class in nsaph.util.executors)</a>
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.buffer">buffer (LoaderConfig attribute)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.buffer">[1]</a>
@@ -283,7 +298,7 @@
         <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.build_indices">(Table method)</a>
 </li>
       </ul></li>
-      <li><a href="common/cms/doc/members/registry.html#cms.registry.Registry.built_in_registry_path">built_in_registry_path() (Registry static method)</a>
+      <li><a href="common/cms/doc/members/registry.html#cms.registry.Registry.built_in_registry_path">built_in_registry_path() (Registry static method)</a>, <a href="common/gridmet/doc/members/registry.html#gridmet.registry.Registry.built_in_registry_path">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -293,9 +308,9 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.CMSFTS.column_to_dict.params.c">c (cms.fts2yaml.CMSFTS.column_to_dict parameter)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.calculate_densities">calculate_densities() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.calculate_densities">calculate_densities() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.calculate_densities">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var">calculate_var() (VariableDef method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.calculate_var">calculate_var() (VariableDef method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Cardinality">Cardinality (class in nsaph_utils.utils.context)</a>, <a href="common/gridmet/doc/gridmet_ds_def.html#nsaph_utils.utils.context.Cardinality">[1]</a>
 </li>
@@ -305,69 +320,109 @@
     census.assemble_data
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.assemble_data">module</a>
+        <li><a href="common/census/doc/members/assemble_data.html#module-census.assemble_data">module</a>, <a href="common/census/doc/modules.html#module-census.assemble_data">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    census.calculate_density
+
+      <ul>
+        <li><a href="common/census/doc/members/calculate_density.html#module-census.calculate_density">module</a>
 </li>
       </ul></li>
       <li>
     census.census_info
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.census_info">module</a>
+        <li><a href="common/census/doc/members/census_info.html#module-census.census_info">module</a>, <a href="common/census/doc/modules.html#module-census.census_info">[1]</a>
 </li>
       </ul></li>
       <li>
     census.cli
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.cli">module</a>
+        <li><a href="common/census/doc/members/cli.html#module-census.cli">module</a>, <a href="common/census/doc/modules.html#module-census.cli">[1]</a>
 </li>
       </ul></li>
       <li>
     census.data.load_data
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.data.load_data">module</a>
+        <li><a href="common/census/doc/members/load_data.html#module-census.data.load_data">module</a>, <a href="common/census/doc/modules.html#module-census.data.load_data">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    census.do_qc
+
+      <ul>
+        <li><a href="common/census/doc/members/do_qc.html#module-census.do_qc">module</a>
 </li>
       </ul></li>
       <li>
     census.exceptions
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.exceptions">module</a>
+        <li><a href="common/census/doc/members/exceptions.html#module-census.exceptions">module</a>, <a href="common/census/doc/modules.html#module-census.exceptions">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    census.interpolate_data
+
+      <ul>
+        <li><a href="common/census/doc/members/interpolate_data.html#module-census.interpolate_data">module</a>
 </li>
       </ul></li>
       <li>
     census.query
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.query">module</a>
+        <li><a href="common/census/doc/members/query.html#module-census.query">module</a>, <a href="common/census/doc/modules.html#module-census.query">[1]</a>
 </li>
       </ul></li>
       <li>
     census.tigerweb
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.tigerweb">module</a>
+        <li><a href="common/census/doc/members/tigerweb.html#module-census.tigerweb">module</a>, <a href="common/census/doc/modules.html#module-census.tigerweb">[1]</a>
 </li>
       </ul></li>
       <li>
     census.utils
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.utils">module</a>
+        <li><a href="common/census/doc/members/utils.html#module-census.utils">module</a>, <a href="common/census/doc/modules.html#module-census.utils">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/census/doc/modules.html#census.census_info.census_years">census_years() (in module census.census_info)</a>
+      <li>
+    census.write_data
+
+      <ul>
+        <li><a href="common/census/doc/members/write_data.html#module-census.write_data">module</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.cli.CensusContext">CensusContext (class in census.cli)</a>
+      </ul></li>
+      <li><a href="common/census/doc/members/cli.html#census.cli.census_cli">census_cli() (in module census.cli)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.exceptions.CensusException">CensusException</a>
+      <li><a href="common/census/doc/members/census_info.html#census.census_info.census_years">census_years() (in module census.census_info)</a>, <a href="common/census/doc/modules.html#census.census_info.census_years">[1]</a>
+</li>
+      <li><a href="common/census/doc/members/cli.html#census.cli.CensusContext">CensusContext (class in census.cli)</a>, <a href="common/census/doc/modules.html#census.cli.CensusContext">[1]</a>
+</li>
+      <li><a href="common/census/doc/members/calculate_density.html#census.calculate_density.CensusDensityContext">CensusDensityContext (class in census.calculate_density)</a>
+</li>
+      <li><a href="common/census/doc/members/exceptions.html#census.exceptions.CensusException">CensusException</a>, <a href="common/census/doc/modules.html#census.exceptions.CensusException">[1]</a>
+</li>
+      <li><a href="common/census/doc/members/interpolate_data.html#census.interpolate_data.CensusInterpolateContext">CensusInterpolateContext (class in census.interpolate_data)</a>
+</li>
+      <li><a href="common/census/doc/members/do_qc.html#census.do_qc.CensusQCContext">CensusQCContext (class in census.do_qc)</a>
+</li>
+      <li><a href="common/census/doc/members/write_data.html#census.write_data.CensusWriteContext">CensusWriteContext (class in census.write_data)</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.cfg">cfg (AirNowContext attribute)</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.check_http_response">check_http_response() (in module nsaph_utils.utils.io_utils)</a>
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.MedicareFTS.check_key_columns">check_key_columns() (MedicareFTS method)</a>
+</li>
+      <li><a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.check_shape_file">check_shape_file() (in module gridmet.gridmet_tools)</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.check_size">check_size (nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
 </li>
@@ -426,6 +481,13 @@
 </li>
       </ul></li>
       <li>
+    cms.mcr_data_loader
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_data_loader.html#module-cms.mcr_data_loader">module</a>
+</li>
+      </ul></li>
+      <li>
     cms.random_selector
 
       <ul>
@@ -437,6 +499,48 @@
 
       <ul>
         <li><a href="common/cms/doc/members/registry.html#module-cms.registry">module</a>
+</li>
+      </ul></li>
+      <li>
+    cms.tools.mcr_combine_tables
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_combine_tables.html#module-cms.tools.mcr_combine_tables">module</a>
+</li>
+      </ul></li>
+      <li>
+    cms.tools.mcr_file
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_file.html#module-cms.tools.mcr_file">module</a>
+</li>
+      </ul></li>
+      <li>
+    cms.tools.mcr_fts2csv
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_fts2csv.html#module-cms.tools.mcr_fts2csv">module</a>
+</li>
+      </ul></li>
+      <li>
+    cms.tools.mcr_fts2db
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_fts2db.html#module-cms.tools.mcr_fts2db">module</a>
+</li>
+      </ul></li>
+      <li>
+    cms.tools.mcr_registry
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_registry.html#module-cms.tools.mcr_registry">module</a>
+</li>
+      </ul></li>
+      <li>
+    cms.tools.mcr_sas
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_sas.html#module-cms.tools.mcr_sas">module</a>
 </li>
       </ul></li>
       <li>
@@ -453,6 +557,13 @@
         <li><a href="common/cms/doc/members/mcr_sas2yaml.html#module-cms.tools.mcr_sas2yaml">module</a>
 </li>
       </ul></li>
+      <li>
+    cms.tools.medpar_converter
+
+      <ul>
+        <li><a href="common/cms/doc/members/medpar_converter.html#module-cms.tools.medpar_converter">module</a>
+</li>
+      </ul></li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.CMSFTS">CMSFTS (class in cms.fts2yaml)</a>
 </li>
       <li><a href="common/cms/doc/members/create_schema_config.html#cms.create_schema_config.CMSSchema">CMSSchema (class in cms.create_schema_config)</a>
@@ -467,17 +578,35 @@
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.collect_daily_downloads">collect_daily_downloads() (in module epa.aqs_tools)</a>
 </li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.collect_data">collect_data() (ComputeGridmetTask method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/epa/doc/members/aqs.html#epa.aqs.AQS.collect_downloads">collect_downloads() (AQS method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/query.html#nsaph.requests.query.collect_tables">collect_tables() (in module nsaph.requests.query)</a>
 </li>
-      <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.Collector">Collector (class in nsaph_utils.utils.io_utils)</a>
+      <li><a href="common/gridmet/doc/members/launcher.html#gridmet.launcher.Gridmet.collect_tasks">collect_tasks() (Gridmet method)</a>
+</li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.Collector">Collector (class in gridmet.task)</a>
+
+      <ul>
+        <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.Collector">(class in nsaph_utils.utils.io_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.Column">Column (class in cms.tools.mcr_file)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.column_spec">column_spec() (Domain method)</a>
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.CMSFTS.column_to_dict">column_to_dict() (CMSFTS method)</a>
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.ColumnAttribute">ColumnAttribute (class in cms.fts2yaml)</a>
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.ColumnAttribute">(class in cms.tools.mcr_file)</a>
+</li>
+      </ul></li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.ColumnDef">ColumnDef (class in cms.tools.mcr_file)</a>
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.ColumnReader">ColumnReader (class in cms.fts2yaml)</a>
 </li>
@@ -499,8 +628,6 @@
         <li><a href="common/gis/doc/members/annotator.html#nsaph_gis.annotator.GISAnnotator.params.columns">(nsaph_gis.annotator.GISAnnotator parameter)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/gis/doc/members/constants.html#nsaph_gis.constants.RasterizationStrategy.combined">combined (RasterizationStrategy attribute)</a>
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.commit">commit() (DataLoader method)</a>
@@ -523,19 +650,19 @@
       </ul></li>
       <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.compute">compute() (in module nsaph.data_model.inserter)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.compute_one_day">compute_one_day() (ComputeGridmetTask method)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.compute_one_day">compute_one_day() (ComputeGridmetTask method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.compute_one_day">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.compute_one_day">(ComputePointsTask method)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.compute_one_day">(ComputePointsTask method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.compute_one_day">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.compute_one_day">(ComputeShapesTask method)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.compute_one_day">(ComputeShapesTask method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.compute_one_day">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask">ComputeGridmetTask (class in gridmet.task)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask">ComputeGridmetTask (class in gridmet.task)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask">ComputePointsTask (class in gridmet.task)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask">ComputePointsTask (class in gridmet.task)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask">ComputeShapesTask (class in gridmet.task)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask">ComputeShapesTask (class in gridmet.task)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/db.html#nsaph.db.Connection.connect">connect() (Connection method)</a>
 </li>
@@ -554,11 +681,13 @@
       <li><a href="common/epa/doc/members/aqs.html#epa.aqs.AQS.params.context">context (epa.aqs.AQS parameter)</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.params.context">(gridmet.task.GridmetTask parameter)</a>
+        <li><a href="common/gridmet/doc/members/launcher.html#gridmet.launcher.Gridmet.params.context">(gridmet.launcher.Gridmet parameter)</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.destination_file_name.params.context">(gridmet.task.GridmetTask.destination_file_name parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.params.context">(gridmet.task.GridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.params.context">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.find_shape_file.params.context">(gridmet.task.GridmetTask.find_shape_file parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.destination_file_name.params.context">(gridmet.task.GridmetTask.destination_file_name parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.destination_file_name.params.context">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.find_shape_file.params.context">(gridmet.task.GridmetTask.find_shape_file parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.find_shape_file.params.context">[1]</a>
 </li>
         <li><a href="common/core-platform/doc/members/project_loader.html#nsaph.loader.project_loader.ProjectLoader.params.context">(nsaph.loader.project_loader.ProjectLoader parameter)</a>
 </li>
@@ -575,24 +704,38 @@
         <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.MedicareFTSColumn.conv">(MedicareFTSColumn class method)</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.coordinates">coordinates (gridmet.task.ComputePointsTask parameter)</a>
+      <li><a href="common/cms/doc/members/mcr_fts2csv.html#cms.tools.mcr_fts2csv.convert">convert() (in module cms.tools.mcr_fts2csv)</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.coordinates">(GridmetContext attribute)</a>
+        <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.MedparConverter.convert">(MedparConverter method)</a>
+</li>
+      </ul></li>
+      <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.MedparConverter.convert_dataset">convert_dataset() (MedparConverter static method)</a>
+</li>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.coordinates">coordinates (gridmet.task.ComputePointsTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.params.coordinates">[1]</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.coordinates">(GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.coordinates">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.copy_data">copy_data() (Table method)</a>
 </li>
       <li><a href="common/cms/doc/members/aggregates.html#cms.aggregates.Aggregator.count">count() (Aggregator method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.county">county (census.assemble_data.DataPlan parameter)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.count_lines">count_lines() (in module gridmet.task)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.count_lines_in_dest">count_lines_in_dest() (MedicareFile method)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.count_lines_in_source">count_lines_in_source() (MedicareFile method)</a>
+</li>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.params.county">county (census.assemble_data.DataPlan parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.county">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var.params.county">(census.assemble_data.VariableDef.calculate_var parameter)</a>
+        <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.calculate_var.params.county">(census.assemble_data.VariableDef.calculate_var parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var.params.county">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query.params.county">(census.assemble_data.VariableDef.do_query parameter)</a>
+        <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.do_query.params.county">(census.assemble_data.VariableDef.do_query parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query.params.county">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.query.get_census_data.params.county">(census.query.get_census_data parameter)</a>
+        <li><a href="common/census/doc/members/query.html#census.query.get_census_data.params.county">(census.query.get_census_data parameter)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data.params.county">[1]</a>
 </li>
         <li><a href="common/gis/doc/members/constants.html#nsaph_gis.constants.Geography.county">(Geography attribute)</a>
 </li>
@@ -613,15 +756,21 @@
 </li>
       <li><a href="common/epa/doc/members/registry.html#epa.registry.Registry.create_domain_yaml">create_domain_yaml() (Registry static method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.create_missingness">create_missingness() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.create_missingness">create_missingness() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.create_missingness">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.create_object_from">create_object_from() (Domain method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.create_table">create_table() (Domain method)</a>
+
+      <ul>
+        <li><a href="common/core-platform/doc/members/create.html#nsaph.create.create_table">(in module nsaph.create)</a>
 </li>
+      </ul></li>
       <li><a href="common/epa/doc/members/registry.html#epa.registry.Registry.create_table_yaml">create_table_yaml() (Registry method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.create_true_table">create_true_table() (Domain method)</a>
+</li>
+      <li><a href="common/gridmet/doc/members/registry.html#gridmet.registry.Registry.create_yaml">create_yaml() (Registry method)</a>
 </li>
       <li><a href="common/gis/doc/members/annotator.html#nsaph_gis.annotator.GISAnnotator.params.crs">crs (nsaph_gis.annotator.GISAnnotator parameter)</a>
 </li>
@@ -635,8 +784,12 @@
 </li>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.CSVLikeJsonReader">CSVLikeJsonReader (class in nsaph.data_model.utils)</a>
 </li>
-      <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.CSVWriter">CSVWriter (class in nsaph_utils.utils.io_utils)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.CSVWriter">CSVWriter (class in gridmet.task)</a>
+
+      <ul>
+        <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.CSVWriter">(class in nsaph_utils.utils.io_utils)</a>
 </li>
+      </ul></li>
       <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.make_iso_column.params.cursor">cursor (nsaph.data_model.model.Table.make_iso_column parameter)</a>
 </li>
       <li><a href="common/gis/doc/members/constants.html#nsaph_gis.constants.Geography.custom">custom (Geography attribute)</a>
@@ -651,9 +804,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.Aggregation.DAILY">DAILY (Aggregation attribute)</a>
 </li>
-      <li><a href="common/epa/doc/members/registry.html#epa.registry.EPAConfig.data">data (EPAConfig attribute)</a>
+      <li><a href="common/cms/doc/members/mcr_data_loader.html#cms.mcr_data_loader.MedicareDataLoader.dat4fts">dat4fts() (MedicareDataLoader class method)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.read_record.params.data">data (cms.tools.mcr_file.MedicareFile.read_record parameter)</a>
 
       <ul>
+        <li><a href="common/epa/doc/members/registry.html#epa.registry.EPAConfig.data">(EPAConfig attribute)</a>
+</li>
         <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.data">(LoaderConfig attribute)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.data">[1]</a>
 </li>
       </ul></li>
@@ -663,42 +820,48 @@
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.DataLoaderAction">DataLoaderAction (class in nsaph.loader.loader_config)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.DataLoaderAction">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan">DataPlan (class in census.assemble_data)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan">DataPlan (class in census.assemble_data)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.DataReader">DataReader (class in nsaph.data_model.utils)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.census_info.get_endpoint.params.dataset">dataset (census.census_info.get_endpoint parameter)</a>
+      <li><a href="common/census/doc/members/census_info.html#census.census_info.get_endpoint.params.dataset">dataset (census.census_info.get_endpoint parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.get_endpoint.params.dataset">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.census_info.get_varlist.params.dataset">(census.census_info.get_varlist parameter)</a>
+        <li><a href="common/census/doc/members/census_info.html#census.census_info.get_varlist.params.dataset">(census.census_info.get_varlist parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.get_varlist.params.dataset">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.query.get_census_data.params.dataset">(census.query.get_census_data parameter)</a>
+        <li><a href="common/census/doc/members/query.html#census.query.get_census_data.params.dataset">(census.query.get_census_data parameter)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data.params.dataset">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/hdf5_export.html#nsaph.requests.hdf5_export.Dataset">Dataset (class in nsaph.requests.hdf5_export)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_days.params.dataset">dataset (gridmet.gridmet_tools.get_days parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_days.params.dataset">dataset (gridmet.gridmet_tools.get_days parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_days.params.dataset">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_variable.params.dataset">(gridmet.gridmet_tools.get_variable parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_variable.params.dataset">(gridmet.gridmet_tools.get_variable parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_variable.params.dataset">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.date_filter">date_filter (gridmet.task.ComputeGridmetTask parameter)</a>
+      <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.MedparConverter.dataset">dataset() (MedparConverter class method)</a>
+</li>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.date_filter">date_filter (gridmet.task.ComputeGridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.params.date_filter">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.date_filter">(gridmet.task.ComputeShapesTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.date_filter">(gridmet.task.ComputeShapesTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.params.date_filter">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.dates">dates (GridmetContext attribute)</a>
+      <li><a href="common/gridmet/doc/members/config.html#gridmet.config.DateFilter">DateFilter (class in gridmet.config)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.day">day (gridmet.task.ComputeGridmetTask.compute_one_day parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.dates">dates (GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.dates">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.day">day (gridmet.task.ComputeGridmetTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.day">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.compute_one_day.params.day">(gridmet.task.ComputePointsTask.compute_one_day parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.compute_one_day.params.day">(gridmet.task.ComputePointsTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.compute_one_day.params.day">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.day">(gridmet.task.ComputeShapesTask.compute_one_day parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.day">(gridmet.task.ComputeShapesTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.day">[1]</a>
 </li>
       </ul></li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.Parallel.days">days (Parallel attribute)</a>
+</li>
       <li><a href="common/core-platform/doc/members/common.html#nsaph.loader.common.DBConnectionConfig.db">db (DBConnectionConfig attribute)</a>, <a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.common.DBConnectionConfig.db">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector.db_type">db_type() (Introspector static method)</a>
@@ -725,9 +888,17 @@
 </li>
       <li><a href="common/core-platform/doc/members/db.html#nsaph.db.Connection.default_section">default_section (Connection attribute)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.cli.CensusContext.params.description">description (census.cli.CensusContext parameter)</a>
+      <li><a href="common/census/doc/members/calculate_density.html#census.calculate_density.CensusDensityContext.params.description">description (census.calculate_density.CensusDensityContext parameter)</a>
 
       <ul>
+        <li><a href="common/census/doc/members/cli.html#census.cli.CensusContext.params.description">(census.cli.CensusContext parameter)</a>, <a href="common/census/doc/modules.html#census.cli.CensusContext.params.description">[1]</a>
+</li>
+        <li><a href="common/census/doc/members/do_qc.html#census.do_qc.CensusQCContext.params.description">(census.do_qc.CensusQCContext parameter)</a>
+</li>
+        <li><a href="common/census/doc/members/interpolate_data.html#census.interpolate_data.CensusInterpolateContext.params.description">(census.interpolate_data.CensusInterpolateContext parameter)</a>
+</li>
+        <li><a href="common/census/doc/members/write_data.html#census.write_data.CensusWriteContext.params.description">(census.write_data.CensusWriteContext parameter)</a>
+</li>
         <li><a href="common/cms/doc/members/create_schema_config.html#cms.create_schema_config.CMSSchema.params.description">(cms.create_schema_config.CMSSchema parameter)</a>
 </li>
         <li><a href="common/epa/doc/members/registry.html#epa.registry.EPAConfig.params.description">(epa.registry.EPAConfig parameter)</a>
@@ -745,6 +916,8 @@
         <li><a href="common/epa/doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.params.description">(nsaph_utils.utils.context.Context parameter)</a>, <a href="common/epa/doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.params.description">[1]</a>, <a href="common/gridmet/doc/gridmet_ds_def.html#nsaph_utils.utils.context.Context.params.description">[2]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.destination">destination (AirNowContext attribute)</a>
 
       <ul>
@@ -758,29 +931,29 @@
 </li>
         <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.destination_path.params.destination">(epa.aqs_tools.destination_path parameter)</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.params.destination">(gridmet.task.DownloadGridmetTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.params.destination">(gridmet.task.DownloadGridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.params.destination">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.destination">(GridmetContext attribute)</a>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.destination">(GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.destination">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.destination_file_name">destination_file_name() (GridmetTask class method)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.destination_file_name">destination_file_name() (GridmetTask class method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.destination_file_name">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.destination_path">destination_path() (in module epa.aqs_tools)</a>
 </li>
       <li><a href="common/gis/doc/members/annotator.html#nsaph_gis.annotator.GISAnnotator.join.params.df">df (nsaph_gis.annotator.GISAnnotator.join parameter)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.disaggregate">disaggregate() (in module gridmet.gridmet_tools)</a>
+      <li><a href="common/gridmet/doc/members/geop.html#test.geop.df_row2dict">df_row2dict() (in module test.geop)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query">do_query() (VariableDef method)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.disaggregate">disaggregate() (in module gridmet.gridmet_tools)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.disaggregate">[1]</a>
+</li>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.do_query">do_query() (VariableDef method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.params.doc">doc (epa.airnow_ds_def.AirNowContext parameter)</a>
 
       <ul>
         <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.params.doc">(epa.aqs_ds_def.AQSContext parameter)</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.params.doc">(gridmet.config.GridmetContext parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.params.doc">(gridmet.config.GridmetContext parameter)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.params.doc">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain">Domain (class in nsaph.data_model.domain)</a>
@@ -801,7 +974,7 @@
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.download_data">download_data() (in module epa.aqs_tools)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.tigerweb.download_geometry">download_geometry() (in module census.tigerweb)</a>
+      <li><a href="common/census/doc/members/tigerweb.html#census.tigerweb.download_geometry">download_geometry() (in module census.tigerweb)</a>, <a href="common/census/doc/modules.html#census.tigerweb.download_geometry">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.download_range">download_range() (AirNowDownloader method)</a>
 </li>
@@ -810,10 +983,12 @@
       <ul>
         <li><a href="common/epa/doc/members/airnow_shapes.html#epa.airnow_shapes.download_shapes">(in module epa.airnow_shapes)</a>
 </li>
+        <li><a href="common/gridmet/doc/members/shapes.html#gridmet.shapes.download_shapes">(in module gridmet.shapes)</a>
+</li>
       </ul></li>
       <li><a href="common/gis/doc/members/downloader.html#nsaph_gis.downloader.GISDownloader.download_zip">download_zip() (GISDownloader class method)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask">DownloadGridmetTask (class in gridmet.task)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask">DownloadGridmetTask (class in gridmet.task)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.collect_annual_downloads.params.downloads">downloads (epa.aqs_tools.collect_annual_downloads parameter)</a>
 
@@ -931,8 +1106,6 @@
         <li><a href="common/epa/doc/members/aqs_expand.html#module-epa.aqs_expand">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     epa.aqs_tools
 
@@ -940,6 +1113,8 @@
         <li><a href="common/epa/doc/members/aqs_tools.html#module-epa.aqs_tools">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     epa.registry
 
@@ -949,24 +1124,28 @@
       </ul></li>
       <li><a href="common/epa/doc/members/registry.html#epa.registry.EPAConfig">EPAConfig (class in epa.registry)</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.erc">erc (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.erc">erc (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.erc">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.etr">etr (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.etr">etr (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.etr">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.execute">execute() (ComputeGridmetTask method)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.execute">execute() (ComputeGridmetTask method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.execute">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.execute">(ComputePointsTask method)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.execute">(ComputePointsTask method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.execute">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.execute">(DownloadGridmetTask method)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.execute">(DownloadGridmetTask method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.execute">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.execute">(GridmetTask method)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.execute">(GridmetTask method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.execute">[1]</a>
 </li>
         <li><a href="common/core-platform/doc/members/index_builder.html#nsaph.loader.index_builder.IndexBuilder.execute">(IndexBuilder method)</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.execute">(MedicareCombinedView method)</a>
 </li>
         <li><a href="common/core-platform/doc/members/query.html#nsaph.requests.query.Query.execute">(Query method)</a>
 </li>
       </ul></li>
+      <li><a href="common/gridmet/doc/members/launcher.html#gridmet.launcher.Gridmet.execute_sequentially">execute_sequentially() (Gridmet method)</a>
+</li>
       <li><a href="common/epa/doc/members/aqs_expand.html#epa.aqs_expand.expand_data">expand_data() (in module epa.aqs_expand)</a>
 </li>
       <li><a href="common/cms/doc/members/aggregates.html#cms.aggregates.ExpectedData">ExpectedData (class in cms.aggregates)</a>
@@ -979,6 +1158,8 @@
 
       <ul>
         <li><a href="common/core-platform/doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.export">(in module nsaph.util.pg_json_dump)</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.export">(MedicareFile method)</a>
 </li>
       </ul></li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_stream.params.extension">extension (nsaph_utils.utils.io_utils.as_stream parameter)</a>
@@ -997,10 +1178,10 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.disaggregate.params.factor">factor (gridmet.gridmet_tools.disaggregate parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.disaggregate.params.factor">factor (gridmet.gridmet_tools.disaggregate parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.disaggregate.params.factor">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform.params.factor">(gridmet.gridmet_tools.get_affine_transform parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform.params.factor">(gridmet.gridmet_tools.get_affine_transform parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform.params.factor">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.file_as_csv_reader">file_as_csv_reader() (in module nsaph_utils.utils.io_utils)</a>
@@ -1009,9 +1190,9 @@
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.mcr_type.params.file_name">file_name (cms.fts2yaml.mcr_type parameter)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_data.params.file_type">file_type (census.assemble_data.DataPlan.write_data parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.write_data.params.file_type">file_type (census.assemble_data.DataPlan.write_data parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_data.params.file_type">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_schema.params.filename">filename (census.assemble_data.DataPlan.write_schema parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.write_schema.params.filename">filename (census.assemble_data.DataPlan.write_schema parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_schema.params.filename">[1]</a>
 
       <ul>
         <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.file_as_csv_reader.params.filename">(nsaph_utils.utils.io_utils.file_as_csv_reader parameter)</a>
@@ -1024,36 +1205,48 @@
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.filter">filter (nsaph_utils.utils.io_utils.write_csv parameter)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.find">find() (Domain method)</a>
+
+      <ul>
+        <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.MedparConverter.find">(MedparConverter class method)</a>
 </li>
+      </ul></li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.find_dependent">find_dependent() (Domain method)</a>
 </li>
       <li><a href="common/cms/doc/members/duplicates.html#cms.duplicates.DuplicatesExplorer.find_duplicate_dates">find_duplicate_dates() (DuplicatesExplorer method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.find_mapped_column_name">find_mapped_column_name() (Domain method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/core-platform/doc/members/index_builder.html#nsaph.loader.index_builder.find_name">find_name() (in module nsaph.loader.index_builder)</a>
 
       <ul>
         <li><a href="common/core-platform/doc/members/vacuum.html#nsaph.loader.vacuum.find_name">(in module nsaph.loader.vacuum)</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.find_shape_file">find_shape_file() (GridmetTask class method)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.find_shape_file">find_shape_file() (GridmetTask class method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.find_shape_file">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file">(in module gridmet.gridmet_tools)</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file">(in module gridmet.gridmet_tools)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/query.html#nsaph.requests.query.find_tables">find_tables() (in module nsaph.requests.query)</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.transfer.params.flt">flt (epa.aqs_tools.transfer parameter)</a>
 </li>
-      <li><a href="common/core-platform/doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.flush">flush() (in module nsaph.util.pg_json_dump)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.Collector.flush">flush() (Collector method)</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/task.html#gridmet.task.CSVWriter.flush">(CSVWriter method)</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.fm100">fm100 (GridmetVariable attribute)</a>
+        <li><a href="common/core-platform/doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.flush">(in module nsaph.util.pg_json_dump)</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.fm1000">fm1000 (GridmetVariable attribute)</a>
+        <li><a href="common/gridmet/doc/members/geop.html#test.geop.ZipAnnotator.flush">(ZipAnnotator method)</a>
+</li>
+      </ul></li>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.fm100">fm100 (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.fm100">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.fm1000">fm1000 (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.fm1000">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.fopen">fopen() (in module nsaph_utils.utils.io_utils)</a>
 
@@ -1063,6 +1256,8 @@
         <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.fopen">(Table method)</a>
 </li>
       </ul></li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.force_standard_api">force_standard_api (ComputePointsTask attribute)</a>
+</li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.fqn">fqn() (Domain method)</a>
 
       <ul>
@@ -1089,47 +1284,53 @@
 </li>
       <li><a href="common/core-platform/doc/members/query.html#nsaph.requests.query.generate_select">generate_select() (in module nsaph.requests.query)</a>
 </li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.generate_sql">generate_sql() (MedicareCombinedView method)</a>
+</li>
       <li><a href="common/core-platform/doc/members/query.html#nsaph.requests.query.generate_where">generate_where() (in module nsaph.requests.query)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.query.api_geography.params.geo">geo (census.query.api_geography parameter)</a>
+      <li><a href="common/census/doc/members/query.html#census.query.api_geography.params.geo">geo (census.query.api_geography parameter)</a>, <a href="common/census/doc/modules.html#census.query.api_geography.params.geo">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.query.get_census_data.params.geography">geography (census.query.get_census_data parameter)</a>
+      <li><a href="common/census/doc/members/query.html#census.query.get_census_data.params.geography">geography (census.query.get_census_data parameter)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data.params.geography">[1]</a>
 </li>
       <li><a href="common/gis/doc/members/constants.html#nsaph_gis.constants.Geography">Geography (class in nsaph_gis.constants)</a>, <a href="common/gridmet/doc/geo.html#nsaph_gis.constants.Geography">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.geography">geography (gridmet.task.ComputeShapesTask parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.geography">geography (gridmet.task.ComputeShapesTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.params.geography">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.geography">(GridmetContext attribute)</a>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.geography">(GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.geography">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.geography_type">geography_type (gridmet.gridmet_tools.find_shape_file parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.geography_type">geography_type (gridmet.gridmet_tools.find_shape_file parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.geography_type">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.geometry">geometry (census.assemble_data.DataPlan parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.params.geometry">geometry (census.assemble_data.DataPlan parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.geometry">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var.params.geometry">(census.assemble_data.VariableDef.calculate_var parameter)</a>
+        <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.calculate_var.params.geometry">(census.assemble_data.VariableDef.calculate_var parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var.params.geometry">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query.params.geometry">(census.assemble_data.VariableDef.do_query parameter)</a>
+        <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.do_query.params.geometry">(census.assemble_data.VariableDef.do_query parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query.params.geometry">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.tigerweb.download_geometry.params.geometry">(census.tigerweb.download_geometry parameter)</a>
+        <li><a href="common/census/doc/members/tigerweb.html#census.tigerweb.download_geometry.params.geometry">(census.tigerweb.download_geometry parameter)</a>, <a href="common/census/doc/modules.html#census.tigerweb.download_geometry.params.geometry">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.tigerweb.get_area.params.geometry">(census.tigerweb.get_area parameter)</a>
+        <li><a href="common/census/doc/members/tigerweb.html#census.tigerweb.get_area.params.geometry">(census.tigerweb.get_area parameter)</a>, <a href="common/census/doc/modules.html#census.tigerweb.get_area.params.geometry">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.get">get() (Domain method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/monitor.html#nsaph.loader.monitor.DBActivityMonitor.get_activity">get_activity() (DBActivityMonitor method)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform">get_affine_transform() (in module gridmet.gridmet_tools)</a>
+      <li><a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_address">get_address() (in module gridmet.gridmet_tools)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.tigerweb.get_area">get_area() (in module census.tigerweb)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform">get_affine_transform() (in module gridmet.gridmet_tools)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url">get_atmos_url() (in module gridmet.gridmet_tools)</a>
+      <li><a href="common/census/doc/members/tigerweb.html#census.tigerweb.get_area">get_area() (in module census.tigerweb)</a>, <a href="common/census/doc/modules.html#census.tigerweb.get_area">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url">get_atmos_url() (in module gridmet.gridmet_tools)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.get_autocommit">get_autocommit() (Inserter method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.query.get_census_data">get_census_data() (in module census.query)</a>
+      <li><a href="common/census/doc/members/query.html#census.query.get_census_data">get_census_data() (in module census.query)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data">[1]</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.get_column">get_column() (MedicareCombinedView static method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.get_column_type">get_column_type() (Domain static method)</a>
 </li>
@@ -1137,6 +1338,8 @@
 
       <ul>
         <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector.get_columns">(Introspector method)</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.get_columns">(MedicareCombinedView method)</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.get_columns_as_dict">get_columns_as_dict() (Domain class method)</a>
@@ -1149,16 +1352,22 @@
 </li>
       <li><a href="common/core-platform/doc/members/db.html#nsaph.db.Connection.get_database_types">get_database_types() (Connection method)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_days">get_days() (in module gridmet.gridmet_tools)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.get_days">get_days() (ComputeGridmetTask method)</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_days">(in module gridmet.gridmet_tools)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_days">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/census/doc/modules.html#census.census_info.get_endpoint">get_endpoint() (in module census.census_info)</a>
+      </ul></li>
+      <li><a href="common/census/doc/members/census_info.html#census.census_info.get_endpoint">get_endpoint() (in module census.census_info)</a>, <a href="common/census/doc/modules.html#census.census_info.get_endpoint">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.get_entries">get_entries() (in module nsaph_utils.utils.io_utils)</a>
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.get_files">get_files() (DataLoader method)</a>
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_data_loader.html#cms.mcr_data_loader.MedicareDataLoader.get_files">(MedicareDataLoader method)</a>
 </li>
+      </ul></li>
       <li><a href="common/core-platform/doc/members/net.html#nsaph.util.net.get_hostname_as_localhost">get_hostname_as_localhost() (in module nsaph.util.net)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.get_index_ddl">get_index_ddl() (Domain method)</a>
@@ -1167,11 +1376,21 @@
         <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.get_index_ddl">(Table method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/core-platform/doc/members/monitor.html#nsaph.loader.monitor.DBActivityMonitor.get_indexing_progress">get_indexing_progress() (DBActivityMonitor method)</a>
 </li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.get_key">get_key() (ComputeGridmetTask method)</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.get_key">(ComputePointsTask method)</a>
+</li>
+        <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.get_key">(ComputeShapesTask method)</a>
+</li>
+      </ul></li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.get_multi_column_index_ddl">get_multi_column_index_ddl() (Domain method)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url">get_nkn_url() (in module gridmet.gridmet_tools)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url">get_nkn_url() (in module gridmet.gridmet_tools)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.DataReader.get_path">get_path() (DataReader method)</a>
 </li>
@@ -1181,7 +1400,11 @@
 </li>
       <li><a href="common/core-platform/doc/members/resources.html#nsaph.util.resources.get_resources">get_resources() (in module nsaph.util.resources)</a>
 </li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ListCollector.get_result">get_result() (ListCollector method)</a>
+</li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.get_select_from">get_select_from() (Domain static method)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.get_tables">get_tables() (MedicareCombinedView method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.get_thread_timing">get_thread_timing() (Inserter method)</a>
 </li>
@@ -1189,15 +1412,21 @@
 </li>
       <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.get_timings">get_timings() (Inserter method)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.get_url">get_url() (DownloadGridmetTask class method)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.get_url">get_url() (DownloadGridmetTask class method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.get_url">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.get_var_names">get_var_names() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.get_var_names">get_var_names() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.get_var_names">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_variable">get_variable() (in module gridmet.gridmet_tools)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.get_variable">get_variable() (ComputeGridmetTask class method)</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_variable">(in module gridmet.gridmet_tools)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_variable">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.census_info.get_varlist">get_varlist() (in module census.census_info)</a>
+      </ul></li>
+      <li><a href="common/census/doc/members/census_info.html#census.census_info.get_varlist">get_varlist() (in module census.census_info)</a>, <a href="common/census/doc/modules.html#census.census_info.get_varlist">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.get_vars">get_vars() (VariableDef method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.get_vars">get_vars() (VariableDef method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.get_vars">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/members/geop.html#test.geop.get_zips_dataframe">get_zips_dataframe() (in module test.geop)</a>
 </li>
       <li><a href="common/gis/doc/members/annotator.html#nsaph_gis.annotator.GISAnnotator">GISAnnotator (class in nsaph_gis.annotator)</a>
 </li>
@@ -1210,18 +1439,55 @@
         <li><a href="common/gridmet/doc/gridmet.html#module-gridmet">module</a>
 </li>
       </ul></li>
+      <li><a href="common/gridmet/doc/members/launcher.html#gridmet.launcher.Gridmet">Gridmet (class in gridmet.launcher)</a>
+</li>
+      <li>
+    gridmet.config
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/config.html#module-gridmet.config">module</a>
+</li>
+      </ul></li>
       <li>
     gridmet.gridmet_tools
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#module-gridmet.gridmet_tools">module</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#module-gridmet.gridmet_tools">module</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#module-gridmet.gridmet_tools">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext">GridmetContext (class in gridmet.config)</a>
+      <li>
+    gridmet.launcher
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/launcher.html#module-gridmet.launcher">module</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask">GridmetTask (class in gridmet.task)</a>
+      </ul></li>
+      <li>
+    gridmet.registry
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/registry.html#module-gridmet.registry">module</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable">GridmetVariable (class in gridmet.config)</a>
+      </ul></li>
+      <li>
+    gridmet.shapes
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/shapes.html#module-gridmet.shapes">module</a>
+</li>
+      </ul></li>
+      <li>
+    gridmet.task
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/task.html#module-gridmet.task">module</a>
+</li>
+      </ul></li>
+      <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext">GridmetContext (class in gridmet.config)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask">GridmetTask (class in gridmet.task)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable">GridmetVariable (class in gridmet.config)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector.guess_str">guess_str() (Introspector method)</a>
 </li>
@@ -1237,9 +1503,13 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/cms/doc/members/mcr_sas2yaml.html#cms.tools.mcr_sas2yaml.SASIntrospector.handle">handle() (SASIntrospector method)</a>
+      <li><a href="common/cms/doc/members/mcr_fts2db.html#cms.tools.mcr_fts2db.MedicareLoader.handle">handle() (MedicareLoader method)</a>
 
       <ul>
+        <li><a href="common/cms/doc/members/mcr_sas.html#cms.tools.mcr_sas.MedicareSAS.handle">(MedicareSAS method)</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_sas2yaml.html#cms.tools.mcr_sas2yaml.SASIntrospector.handle">(SASIntrospector method)</a>
+</li>
         <li><a href="common/cms/doc/members/mcr_sas2db.html#cms.tools.mcr_sas2db.SASLoader.handle">(SASLoader method)</a>
 </li>
       </ul></li>
@@ -1249,10 +1519,12 @@
 </li>
       <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector.handle_sas">handle_sas() (Introspector method)</a>
 </li>
-      <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.has">has() (Domain method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="common/cms/doc/members/mcr_sas.html#cms.tools.mcr_sas.MedicareSAS.handle_sas_file">handle_sas_file() (MedicareSAS method)</a>
+</li>
+      <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.has">has() (Domain method)</a>
+</li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.has_been_ingested">has_been_ingested() (DataLoader method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.has_column_spec">has_column_spec() (Domain static method)</a>
@@ -1297,14 +1569,22 @@
 </li>
       <li><a href="common/core-platform/doc/members/index_builder.html#nsaph.loader.index_builder.IndexerConfig">IndexerConfig (class in nsaph.loader.index_builder)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.infile">infile (gridmet.task.ComputeGridmetTask parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.infile">infile (gridmet.task.ComputeGridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.params.infile">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.infile">(gridmet.task.ComputePointsTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.infile">(gridmet.task.ComputePointsTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.params.infile">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.infile">(gridmet.task.ComputeShapesTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.infile">(gridmet.task.ComputeShapesTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.params.infile">[1]</a>
 </li>
       </ul></li>
+      <li><a href="common/core-platform/doc/members/sas_explorer.html#nsaph.util.sas_explorer.info">info() (in module nsaph.util.sas_explorer)</a>
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.info">(MedicareFile method)</a>
+</li>
+      </ul></li>
+      <li><a href="common/core-platform/doc/members/ingest.html#nsaph.ingest.ingest">ingest() (in module nsaph.ingest)</a>
+</li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.CMSFTS.init">init() (CMSFTS method)</a>
 
       <ul>
@@ -1314,6 +1594,8 @@
 </li>
         <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.MedicaidFTS.init">(MedicaidFTS method)</a>
 </li>
+        <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.init">(MedicareFile method)</a>
+</li>
         <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.MedicareFTS.init">(MedicareFTS method)</a>
 </li>
         <li><a href="common/cms/doc/members/registry.html#cms.registry.Registry.init">(Registry method)</a>
@@ -1321,6 +1603,18 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="common/cms/doc/members/mcr_registry.html#cms.tools.mcr_registry.MedicareRegistry.init_registry">init_registry() (MedicareRegistry method)</a>
+</li>
+      <li><a href="common/census/doc/members/calculate_density.html#census.calculate_density.initialize_logging">initialize_logging() (in module census.calculate_density)</a>
+
+      <ul>
+        <li><a href="common/census/doc/members/do_qc.html#census.do_qc.initialize_logging">(in module census.do_qc)</a>
+</li>
+        <li><a href="common/census/doc/members/interpolate_data.html#census.interpolate_data.initialize_logging">(in module census.interpolate_data)</a>
+</li>
+        <li><a href="common/census/doc/members/write_data.html#census.write_data.initialize_logging">(in module census.write_data)</a>
+</li>
+      </ul></li>
       <li><a href="common/cms/doc/members/create_schema_config.html#cms.create_schema_config.CMSSchema.input">input (CMSSchema attribute)</a>
 </li>
       <li><a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.DataLoaderAction.insert">insert (DataLoaderAction attribute)</a>
@@ -1331,7 +1625,7 @@
 </li>
       <li><a href="common/core-platform/doc/members/shapes.html#nsaph.util.shapes.install">install() (in module nsaph.util.shapes)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.interpolate">interpolate() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.interpolate">interpolate() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.interpolate">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector.introspect">introspect() (Introspector method)</a>
 
@@ -1340,6 +1634,8 @@
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector">Introspector (class in nsaph.loader.introspector)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.ip">ip (MedicareCombinedView attribute)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.is_array">is_array() (Domain static method)</a>
 </li>
@@ -1374,15 +1670,19 @@
       <li><a href="common/gis/doc/members/annotator.html#nsaph_gis.annotator.GISAnnotator.join">join() (GISAnnotator method)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="common/gridmet/doc/members/geop.html#test.geop.join_with_shapes">join_with_shapes() (in module test.geop)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/census/doc/modules.html#census.census_info.set_api_key.params.key">key (census.census_info.set_api_key parameter)</a>
+      <li><a href="common/census/doc/members/census_info.html#census.census_info.set_api_key.params.key">key (census.census_info.set_api_key parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.set_api_key.params.key">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.query.get_census_data.params.key">(census.query.get_census_data parameter)</a>
+        <li><a href="common/census/doc/members/query.html#census.query.get_census_data.params.key">(census.query.get_census_data parameter)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data.params.key">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1391,19 +1691,21 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.disaggregate.params.layer">layer (gridmet.gridmet_tools.disaggregate parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.disaggregate.params.layer">layer (gridmet.gridmet_tools.disaggregate parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.disaggregate.params.layer">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.layer">(gridmet.task.ComputeGridmetTask.compute_one_day parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.layer">(gridmet.task.ComputeGridmetTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.layer">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.compute_one_day.params.layer">(gridmet.task.ComputePointsTask.compute_one_day parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.compute_one_day.params.layer">(gridmet.task.ComputePointsTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.compute_one_day.params.layer">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.layer">(gridmet.task.ComputeShapesTask.compute_one_day parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.layer">(gridmet.task.ComputeShapesTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.layer">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.limit">limit (LoaderConfig attribute)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.limit">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.Parallelization.lines">lines (Parallelization attribute)</a>
+</li>
+      <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.MedparConverter.list">list() (MedparConverter method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.list_columns">list_columns() (Domain method)</a>
 </li>
@@ -1411,7 +1713,13 @@
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.list_source_columns">list_source_columns() (Domain method)</a>
 </li>
-      <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.ListCollector">ListCollector (class in nsaph_utils.utils.io_utils)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ListCollector">ListCollector (class in gridmet.task)</a>
+
+      <ul>
+        <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.ListCollector">(class in nsaph_utils.utils.io_utils)</a>
+</li>
+      </ul></li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.read_record.params.ln">ln (cms.tools.mcr_file.MedicareFile.read_record parameter)</a>
 </li>
       <li><a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.DataLoaderAction.load">load (DataLoaderAction attribute)</a>
 </li>
@@ -1423,7 +1731,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/census/doc/modules.html#census.data.load_data.load_county_codes">load_county_codes() (in module census.data.load_data)</a>
+      <li><a href="common/census/doc/members/load_data.html#census.data.load_data.load_county_codes">load_county_codes() (in module census.data.load_data)</a>, <a href="common/census/doc/modules.html#census.data.load_data.load_county_codes">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector.load_csv">load_csv() (Introspector method)</a>
 </li>
@@ -1439,11 +1747,17 @@
       </ul></li>
       <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector.load_sas">load_sas() (Introspector method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.data.load_data.load_state_codes">load_state_codes() (in module census.data.load_data)</a>
+      <li><a href="common/census/doc/members/load_data.html#census.data.load_data.load_state_codes">load_state_codes() (in module census.data.load_data)</a>, <a href="common/census/doc/modules.html#census.data.load_data.load_state_codes">[1]</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_fts2db.html#cms.tools.mcr_fts2db.MedicareLoader.loader_for_csv">loader_for_csv() (MedicareLoader static method)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_fts2db.html#cms.tools.mcr_fts2db.MedicareLoader.loader_for_fwf">loader_for_fwf() (MedicareLoader static method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig">LoaderConfig (class in nsaph.loader.loader_config)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.log">log (LoaderConfig attribute)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.log">[1]</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.log">log() (in module cms.tools.mcr_file)</a>
 </li>
       <li><a href="common/core-platform/doc/members/vacuum.html#nsaph.loader.vacuum.Vacuum.log_activity">log_activity() (Vacuum method)</a>
 </li>
@@ -1469,6 +1783,8 @@
 </li>
       <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.make_iso_column">make_iso_column() (Table method)</a>
 </li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.make_point">make_point() (ComputePointsTask method)</a>
+</li>
       <li><a href="common/core-platform/doc/members/hdf5_export.html#nsaph.requests.hdf5_export.map2ds">map2ds() (in module nsaph.requests.hdf5_export)</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.map_selected_columns">map_selected_columns() (Domain method)</a>
@@ -1481,10 +1797,10 @@
       </ul></li>
       <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter.MAX_TEMP">MAX_TEMP (Parameter attribute)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.interpolate.params.max_year">max_year (census.assemble_data.DataPlan.interpolate parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.interpolate.params.max_year">max_year (census.assemble_data.DataPlan.interpolate parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.interpolate.params.max_year">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.census_info.census_years.params.max_year">(census.census_info.census_years parameter)</a>
+        <li><a href="common/census/doc/members/census_info.html#census.census_info.census_years.params.max_year">(census.census_info.census_years parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.census_years.params.max_year">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.mcr_type">mcr_type() (in module cms.fts2yaml)</a>
@@ -1499,9 +1815,27 @@
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.MEDICARE_FILE_TYPES">MEDICARE_FILE_TYPES (in module cms.fts2yaml)</a>
 </li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView">MedicareCombinedView (class in cms.tools.mcr_combine_tables)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_data_loader.html#cms.mcr_data_loader.MedicareDataLoader">MedicareDataLoader (class in cms.mcr_data_loader)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile">MedicareFile (class in cms.tools.mcr_file)</a>
+</li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.MedicareFTS">MedicareFTS (class in cms.fts2yaml)</a>
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.MedicareFTSColumn">MedicareFTSColumn (class in cms.fts2yaml)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_fts2db.html#cms.tools.mcr_fts2db.MedicareLoader">MedicareLoader (class in cms.tools.mcr_fts2db)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_registry.html#cms.tools.mcr_registry.MedicareRegistry">MedicareRegistry (class in cms.tools.mcr_registry)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_sas.html#cms.tools.mcr_sas.MedicareSAS">MedicareSAS (class in cms.tools.mcr_sas)</a>
+</li>
+      <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.MedparConverter">MedparConverter (class in cms.tools.medpar_converter)</a>
+</li>
+      <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.MedParFileSet">MedParFileSet (class in cms.tools.medpar_converter)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedparParseException">MedparParseException</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.merge_years">merge_years (AQSContext attribute)</a>
 
@@ -1511,26 +1845,26 @@
       </ul></li>
       <li><a href="common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSA2FIPS.meta">meta (SSA2FIPS attribute)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.metadata">metadata (gridmet.task.ComputePointsTask parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.metadata">metadata (gridmet.task.ComputePointsTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.params.metadata">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.metadata">(GridmetContext attribute)</a>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.metadata">(GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.metadata">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.interpolate.params.method">method (census.assemble_data.DataPlan.interpolate parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.interpolate.params.method">method (census.assemble_data.DataPlan.interpolate parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.interpolate.params.method">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter.MIN_TEMP">MIN_TEMP (Parameter attribute)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.interpolate.params.min_year">min_year (census.assemble_data.DataPlan.interpolate parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.interpolate.params.min_year">min_year (census.assemble_data.DataPlan.interpolate parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.interpolate.params.min_year">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.census_info.census_years.params.min_year">(census.census_info.census_years parameter)</a>
+        <li><a href="common/census/doc/members/census_info.html#census.census_info.census_years.params.min_year">(census.census_info.census_years parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.census_years.params.min_year">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.execute.params.mode">mode (gridmet.task.ComputeGridmetTask.execute parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.execute.params.mode">mode (gridmet.task.ComputeGridmetTask.execute parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.execute.params.mode">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.execute.params.mode">(gridmet.task.ComputePointsTask.execute parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.execute.params.mode">(gridmet.task.ComputePointsTask.execute parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.execute.params.mode">[1]</a>
 </li>
         <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.as_content.params.mode">(nsaph_utils.utils.io_utils.as_content parameter)</a>
 </li>
@@ -1545,21 +1879,29 @@
     module
 
       <ul>
-        <li><a href="common/census/doc/modules.html#module-census.assemble_data">census.assemble_data</a>
+        <li><a href="common/census/doc/members/assemble_data.html#module-census.assemble_data">census.assemble_data</a>, <a href="common/census/doc/modules.html#module-census.assemble_data">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#module-census.census_info">census.census_info</a>
+        <li><a href="common/census/doc/members/calculate_density.html#module-census.calculate_density">census.calculate_density</a>
 </li>
-        <li><a href="common/census/doc/modules.html#module-census.cli">census.cli</a>
+        <li><a href="common/census/doc/members/census_info.html#module-census.census_info">census.census_info</a>, <a href="common/census/doc/modules.html#module-census.census_info">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#module-census.data.load_data">census.data.load_data</a>
+        <li><a href="common/census/doc/members/cli.html#module-census.cli">census.cli</a>, <a href="common/census/doc/modules.html#module-census.cli">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#module-census.exceptions">census.exceptions</a>
+        <li><a href="common/census/doc/members/load_data.html#module-census.data.load_data">census.data.load_data</a>, <a href="common/census/doc/modules.html#module-census.data.load_data">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#module-census.query">census.query</a>
+        <li><a href="common/census/doc/members/do_qc.html#module-census.do_qc">census.do_qc</a>
 </li>
-        <li><a href="common/census/doc/modules.html#module-census.tigerweb">census.tigerweb</a>
+        <li><a href="common/census/doc/members/exceptions.html#module-census.exceptions">census.exceptions</a>, <a href="common/census/doc/modules.html#module-census.exceptions">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#module-census.utils">census.utils</a>
+        <li><a href="common/census/doc/members/interpolate_data.html#module-census.interpolate_data">census.interpolate_data</a>
+</li>
+        <li><a href="common/census/doc/members/query.html#module-census.query">census.query</a>, <a href="common/census/doc/modules.html#module-census.query">[1]</a>
+</li>
+        <li><a href="common/census/doc/members/tigerweb.html#module-census.tigerweb">census.tigerweb</a>, <a href="common/census/doc/modules.html#module-census.tigerweb">[1]</a>
+</li>
+        <li><a href="common/census/doc/members/utils.html#module-census.utils">census.utils</a>, <a href="common/census/doc/modules.html#module-census.utils">[1]</a>
+</li>
+        <li><a href="common/census/doc/members/write_data.html#module-census.write_data">census.write_data</a>
 </li>
         <li><a href="common/cms/doc/members/aggregates.html#module-cms.aggregates">cms.aggregates</a>
 </li>
@@ -1569,13 +1911,29 @@
 </li>
         <li><a href="common/cms/doc/members/fts2yaml.html#module-cms.fts2yaml">cms.fts2yaml</a>
 </li>
+        <li><a href="common/cms/doc/members/mcr_data_loader.html#module-cms.mcr_data_loader">cms.mcr_data_loader</a>
+</li>
         <li><a href="common/cms/doc/members/random_selector.html#module-cms.random_selector">cms.random_selector</a>
 </li>
         <li><a href="common/cms/doc/members/registry.html#module-cms.registry">cms.registry</a>
 </li>
+        <li><a href="common/cms/doc/members/mcr_combine_tables.html#module-cms.tools.mcr_combine_tables">cms.tools.mcr_combine_tables</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_file.html#module-cms.tools.mcr_file">cms.tools.mcr_file</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_fts2csv.html#module-cms.tools.mcr_fts2csv">cms.tools.mcr_fts2csv</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_fts2db.html#module-cms.tools.mcr_fts2db">cms.tools.mcr_fts2db</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_registry.html#module-cms.tools.mcr_registry">cms.tools.mcr_registry</a>
+</li>
+        <li><a href="common/cms/doc/members/mcr_sas.html#module-cms.tools.mcr_sas">cms.tools.mcr_sas</a>
+</li>
         <li><a href="common/cms/doc/members/mcr_sas2db.html#module-cms.tools.mcr_sas2db">cms.tools.mcr_sas2db</a>
 </li>
         <li><a href="common/cms/doc/members/mcr_sas2yaml.html#module-cms.tools.mcr_sas2yaml">cms.tools.mcr_sas2yaml</a>
+</li>
+        <li><a href="common/cms/doc/members/medpar_converter.html#module-cms.tools.medpar_converter">cms.tools.medpar_converter</a>
 </li>
         <li><a href="common/epa/doc/members/airnow.html#module-epa.airnow">epa.airnow</a>
 </li>
@@ -1599,9 +1957,23 @@
 </li>
         <li><a href="common/gridmet/doc/gridmet.html#module-gridmet">gridmet</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#module-gridmet.gridmet_tools">gridmet.gridmet_tools</a>
+        <li><a href="common/gridmet/doc/members/config.html#module-gridmet.config">gridmet.config</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#module-gridmet.gridmet_tools">gridmet.gridmet_tools</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#module-gridmet.gridmet_tools">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/members/launcher.html#module-gridmet.launcher">gridmet.launcher</a>
+</li>
+        <li><a href="common/gridmet/doc/members/registry.html#module-gridmet.registry">gridmet.registry</a>
+</li>
+        <li><a href="common/gridmet/doc/members/shapes.html#module-gridmet.shapes">gridmet.shapes</a>
+</li>
+        <li><a href="common/gridmet/doc/members/task.html#module-gridmet.task">gridmet.task</a>
 </li>
         <li><a href="common/core-platform/doc/members/adi.html#module-nsaph.adi">nsaph.adi</a>
+</li>
+        <li><a href="common/core-platform/doc/members/analyze.html#module-nsaph.analyze">nsaph.analyze</a>
+</li>
+        <li><a href="common/core-platform/doc/members/create.html#module-nsaph.create">nsaph.create</a>
 </li>
         <li><a href="common/core-platform/doc/members/domain.html#module-nsaph.data_model.domain">nsaph.data_model.domain</a>
 </li>
@@ -1618,6 +1990,8 @@
         <li><a href="common/core-platform/doc/members/fips.html#module-nsaph.fips">nsaph.fips</a>
 </li>
         <li><a href="common/core-platform/doc/members/index.html#module-nsaph.index">nsaph.index</a>
+</li>
+        <li><a href="common/core-platform/doc/members/ingest.html#module-nsaph.ingest">nsaph.ingest</a>
 </li>
         <li><a href="common/core-platform/doc/members/link_gis.html#module-nsaph.link_gis">nsaph.link_gis</a>
 </li>
@@ -1653,6 +2027,8 @@
 </li>
         <li><a href="common/core-platform/doc/members/resources.html#module-nsaph.util.resources">nsaph.util.resources</a>
 </li>
+        <li><a href="common/core-platform/doc/members/sas_explorer.html#module-nsaph.util.sas_explorer">nsaph.util.sas_explorer</a>
+</li>
         <li><a href="common/core-platform/doc/members/shapes.html#module-nsaph.util.shapes">nsaph.util.shapes</a>
 </li>
         <li><a href="common/core-platform/doc/members/ssa2fips.html#module-nsaph.util.ssa2fips">nsaph.util.ssa2fips</a>
@@ -1670,6 +2046,14 @@
         <li><a href="common/gis/doc/members/geometry.html#module-nsaph_gis.geometry">nsaph_gis.geometry</a>
 </li>
         <li><a href="common/epa/doc/members/aqs_tools.html#module-nsaph_utils.utils.io_utils">nsaph_utils.utils.io_utils</a>
+</li>
+        <li><a href="common/gridmet/doc/members/geop.html#module-test.geop">test.geop</a>
+</li>
+        <li><a href="common/gridmet/doc/members/test.html#module-test.test">test.test</a>
+</li>
+        <li><a href="common/gridmet/doc/members/csv2hdf5.html#module-utils.csv2hdf5">utils.csv2hdf5</a>
+</li>
+        <li><a href="common/gridmet/doc/members/exclude_csv.html#module-utils.exclude_csv">utils.exclude_csv</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1694,7 +2078,7 @@
         <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.MedicareFTSColumn.nattrs">(MedicareFTSColumn attribute)</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform.params.nc_file">nc_file (gridmet.gridmet_tools.get_affine_transform parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform.params.nc_file">nc_file (gridmet.gridmet_tools.get_affine_transform parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_affine_transform.params.nc_file">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.need_index">need_index() (Domain method)</a>
 </li>
@@ -1713,6 +2097,20 @@
 
       <ul>
         <li><a href="common/core-platform/doc/members/adi.html#module-nsaph.adi">module</a>
+</li>
+      </ul></li>
+      <li>
+    nsaph.analyze
+
+      <ul>
+        <li><a href="common/core-platform/doc/members/analyze.html#module-nsaph.analyze">module</a>
+</li>
+      </ul></li>
+      <li>
+    nsaph.create
+
+      <ul>
+        <li><a href="common/core-platform/doc/members/create.html#module-nsaph.create">module</a>
 </li>
       </ul></li>
       <li>
@@ -1772,6 +2170,13 @@
 </li>
       </ul></li>
       <li>
+    nsaph.ingest
+
+      <ul>
+        <li><a href="common/core-platform/doc/members/ingest.html#module-nsaph.ingest">module</a>
+</li>
+      </ul></li>
+      <li>
     nsaph.link_gis
 
       <ul>
@@ -1799,6 +2204,8 @@
         <li><a href="common/core-platform/doc/members/index_builder.html#module-nsaph.loader.index_builder">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     nsaph.loader.introspector
 
@@ -1806,8 +2213,6 @@
         <li><a href="common/core-platform/doc/members/introspector.html#module-nsaph.loader.introspector">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     nsaph.loader.loader_config
 
@@ -1893,6 +2298,13 @@
 </li>
       </ul></li>
       <li>
+    nsaph.util.sas_explorer
+
+      <ul>
+        <li><a href="common/core-platform/doc/members/sas_explorer.html#module-nsaph.util.sas_explorer">module</a>
+</li>
+      </ul></li>
+      <li>
     nsaph.util.shapes
 
       <ul>
@@ -1970,7 +2382,11 @@
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.CSVLikeJsonReader.open">open() (CSVLikeJsonReader method)</a>
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_data_loader.html#cms.mcr_data_loader.MedicareDataLoader.open">(MedicareDataLoader class method)</a>
 </li>
+      </ul></li>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.DataReader.open_csv">open_csv() (DataReader method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.DataReader.open_fst">open_fst() (DataReader method)</a>
@@ -1983,14 +2399,16 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.DataReader.open_sas7bdat">open_sas7bdat() (DataReader method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.tigerweb.download_geometry.params.out_dir">out_dir (census.tigerweb.download_geometry parameter)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.origin">origin (ComputeGridmetTask attribute)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.outfile">outfile (gridmet.task.ComputeGridmetTask parameter)</a>
+      <li><a href="common/census/doc/members/tigerweb.html#census.tigerweb.download_geometry.params.out_dir">out_dir (census.tigerweb.download_geometry parameter)</a>, <a href="common/census/doc/modules.html#census.tigerweb.download_geometry.params.out_dir">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.outfile">outfile (gridmet.task.ComputeGridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.params.outfile">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.outfile">(gridmet.task.ComputePointsTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.outfile">(gridmet.task.ComputePointsTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.params.outfile">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.outfile">(gridmet.task.ComputeShapesTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.outfile">(gridmet.task.ComputeShapesTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.params.outfile">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/cms/doc/members/create_schema_config.html#cms.create_schema_config.CMSSchema.output">output (CMSSchema attribute)</a>
@@ -2008,6 +2426,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.page">page (LoaderConfig attribute)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.page">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.Parallel">Parallel (class in gridmet.task)</a>
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.Parallelization">Parallelization (class in nsaph.loader.loader_config)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.Parallelization">[1]</a>
 </li>
@@ -2047,7 +2467,7 @@
 </li>
       <li><a href="common/gis/doc/members/geometry.html#nsaph_gis.geometry.PointInRaster.PARTIALLY_MASKED">PARTIALLY_MASKED (PointInRaster attribute)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_data.params.path">path (census.assemble_data.DataPlan.write_data parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.write_data.params.path">path (census.assemble_data.DataPlan.write_data parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_data.params.path">[1]</a>
 
       <ul>
         <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.collect_annual_downloads.params.path">(epa.aqs_tools.collect_annual_downloads parameter)</a>
@@ -2067,31 +2487,39 @@
       </ul></li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.pattern">pattern (LoaderConfig attribute)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.pattern">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.pet">pet (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.pet">pet (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.pet">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.PM10">PM10 (Parameter attribute)</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.PM25">PM25 (Parameter attribute)</a>, <a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.Parameter.PM25">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/shapes.html#gridmet.config.Shape.point">point (Shape attribute)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="common/gridmet/doc/members/config.html#gridmet.config.Shape.point">point (Shape attribute)</a>, <a href="common/gridmet/doc/shapes.html#gridmet.config.Shape.point">[1]</a>
 </li>
       <li><a href="common/gis/doc/members/geometry.html#nsaph_gis.geometry.PointInRaster">PointInRaster (class in nsaph_gis.geometry)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.points">points (GridmetContext attribute)</a>
+      <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.points">points (GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.points">[1]</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/task.html#gridmet.task.Parallel.points">(Parallel attribute)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.points_file">points_file (gridmet.task.ComputePointsTask parameter)</a>
+      </ul></li>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.points_file">points_file (gridmet.task.ComputePointsTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.params.points_file">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/shapes.html#gridmet.config.Shape.polygon">polygon (Shape attribute)</a>
+      <li><a href="common/gridmet/doc/members/config.html#gridmet.config.Shape.polygon">polygon (Shape attribute)</a>, <a href="common/gridmet/doc/shapes.html#gridmet.config.Shape.polygon">[1]</a>
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.FTSColumn.to_fwf_column.params.pos">pos (cms.fts2yaml.FTSColumn.to_fwf_column parameter)</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.pr">pr (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.pr">pr (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.pr">[1]</a>
 </li>
-      <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.prepare">prepare() (Inserter method)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.prepare">prepare() (ComputeGridmetTask method)</a>
 
       <ul>
+        <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.prepare">(ComputePointsTask method)</a>
+</li>
+        <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.prepare">(Inserter method)</a>
+</li>
         <li><a href="common/core-platform/doc/members/query.html#nsaph.requests.query.Query.prepare">(Query method)</a>
 </li>
       </ul></li>
@@ -2100,6 +2528,8 @@
       <li><a href="common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSA2FIPS.print">print() (SSA2FIPS method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.print_ddl">print_ddl() (DataLoader method)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.print_sql">print_sql() (MedicareCombinedView method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/index_builder.html#nsaph.loader.index_builder.IndexBuilder.print_stat">print_stat() (IndexBuilder method)</a>
 </li>
@@ -2110,6 +2540,8 @@
       <li><a href="common/epa/doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.process">process() (AirNowDownloader method)</a>
 
       <ul>
+        <li><a href="common/cms/doc/members/mcr_fts2db.html#cms.tools.mcr_fts2db.MedicareLoader.process">(MedicareLoader class method)</a>
+</li>
         <li><a href="common/cms/doc/members/mcr_sas2yaml.html#cms.tools.mcr_sas2yaml.SASIntrospector.process">(SASIntrospector class method)</a>
 </li>
         <li><a href="common/cms/doc/members/mcr_sas2db.html#cms.tools.mcr_sas2db.SASLoader.process">(SASLoader class method)</a>
@@ -2123,6 +2555,8 @@
 </li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.proxy">proxy (AirNowContext attribute)</a>
 </li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.ps">ps (MedicareCombinedView attribute)</a>
+</li>
       <li><a href="common/census/doc/glossary.html#term-pums"><strong>pums</strong></a>
 </li>
       <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.push">push() (Inserter method)</a>
@@ -2135,16 +2569,20 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.qc">qc (AirNowContext attribute)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.quality_check">quality_check() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.quality_check">quality_check() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.quality_check">[1]</a>
+</li>
+      <li><a href="common/cms/doc/members/aggregates.html#cms.aggregates.Aggregator.QUERY">QUERY (Aggregator attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/cms/doc/members/aggregates.html#cms.aggregates.Aggregator.QUERY">QUERY (Aggregator attribute)</a>
-</li>
       <li><a href="common/core-platform/doc/members/query.html#nsaph.requests.query.Query">Query (class in nsaph.requests.query)</a>
 </li>
-      <li><a href="common/core-platform/doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.quote">quote() (in module nsaph.util.pg_json_dump)</a>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.quote">quote() (in module gridmet.task)</a>
+
+      <ul>
+        <li><a href="common/core-platform/doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.quote">(in module nsaph.util.pg_json_dump)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -2155,11 +2593,13 @@
 </li>
       <li><a href="common/gis/doc/members/constants.html#nsaph_gis.constants.RasterizationStrategy">RasterizationStrategy (class in nsaph_gis.constants)</a>, <a href="common/gridmet/doc/strategy.html#nsaph_gis.constants.RasterizationStrategy">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.raw_downloads">raw_downloads (GridmetContext attribute)</a>
+      <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.raw_downloads">raw_downloads (GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.raw_downloads">[1]</a>
 </li>
-      <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.ColumnReader.read">read() (ColumnReader method)</a>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.ColumnDef.read">read() (ColumnDef method)</a>
 
       <ul>
+        <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.ColumnReader.read">(ColumnReader method)</a>
+</li>
         <li><a href="common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSA2FIPS.read">(SSA2FIPS method)</a>
 </li>
         <li><a href="common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSAFile.read">(SSAFile method)</a>
@@ -2171,6 +2611,10 @@
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.CMSFTS.read_file">read_file() (CMSFTS method)</a>
 </li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.read_record">read_record() (MedicareFile method)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_registry.html#cms.tools.mcr_registry.MedicareRegistry.read_registry">read_registry() (MedicareRegistry method)</a>
+</li>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.transfer.params.reader">reader (epa.aqs_tools.transfer parameter)</a>
 
       <ul>
@@ -2181,6 +2625,8 @@
 </li>
       <li><a href="common/gis/doc/members/compute_shape.html#nsaph_gis.compute_shape.Record">Record (class in nsaph_gis.compute_shape)</a>
 </li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.validate.params.record">record (cms.tools.mcr_file.MedicareFile.validate parameter)</a>
+</li>
       <li><a href="common/core-platform/doc/members/query.html#nsaph.requests.query.reduce_tables">reduce_tables() (in module nsaph.requests.query)</a>
 </li>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.regex">regex() (in module nsaph.data_model.utils)</a>
@@ -2190,15 +2636,17 @@
       <ul>
         <li><a href="common/epa/doc/members/registry.html#epa.registry.Registry">(class in epa.registry)</a>
 </li>
+        <li><a href="common/gridmet/doc/members/registry.html#gridmet.registry.Registry">(class in gridmet.registry)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/core-platform/doc/members/common.html#nsaph.loader.common.CommonConfig.registry">registry (CommonConfig attribute)</a>, <a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.common.CommonConfig.registry">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/project_loader.html#nsaph.loader.project_loader.remove_ext">remove_ext() (in module nsaph.loader.project_loader)</a>
 </li>
       <li><a href="common/cms/doc/members/duplicates.html#cms.duplicates.DuplicatesExplorer.report">report() (DuplicatesExplorer method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/epa/doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.download.params.requested_date">requested_date (epa.airnow_downloader.AirNowDownloader.download parameter)</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.reset">reset (AirNowContext attribute)</a>
@@ -2219,9 +2667,9 @@
 </li>
       <li><a href="common/core-platform/doc/members/db.html#nsaph.db.ResultSetDeprecated">ResultSetDeprecated (class in nsaph.db)</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.rmax">rmax (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.rmax">rmax (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.rmax">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.rmin">rmin (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.rmin">rmin (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.rmin">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader.rollback">rollback() (DataLoader method)</a>
 </li>
@@ -2268,6 +2716,8 @@
       <li><a href="common/cms/doc/members/duplicates.html#cms.duplicates.DuplicatesExplorer.save">save() (DuplicatesExplorer method)</a>
 
       <ul>
+        <li><a href="common/cms/doc/members/mcr_registry.html#cms.tools.mcr_registry.MedicareRegistry.save">(MedicareRegistry method)</a>
+</li>
         <li><a href="common/core-platform/doc/members/model.html#nsaph.data_model.model.Table.save">(Table method)</a>
 </li>
         <li><a href="common/core-platform/doc/members/zip2fips.html#nsaph.util.zip2fips.Zip2FipsCrossWalk.save">(Zip2FipsCrossWalk method)</a>
@@ -2277,7 +2727,7 @@
 </li>
       <li><a href="common/cms/doc/members/random_selector.html#cms.random_selector.select">select() (in module cms.random_selector)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.census_info.set_api_key">set_api_key() (in module census.census_info)</a>
+      <li><a href="common/census/doc/members/census_info.html#census.census_info.set_api_key">set_api_key() (in module census.census_info)</a>, <a href="common/census/doc/modules.html#census.census_info.set_api_key">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.set_sloppy">set_sloppy() (Domain method)</a>
 </li>
@@ -2291,31 +2741,35 @@
 </li>
       <li><a href="common/census/doc/glossary.html#term-sf3"><strong>sf3</strong></a>
 </li>
-      <li><a href="common/gridmet/doc/shapes.html#gridmet.config.Shape">Shape (class in gridmet.config)</a>
+      <li><a href="common/gridmet/doc/members/config.html#gridmet.config.Shape">Shape (class in gridmet.config)</a>, <a href="common/gridmet/doc/shapes.html#gridmet.config.Shape">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.find_shape_file.params.shape">shape (gridmet.task.GridmetTask.find_shape_file parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.find_shape_file.params.shape">shape (gridmet.task.GridmetTask.find_shape_file parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.find_shape_file.params.shape">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/members/geop.html#test.geop.ZipAnnotator.SHAPE_COLUMNS">SHAPE_COLUMNS (ZipAnnotator attribute)</a>
 </li>
       <li><a href="common/gis/doc/members/annotator.html#nsaph_gis.annotator.GISAnnotator.params.shape_files">shape_files (nsaph_gis.annotator.GISAnnotator parameter)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.shape_type">shape_type (gridmet.gridmet_tools.find_shape_file parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.shape_type">shape_type (gridmet.gridmet_tools.find_shape_file parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.shape_type">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.shapefile">shapefile (gridmet.task.ComputeShapesTask parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.shapefile">shapefile (gridmet.task.ComputeShapesTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.params.shapefile">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.shapes">shapes (AirNowContext attribute)</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.shapes">(GridmetContext attribute)</a>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.shapes">(GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.shapes">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.shapes_dir">shapes_dir (gridmet.gridmet_tools.find_shape_file parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.shapes_dir">shapes_dir (gridmet.gridmet_tools.find_shape_file parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.shapes_dir">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.shapes_dir">(GridmetContext attribute)</a>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.shapes_dir">(GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.shapes_dir">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/pg_json_dump.html#nsaph.util.pg_json_dump.show">show() (in module nsaph.util.pg_json_dump)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.utils.show_api_keys">show_api_keys() (in module census.utils)</a>
+      <li><a href="common/census/doc/members/utils.html#census.utils.show_api_keys">show_api_keys() (in module census.utils)</a>, <a href="common/census/doc/modules.html#census.utils.show_api_keys">[1]</a>
+</li>
+      <li><a href="common/core-platform/doc/members/sas_explorer.html#nsaph.util.sas_explorer.simulate">simulate() (in module nsaph.util.sas_explorer)</a>
 </li>
       <li><a href="common/core-platform/doc/members/db.html#nsaph.db.ResultSetDeprecated.SIZE">SIZE (ResultSetDeprecated attribute)</a>
 </li>
@@ -2323,23 +2777,23 @@
 </li>
       <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.sloppy">sloppy (LoaderConfig attribute)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.sloppy">[1]</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.Parameter.SO2">SO2 (Parameter attribute)</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.sph">sph (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.sph">sph (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.sph">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.spillover_table">spillover_table() (Domain method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/core-platform/doc/members/utils.html#nsaph.data_model.utils.split">split() (in module nsaph.data_model.utils)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.calculate_densities.params.sq_mi">sq_mi (census.assemble_data.DataPlan.calculate_densities parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.calculate_densities.params.sq_mi">sq_mi (census.assemble_data.DataPlan.calculate_densities parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.calculate_densities.params.sq_mi">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.tigerweb.get_area.params.sq_mi">(census.tigerweb.get_area parameter)</a>
+        <li><a href="common/census/doc/members/tigerweb.html#census.tigerweb.get_area.params.sq_mi">(census.tigerweb.get_area parameter)</a>, <a href="common/census/doc/modules.html#census.tigerweb.get_area.params.sq_mi">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.srad">srad (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.srad">srad (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.srad">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSA2FIPS">SSA2FIPS (class in nsaph.util.ssa2fips)</a>
 </li>
@@ -2353,17 +2807,25 @@
         <li><a href="common/epa/doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.download_range.params.start_date">(epa.airnow_downloader.AirNowDownloader.download_range parameter)</a>
 </li>
       </ul></li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.state">state (census.assemble_data.DataPlan parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.params.state">state (census.assemble_data.DataPlan parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.state">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var.params.state">(census.assemble_data.VariableDef.calculate_var parameter)</a>
+        <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.calculate_var.params.state">(census.assemble_data.VariableDef.calculate_var parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var.params.state">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query.params.state">(census.assemble_data.VariableDef.do_query parameter)</a>
+        <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.do_query.params.state">(census.assemble_data.VariableDef.do_query parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query.params.state">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.query.get_census_data.params.state">(census.query.get_census_data parameter)</a>
+        <li><a href="common/census/doc/members/query.html#census.query.get_census_data.params.state">(census.query.get_census_data parameter)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data.params.state">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/gis/doc/members/compute_shape.html#nsaph_gis.compute_shape.StatsCounter">StatsCounter (class in nsaph_gis.compute_shape)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.status">status() (MedicareFile method)</a>
+
+      <ul>
+        <li><a href="common/cms/doc/members/medpar_converter.html#cms.tools.medpar_converter.MedparConverter.status">(MedparConverter method)</a>
+</li>
+      </ul></li>
+      <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.status_message">status_message() (MedicareFile method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/hdf5_export.html#nsaph.requests.hdf5_export.store">store() (in module nsaph.requests.hdf5_export)</a>
 
@@ -2371,15 +2833,23 @@
         <li><a href="common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSA2FIPS.store">(SSA2FIPS method)</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.strategy">strategy (gridmet.task.ComputeShapesTask parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.strategy">strategy (gridmet.task.ComputeShapesTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.params.strategy">[1]</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.strategy">(GridmetContext attribute)</a>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.strategy">(GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.strategy">[1]</a>
 </li>
       </ul></li>
-      <li><a href="common/census/doc/modules.html#census.cli.CensusContext.params.subclass">subclass (census.cli.CensusContext parameter)</a>
+      <li><a href="common/census/doc/members/calculate_density.html#census.calculate_density.CensusDensityContext.params.subclass">subclass (census.calculate_density.CensusDensityContext parameter)</a>
 
       <ul>
+        <li><a href="common/census/doc/members/cli.html#census.cli.CensusContext.params.subclass">(census.cli.CensusContext parameter)</a>, <a href="common/census/doc/modules.html#census.cli.CensusContext.params.subclass">[1]</a>
+</li>
+        <li><a href="common/census/doc/members/do_qc.html#census.do_qc.CensusQCContext.params.subclass">(census.do_qc.CensusQCContext parameter)</a>
+</li>
+        <li><a href="common/census/doc/members/interpolate_data.html#census.interpolate_data.CensusInterpolateContext.params.subclass">(census.interpolate_data.CensusInterpolateContext parameter)</a>
+</li>
+        <li><a href="common/census/doc/members/write_data.html#census.write_data.CensusWriteContext.params.subclass">(census.write_data.CensusWriteContext parameter)</a>
+</li>
         <li><a href="common/cms/doc/members/create_schema_config.html#cms.create_schema_config.CMSSchema.params.subclass">(cms.create_schema_config.CMSSchema parameter)</a>
 </li>
         <li><a href="common/epa/doc/members/registry.html#epa.registry.EPAConfig.params.subclass">(epa.registry.EPAConfig parameter)</a>
@@ -2399,14 +2869,18 @@
       </ul></li>
       <li><a href="common/core-platform/doc/members/executors.html#nsaph.util.executors.BlockingThreadPoolExecutor.submit">submit() (BlockingThreadPoolExecutor method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.census_info.get_endpoint.params.sum_file">sum_file (census.census_info.get_endpoint parameter)</a>
+      <li><a href="common/census/doc/members/census_info.html#census.census_info.get_endpoint.params.sum_file">sum_file (census.census_info.get_endpoint parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.get_endpoint.params.sum_file">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.census_info.get_varlist.params.sum_file">(census.census_info.get_varlist parameter)</a>
+        <li><a href="common/census/doc/members/census_info.html#census.census_info.get_varlist.params.sum_file">(census.census_info.get_varlist parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.get_varlist.params.sum_file">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.query.get_census_data.params.sum_file">(census.query.get_census_data parameter)</a>
+        <li><a href="common/census/doc/members/query.html#census.query.get_census_data.params.sum_file">(census.query.get_census_data parameter)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data.params.sum_file">[1]</a>
 </li>
       </ul></li>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.supported_out_formats">supported_out_formats (DataPlan attribute)</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.supported_tables">supported_tables (MedicareCombinedView attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -2427,7 +2901,9 @@
       </ul></li>
       <li><a href="common/core-platform/doc/members/inserter.html#nsaph.data_model.inserter.Inserter.Table">Table() (Inserter method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_schema.params.table_name">table_name (census.assemble_data.DataPlan.write_schema parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.write_schema.params.table_name">table_name (census.assemble_data.DataPlan.write_schema parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_schema.params.table_name">[1]</a>
+</li>
+      <li><a href="common/cms/doc/members/mcr_combine_tables.html#cms.tools.mcr_combine_tables.MedicareCombinedView.table_sql">table_sql() (MedicareCombinedView method)</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.params.target">target (epa.airnow_downloader.AirNowDownloader parameter)</a>
 
@@ -2437,15 +2913,29 @@
         <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.target">(nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
 </li>
       </ul></li>
-      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.target">target() (DownloadGridmetTask method)</a>
+      <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.target">target() (DownloadGridmetTask method)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.target">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.test">test() (in module nsaph.loader.introspector)</a>
 </li>
+      <li>
+    test.geop
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/geop.html#module-test.geop">module</a>
+</li>
+      </ul></li>
+      <li>
+    test.test
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/test.html#module-test.test">module</a>
+</li>
+      </ul></li>
       <li><a href="common/core-platform/doc/members/db.html#nsaph.db.test_connection">test_connection() (in module nsaph.db)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.quality_check.params.test_file">test_file (census.assemble_data.DataPlan.quality_check parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.quality_check.params.test_file">test_file (census.assemble_data.DataPlan.quality_check parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.quality_check.params.test_file">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.th">th (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.th">th (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.th">[1]</a>
 </li>
       <li><a href="common/core-platform/doc/members/executors.html#nsaph.util.executors.thread_initializer">thread_initializer() (in module nsaph.util.executors)</a>
 </li>
@@ -2455,9 +2945,13 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.tmmn">tmmn (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.tmmn">tmmn (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.tmmn">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.tmmx">tmmx (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.tmmx">tmmx (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.tmmx">[1]</a>
+</li>
+      <li><a href="common/gridmet/doc/members/csv2hdf5.html#utils.csv2hdf5.to_data_frame">to_data_frame() (in module utils.csv2hdf5)</a>
+</li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.to_date">to_date() (ComputeGridmetTask method)</a>
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.AliasColumn.to_dict">to_dict() (AliasColumn method)</a>
 
@@ -2472,13 +2966,27 @@
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.CMSFTS.to_fwf_meta">to_fwf_meta() (CMSFTS method)</a>
 </li>
       <li><a href="common/core-platform/doc/members/hdf5_export.html#nsaph.requests.hdf5_export.Dataset.to_hdf5">to_hdf5() (Dataset method)</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/csv2hdf5.html#utils.csv2hdf5.to_hdf5">(in module utils.csv2hdf5)</a>
 </li>
+      </ul></li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.FTSColumn.to_sql_type">to_sql_type() (FTSColumn method)</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.transfer">transfer() (in module epa.aqs_tools)</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/csv2hdf5.html#utils.csv2hdf5.transfer">(in module utils.csv2hdf5)</a>
 </li>
+      </ul></li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.transformer">transformer (nsaph_utils.utils.io_utils.write_csv parameter)</a>
 </li>
+      <li><a href="common/cms/doc/members/mcr_fts2db.html#cms.tools.mcr_fts2db.MedicareLoader.traverse">traverse() (MedicareLoader method)</a>
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_sas.html#cms.tools.mcr_sas.MedicareSAS.traverse">(MedicareSAS method)</a>
+</li>
+      </ul></li>
       <li><a href="common/cms/doc/members/create_schema_config.html#cms.create_schema_config.CMSSchema.type">type (CMSSchema attribute)</a>
 
       <ul>
@@ -2509,14 +3017,12 @@
         <li><a href="common/core-platform/doc/members/introspector.html#nsaph.loader.introspector.Introspector.unquote">(Introspector static method)</a>
 </li>
       </ul></li>
-      <li><a href="common/cms/doc/members/registry.html#cms.registry.Registry.update">update() (Registry method)</a>, <a href="common/epa/doc/members/registry.html#epa.registry.Registry.update">[1]</a>
+      <li><a href="common/cms/doc/members/registry.html#cms.registry.Registry.update">update() (Registry method)</a>, <a href="common/epa/doc/members/registry.html#epa.registry.Registry.update">[1]</a>, <a href="common/gridmet/doc/members/registry.html#gridmet.registry.Registry.update">[2]</a>
 </li>
       <li><a href="common/cms/doc/members/registry.html#cms.registry.Registry.update_medicaid">update_medicaid() (Registry method)</a>
 </li>
       <li><a href="common/cms/doc/members/registry.html#cms.registry.Registry.update_medicare">update_medicare() (Registry method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.download_data.params.url">url (epa.aqs_tools.download_data parameter)</a>
 
       <ul>
@@ -2529,8 +3035,24 @@
         <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.is_downloaded.params.url">(nsaph_utils.utils.io_utils.is_downloaded parameter)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="common/core-platform/doc/members/zip2fips.html#nsaph.util.zip2fips.Zip2FipsCrossWalk.url_pattern">url_pattern (Zip2FipsCrossWalk attribute)</a>
 </li>
+      <li>
+    utils.csv2hdf5
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/csv2hdf5.html#module-utils.csv2hdf5">module</a>
+</li>
+      </ul></li>
+      <li>
+    utils.exclude_csv
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/exclude_csv.html#module-utils.exclude_csv">module</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -2548,19 +3070,29 @@
       <ul>
         <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.validate">(AQSContext method)</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.cli.CensusContext.validate">(CensusContext method)</a>
+        <li><a href="common/census/doc/members/cli.html#census.cli.CensusContext.validate">(CensusContext method)</a>, <a href="common/census/doc/modules.html#census.cli.CensusContext.validate">[1]</a>
+</li>
+        <li><a href="common/census/doc/members/interpolate_data.html#census.interpolate_data.CensusInterpolateContext.validate">(CensusInterpolateContext method)</a>
 </li>
         <li><a href="common/epa/doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.validate">(Context method)</a>, <a href="common/epa/doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.validate">[1]</a>, <a href="common/gridmet/doc/gridmet_ds_def.html#nsaph_utils.utils.context.Context.validate">[2]</a>
 </li>
+        <li><a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.validate">(GridmetContext method)</a>
+</li>
         <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.validate">(LoaderConfig method)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.validate">[1]</a>
 </li>
+        <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.MedicareFile.validate">(MedicareFile method)</a>
+</li>
       </ul></li>
-      <li><a href="common/census/doc/modules.html#census.cli.CensusContext.validate.params.value">value (census.cli.CensusContext.validate parameter)</a>
+      <li><a href="common/census/doc/members/cli.html#census.cli.CensusContext.validate.params.value">value (census.cli.CensusContext.validate parameter)</a>, <a href="common/census/doc/modules.html#census.cli.CensusContext.validate.params.value">[1]</a>
 
       <ul>
+        <li><a href="common/census/doc/members/interpolate_data.html#census.interpolate_data.CensusInterpolateContext.validate.params.value">(census.interpolate_data.CensusInterpolateContext.validate parameter)</a>
+</li>
         <li><a href="common/epa/doc/members/airnow_ds_def.html#epa.airnow_ds_def.AirNowContext.validate.params.value">(epa.airnow_ds_def.AirNowContext.validate parameter)</a>
 </li>
         <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.validate.params.value">(epa.aqs_ds_def.AQSContext.validate parameter)</a>
+</li>
+        <li><a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.validate.params.value">(gridmet.config.GridmetContext.validate parameter)</a>
 </li>
         <li><a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.loader_config.LoaderConfig.validate.params.value">(nsaph.loader.loader_config.LoaderConfig.validate parameter)</a>, <a href="common/core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig.validate.params.value">[1]</a>
 </li>
@@ -2569,38 +3101,38 @@
       </ul></li>
       <li><a href="common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSAFile.values">values() (SSAFile method)</a>
 </li>
-      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url.params.variable">variable (gridmet.gridmet_tools.get_atmos_url parameter)</a>
-
-      <ul>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url.params.variable">(gridmet.gridmet_tools.get_nkn_url parameter)</a>
-</li>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_variable.params.variable">(gridmet.gridmet_tools.get_variable parameter)</a>
-</li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.variable">(gridmet.task.ComputeGridmetTask parameter)</a>
-</li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.variable">(gridmet.task.ComputePointsTask parameter)</a>
-</li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.variable">(gridmet.task.ComputeShapesTask parameter)</a>
-</li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.params.variable">(gridmet.task.DownloadGridmetTask parameter)</a>
-</li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.get_url.params.variable">(gridmet.task.DownloadGridmetTask.get_url parameter)</a>
-</li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.params.variable">(gridmet.task.GridmetTask parameter)</a>
-</li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.destination_file_name.params.variable">(gridmet.task.GridmetTask.destination_file_name parameter)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef">VariableDef (class in census.assemble_data)</a>
-</li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.calculate_densities.params.variables">variables (census.assemble_data.DataPlan.calculate_densities parameter)</a>
+      <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url.params.variable">variable (gridmet.gridmet_tools.get_atmos_url parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url.params.variable">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.query.get_census_data.params.variables">(census.query.get_census_data parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url.params.variable">(gridmet.gridmet_tools.get_nkn_url parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url.params.variable">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.variables">(GridmetContext attribute)</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_variable.params.variable">(gridmet.gridmet_tools.get_variable parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_variable.params.variable">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.variable">(gridmet.task.ComputeGridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.params.variable">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.variable">(gridmet.task.ComputePointsTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.params.variable">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.variable">(gridmet.task.ComputeShapesTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.params.variable">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.params.variable">(gridmet.task.DownloadGridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.params.variable">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.get_url.params.variable">(gridmet.task.DownloadGridmetTask.get_url parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.get_url.params.variable">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.params.variable">(gridmet.task.GridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.params.variable">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.destination_file_name.params.variable">(gridmet.task.GridmetTask.destination_file_name parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.destination_file_name.params.variable">[1]</a>
+</li>
+      </ul></li>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef">VariableDef (class in census.assemble_data)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef">[1]</a>
+</li>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.calculate_densities.params.variables">variables (census.assemble_data.DataPlan.calculate_densities parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.calculate_densities.params.variables">[1]</a>
+
+      <ul>
+        <li><a href="common/census/doc/members/query.html#census.query.get_census_data.params.variables">(census.query.get_census_data parameter)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data.params.variables">[1]</a>
+</li>
+        <li><a href="common/gridmet/doc/gridmet_ds_def.html#gridmet.config.GridmetContext.variables">(GridmetContext attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetContext.variables">[1]</a>
 </li>
       </ul></li>
       <li><a href="common/core-platform/doc/members/common.html#nsaph.loader.common.DBConnectionConfig.verbose">verbose (DBConnectionConfig attribute)</a>, <a href="common/core-platform/doc/members/data_loader.html#nsaph.loader.common.DBConnectionConfig.verbose">[1]</a>
@@ -2611,9 +3143,9 @@
 </li>
       <li><a href="common/core-platform/doc/members/domain.html#nsaph.data_model.domain.Domain.view_column_spec">view_column_spec() (Domain method)</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.vpd">vpd (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.vpd">vpd (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.vpd">[1]</a>
 </li>
-      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.vs">vs (GridmetVariable attribute)</a>
+      <li><a href="common/gridmet/doc/bands.html#gridmet.config.GridmetVariable.vs">vs (GridmetVariable attribute)</a>, <a href="common/gridmet/doc/members/config.html#gridmet.config.GridmetVariable.vs">[1]</a>
 </li>
   </ul></td>
 </tr></table>
@@ -2626,31 +3158,43 @@
       <li><a href="common/core-platform/doc/members/executors.html#nsaph.util.executors.BlockingThreadPoolExecutor.wait_for_completion">wait_for_completion() (BlockingThreadPoolExecutor method)</a>
 </li>
       <li><a href="common/cms/doc/members/fts2yaml.html#cms.fts2yaml.width">width() (in module cms.fts2yaml)</a>
+
+      <ul>
+        <li><a href="common/cms/doc/members/mcr_file.html#cms.tools.mcr_file.width">(in module cms.tools.mcr_file)</a>
 </li>
+      </ul></li>
       <li><a href="common/core-platform/doc/members/ds.html#nsaph.ds.write">write() (in module nsaph.ds)</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv">write_csv() (in module nsaph_utils.utils.io_utils)</a>
 </li>
       <li><a href="common/epa/doc/members/airnow_downloader.html#epa.airnow_downloader.AirNowDownloader.write_csv_header">write_csv_header() (AirNowDownloader method)</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_data">write_data() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.write_data">write_data() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_data">[1]</a>
+</li>
+      <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.write_header">write_header (nsaph_utils.utils.io_utils.write_csv parameter)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.write_header">write_header (nsaph_utils.utils.io_utils.write_csv parameter)</a>
-</li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_schema">write_schema() (DataPlan method)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.write_schema">write_schema() (DataPlan method)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.write_schema">[1]</a>
 </li>
       <li><a href="common/epa/doc/members/aqs_tools.html#epa.aqs_tools.transfer.params.writer">writer (epa.aqs_tools.transfer parameter)</a>
 
       <ul>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.writer">(gridmet.task.ComputeGridmetTask.compute_one_day parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.writer">(gridmet.task.ComputeGridmetTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.compute_one_day.params.writer">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.compute_one_day.params.writer">(gridmet.task.ComputePointsTask.compute_one_day parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.compute_one_day.params.writer">(gridmet.task.ComputePointsTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.compute_one_day.params.writer">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.writer">(gridmet.task.ComputeShapesTask.compute_one_day parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.writer">(gridmet.task.ComputeShapesTask.compute_one_day parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.compute_one_day.params.writer">[1]</a>
 </li>
         <li><a href="common/epa/doc/members/aqs_tools.html#nsaph_utils.utils.io_utils.write_csv.params.writer">(nsaph_utils.utils.io_utils.write_csv parameter)</a>
+</li>
+      </ul></li>
+      <li><a href="common/gridmet/doc/members/task.html#gridmet.task.Collector.writerow">writerow() (Collector method)</a>
+
+      <ul>
+        <li><a href="common/gridmet/doc/members/task.html#gridmet.task.CSVWriter.writerow">(CSVWriter method)</a>
+</li>
+        <li><a href="common/gridmet/doc/members/task.html#gridmet.task.ListCollector.writerow">(ListCollector method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2673,42 +3217,42 @@
         <li><a href="common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSA2FIPS.y">(SSA2FIPS attribute)</a>
 </li>
       </ul></li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.yaml_path">yaml_path (census.assemble_data.DataPlan parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.params.yaml_path">yaml_path (census.assemble_data.DataPlan parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.yaml_path">[1]</a>
 </li>
-      <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var.params.year">year (census.assemble_data.VariableDef.calculate_var parameter)</a>
+      <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.calculate_var.params.year">year (census.assemble_data.VariableDef.calculate_var parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.calculate_var.params.year">[1]</a>
 
       <ul>
-        <li><a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query.params.year">(census.assemble_data.VariableDef.do_query parameter)</a>
+        <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.VariableDef.do_query.params.year">(census.assemble_data.VariableDef.do_query parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.VariableDef.do_query.params.year">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.census_info.get_endpoint.params.year">(census.census_info.get_endpoint parameter)</a>
+        <li><a href="common/census/doc/members/census_info.html#census.census_info.get_endpoint.params.year">(census.census_info.get_endpoint parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.get_endpoint.params.year">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.census_info.get_varlist.params.year">(census.census_info.get_varlist parameter)</a>
+        <li><a href="common/census/doc/members/census_info.html#census.census_info.get_varlist.params.year">(census.census_info.get_varlist parameter)</a>, <a href="common/census/doc/modules.html#census.census_info.get_varlist.params.year">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.query.get_census_data.params.year">(census.query.get_census_data parameter)</a>
+        <li><a href="common/census/doc/members/query.html#census.query.get_census_data.params.year">(census.query.get_census_data parameter)</a>, <a href="common/census/doc/modules.html#census.query.get_census_data.params.year">[1]</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.tigerweb.download_geometry.params.year">(census.tigerweb.download_geometry parameter)</a>
+        <li><a href="common/census/doc/members/tigerweb.html#census.tigerweb.download_geometry.params.year">(census.tigerweb.download_geometry parameter)</a>, <a href="common/census/doc/modules.html#census.tigerweb.download_geometry.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.year">(gridmet.gridmet_tools.find_shape_file parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.year">(gridmet.gridmet_tools.find_shape_file parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.find_shape_file.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url.params.year">(gridmet.gridmet_tools.get_atmos_url parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url.params.year">(gridmet.gridmet_tools.get_atmos_url parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_atmos_url.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url.params.year">(gridmet.gridmet_tools.get_nkn_url parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url.params.year">(gridmet.gridmet_tools.get_nkn_url parameter)</a>, <a href="common/gridmet/doc/members/gridmet_tools.html#gridmet.gridmet_tools.get_nkn_url.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.year">(gridmet.task.ComputeGridmetTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeGridmetTask.params.year">(gridmet.task.ComputeGridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeGridmetTask.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.year">(gridmet.task.ComputePointsTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputePointsTask.params.year">(gridmet.task.ComputePointsTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputePointsTask.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.year">(gridmet.task.ComputeShapesTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.ComputeShapesTask.params.year">(gridmet.task.ComputeShapesTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.ComputeShapesTask.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.params.year">(gridmet.task.DownloadGridmetTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.params.year">(gridmet.task.DownloadGridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.get_url.params.year">(gridmet.task.DownloadGridmetTask.get_url parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.DownloadGridmetTask.get_url.params.year">(gridmet.task.DownloadGridmetTask.get_url parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.DownloadGridmetTask.get_url.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.params.year">(gridmet.task.GridmetTask parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.params.year">(gridmet.task.GridmetTask parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.destination_file_name.params.year">(gridmet.task.GridmetTask.destination_file_name parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.destination_file_name.params.year">(gridmet.task.GridmetTask.destination_file_name parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.destination_file_name.params.year">[1]</a>
 </li>
-        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.find_shape_file.params.year">(gridmet.task.GridmetTask.find_shape_file parameter)</a>
+        <li><a href="common/gridmet/doc/gridmet_task.html#gridmet.task.GridmetTask.find_shape_file.params.year">(gridmet.task.GridmetTask.find_shape_file parameter)</a>, <a href="common/gridmet/doc/members/task.html#gridmet.task.GridmetTask.find_shape_file.params.year">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -2718,7 +3262,7 @@
       <ul>
         <li><a href="common/epa/doc/members/aqs_ds_def.html#epa.aqs_ds_def.AQSContext.years">(AQSContext attribute)</a>
 </li>
-        <li><a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.years">(census.assemble_data.DataPlan parameter)</a>
+        <li><a href="common/census/doc/members/assemble_data.html#census.assemble_data.DataPlan.params.years">(census.assemble_data.DataPlan parameter)</a>, <a href="common/census/doc/modules.html#census.assemble_data.DataPlan.params.years">[1]</a>
 </li>
         <li><a href="common/epa/doc/members/airnow_ds_def.html#nsaph_utils.utils.context.Context.years">(Context attribute)</a>, <a href="common/epa/doc/members/aqs_ds_def.html#nsaph_utils.utils.context.Context.years">[1]</a>, <a href="common/gridmet/doc/gridmet_ds_def.html#nsaph_utils.utils.context.Context.years">[2]</a>
 </li>
@@ -2746,6 +3290,8 @@
       <li><a href="common/core-platform/doc/members/zip2fips.html#nsaph.util.zip2fips.Zip2FipsCrossWalk">Zip2FipsCrossWalk (class in nsaph.util.zip2fips)</a>
 </li>
       <li><a href="common/gis/doc/members/downloader.html#nsaph_gis.downloader.GISDownloader.ZIP_TEMPLATE">ZIP_TEMPLATE (GISDownloader attribute)</a>
+</li>
+      <li><a href="common/gridmet/doc/members/geop.html#test.geop.ZipAnnotator">ZipAnnotator (class in test.geop)</a>
 </li>
   </ul></td>
 </tr></table>

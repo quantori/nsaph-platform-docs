@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Howto &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>Howto &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -40,42 +40,38 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Howto</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#deployment-steps">Deployment Steps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#building-containers">Building Containers</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#docker-build-command">Docker build command</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rebuilding-the-containers">Rebuilding the Containers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#when-building-goes-wrong">When building goes wrong</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../guts.html">Data Platform Internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html">Introduction to Deployment of NSAPH Data Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Howto</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#deployment-steps">Deployment Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-containers">Building Containers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#copying-dags-to-airflow-folder">Copying DAGs to Airflow folder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#local-development">Local development</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#copying-dags-to-airflow-folder">Copying DAGs to Airflow folder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#local-development">Local development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Glossary.html">Airflow/CWL Glossary and FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#quick-start-deployment">Quick Start Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#testing">Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Configuration.html">Configuration Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Glossary.html">Glossary and FAQ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#quick-start">Quick Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -92,6 +88,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../guts.html">Data Platform Internals</a> &raquo;</li>
           <li><a href="index.html">NSAPH Data Platform Deployment</a> &raquo;</li>
       <li>Howto</li>
       <li class="wy-breadcrumbs-aside">
@@ -120,7 +117,7 @@
 </ul>
 </div>
 <p>For a simple quick start with the most common options for test
-environment see the <a class="reference internal" href="index.html#quick-start"><span class="std std-doc">Quick Start</span></a> section
+environment see the <a class="reference internal" href="index.html#quick-start-deployment"><span class="std std-doc">Quick Start</span></a> section
 of README. It will allow you to quickly crete an environment</p>
 <p>where you can try whether it works for you.</p>
 <p>To keep in mind: a few <a class="reference internal" href="UsefulCommands.html"><span class="doc std std-doc">useful commands</span></a>.</p>

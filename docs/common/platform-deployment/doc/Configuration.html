@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration Guide &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>Configuration Guide &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -40,65 +40,44 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Howto.html">Howto</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration Guide</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#what-can-be-configured">What can be configured</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#selecting-base-configuration">Selecting base configuration.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#controlling-conda-environments">Controlling Conda environments</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#setting-conda-environment-used-during-workflow-executions">Setting Conda environment used during workflow executions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#managing-multiple-conda-environments">Managing multiple Conda environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../guts.html">Data Platform Internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html">Introduction to Deployment of NSAPH Data Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Howto.html">Howto</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuration Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-can-be-configured">What can be configured</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-base-configuration">Selecting base configuration.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-conda-environments">Controlling Conda environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-installation-of-third-party-requirements">Configuring installation of third-party requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-user-projects">Configuring user projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-git-submodules">Configure Git submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overriding-base-url">Overriding BASE_URL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#airflow-admin-username-and-password">Airflow admin username and password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configurations-related-to-postgresql">Configurations related to PostgreSQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overriding-default-parameters">Overriding default parameters</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-installation-of-third-party-requirements">Configuring installation of third-party requirements</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#python-requirements">Python requirements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#r-libraries">R libraries</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-user-projects">Configuring user projects</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#python-projects">Python Projects</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enforcing-order-for-installation-of-user-python-projects">Enforcing order for installation of user Python Projects</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#r-projects">R Projects</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#configure-git-submodules">Configure Git submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#overriding-base-url">Overriding BASE_URL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#airflow-admin-username-and-password">Airflow admin username and password</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configurations-related-to-postgresql">Configurations related to PostgreSQL</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#when-you-need-to-change-defaults">When you need to change defaults</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configuring-postgresql-server">Configuring PostgreSQL Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tell-airflow-how-to-authenticate-with-postgresql">Tell Airflow how to authenticate with PostgreSQL</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#overriding-default-parameters">Overriding default parameters</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#full-list-of-available-environment-variables">Full list of available environment variables</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#example-of-env-file-ready-to-run-containers">Example of .env file. Ready to run containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Glossary.html">Airflow/CWL Glossary and FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#quick-start-deployment">Quick Start Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#testing">Testing</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Glossary.html">Glossary and FAQ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#quick-start">Quick Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -115,6 +94,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../guts.html">Data Platform Internals</a> &raquo;</li>
           <li><a href="index.html">NSAPH Data Platform Deployment</a> &raquo;</li>
       <li>Configuration Guide</li>
       <li class="wy-breadcrumbs-aside">
@@ -185,7 +165,7 @@
 <h2><a class="toc-backref" href="#id1">What can be configured</a><a class="headerlink" href="#what-can-be-configured" title="Permalink to this heading"></a></h2>
 <p>The following options can be configured:</p>
 <ul class="simple">
-<li><p>Quick Options (see <a class="reference internal" href="index.html#quick-start"><span class="std std-doc">Quick Start</span></a>
+<li><p>Quick Options (see <a class="reference internal" href="index.html#quick-start-deployment"><span class="std std-doc">Quick Start</span></a>
 and <a class="reference internal" href="#selecting-base-configuration"><span class="std std-doc">Selecting base configuration</span></a>):</p>
 <ul>
 <li><p>To install Conda or not</p></li>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>Introduction to Deployment of NSAPH Data Platform &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -40,31 +40,32 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Howto.html">Howto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Configuration.html">Configuration Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Glossary.html">Glossary and FAQ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#quick-start">Quick Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#testing">Testing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../guts.html">Data Platform Internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction to Deployment of NSAPH Data Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Howto.html">Howto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Configuration.html">Configuration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Glossary.html">Airflow/CWL Glossary and FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#quick-start-deployment">Quick Start Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#testing">Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -81,8 +82,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../guts.html">Data Platform Internals</a> &raquo;</li>
           <li><a href="index.html">NSAPH Data Platform Deployment</a> &raquo;</li>
-      <li>Introduction</li>
+      <li>Introduction to Deployment of NSAPH Data Platform</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/common/platform-deployment/doc/Introduction.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -92,8 +94,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+  <div class="section" id="introduction-to-deployment-of-nsaph-data-platform">
+<h1>Introduction to Deployment of NSAPH Data Platform<a class="headerlink" href="#introduction-to-deployment-of-nsaph-data-platform" title="Permalink to this heading"></a></h1>
 <p>Data processing workflows consist of multiple steps with each
 step using different tools. These tools and their prerequisites must<br />
 be available in the runtime environment that runs a workflow. Therefore,

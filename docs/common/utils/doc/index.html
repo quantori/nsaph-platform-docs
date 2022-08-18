@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NSAPH Utils python package &mdash; NSAPH Data Platform 0.0.1 documentation</title>
+  <title>NSAPH Utils python package &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -19,8 +19,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="NSAPH GIS python package" href="../../gis/doc/index.html" />
-    <link rel="prev" title="Some useful commands" href="../../platform-deployment/doc/UsefulCommands.html" /> 
+    <link rel="next" title="NSAPH Core Data Platform" href="../../core-platform/doc/index.html" />
+    <link rel="prev" title="Python Packages Included in the Platform" href="../../../packages.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,23 +40,29 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../home.html">NSAPH Data Platform: Documentation Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">Data Platform Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../platform-deployment/doc/index.html">NSAPH Data Platform Deployment</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">NSAPH Utils python package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#current-development">Current Development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#todo">TODO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../packages.html">Python Packages Included in the Platform</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General purpose utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview-of-utilities">Overview of Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-development">Current Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#todo">TODO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-indices">Documentation Indices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../gis/doc/index.html">NSAPH GIS python package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../gridmet/doc/index.html">Gridmet Computational Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../epa/doc/index.html">NSAPH EPA Package Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cms/doc/index.html">CMS Manipulation Package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../census/doc/index.html">NSAPH Census Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../core-platform/doc/index.html">Data platform components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gis/doc/index.html">GIS utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gridmet/doc/index.html">gridMET tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../epa/doc/index.html">EPA tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cms/doc/CMSLibrary.html">Health data manipulation tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../census/doc/index.html">Census data manipulation tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guts.html">Data Platform Internals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docindices.html">Indices</a></li>
 </ul>
 
         </div>
@@ -73,6 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../packages.html">Python Packages Included in the Platform</a> &raquo;</li>
       <li>NSAPH Utils python package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../_sources/common/utils/doc/index.md.txt" rel="nofollow"> View page source</a>
@@ -88,8 +95,8 @@
 <p><a class="reference external" href="https://nsaph-data-platform.github.io/nsaph-platform-docs/home.html">Documentation Home</a></p>
 <p>There are open questions about how best to structure this package that we can address
 (i.e. do we do multiple modules within this module, 1 single module, etc).</p>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<div class="section" id="overview-of-utilities">
+<h2>Overview of Utilities<a class="headerlink" href="#overview-of-utilities" title="Permalink to this heading"></a></h2>
 <p>The nsaph_utils package is intended to hold python
 code that will be useful
 across multiple portions of the NSAPH pipelines.</p>
@@ -125,8 +132,8 @@ the results match those from the previous version.</p></li>
 <li><p>Review of already done development to see what would make sense to port to this package</p></li>
 </ul>
 </div>
-<div class="section" id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h2>
+<div class="section" id="documentation-indices">
+<span id="utils-indices"></span><h2>Documentation Indices<a class="headerlink" href="#documentation-indices" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../../genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="../../../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
@@ -138,8 +145,8 @@ the results match those from the previous version.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../../platform-deployment/doc/UsefulCommands.html" class="btn btn-neutral float-left" title="Some useful commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../gis/doc/index.html" class="btn btn-neutral float-right" title="NSAPH GIS python package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../../../packages.html" class="btn btn-neutral float-left" title="Python Packages Included in the Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../core-platform/doc/index.html" class="btn btn-neutral float-right" title="NSAPH Core Data Platform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
