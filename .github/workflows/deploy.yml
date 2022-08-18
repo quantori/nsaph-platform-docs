@@ -1,0 +1,22 @@
+name: Automatic documentation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - automatic_documentation
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - run: |
+          sh ./build_common.sh
+          git config user.name Andrey Isaev
+          git config user.email andrey.isaev@quantori.com
+          git commit -m "updated docs"
+          git push
