@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration Guide &mdash; NSAPH Data Platform 0.0.2 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/sphinx_paramlinks.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Testing the installation" href="Testing.html" />
+    <link rel="prev" title="Howto" href="Howto.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> NSAPH Data Platform
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../home.html">Documentation Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rationale.html">What is Data Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../domains.html">Data Domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipelines.html">Data Processing Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../guts.html">Data Platform Internals</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../utils/doc/index.html">NSAPH Utils python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../core-platform/doc/index.html">NSAPH Core Data Platform</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">NSAPH Data Platform Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Introduction.html">Introduction to Deployment of NSAPH Data Platform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Guide.html">CWL-Airflow Deployment Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Howto.html">Howto</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuration Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-can-be-configured">What can be configured</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-base-configuration">Selecting base configuration.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-conda-environments">Controlling Conda environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-installation-of-third-party-requirements">Configuring installation of third-party requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-user-projects">Configuring user projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-git-submodules">Configure Git submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overriding-base-url">Overriding BASE_URL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#airflow-admin-username-and-password">Airflow admin username and password</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configurations-related-to-postgresql">Configurations related to PostgreSQL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#overriding-default-parameters">Overriding default parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Testing.html">Testing the installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Glossary.html">Airflow/CWL Glossary and FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UsefulCommands.html">Some useful commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#quick-start-deployment">Quick Start Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Terms and Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docindices.html">Indices</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">NSAPH Data Platform</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../../guts.html">Data Platform Internals</a> &raquo;</li>
+          <li><a href="index.html">NSAPH Data Platform Deployment</a> &raquo;</li>
+      <li>Configuration Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/common/platform-deployment/doc/Configuration.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="configuration-guide">
+<h1>Configuration Guide<a class="headerlink" href="#configuration-guide" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-can-be-configured" id="id1">What can be configured</a></p></li>
+<li><p><a class="reference internal" href="#selecting-base-configuration" id="id2">Selecting base configuration.</a></p></li>
+<li><p><a class="reference internal" href="#controlling-conda-environments" id="id3">Controlling Conda environments</a></p>
+<ul>
+<li><p><a class="reference internal" href="#setting-conda-environment-used-during-workflow-executions" id="id4">Setting Conda environment used during workflow executions</a></p></li>
+<li><p><a class="reference internal" href="#managing-multiple-conda-environments" id="id5">Managing multiple Conda environments</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#configuring-installation-of-third-party-requirements" id="id6">Configuring installation of third-party requirements</a></p>
+<ul>
+<li><p><a class="reference internal" href="#python-requirements" id="id7">Python requirements</a></p></li>
+<li><p><a class="reference internal" href="#r-libraries" id="id8">R libraries</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#configuring-user-projects" id="id9">Configuring user projects</a></p>
+<ul>
+<li><p><a class="reference internal" href="#python-projects" id="id10">Python Projects</a></p></li>
+<li><p><a class="reference internal" href="#enforcing-order-for-installation-of-user-python-projects" id="id11">Enforcing order for installation of user Python Projects</a></p></li>
+<li><p><a class="reference internal" href="#r-projects" id="id12">R Projects</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#configure-git-submodules" id="id13">Configure Git submodules</a></p></li>
+<li><p><a class="reference internal" href="#overriding-base-url" id="id14">Overriding BASE_URL</a></p></li>
+<li><p><a class="reference internal" href="#airflow-admin-username-and-password" id="id15">Airflow admin username and password</a></p></li>
+<li><p><a class="reference internal" href="#configurations-related-to-postgresql" id="id16">Configurations related to PostgreSQL</a></p>
+<ul>
+<li><p><a class="reference internal" href="#when-you-need-to-change-defaults" id="id17">When you need to change defaults</a></p></li>
+<li><p><a class="reference internal" href="#configuring-postgresql-server" id="id18">Configuring PostgreSQL Server</a></p>
+<ul>
+<li><p><a class="reference internal" href="#create-database-and-user-for-airflow" id="id19">Create database and user for Airflow</a></p></li>
+<li><p><a class="reference internal" href="#configure-postgresql-to-authenticate-airflow-user" id="id20">Configure PostgreSQL to authenticate Airflow user</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tell-airflow-how-to-authenticate-with-postgresql" id="id21">Tell Airflow how to authenticate with PostgreSQL</a></p>
+<ul>
+<li><p><a class="reference internal" href="#authentication" id="id22">Authentication</a></p></li>
+<li><p><a class="reference internal" href="#networking" id="id23">Networking</a></p></li>
+<li><p><a class="reference internal" href="#note-for-mac" id="id24">Note for Mac</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#overriding-default-parameters" id="id25">Overriding default parameters</a></p>
+<ul>
+<li><p><a class="reference internal" href="#full-list-of-available-environment-variables" id="id26">Full list of available environment variables</a></p></li>
+<li><p><a class="reference internal" href="#example-of-env-file-ready-to-run-containers" id="id27">Example of .env file. Ready to run containers</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>To keep in mind: a few <a class="reference internal" href="UsefulCommands.html"><span class="doc std std-doc">useful commands</span></a>.</p>
+<div class="section" id="what-can-be-configured">
+<h2><a class="toc-backref" href="#id1">What can be configured</a><a class="headerlink" href="#what-can-be-configured" title="Permalink to this heading"></a></h2>
+<p>The following options can be configured:</p>
+<ul class="simple">
+<li><p>Quick Options (see <a class="reference internal" href="index.html#quick-start-deployment"><span class="std std-doc">Quick Start</span></a>
+and <a class="reference internal" href="#selecting-base-configuration"><span class="std std-doc">Selecting base configuration</span></a>):</p>
+<ul>
+<li><p>To install Conda or not</p></li>
+<li><p>Use Existing PostgreSQL or install a new container
+(existing PostgreSQL requires custom configuration)</p></li>
+</ul>
+</li>
+<li><p>Custom configuration</p>
+<ul>
+<li><p>How Airflow connects to PostgreSQL</p></li>
+<li><p>What <a class="reference internal" href="#configuring-installation-of-third-party-requirements"><span class="std std-doc">prerequisites and requirements</span></a>
+are installed into the runtime workflow execution environment</p></li>
+<li><p>What <a class="reference internal" href="#configuring-user-projects"><span class="std std-doc">user projects</span></a>
+are installed into the runtime workflow execution environment</p></li>
+<li><p>Username and password used by Airflow administrator</p></li>
+<li><p><a class="reference internal" href="#overriding-base-url"><span class="std std-doc">Public Airflow URL</span></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="selecting-base-configuration">
+<h2><a class="toc-backref" href="#id2">Selecting base configuration.</a><a class="headerlink" href="#selecting-base-configuration" title="Permalink to this heading"></a></h2>
+<p>You may or may not need Conda for your workflows. Your host system
+might also run other applications that use PostgreSQL and thus
+already have PostgreSQL running directly on your host or in an
+existing Docker container. Combination of these options bring us to four
+possible base configurations.</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configurations</p></th>
+<th class="head"><p>Existing PostgreSQL</p></th>
+<th class="head"><p>New Container with PostgreSQL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>With Conda</strong></p></td>
+<td><p>Need to install Conda and configure PostgreSQL connections</p></td>
+<td><p>Need to install Conda and PostgreSQL (<strong>default</strong>). Connections are automatically configured</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Without Conda</strong></p></td>
+<td><p>Need to configure PostgreSQL connections</p></td>
+<td><p>Need to install PostgreSQL. Connections are automatically configured</p></td>
+</tr>
+</tbody>
+</table>
+<p>Configuration is mostly defined by setting environment variables
+that can be set manually in the shell or, for simplicity and
+repeatability, listed in a special file named <code class="docutils literal notranslate"><span class="pre">.env</span></code>. This package
+includes four template environment files, corresponding to the
+configurations above:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Configurations</p></th>
+<th class="head"><p>Existing PostgreSQL</p></th>
+<th class="head"><p>New Container with PostgreSQL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>With Conda</strong></p></td>
+<td><p><a class="reference internal" href="members/env_example_nopostgres_conda.html"><span class="doc std std-doc">.env_example_nopostgres_conda</span></a></p></td>
+<td><p><a class="reference internal" href="members/env_example_postgres_conda.html"><span class="doc std std-doc">.env_example_postgres_conda</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Without Conda</strong></p></td>
+<td><p><a class="reference internal" href="members/env_example_nopostgres_noconda.html"><span class="doc std std-doc">.env_example_nopostgres_noconda</span></a></p></td>
+<td><p><a class="reference internal" href="members/env_example_postgres_noconda.html"><span class="doc std std-doc">.env_example_postgres_noconda</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>The first step will always be to select the appropriate configuration
+and copying corresponding environment file into <code class="docutils literal notranslate"><span class="pre">.env</span></code>, e.g.,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp .env_example_postgres_conda .env
+</pre></div>
+</div>
+<p>The configuration is controlled by the two lines at the top
+of each file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">###</span>
+<span class="n">COMPOSE_PROFILES</span><span class="o">=</span><span class="p">[</span><span class="o">/</span><span class="n">postgres</span><span class="p">]</span>
+<span class="n">AIRFLOW_CONDA_ENV</span><span class="o">=</span><span class="p">[</span><span class="o">/</span><span class="n">conda_default</span><span class="p">]</span>
+<span class="c1">###</span>
+</pre></div>
+</div>
+<p>Then users can edit the setting in the <code class="docutils literal notranslate"><span class="pre">.env</span></code>, which they most probably
+would want to do in a production environment.</p>
+</div>
+<div class="section" id="controlling-conda-environments">
+<h2><a class="toc-backref" href="#id3">Controlling Conda environments</a><a class="headerlink" href="#controlling-conda-environments" title="Permalink to this heading"></a></h2>
+<div class="section" id="setting-conda-environment-used-during-workflow-executions">
+<h3><a class="toc-backref" href="#id4">Setting Conda environment used during workflow executions</a><a class="headerlink" href="#setting-conda-environment-used-during-workflow-executions" title="Permalink to this heading"></a></h3>
+<p>For more details about managing Conda environments, please look
+<a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">here</a>.</p>
+<p>First,
+<a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-the-environment-yml-file">export the environment</a>
+you need into a YAML file. Put your Conda environment file
+into <code class="docutils literal notranslate"><span class="pre">project</span></code> folder under the source tree. Then edit
+variable <code class="docutils literal notranslate"><span class="pre">AIRFLOW_CONDA_ENV</span></code> in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># AIRFLOW_CONDA_ENV=&quot;conda_default&quot;</span>
+<span class="n">AIRFLOW_CONDA_ENV</span><span class="o">=</span><span class="s2">&quot;mycondaenv&quot;</span>
+</pre></div>
+</div>
+<p>Alternatively, but less preferably, you can replace
+<a class="reference internal" href="members/conda_default.yml.html"><span class="doc std std-doc">conda_default.yml</span></a>.</p>
+</div>
+<div class="section" id="managing-multiple-conda-environments">
+<h3><a class="toc-backref" href="#id5">Managing multiple Conda environments</a><a class="headerlink" href="#managing-multiple-conda-environments" title="Permalink to this heading"></a></h3>
+<p>If you have more than one YAML file in the <code class="docutils literal notranslate"><span class="pre">project</span></code> folder,
+your containers will be built with all of these environments.
+This will give you an option to switch between Conda environments
+without rebuilding the containers. The default environment will
+be the one, specified by <code class="docutils literal notranslate"><span class="pre">AIRFLOW_CONDA_ENV</span></code> environment variable.</p>
+<p>You will be also able to select
+Conda environment inside a container when running command line
+tools (e.g., using cwl-runner) or batch executions.
+However, only one Conda Environment, specified by
+<code class="docutils literal notranslate"><span class="pre">AIRFLOW_CONDA_ENV</span></code> environment variable will be active inside
+Airflow. To change the environment you will need to shut down
+the webserver container, set the new value of <code class="docutils literal notranslate"><span class="pre">AIRFLOW_CONDA_ENV</span></code>
+and restart webserver <strong><em>without</em></strong> rebuilding it.</p>
+</div>
+</div>
+<div class="section" id="configuring-installation-of-third-party-requirements">
+<h2><a class="toc-backref" href="#id6">Configuring installation of third-party requirements</a><a class="headerlink" href="#configuring-installation-of-third-party-requirements" title="Permalink to this heading"></a></h2>
+<div class="section" id="python-requirements">
+<h3><a class="toc-backref" href="#id7">Python requirements</a><a class="headerlink" href="#python-requirements" title="Permalink to this heading"></a></h3>
+<p>Python requirements should be placed in the
+<a class="reference internal" href="members/requirements.txt.html"><span class="doc std std-doc">requirements.txt</span></a> file.</p>
+</div>
+<div class="section" id="r-libraries">
+<h3><a class="toc-backref" href="#id8">R libraries</a><a class="headerlink" href="#r-libraries" title="Permalink to this heading"></a></h3>
+<p>We are using Conda as an execution environment for R scripts,
+therefore R requirements should be part of your
+<a class="reference internal" href="#setting-conda-environment-used-during-workflow-executions"><span class="std std-doc">Conda environment</span></a>.</p>
+<p>If any R packages have to be installed from GitHub, they should be
+listed in
+<a class="reference internal" href="members/r-github-packages.txt.html"><span class="doc std std-doc">r-github-packages.txt</span></a>
+These packages are installed directly from GitHub
+by <a class="reference internal" href="members/install_conda.sh.html"><span class="doc std std-doc">install_conda</span></a> script.
+Make sure, that there is an
+end-of-line at the end of the file.</p>
+</div>
+</div>
+<div class="section" id="configuring-user-projects">
+<h2><a class="toc-backref" href="#id9">Configuring user projects</a><a class="headerlink" href="#configuring-user-projects" title="Permalink to this heading"></a></h2>
+<p>Beside installing third-party requirements, in many cases,
+you will want to install your own code inside the workflow
+execution environment. This deployment supports user code
+written in Python and R.</p>
+<div class="section" id="python-projects">
+<h3><a class="toc-backref" href="#id10">Python Projects</a><a class="headerlink" href="#python-projects" title="Permalink to this heading"></a></h3>
+<p>Python projects can be installed inside CWL-Airflow and hence can
+be used by workflows. The automatic configuration assumes that all
+Python projects must be placed in project folder under the source tree.
+It can be done either by using <a class="reference internal" href="#configure-git-submodules"><span class="std std-doc">Git submodules</span></a>
+utility, or, simply by copying the project content under projects folder.
+Each Python project must contain <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file.
+An included example, <code class="docutils literal notranslate"><span class="pre">project/python_sample_project</span></code> shows how it can be done.</p>
+<p>Please make sure that the argument</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">install_requires</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>of your <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file includes all required dependencies.</p>
+</div>
+<div class="section" id="enforcing-order-for-installation-of-user-python-projects">
+<h3><a class="toc-backref" href="#id11">Enforcing order for installation of user Python Projects</a><a class="headerlink" href="#enforcing-order-for-installation-of-user-python-projects" title="Permalink to this heading"></a></h3>
+<p>If the projects depend on each other, then it is important to
+install the projects in the specific order. To enforce the order,
+create a file called <code class="docutils literal notranslate"><span class="pre">projects.lst</span></code> and place it in <code class="docutils literal notranslate"><span class="pre">project</span></code> folder.
+List a single subfolder of a python project on each line of this file.
+If there is no file <code class="docutils literal notranslate"><span class="pre">projects.lst</span></code>, then teh projects will be installed
+in an arbitrary order. See <a class="reference internal" href="members/install_projects.sh.html"><span class="doc std std-doc">install_projects.sh</span></a>
+for details.</p>
+</div>
+<div class="section" id="r-projects">
+<h3><a class="toc-backref" href="#id12">R Projects</a><a class="headerlink" href="#r-projects" title="Permalink to this heading"></a></h3>
+<p>R scripts can be placed under project folder in the source tree.
+See included example, <code class="docutils literal notranslate"><span class="pre">project/r_sample_project</span></code>.</p>
+</div>
+</div>
+<div class="section" id="configure-git-submodules">
+<h2><a class="toc-backref" href="#id13">Configure Git submodules</a><a class="headerlink" href="#configure-git-submodules" title="Permalink to this heading"></a></h2>
+<p>This step is especially important if you are working inside environment
+with limited Internet capabilities. It works around the problem that docker
+containers running CWL and Airflow might have no access to the Internet.</p>
+<p>Most probably, you need to install your projects inside the CWL-Airflow
+environment. These projects can be installed using Git submodules functionality.</p>
+<ol class="arabic">
+<li><p>Clone this repo and go to repo directory</p></li>
+<li><p>If you need to install additional projects with custom code
+<a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">add them as submodules</a>
+to the project as subprojects inside <code class="docutils literal notranslate"><span class="pre">project</span></code> subdirectory. You can also
+just copy the content into a subdirectory of <code class="docutils literal notranslate"><span class="pre">project</span></code>.
+Please note, that one submodule (CWL-Airflow) is already included.</p></li>
+<li><p>Execute command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git submodule update --init --recursive
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="overriding-base-url">
+<h2><a class="toc-backref" href="#id14">Overriding BASE_URL</a><a class="headerlink" href="#overriding-base-url" title="Permalink to this heading"></a></h2>
+<p>In most of teh cases, you will use a
+<a class="reference external" href="https://airflow.apache.org/docs/apache-airflow/stable/howto/run-behind-proxy.html">proxy server to connect to Airflow</a>
+in production environment. The connection can go through
+<a class="reference external" href="https://www.nginx.com/">nginx</a> or
+<a class="reference external" href="https://httpd.apache.org/">apache</a> HTTP server.
+Airflow itself uses redirection, therefore you will need to
+tell Airflow that it is behind a proxy. This is done
+by enabling a proxy fix (<code class="docutils literal notranslate"><span class="pre">enable_proxy_fix</span> <span class="pre">=</span> <span class="pre">True</span></code>) and setting the value
+of <code class="docutils literal notranslate"><span class="pre">BASE_URL</span></code> in your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">BASE_URL</span><span class="o">=</span>http://my_host/myorg/airflow
+</pre></div>
+</div>
+</div>
+<div class="section" id="airflow-admin-username-and-password">
+<h2><a class="toc-backref" href="#id15">Airflow admin username and password</a><a class="headerlink" href="#airflow-admin-username-and-password" title="Permalink to this heading"></a></h2>
+<p>Most probably, for security reasons, you would want to change
+username and password for the Airflow and for the
+database authentication, used by Airflow.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">_AIRFLOW_WWW_USER_USERNAME</span><span class="o">=</span>airflow
+<span class="nb">export</span> <span class="nv">_AIRFLOW_WWW_USER_PASSWORD</span><span class="o">=</span>airflow
+</pre></div>
+</div>
+</div>
+<div class="section" id="configurations-related-to-postgresql">
+<h2><a class="toc-backref" href="#id16">Configurations related to PostgreSQL</a><a class="headerlink" href="#configurations-related-to-postgresql" title="Permalink to this heading"></a></h2>
+<div class="section" id="when-you-need-to-change-defaults">
+<h3><a class="toc-backref" href="#id17">When you need to change defaults</a><a class="headerlink" href="#when-you-need-to-change-defaults" title="Permalink to this heading"></a></h3>
+<p><strong><em>The steps, described in this section, are only applicable if
+you would like to reuse a PostgreSQL RDBMS already
+installed on your system for Airflow</em></strong>. If you are using default
+configuration, when a new container with PostgreSQL is installed,
+these parameters are automatically configured.</p>
+<p>The following subsections explain how
+to configure existing PostgreSQL service to be used by Airflow.
+There is a difference if PostgreSQL is running directly on
+host machine or in a separate docker container that is used by other
+application.</p>
+</div>
+<div class="section" id="configuring-postgresql-server">
+<h3><a class="toc-backref" href="#id18">Configuring PostgreSQL Server</a><a class="headerlink" href="#configuring-postgresql-server" title="Permalink to this heading"></a></h3>
+<div class="section" id="create-database-and-user-for-airflow">
+<h4><a class="toc-backref" href="#id19">Create database and user for Airflow</a><a class="headerlink" href="#create-database-and-user-for-airflow" title="Permalink to this heading"></a></h4>
+<p>Execute the following commands, replacing appropriate values, or execute
+corresponding commands within PostgreSQL console, or SQL console.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo -u postgres createuser --superuser --createrole --createdb --login --inherit airflow
+sudo -u postgres createdb --owner<span class="o">=</span>airflow airflow
+sudo -u postgres psql -c <span class="s2">&quot;alter user airflow with password &#39;airflow&#39;;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-postgresql-to-authenticate-airflow-user">
+<h4><a class="toc-backref" href="#id20">Configure PostgreSQL to authenticate Airflow user</a><a class="headerlink" href="#configure-postgresql-to-authenticate-airflow-user" title="Permalink to this heading"></a></h4>
+<p>If your PostgreSQL configured to authenticate user(s)
+from built-in bridge Docker network, you are all set, nothing needs
+to be done.</p>
+<p>Only if you need to adjust authentication settings, follow steps 1-4 below
+or execute a similar procedure. You might need to edit two configuration
+files: <code class="docutils literal notranslate"><span class="pre">pg_hba.conf</span></code> and <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code>. If you do not know where they
+are located, execute the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo -u postgres psql -c <span class="s2">&quot;show data_directory;&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Ensure, that network, created by docker for Airflow containers
+can be authenticated by PostgreSQL.</p></li>
+</ol>
+<p>By default, docker-compose creates network with subnet 172.16.238.0/24
+and gateway 172.16.238.1/32 (it works in both modes: PostgreSQL
+on the host and PostgreSQL in a container).</p>
+<p>If you need to change these network parameters, edit <code class="docutils literal notranslate"><span class="pre">networks</span></code> section in
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yaml</span></code>, at the bottom of the file.</p>
+<ol class="arabic simple" start="2">
+<li><p>Configure authentication in <code class="docutils literal notranslate"><span class="pre">pg_hba.conf</span></code></p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">host</span>    <span class="nb">all</span>             <span class="nb">all</span>             <span class="mf">172.16</span><span class="o">.</span><span class="mf">238.0</span><span class="o">/</span><span class="mi">24</span>         <span class="n">password</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Configure listening address in <code class="docutils literal notranslate"><span class="pre">postgresql.conf</span></code></p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listen_address</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Restart PostgreSQL service. This is an OS dependent command, but on
+many Linux systems it will be (for the latest PostgreSQL at the time of
+writing - <a class="reference external" href="https://www.postgresql.org/docs/13/index.html">PostgreSQL 13</a>):</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo systemctl restart postgresql-13 
+</pre></div>
+</div>
+<p>If you have an existing <em><strong>user-defined</strong></em> network with custom parameters
+(<em><strong>NOT a built-in network</strong></em>), you will probably need to override these
+additional parameters by exporting them as environment variables
+and adjusting pg_hba.conf and postgresql.conf as needed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NETWORK_NAME</span>
+<span class="n">WEB_SERVER_CONTAINER_IP</span>
+<span class="n">SCHEDULER_CONTAINER_IP</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tell-airflow-how-to-authenticate-with-postgresql">
+<h3><a class="toc-backref" href="#id21">Tell Airflow how to authenticate with PostgreSQL</a><a class="headerlink" href="#tell-airflow-how-to-authenticate-with-postgresql" title="Permalink to this heading"></a></h3>
+<p>Airflow should know how it should connect to PostgreSQL
+and authenticate itself. It knows it by examining environment variables,
+normally set in the <code class="docutils literal notranslate"><span class="pre">.env</span></code> file.</p>
+<div class="section" id="authentication">
+<h4><a class="toc-backref" href="#id22">Authentication</a><a class="headerlink" href="#authentication" title="Permalink to this heading"></a></h4>
+<p>In a test environment you might prefer to
+keep default values and will not need to change anything.
+Most probably, for security reasons, in production environment,
+you would want to change
+username and password that Airflow uses to connect. Uncomment
+and edit the following lines in your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># POSTGRE_USER=airflow</span>
+<span class="c1"># POSTGRE_PASS=airflow</span>
+<span class="c1"># POSTGRE_DB=airflow</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="networking">
+<h4><a class="toc-backref" href="#id23">Networking</a><a class="headerlink" href="#networking" title="Permalink to this heading"></a></h4>
+<p>If you created custom docker network, your PostgreSQL server address
+is defined by <code class="docutils literal notranslate"><span class="pre">gateway</span></code> option in <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">network</span> <span class="pre">create</span></code> command.
+By default, it is set to <code class="docutils literal notranslate"><span class="pre">172.16.238.1</span></code> in the
+<a class="reference internal" href="members/docker-compose.yaml.html"><span class="doc std std-doc">docker-compose</span></a>. Alternatively, sometimes, it
+will be <code class="docutils literal notranslate"><span class="pre">172.17.0.1</span></code> or <code class="docutils literal notranslate"><span class="pre">172.18.0.1</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">POSTGRE_SERVER</span><span class="o">=</span><span class="m">172</span>.16.238.1  
+<span class="c1">## or export POSTGRE_SERVER=172.18.0.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="note-for-mac">
+<h4><a class="toc-backref" href="#id24">Note for Mac</a><a class="headerlink" href="#note-for-mac" title="Permalink to this heading"></a></h4>
+<blockquote>
+<div><p>On <a class="reference external" href="https://docs.docker.com/desktop/mac/networking/#there-is-no-docker0-bridge-on-macos">Mac systems</a>,
+because of the way networking is implemented
+in Docker Desktop for Mac, you cannot see a docker0 interface
+on the host. This interface is actually within the virtual machine.
+Therefore, one has to use a
+<a class="reference external" href="https://docs.docker.com/desktop/mac/networking/#use-cases-and-workarounds">workaround</a>.
+and set PostgreSQL server address to <code class="docutils literal notranslate"><span class="pre">host.docker.internal</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">POSTGRE_SERVER=host.docker.internal</span></code></p>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="overriding-default-parameters">
+<h2><a class="toc-backref" href="#id25">Overriding default parameters</a><a class="headerlink" href="#overriding-default-parameters" title="Permalink to this heading"></a></h2>
+<p>If you want to override some params, see the section environment
+in docker-compose.yaml.</p>
+<div class="section" id="full-list-of-available-environment-variables">
+<h3><a class="toc-backref" href="#id26">Full list of available environment variables</a><a class="headerlink" href="#full-list-of-available-environment-variables" title="Permalink to this heading"></a></h3>
+<p>The following variables can be exported in the shell or updated in .env file
+to override their default values</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">### Available options and default values</span>
+<span class="c1">## Postgres</span>
+<span class="c1"># POSTGRE_USER=airflow</span>
+<span class="c1"># POSTGRE_PASS=airflow</span>
+<span class="c1"># POSTGRE_DB=airflow</span>
+<span class="c1"># POSTGRES_PORT=5432</span>
+<span class="c1">#</span>
+<span class="c1">## Airflow parameters</span>
+<span class="c1"># POSTGRE_SERVER=postgres</span>
+<span class="c1"># WEB_SERVER_PORT=8080</span>
+<span class="c1"># AIRFLOW__CORE__LOAD_EXAMPLES=&quot;False&quot;</span>
+<span class="c1"># AIRFLOW__WEBSERVER__EXPOSE_CONFIG: &quot;True&quot;</span>
+<span class="c1">## DAGS_FOLDER -- Environment variable inside container. Do not override if you set DAGS_DIR variable</span>
+<span class="c1"># DAGS_FOLDER=&quot;/opt/airflow/dags&quot;</span>
+<span class="c1"># _AIRFLOW_WWW_USER_USERNAME=&quot;airflow&quot;</span>
+<span class="c1"># _AIRFLOW_WWW_USER_PASSWORD=&quot;airflow&quot;</span>
+<span class="c1"># BASE_URL=&quot;http://localhost:8080&quot;</span>
+<span class="c1">#</span>
+<span class="c1">### Mapped volumes</span>
+<span class="c1"># PROJECT_DIR=&quot;./project&quot;</span>
+<span class="c1">## DAGS_DIR -- Environment variable on host! Do not override if you set DAGS_FOLDER variable</span>
+<span class="c1"># DAGS_DIR=&quot;./dags&quot;</span>
+<span class="c1"># LOGS_DIR=&quot;./airflow-logs&quot;</span>
+<span class="c1"># CWL_TMP_FOLDER=&quot;./cwl_tmp_folder&quot;</span>
+<span class="c1"># CWL_INPUTS_FOLDER=&quot;./cwl_inputs_folder&quot;</span>
+<span class="c1"># CWL_OUTPUTS_FOLDER=&quot;./cwl_outputs_folder&quot;</span>
+<span class="c1"># CWL_PICKLE_FOLDER=&quot;./cwl_pickle_folder&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-env-file-ready-to-run-containers">
+<h3><a class="toc-backref" href="#id27">Example of .env file. Ready to run containers</a><a class="headerlink" href="#example-of-env-file-ready-to-run-containers" title="Permalink to this heading"></a></h3>
+<blockquote>
+<div><p>NB: Values might be different for your environment</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COMPOSE_PROFILES</span><span class="o">=</span>
+<span class="n">AIRFLOW_CONDA_ENV</span><span class="o">=</span><span class="s2">&quot;conda_default&quot;</span>
+<span class="n">POSTGRE_SERVER</span><span class="o">=</span><span class="s2">&quot;172.16.238.1&quot;</span>
+<span class="n">POSTGRE_DB</span><span class="o">=</span><span class="n">airflow</span>
+<span class="n">POSTGRE_USER</span><span class="o">=</span><span class="n">airflow</span>
+<span class="n">POSTGRE_PASS</span><span class="o">=</span><span class="n">airflow</span>
+<span class="n">PROJECT_DIR</span><span class="o">=./</span><span class="n">project</span>
+<span class="n">DAGS_DIR</span><span class="o">=./</span><span class="n">dags</span>
+<span class="n">LOGS_DIR</span><span class="o">=./</span><span class="n">airflow</span><span class="o">-</span><span class="n">logs</span>
+<span class="n">CWL_TMP_FOLDER</span><span class="o">=./</span><span class="n">cwl_tmp_folder</span>
+<span class="n">CWL_INPUTS_FOLDER</span><span class="o">=./</span><span class="n">cwl_inputs_folder</span>
+<span class="n">CWL_OUTPUTS_FOLDER</span><span class="o">=./</span><span class="n">cwl_outputs_folder</span>
+<span class="n">CWL_PICKLE_FOLDER</span><span class="o">=./</span><span class="n">cwl_pickle_folder</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Howto.html" class="btn btn-neutral float-left" title="Howto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Testing.html" class="btn btn-neutral float-right" title="Testing the installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Harvard University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
