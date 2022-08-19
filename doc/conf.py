@@ -58,6 +58,11 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.nsaph', 'notes', 'venv']
 include_patterns = ['**/doc/*', '**/doc/members/*', '**/doc/pipeline/*', '*.md']
 
+html_static_path = ['_static']
+html_css_files = [
+    'css/nsaph.css',
+]
+
 #
 #html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
