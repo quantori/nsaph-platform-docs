@@ -9,7 +9,7 @@ Documentation Home <home>
 What is Data Platform <rationale>
 domains
 pipelines
-packages
+Python Packages <packages>
 guts
 Terms and Acronyms <glossary>
 docindices

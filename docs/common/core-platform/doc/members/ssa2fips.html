@@ -42,7 +42,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">What is Data Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../domains.html">Data Domains</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../pipelines.html">Data Processing Pipelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Python Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guts.html">Data Platform Internals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Terms and Acronyms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../docindices.html">Indices</a></li>
@@ -72,63 +72,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-nsaph.util.ssa2fips">
-<span id="the-ssa2fips-module"></span><h1>The ssa2fips Module<a class="headerlink" href="#module-nsaph.util.ssa2fips" title="Permalink to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSAFile">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SSAFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">county</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fips2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fips3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fips5</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssa2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssa3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssa5</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/util/ssa2fips.html#SSAFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.util.ssa2fips.SSAFile" title="Permalink to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSAFile.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/util/ssa2fips.html#SSAFile.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.util.ssa2fips.SSAFile.read" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSAFile.set_year">
-<span class="sig-name descname"><span class="pre">set_year</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/util/ssa2fips.html#SSAFile.set_year"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.util.ssa2fips.SSAFile.set_year" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSAFile.values">
-<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/util/ssa2fips.html#SSAFile.values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.util.ssa2fips.SSAFile.values" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSA2FIPS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SSA2FIPS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="data_loader.html#nsaph.loader.common.DBConnectionConfig" title="nsaph.loader.common.DBConnectionConfig"><span class="pre">DBConnectionConfig</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/util/ssa2fips.html#SSA2FIPS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.util.ssa2fips.SSA2FIPS" title="Permalink to this definition"></a></dt>
-<dd><dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSA2FIPS.years">
-<span class="sig-name descname"><span class="pre">years</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[2003,</span> <span class="pre">2011,</span> <span class="pre">2012,</span> <span class="pre">2013,</span> <span class="pre">2014,</span> <span class="pre">2015,</span> <span class="pre">2016,</span> <span class="pre">2017,</span> <span class="pre">2018]</span></em><a class="headerlink" href="#nsaph.util.ssa2fips.SSA2FIPS.years" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSA2FIPS.meta">
-<span class="sig-name descname"><span class="pre">meta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{2003:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;,</span> <span class="pre">2011:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;,</span> <span class="pre">2012:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;,</span> <span class="pre">2013:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;,</span> <span class="pre">2014:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;,</span> <span class="pre">2015:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;,</span> <span class="pre">2016:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;,</span> <span class="pre">2017:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;,</span> <span class="pre">2018:</span> <span class="pre">&lt;nsaph.util.ssa2fips.SSAFile</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#nsaph.util.ssa2fips.SSA2FIPS.meta" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSA2FIPS.read">
-<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#nsaph.util.ssa2fips.SSAFile" title="nsaph.util.ssa2fips.SSAFile"><span class="pre">SSAFile</span></a></span></span><a class="reference internal" href="../../../../_modules/nsaph/util/ssa2fips.html#SSA2FIPS.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.util.ssa2fips.SSA2FIPS.read" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSA2FIPS.print">
-<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/util/ssa2fips.html#SSA2FIPS.print"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.util.ssa2fips.SSA2FIPS.print" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSA2FIPS.store">
-<span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/util/ssa2fips.html#SSA2FIPS.store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.util.ssa2fips.SSA2FIPS.store" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="nsaph.util.ssa2fips.SSA2FIPS.y">
-<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2017</span></em><a class="headerlink" href="#nsaph.util.ssa2fips.SSA2FIPS.y" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="the-ssa2fips-module">
+<h1>The ssa2fips Module<a class="headerlink" href="#the-ssa2fips-module" title="Permalink to this heading"></a></h1>
 </div>
 
 

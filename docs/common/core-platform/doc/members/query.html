@@ -42,7 +42,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">What is Data Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../domains.html">Data Domains</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../pipelines.html">Data Processing Pipelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Python Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guts.html">Data Platform Internals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Terms and Acronyms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../docindices.html">Indices</a></li>
@@ -72,73 +72,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-nsaph.requests.query">
-<span id="the-query-module"></span><h1>The query Module<a class="headerlink" href="#module-nsaph.requests.query" title="Permalink to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.fqn">
-<span class="sig-name descname"><span class="pre">fqn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#fqn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.fqn" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="nsaph.requests.query.Query">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#Query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.Query" title="Permalink to this definition"></a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="nsaph.requests.query.Query.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#Query.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.Query.execute" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="nsaph.requests.query.Query.prepare">
-<span class="sig-name descname"><span class="pre">prepare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#Query.prepare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.Query.prepare" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.find_tables">
-<span class="sig-name descname"><span class="pre">find_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#find_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.find_tables" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.generate_select">
-<span class="sig-name descname"><span class="pre">generate_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#generate_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.generate_select" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.collect_tables">
-<span class="sig-name descname"><span class="pre">collect_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#collect_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.collect_tables" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.generate_from">
-<span class="sig-name descname"><span class="pre">generate_from</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#generate_from"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.generate_from" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.generate_where">
-<span class="sig-name descname"><span class="pre">generate_where</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">used_tables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Set</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#generate_where"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.generate_where" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.all_tables">
-<span class="sig-name descname"><span class="pre">all_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Set</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#all_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.all_tables" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.reduce_tables">
-<span class="sig-name descname"><span class="pre">reduce_tables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#reduce_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.reduce_tables" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.generate_order_by">
-<span class="sig-name descname"><span class="pre">generate_order_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#generate_order_by"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.generate_order_by" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="nsaph.requests.query.generate">
-<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'str'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typing.List</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.generate" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
+  <div class="section" id="the-query-module">
+<h1>The query Module<a class="headerlink" href="#the-query-module" title="Permalink to this heading"></a></h1>
 </div>
 
 

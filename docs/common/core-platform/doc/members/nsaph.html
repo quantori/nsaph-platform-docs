@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The ingest Module &mdash; NSAPH Data Platform 0.0.2 documentation</title>
+  <title>NSAPH Core Package-wide utilities &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -42,7 +42,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../rationale.html">What is Data Platform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../domains.html">Data Domains</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../pipelines.html">Data Processing Pipelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Python Packages Included in the Platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Python Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../guts.html">Data Platform Internals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../glossary.html">Terms and Acronyms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../docindices.html">Indices</a></li>
@@ -62,9 +62,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>The ingest Module</li>
+      <li>NSAPH Core Package-wide utilities</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/common/core-platform/doc/members/ingest.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/common/core-platform/doc/members/nsaph.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -72,12 +72,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-nsaph.ingest">
-<span id="the-ingest-module"></span><h1>The ingest Module<a class="headerlink" href="#module-nsaph.ingest" title="Permalink to this heading"></a></h1>
+  <div class="section" id="module-nsaph">
+<span id="nsaph-core-package-wide-utilities"></span><h1>NSAPH Core Package-wide utilities<a class="headerlink" href="#module-nsaph" title="Permalink to this heading"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="nsaph.ingest.ingest">
-<span class="sig-name descname"><span class="pre">ingest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/ingest.html#ingest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.ingest.ingest" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="nsaph.app_name">
+<span class="sig-name descname"><span class="pre">app_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../../../_modules/nsaph.html#app_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.app_name" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs application name. This application name can
+be used to identify the application to teh database process
+or in the log file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string, containing application name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nsaph.init_logging">
+<span class="sig-name descname"><span class="pre">init_logging</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">with_thread_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph.html#init_logging"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.init_logging" title="Permalink to this definition"></a></dt>
+<dd><p>Initializes logging. By default, log is written to a file and copied to
+the standard output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph.init_logging.params.with_thread_id"></span><strong>with_thread_id</strong><a class="paramlink headerlink reference internal" href="#nsaph.init_logging.params.with_thread_id">¶</a> – if True, then thread numerical id is added
+to the log</p></li>
+<li><p><span class="target" id="nsaph.init_logging.params.name"></span><strong>name</strong><a class="paramlink headerlink reference internal" href="#nsaph.init_logging.params.name">¶</a> – name of the application to be used by logger. By default,
+the name would be constructed by :func:app_name</p></li>
+<li><p><span class="target" id="nsaph.init_logging.params.level"></span><strong>level</strong><a class="paramlink headerlink reference internal" href="#nsaph.init_logging.params.level">¶</a> – Log level, default is DEBUG</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 
