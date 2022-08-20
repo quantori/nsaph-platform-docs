@@ -102,8 +102,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="the-mcr-sas2yaml-module">
-<h1>The mcr_sas2yaml Module<a class="headerlink" href="#the-mcr-sas2yaml-module" title="Permalink to this heading"></a></h1>
+  <div class="section" id="module-cms.tools.mcr_sas2yaml">
+<span id="the-mcr-sas2yaml-module"></span><h1>The mcr_sas2yaml Module<a class="headerlink" href="#module-cms.tools.mcr_sas2yaml" title="Permalink to this heading"></a></h1>
+<p>Introspector that looks for all SAS 7BDAT files in a given path
+matching a given pattern, reads metadata and generates data model
+for each file in YAML format. the data model is written to the common
+registry.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="cms.tools.mcr_sas2yaml.SASIntrospector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SASIntrospector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">registry_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_sas2yaml.html#SASIntrospector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_sas2yaml.SASIntrospector" title="Permalink to this definition"></a></dt>
+<dd><p>Introspector that looks for all SAS 7BDAT files in a given path
+matching a given pattern, reads metadata and generates data model
+for each file in YAML format. the data model is written to the common
+registry.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_sas2yaml.SASIntrospector.process">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">registry_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_sas2yaml.html#SASIntrospector.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_sas2yaml.SASIntrospector.process" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_sas2yaml.SASIntrospector.matches">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_sas2yaml.html#SASIntrospector.matches"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_sas2yaml.SASIntrospector.matches" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_sas2yaml.SASIntrospector.handle">
+<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_sas2yaml.html#SASIntrospector.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_sas2yaml.SASIntrospector.handle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_sas2yaml.SASIntrospector.add_sas_table">
+<span class="sig-name descname"><span class="pre">add_sas_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_sas2yaml.html#SASIntrospector.add_sas_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_sas2yaml.SASIntrospector.add_sas_table" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 

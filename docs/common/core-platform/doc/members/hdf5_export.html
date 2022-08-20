@@ -73,8 +73,80 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="the-hdf5-export-module">
-<h1>The hdf5_export Module<a class="headerlink" href="#the-hdf5-export-module" title="Permalink to this heading"></a></h1>
+  <div class="section" id="module-nsaph.requests.hdf5_export">
+<span id="the-hdf5-export-module"></span><h1>The hdf5_export Module<a class="headerlink" href="#module-nsaph.requests.hdf5_export" title="Permalink to this heading"></a></h1>
+<p>A utility to export result of quering the database in HDF5 format</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.Dataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.Dataset" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.Dataset.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#Dataset.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.Dataset.clear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.Dataset.add_index">
+<span class="sig-name descname"><span class="pre">add_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#Dataset.add_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.Dataset.add_index" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.Dataset.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#Dataset.append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.Dataset.append" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.Dataset.type_name">
+<span class="sig-name descname"><span class="pre">type_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#Dataset.type_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.Dataset.type_name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.Dataset.to_hdf5">
+<span class="sig-name descname"><span class="pre">to_hdf5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#Dataset.to_hdf5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.Dataset.to_hdf5" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.dtype">
+<span class="sig-name descname"><span class="pre">dtype</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#dtype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.dtype" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.append" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.map2ds">
+<span class="sig-name descname"><span class="pre">map2ds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="db.html#nsaph.db.ResultSetDeprecated" title="nsaph.db.ResultSetDeprecated"><span class="pre">ResultSetDeprecated</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#map2ds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.map2ds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.store">
+<span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datasets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.store" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="nsaph.requests.hdf5_export.export">
+<span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_user_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_ini</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.export" title="Permalink to this definition"></a></dt>
+<dd><p>Executes query specified by a user request and exports results
+as HDF5 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph.requests.hdf5_export.export.params.path_to_user_request"></span><strong>path_to_user_request</strong><a class="paramlink headerlink reference internal" href="#nsaph.requests.hdf5_export.export.params.path_to_user_request">¶</a> – a path to YAML file containing user request
+specification</p></li>
+<li><p><span class="target" id="nsaph.requests.hdf5_export.export.params.db_ini"></span><strong>db_ini</strong><a class="paramlink headerlink reference internal" href="#nsaph.requests.hdf5_export.export.params.db_ini">¶</a> – a path to database.ini file, containing connection
+parameters</p></li>
+<li><p><span class="target" id="nsaph.requests.hdf5_export.export.params.connection_name"></span><strong>connection_name</strong><a class="paramlink headerlink reference internal" href="#nsaph.requests.hdf5_export.export.params.connection_name">¶</a> – section name in the db.ini file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

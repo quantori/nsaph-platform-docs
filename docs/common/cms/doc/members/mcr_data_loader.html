@@ -73,8 +73,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="the-mcr-data-loader-module">
-<h1>The mcr_data_loader Module<a class="headerlink" href="#the-mcr-data-loader-module" title="Permalink to this heading"></a></h1>
+  <div class="section" id="module-cms.mcr_data_loader">
+<span id="the-mcr-data-loader-module"></span><h1>The mcr_data_loader Module<a class="headerlink" href="#module-cms.mcr_data_loader" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="cms.mcr_data_loader.MedicareDataLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MedicareDataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/mcr_data_loader.html#MedicareDataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.mcr_data_loader.MedicareDataLoader" title="Permalink to this definition"></a></dt>
+<dd><p>Subclass of generic Data Loader aware of the raw Medicare CMS
+data structure. Matches FTS and DAT files.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.mcr_data_loader.MedicareDataLoader.dat4fts">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dat4fts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fts_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/mcr_data_loader.html#MedicareDataLoader.dat4fts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.mcr_data_loader.MedicareDataLoader.dat4fts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.mcr_data_loader.MedicareDataLoader.open">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dat_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">FWFReader</span></span></span><a class="reference internal" href="../../../../_modules/cms/mcr_data_loader.html#MedicareDataLoader.open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.mcr_data_loader.MedicareDataLoader.open" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.mcr_data_loader.MedicareDataLoader.get_files">
+<span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/cms/mcr_data_loader.html#MedicareDataLoader.get_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.mcr_data_loader.MedicareDataLoader.get_files" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 

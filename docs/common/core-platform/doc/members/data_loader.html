@@ -84,8 +84,104 @@ both virtual and materialized.</p>
 <li class="toctree-l1"><a class="reference internal" href="../DataLoader.html">NSAPH Data Loader</a></li>
 </ul>
 </div>
-<div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this heading"></a></h2>
+<div class="section" id="module-nsaph.loader.data_loader">
+<span id="api"></span><h2>API<a class="headerlink" href="#module-nsaph.loader.data_loader" title="Permalink to this heading"></a></h2>
+<p>Domain Data Loader</p>
+<p>Provides Command line interface for loading data from a
+single or a set of column-formatted files
+into NSAPH PostgreSQL Database.</p>
+<p>Input (aka source) files can be either in FST or in CSV format.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataLoader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="loader_config.html#nsaph.loader.loader_config.LoaderConfig" title="nsaph.loader.loader_config.LoaderConfig"><span class="pre">LoaderConfig</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader" title="Permalink to this definition"></a></dt>
+<dd><p>Class for data loader</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.set_table">
+<span class="sig-name descname"><span class="pre">set_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.set_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.set_table" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.print_ddl">
+<span class="sig-name descname"><span class="pre">print_ddl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.print_ddl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.print_ddl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.print_table_ddl">
+<span class="sig-name descname"><span class="pre">print_table_ddl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.print_table_ddl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.print_table_ddl" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.insert_from_select">
+<span class="sig-name descname"><span class="pre">insert_from_select</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.insert_from_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.insert_from_select" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.is_parallel">
+<span class="sig-name descname"><span class="pre">is_parallel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.is_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.is_parallel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.get_connections">
+<span class="sig-name descname"><span class="pre">get_connections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">connection</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.get_connections"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.get_connections" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.get_connection">
+<span class="sig-name descname"><span class="pre">get_connection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.get_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.get_connection" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.get_files">
+<span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.get_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.get_files" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.has_been_ingested">
+<span class="sig-name descname"><span class="pre">has_been_ingested</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.has_been_ingested"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.has_been_ingested" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.reset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.drop">
+<span class="sig-name descname"><span class="pre">drop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.drop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.drop" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.commit">
+<span class="sig-name descname"><span class="pre">commit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.commit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.commit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.rollback">
+<span class="sig-name descname"><span class="pre">rollback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.rollback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.rollback" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.close" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.load" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.data_loader.DataLoader.import_data_from_file">
+<span class="sig-name descname"><span class="pre">import_data_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/data_loader.html#DataLoader.import_data_from_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.data_loader.DataLoader.import_data_from_file" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-nsaph.loader.common">
 <span id="configuration"></span><h2>Configuration<a class="headerlink" href="#module-nsaph.loader.common" title="Permalink to this heading"></a></h2>
@@ -194,6 +290,139 @@ Registry is a directory or an archive
 containing YAML files with domain 
 definition. Default is to use 
 the built-in registry</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-nsaph.loader.loader_config"></span><p>Domain Loader Configurator</p>
+<p>Intended to configure loading of a single or a set of column-formatted files
+into NSAPH PostgreSQL Database.
+Input (aka source) files can be either in FST or in CSV format</p>
+<p>Configurator assumes that the database schema is defined as a YAML or JSON file.
+A separate tool is available to introspect source files and infer possible
+database schema.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.Parallelization">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Parallelization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#Parallelization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.Parallelization" title="Permalink to this definition"></a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.DataLoaderAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataLoaderAction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#DataLoaderAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.DataLoaderAction" title="Permalink to this definition"></a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">LoaderConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#LoaderConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig" title="Permalink to this definition"></a></dt>
+<dd><p>Configurator class for data loader</p>
+<p>Creates a new object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph.loader.loader_config.LoaderConfig.params.subclass"></span><strong>subclass</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.loader_config.LoaderConfig.params.subclass">¶</a> – A concrete class containing configuration information
+Configuration options must be defined as class memebers with names,
+starting with one ‘_’ characters and values be instances of
+:class Argument:</p></li>
+<li><p><span class="target" id="nsaph.loader.loader_config.LoaderConfig.params.description"></span><strong>description</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.loader_config.LoaderConfig.params.description">¶</a> – Optional text to use as description.
+If not specified, then it is extracted from subclass documentation</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.action">
+<span class="sig-name descname"><span class="pre">action</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="loader_config.html#nsaph.loader.loader_config.DataLoaderAction" title="nsaph.loader.loader_config.DataLoaderAction"><span class="pre">DataLoaderAction</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.action" title="Permalink to this definition"></a></dt>
+<dd><p>If this option is given, then the whole domain schema will be dropped</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.data" title="Permalink to this definition"></a></dt>
+<dd><p>Path to a data file or directory. Can be a 
+single CSV, gzipped CSV or FST file or a directory recursively 
+containing CSV files. Can also be a tar, tar.gz (or tgz) or zip archive 
+containing CSV files</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Force recreating table(s) if it/they already exist</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.page">
+<span class="sig-name descname"><span class="pre">page</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.page" title="Permalink to this definition"></a></dt>
+<dd><p>Explicit page size for the database</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.log">
+<span class="sig-name descname"><span class="pre">log</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.log" title="Permalink to this definition"></a></dt>
+<dd><p>Explicit interval for logging</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.limit">
+<span class="sig-name descname"><span class="pre">limit</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.limit" title="Permalink to this definition"></a></dt>
+<dd><p>Load at most specified number of records</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.buffer">
+<span class="sig-name descname"><span class="pre">buffer</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.buffer" title="Permalink to this definition"></a></dt>
+<dd><p>Buffer size for converting fst files</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.threads">
+<span class="sig-name descname"><span class="pre">threads</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.threads" title="Permalink to this definition"></a></dt>
+<dd><p>Number of threads writing into the database</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.parallelization">
+<span class="sig-name descname"><span class="pre">parallelization</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.parallelization" title="Permalink to this definition"></a></dt>
+<dd><p>Type of parallelization, if any</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.pattern">
+<span class="sig-name descname"><span class="pre">pattern</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.pattern" title="Permalink to this definition"></a></dt>
+<dd><p>pattern for files in a directory or an archive, 
+e.g., “**/<a href="#id1"><span class="problematic" id="id2">maxdata_</span></a>*_ps_*.csv”</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.incremental">
+<span class="sig-name descname"><span class="pre">incremental</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.incremental" title="Permalink to this definition"></a></dt>
+<dd><p>Commit every file and skip over files that 
+have already been ingested</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.sloppy">
+<span class="sig-name descname"><span class="pre">sloppy</span></span><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.sloppy" title="Permalink to this definition"></a></dt>
+<dd><p>Do not update existing tables and views</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="nsaph.loader.loader_config.LoaderConfig.validate">
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/loader/loader_config.html#LoaderConfig.validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.loader.loader_config.LoaderConfig.validate" title="Permalink to this definition"></a></dt>
+<dd><p>Subclasses can override this method to implement custom handling
+of command line arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph.loader.loader_config.LoaderConfig.validate.params.attr"></span><strong>attr</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.loader_config.LoaderConfig.validate.params.attr">¶</a> – Command line argument name</p></li>
+<li><p><span class="target" id="nsaph.loader.loader_config.LoaderConfig.validate.params.value"></span><strong>value</strong><a class="paramlink headerlink reference internal" href="#nsaph.loader.loader_config.LoaderConfig.validate.params.value">¶</a> – Value returned by argparse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>value to use</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

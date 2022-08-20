@@ -73,8 +73,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="the-mcr-fts2db-module">
-<h1>The mcr_fts2db Module<a class="headerlink" href="#the-mcr-fts2db-module" title="Permalink to this heading"></a></h1>
+  <div class="section" id="module-cms.tools.mcr_fts2db">
+<span id="the-mcr-fts2db-module"></span><h1>The mcr_fts2db Module<a class="headerlink" href="#module-cms.tools.mcr_fts2db" title="Permalink to this heading"></a></h1>
+<p>Command line utility to load raw Medicare data into the database.</p>
+<p>Used for 2011 and later years. Looks for FTS files, parses them to generate
+database model and extract
+metadata required to read DAT files. Then loads data into the database.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="cms.tools.mcr_fts2db.MedicareLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MedicareLoader</span></span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_fts2db.html#MedicareLoader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_fts2db.MedicareLoader" title="Permalink to this definition"></a></dt>
+<dd><p>Medicare Loader for original medicare data received from Resdac. Used
+for 2011 and later years.</p>
+<p>Looks for FTS files, parses them to generate database model and extract
+metadata required to read DAT files. Then loads data into the database.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_fts2db.MedicareLoader.process">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_fts2db.html#MedicareLoader.process"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_fts2db.MedicareLoader.process" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_fts2db.MedicareLoader.traverse">
+<span class="sig-name descname"><span class="pre">traverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_fts2db.html#MedicareLoader.traverse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_fts2db.MedicareLoader.traverse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_fts2db.MedicareLoader.handle">
+<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_fts2db.html#MedicareLoader.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_fts2db.MedicareLoader.handle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_fts2db.MedicareLoader.loader_for_csv">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">loader_for_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig" title="nsaph.loader.loader_config.LoaderConfig"><span class="pre">LoaderConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../core-platform/doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader" title="nsaph.loader.data_loader.DataLoader"><span class="pre">DataLoader</span></a></span></span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_fts2db.html#MedicareLoader.loader_for_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_fts2db.MedicareLoader.loader_for_csv" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cms.tools.mcr_fts2db.MedicareLoader.loader_for_fwf">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">loader_for_fwf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../../../core-platform/doc/members/loader_config.html#nsaph.loader.loader_config.LoaderConfig" title="nsaph.loader.loader_config.LoaderConfig"><span class="pre">LoaderConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fts_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../../../core-platform/doc/members/data_loader.html#nsaph.loader.data_loader.DataLoader" title="nsaph.loader.data_loader.DataLoader"><span class="pre">DataLoader</span></a></span></span><a class="reference internal" href="../../../../_modules/cms/tools/mcr_fts2db.html#MedicareLoader.loader_for_fwf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cms.tools.mcr_fts2db.MedicareLoader.loader_for_fwf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 
