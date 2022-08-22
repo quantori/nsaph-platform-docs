@@ -63,6 +63,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Module code</a> &raquo;</li>
+          <li><a href="../nsaph.html">nsaph</a> &raquo;</li>
       <li>nsaph.adi</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -73,7 +74,9 @@
            <div itemprop="articleBody">
              
   <h1>Source code for nsaph.adi</h1><div class="highlight"><pre>
-<span></span><span class="c1">#  Copyright (c) 2021. Harvard University</span>
+<span></span>
+
+<span class="c1">#  Copyright (c) 2021. Harvard University</span>
 <span class="c1">#</span>
 <span class="c1">#  Developed by Research Software Engineering,</span>
 <span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
@@ -93,6 +96,7 @@
 <span class="c1">#</span>
 
 <span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">deprecated.sphinx</span> <span class="kn">import</span> <span class="n">deprecated</span>
 
 <span class="kn">from</span> <span class="nn">nsaph</span> <span class="kn">import</span> <span class="n">init_logging</span>
 <span class="kn">from</span> <span class="nn">nsaph.data_model.model</span> <span class="kn">import</span> <span class="n">Table</span>
@@ -101,7 +105,12 @@
 <span class="c1">## Area Deprivation Index (ADI)</span>
 <span class="c1">## https://www.neighborhoodatlas.medicine.wisc.edu/</span>
 
-<div class="viewcode-block" id="add_gis_columns"><a class="viewcode-back" href="../../common/core-platform/doc/members/adi.html#nsaph.adi.add_gis_columns">[docs]</a><span class="k">def</span> <span class="nf">add_gis_columns</span><span class="p">(</span><span class="n">table</span><span class="p">:</span> <span class="n">Table</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">section</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="add_gis_columns"><a class="viewcode-back" href="../../common/core-platform/doc/members/adi.html#nsaph.adi.add_gis_columns">[docs]</a><span class="nd">@deprecated</span><span class="p">(</span>
+    <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;We do not support automatic import of ADI dataset&quot;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">add_gis_columns</span><span class="p">(</span><span class="n">table</span><span class="p">:</span> <span class="n">Table</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">section</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">Connection</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">db</span><span class="p">,</span> <span class="n">section</span><span class="o">=</span><span class="n">section</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
         <span class="n">cur</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
         <span class="n">table</span><span class="o">.</span><span class="n">parse_fips12</span><span class="p">(</span><span class="n">cur</span><span class="p">)</span>

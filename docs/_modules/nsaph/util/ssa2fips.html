@@ -63,6 +63,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../index.html">Module code</a> &raquo;</li>
+          <li><a href="../../nsaph.html">nsaph</a> &raquo;</li>
       <li>nsaph.util.ssa2fips</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -73,7 +74,17 @@
            <div itemprop="articleBody">
              
   <h1>Source code for nsaph.util.ssa2fips</h1><div class="highlight"><pre>
-<span></span><span class="c1">#  Copyright (c) 2022. Harvard University</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utility to create in-database mapping table between state and</span>
+<span class="sd">county codes used by SSA for Medicare claims and Federal Information</span>
+<span class="sd">Processing Series (FIPS) codes</span>
+
+<span class="sd">Data has been taken from National Bureau of Economic Research</span>
+
+<span class="sd">https://www.nber.org/research/data/ssa-federal-information-processing-series-fips-state-and-county-crosswalk</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#  Copyright (c) 2022. Harvard University</span>
 <span class="c1">#</span>
 <span class="c1">#  Developed by Research Software Engineering,</span>
 <span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
@@ -105,14 +116,6 @@
 
 <span class="kn">from</span> <span class="nn">nsaph_utils.utils.io_utils</span> <span class="kn">import</span> <span class="n">as_csv_reader</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Utility to create in-database mapping table between state and </span>
-<span class="sd">county codes used by SSA for Medicare claims and Federal Information </span>
-<span class="sd">Processing Series (FIPS) codes </span>
-
-<span class="sd">Data has been taken from</span>
-<span class="sd">[National Bureau of Economic Research](https://www.nber.org/research/data/ssa-federal-information-processing-series-fips-state-and-county-crosswalk)</span>
-<span class="sd">&quot;&quot;&quot;</span>
 
 
 <div class="viewcode-block" id="SSAFile"><a class="viewcode-back" href="../../../common/core-platform/doc/members/ssa2fips.html#nsaph.util.ssa2fips.SSAFile">[docs]</a><span class="k">class</span> <span class="nc">SSAFile</span><span class="p">:</span>

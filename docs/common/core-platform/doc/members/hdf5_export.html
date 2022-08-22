@@ -74,6 +74,7 @@
              
   <div class="section" id="module-nsaph.requests.hdf5_export">
 <span id="the-hdf5-export-module"></span><h1>The hdf5_export Module<a class="headerlink" href="#module-nsaph.requests.hdf5_export" title="Permalink to this heading"></a></h1>
+<p>A utility to export result of quering the database in HDF5 format</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph.requests.hdf5_export.Dataset">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#Dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.Dataset" title="Permalink to this definition"></a></dt>
@@ -126,8 +127,24 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="nsaph.requests.hdf5_export.export">
-<span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="db.html#nsaph.db.ResultSetDeprecated" title="nsaph.db.ResultSetDeprecated"><span class="pre">ResultSetDeprecated</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.export" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">export</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_to_user_request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_ini</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/hdf5_export.html#export"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.hdf5_export.export" title="Permalink to this definition"></a></dt>
+<dd><p>Executes query specified by a user request and exports results
+as HDF5 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span class="target" id="nsaph.requests.hdf5_export.export.params.path_to_user_request"></span><strong>path_to_user_request</strong><a class="paramlink headerlink reference internal" href="#nsaph.requests.hdf5_export.export.params.path_to_user_request">¶</a> – a path to YAML file containing user request
+specification</p></li>
+<li><p><span class="target" id="nsaph.requests.hdf5_export.export.params.db_ini"></span><strong>db_ini</strong><a class="paramlink headerlink reference internal" href="#nsaph.requests.hdf5_export.export.params.db_ini">¶</a> – a path to database.ini file, containing connection
+parameters</p></li>
+<li><p><span class="target" id="nsaph.requests.hdf5_export.export.params.connection_name"></span><strong>connection_name</strong><a class="paramlink headerlink reference internal" href="#nsaph.requests.hdf5_export.export.params.connection_name">¶</a> – section name in the db.ini file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 

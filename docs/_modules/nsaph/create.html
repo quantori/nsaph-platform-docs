@@ -63,6 +63,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Module code</a> &raquo;</li>
+          <li><a href="../nsaph.html">nsaph</a> &raquo;</li>
       <li>nsaph.create</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -94,13 +95,21 @@
 
 <span class="kn">import</span> <span class="nn">argparse</span>
 
+<span class="kn">from</span> <span class="nn">deprecated.sphinx</span> <span class="kn">import</span> <span class="n">deprecated</span>
+
 <span class="kn">from</span> <span class="nn">nsaph</span> <span class="kn">import</span> <span class="n">init_logging</span>
 <span class="kn">from</span> <span class="nn">nsaph.data_model.model</span> <span class="kn">import</span> <span class="n">Table</span>
 <span class="kn">from</span> <span class="nn">nsaph.db</span> <span class="kn">import</span> <span class="n">Connection</span>
 <span class="kn">from</span> <span class="nn">nsaph_utils.utils.io_utils</span> <span class="kn">import</span> <span class="n">get_entries</span><span class="p">,</span> <span class="n">basename</span>
 
 
-<div class="viewcode-block" id="create_table"><a class="viewcode-back" href="../../common/core-platform/doc/members/create.html#nsaph.create.create_table">[docs]</a><span class="k">def</span> <span class="nf">create_table</span><span class="p">(</span><span class="n">table</span><span class="p">:</span> <span class="n">Table</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="create_table"><a class="viewcode-back" href="../../common/core-platform/doc/members/create.html#nsaph.create.create_table">[docs]</a><span class="nd">@deprecated</span><span class="p">(</span>
+    <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;Use nsaph.loader.data_loader&quot;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">create_table</span><span class="p">(</span><span class="n">table</span><span class="p">:</span> <span class="n">Table</span><span class="p">,</span> <span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">section</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="n">entries</span><span class="p">,</span> <span class="n">open_function</span> <span class="o">=</span> <span class="n">get_entries</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">file_path</span><span class="p">)</span>
     <span class="n">table</span><span class="o">.</span><span class="n">open_entry_function</span> <span class="o">=</span> <span class="n">open_function</span>
