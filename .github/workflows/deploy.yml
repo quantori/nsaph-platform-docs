@@ -16,7 +16,4 @@ jobs:
           python-version: "3.9"
       - run: |
           bash build.sh
-          git config user.name Andrey Isaev
-          git config user.email andrey.isaev@quantori.com
-          git commit -m "updated docs"
-          git push
+      - uses: EndBug/add-and-commit@v9
