@@ -17,9 +17,3 @@ jobs:
       - run: |
           bash build.sh
       - uses: EndBug/add-and-commit@v9
-
-      - name: Deploy pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          publish_dir: ./docs
