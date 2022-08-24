@@ -11,10 +11,6 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 
-import os
-import sys
-sys.path.insert(0, os.path.abspath('./common/gridmet/src/python'))
-
 add_module_names = False
 autoclass_content = 'both'
 autodoc_member_order = 'bysource'
@@ -44,8 +40,6 @@ extensions = [
     'sphinx_paramlinks',
     'sphinx.ext.autosectionlabel',
     'myst_parser',
-    'nsaph_utils.docutils.cwl_parser',
-    'nsaph_utils.docutils.cwl_directive',
 ]
 myst_heading_anchors = 5
 
