@@ -42,9 +42,17 @@ do
     pip install -r doc/common/$name/requirements.txt
   fi
 
+  # prepare rst templates for Python modules
   if [ -d doc/common/$name/src/python ]
   then
-     python -m nsaph_utils.docutils.collector doc/common/$name/src/python doc/common/$name/doc/members
+     collector doc/common/$name/src/python doc/common/$name/doc/members
+  fi
+
+  # prepare markdown templates for CWL files
+  if [ -d doc/common/$name/src/cwl ]
+  then
+     mkdir -p doc/common/$name/doc/pipeline
+     cwl2md -i doc/common/$name/src/cwl -o doc/common/$name/doc/pipeline
   fi
 
   # make python sources available for autodoc
@@ -56,9 +64,9 @@ do
 
 done
 
-python -u -m nsaph_utils.docutils.copy_section doc/common/utils/README.md doc/home.md nsaph_utils
-python -u -m nsaph_utils.docutils.copy_section doc/common/core-platform/README.md doc/home.md nsaph
-python -u -m nsaph_utils.docutils.copy_section doc/common/gis/README.md doc/home.md gis
+copy_section doc/common/utils/README.md doc/home.md nsaph_utils
+copy_section doc/common/core-platform/README.md doc/home.md nsaph
+copy_section doc/common/gis/README.md doc/home.md gis
 
 
 # build documentation
