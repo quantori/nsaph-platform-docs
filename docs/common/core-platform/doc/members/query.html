@@ -74,6 +74,7 @@
              
   <div class="section" id="module-nsaph.requests.query">
 <span id="the-query-module"></span><h1>The query Module<a class="headerlink" href="#module-nsaph.requests.query" title="Permalink to this heading"></a></h1>
+<p>Utility to generate SQL query based on a YAML query specification</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="nsaph.requests.query.fqn">
 <span class="sig-name descname"><span class="pre">fqn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#fqn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.fqn" title="Permalink to this definition"></a></dt>
@@ -82,7 +83,14 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="nsaph.requests.query.Query">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">connection</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#Query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.Query" title="Permalink to this definition"></a></dt>
-<dd><dl class="py method">
+<dd><p>Class providing the API to generate SQL from a user request</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="nsaph.requests.query.Query.sql">
+<span class="sig-name descname"><span class="pre">sql</span></span><a class="headerlink" href="#nsaph.requests.query.Query.sql" title="Permalink to this definition"></a></dt>
+<dd><p>Generated SQL</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="nsaph.requests.query.Query.execute">
 <span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#Query.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.Query.execute" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -90,7 +98,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="nsaph.requests.query.Query.prepare">
 <span class="sig-name descname"><span class="pre">prepare</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/nsaph/requests/query.html#Query.prepare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nsaph.requests.query.Query.prepare" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Generates SQL. Result is stored as a class member sql</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

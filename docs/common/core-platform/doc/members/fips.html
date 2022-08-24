@@ -74,15 +74,9 @@
              
   <div class="section" id="module-nsaph.fips">
 <span id="the-fips-module"></span><h1>The fips Module<a class="headerlink" href="#module-nsaph.fips" title="Permalink to this heading"></a></h1>
-<dl class="simple">
-<dt>SELECT</dt><dd><p>state_id,
-MIN(county_fips)/1000 AS fips</p>
-</dd>
-<dt>FROM</dt><dd><p>public.us_iso</p>
-</dd>
-</dl>
-<p>GROUP BY state_id
-ORDER BY 2</p>
+<p>US State FIPS codes, represented as Python dictionary</p>
+<p>Source: <a class="reference external" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/technical/nra/nri/results/?cid=nrcs143_013696">https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/technical/nra/nri/results/?cid=nrcs143_013696</a></p>
+<p>Can be also used from command line to create JSON array of state FIPS codes</p>
 </div>
 
 

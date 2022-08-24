@@ -63,6 +63,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../index.html">Module code</a> &raquo;</li>
+          <li><a href="../../nsaph.html">nsaph</a> &raquo;</li>
       <li>nsaph.requests.hdf5_export</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -73,7 +74,11 @@
            <div itemprop="articleBody">
              
   <h1>Source code for nsaph.requests.hdf5_export</h1><div class="highlight"><pre>
-<span></span><span class="c1">#  Copyright (c) 2021. Harvard University</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A utility to export result of quering the database in HDF5 format</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#  Copyright (c) 2021. Harvard University</span>
 <span class="c1">#</span>
 <span class="c1">#  Developed by Research Software Engineering,</span>
 <span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
@@ -183,7 +188,17 @@
         <span class="n">dataset</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="export"><a class="viewcode-back" href="../../../common/core-platform/doc/members/hdf5_export.html#nsaph.requests.hdf5_export.export">[docs]</a><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">rs</span><span class="p">:</span> <span class="n">ResultSetDeprecated</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_export</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">rs</span><span class="p">:</span> <span class="n">ResultSetDeprecated</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Internal method. Use :func:export</span>
+
+<span class="sd">    :param request: A dictionary containing user request, normally the result</span>
+<span class="sd">        of parsed YAML file</span>
+<span class="sd">    :param rs: ResultSet obtained by executing the generated query</span>
+<span class="sd">    :param path:  Output path where to export HDF5 file</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">groups</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">if</span> <span class="s2">&quot;package&quot;</span> <span class="ow">in</span> <span class="n">request</span><span class="p">:</span>
@@ -235,7 +250,29 @@
             <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="n">append</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span>
         <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="n">g</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">current</span><span class="p">[</span><span class="n">g</span><span class="p">])</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">}</span>
-        <span class="n">store</span><span class="p">(</span><span class="n">h5</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span></div>
+        <span class="n">store</span><span class="p">(</span><span class="n">h5</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="export"><a class="viewcode-back" href="../../../common/core-platform/doc/members/hdf5_export.html#nsaph.requests.hdf5_export.export">[docs]</a><span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="n">path_to_user_request</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">db_ini</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Executes query specified by a user request and exports results</span>
+<span class="sd">    as HDF5 file</span>
+
+<span class="sd">    :param path_to_user_request: a path to YAML file containing user request</span>
+<span class="sd">        specification</span>
+<span class="sd">    :param db_ini: a path to database.ini file, containing connection</span>
+<span class="sd">        parameters</span>
+<span class="sd">    :param connection_name: section name in the db.ini file</span>
+
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">with</span> <span class="n">Query</span><span class="p">(</span><span class="n">path_to_user_request</span><span class="p">,</span> <span class="p">(</span><span class="n">db_ini</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">))</span> <span class="k">as</span> <span class="n">q</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">sql</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">rs</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+        <span class="n">_export</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="n">rs</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">request</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.hdf5&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All done&quot;</span><span class="p">)</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
@@ -259,11 +296,7 @@
         <span class="n">d</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
         <span class="n">args</span><span class="o">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s2">&quot;../../../yml/example_request.yaml&quot;</span><span class="p">)</span>
 
-    <span class="k">with</span> <span class="n">Query</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">section</span><span class="p">))</span> <span class="k">as</span> <span class="n">q</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">sql</span><span class="p">)</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">rs</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
-        <span class="n">export</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="n">rs</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">request</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.hdf5&quot;</span><span class="p">)</span>
+    <span class="n">export</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">db</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">section</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All done&quot;</span><span class="p">)</span>
 </pre></div>
 

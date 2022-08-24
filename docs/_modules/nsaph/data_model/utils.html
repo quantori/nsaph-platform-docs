@@ -63,6 +63,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../index.html">Module code</a> &raquo;</li>
+          <li><a href="../../nsaph.html">nsaph</a> &raquo;</li>
       <li>nsaph.data_model.utils</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -73,7 +74,11 @@
            <div itemprop="articleBody">
              
   <h1>Source code for nsaph.data_model.utils</h1><div class="highlight"><pre>
-<span></span><span class="c1">#  Copyright (c) 2021. Harvard University</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">API used by data modelling and data loading utilities</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#  Copyright (c) 2021. Harvard University</span>
 <span class="c1">#</span>
 <span class="c1">#  Developed by Research Software Engineering,</span>
 <span class="c1">#  Faculty of Arts and Sciences, Research Computing (FAS RC)</span>
@@ -144,6 +149,13 @@
 
 
 <div class="viewcode-block" id="entry_to_path"><a class="viewcode-back" href="../../../common/core-platform/doc/members/utils.html#nsaph.data_model.utils.entry_to_path">[docs]</a><span class="k">def</span> <span class="nf">entry_to_path</span><span class="p">(</span><span class="n">entry</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns valid path for an archive entry</span>
+
+<span class="sd">    :param entry: an archive entry or a path to file on the file system</span>
+<span class="sd">    :return: path within the arcjve or file system</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
         <span class="n">path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">entry</span>
         <span class="k">return</span> <span class="n">path</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">path</span><span class="o">.</span><span class="n">name</span>
@@ -151,6 +163,12 @@
 
 
 <div class="viewcode-block" id="CSVLikeJsonReader"><a class="viewcode-back" href="../../../common/core-platform/doc/members/utils.html#nsaph.data_model.utils.CSVLikeJsonReader">[docs]</a><span class="k">class</span> <span class="nc">CSVLikeJsonReader</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class, providing CSV Reader interface for JSON files.</span>
+
+<span class="sd">    Helps abstracting reading different file types.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">columns</span><span class="p">:</span> <span class="n">List</span><span class="p">,</span> <span class="n">returns_mapping</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="kc">None</span>
@@ -190,6 +208,15 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generalized reader for columns-structured files, such as CSV, FST and</span>
 <span class="sd">    sas7bdat</span>
+
+<span class="sd">    This class is Context manager and can be used with with block</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">    with DataReader(file_path) as reader:</span>
+<span class="sd">        for row in reader.rows():</span>
+<span class="sd">            print(row)</span>
+<span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
