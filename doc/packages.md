@@ -6,7 +6,7 @@ maxdepth: 1
 caption: Contents
 ---
 General purpose utilities <common/utils/doc/index>
-Data platform components <common/core-platform/doc/index>
+Data platform components <common/core-platform/doc/CoreLibrary>
 GIS utilities <common/gis/doc/index>
 gridMET tools <common/gridmet/doc/index>
 EPA tools <common/epa/doc/index>

@@ -154,7 +154,6 @@ This library contains several packages, aimed to work with census shape files.
 
 [NSAPH GIS Package Description](common/gis/doc/index)
 
-
    
 ### Data Ingestion and Processing Packages and Pipelines
 
