@@ -1,0 +1,41 @@
+# gridMET Pipeline
+
+![](gridmet_dwnl_only_cwl.png)
+
+```{contents}
+---
+local:
+---
+```
+
+**Workflow**
+
+## Description
+
+Downloads and processes gridMET data (no database ingestion)
+
+
+## Inputs
+
+| Name      | Type      | Default                                                 | Description                               | 
+|:----------|:----------|:--------------------------------------------------------|:------------------------------------------|
+| proxy     | string?   |                                                         | HTTP/HTTPS Proxy if required              | 
+| shapes    | Directory |                                                         |                                           | 
+| geography | string    |                                                         | Type of geography: zip codes or counties  | 
+| years     | string[]  | `['1999:2008', '2011:2021']`                            |                                           | 
+| bands     | string[]  | `['rmax', 'rmin', 'sph', 'srad', 'th', 'tmmn', 'tmmx']` |                                           | 
+
+## Outputs
+
+| Name         | Type  | Description | 
+|:-------------|:------|:------------|
+| data         | array |             | 
+| download_log | array |             | 
+| download_err | array |             | 
+
+## Steps
+
+| Name    | Runs    | Description | 
+|:--------|:--------|:------------|
+| process | command |             | 
+

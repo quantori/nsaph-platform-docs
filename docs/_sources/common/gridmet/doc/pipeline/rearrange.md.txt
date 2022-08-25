@@ -1,0 +1,29 @@
+# File rearranger
+
+```{contents}
+---
+local:
+---
+```
+
+**Tool** [](mv)
+
+## Description
+
+This tool rearranges downloaded files for further ingestion into a database.
+
+
+## Inputs
+
+| Name   | Type   | Default | Description | 
+|:-------|:-------|:--------|:------------|
+| source |        |         |             | 
+| band   | string |         |             | 
+
+## Outputs
+
+| Name   | Type      | Description | 
+|:-------|:----------|:------------|
+| data   | Directory |             | 
+| errors | stderr    |             | 
+
