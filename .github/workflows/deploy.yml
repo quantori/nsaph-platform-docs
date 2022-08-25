@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - feature/automatic_documentation
+      - main
+  pull_request:
+      branches:
+        - main
+
 
 jobs:
   build:
