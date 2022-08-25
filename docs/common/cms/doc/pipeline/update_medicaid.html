@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>update_medicaid.cwl &mdash; NSAPH Data Platform 0.0.2 documentation</title>
+  <title>Full Medicaid Processing Pipeline &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -63,9 +63,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>update_medicaid.cwl</li>
+      <li>Full Medicaid Processing Pipeline</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/common/cms/doc/pipeline/update_medicaid.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/common/cms/doc/pipeline/update_medicaid.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -73,223 +73,215 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="update-medicaid-cwl">
-<h1>update_medicaid.cwl<a class="headerlink" href="#update-medicaid-cwl" title="Permalink to this heading"></a></h1>
-<p class="rubric">Workflow</p>
-<p class="rubric">Description<p>This workflow prcoesses already ingested Medicaid data
-See [documentation](../Medicaid.md) for detailed
-information.
-</p>
-</p>
-<p class="rubric">Inputs<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
+  <div class="section" id="full-medicaid-processing-pipeline">
+<h1>Full Medicaid Processing Pipeline<a class="headerlink" href="#full-medicaid-processing-pipeline" title="Permalink to this heading"></a></h1>
+<p><img alt="" src="../../../../_images/update_medicaid_cwl.png" /></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#inputs" id="id2">Inputs</a></p></li>
+<li><p><a class="reference internal" href="#outputs" id="id3">Outputs</a></p></li>
+<li><p><a class="reference internal" href="#steps" id="id4">Steps</a></p></li>
+</ul>
+</div>
+<p><strong>Workflow</strong></p>
+<div class="section" id="description">
+<h2><a class="toc-backref" href="#id1">Description</a><a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<p>This workflow prcoesses already ingested Medicaid data
+See <a class="reference internal" href="../Medicaid.html"><span class="doc std std-doc">documentation</span></a> for detailed
+information.</p>
+</div>
+<div class="section" id="inputs">
+<h2><a class="toc-backref" href="#id2">Inputs</a><a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Type</p></th>
+<th class="text-left head"><p>Default</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>database</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
-<td><p>Path to database connection file, usually database.ini</p></td>
+<tr class="row-even"><td class="text-left"><p>database</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>Path to database connection file, usually database.ini</p></td>
 </tr>
-<tr class="row-odd"><td><p>connection_name</p></td>
-<td><p>string</p></td>
-<td><p> </p></td>
-<td><p>The name of the section in the database.ini file</p></td>
+<tr class="row-odd"><td class="text-left"><p>connection_name</p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>The name of the section in the database.ini file</p></td>
 </tr>
-<tr class="row-even"><td><p>registry</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>registry</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
 </tr>
 </tbody>
 </table>
-</p>
-<p class="rubric">Outputs<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+</div>
+<div class="section" id="outputs">
+<h2><a class="toc-backref" href="#id3">Outputs</a><a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Type</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>ps_index_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>ps_index_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>ps_vacuum_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>ps_vacuum_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>ben_create_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>ben_create_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>ben_index_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>ben_index_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>ben_vacuum_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>ben_vacuum_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>mnth_create_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>mnth_create_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>mnth_index_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>mnth_index_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>mnth_vacuum_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>mnth_vacuum_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>enrlm_create_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>enrlm_create_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>enrlm_index_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>enrlm_index_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>enrlm_vacuum_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>enrlm_vacuum_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>elgb_create_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>elgb_create_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>elgb_index_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>elgb_index_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>elgb_vacuum_log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>elgb_vacuum_log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>ps_index_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>ps_index_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>ps_vacuum_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>ps_vacuum_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>ben_create_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>ben_create_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>ben_index_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>ben_index_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>ben_vacuum_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>ben_vacuum_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>mnth_create_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>mnth_create_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>mnth_index_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>mnth_index_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>mnth_vacuum_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>mnth_vacuum_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>enrlm_create_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>enrlm_create_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>enrlm_index_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>enrlm_index_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>enrlm_vacuum_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>enrlm_vacuum_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>elgb_create_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>elgb_create_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>elgb_index_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>elgb_index_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>elgb_vacuum_err</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>elgb_vacuum_err</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
 </tbody>
 </table>
-</p>
-<p class="rubric">Steps<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
+</div>
+<div class="section" id="steps">
+<h2><a class="toc-backref" href="#id4">Steps</a><a class="headerlink" href="#steps" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Runs</p></th>
-<th class="head"><p>Target</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Runs</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>index_ps</p></td>
-<td><p>index.cwl</p></td>
-<td><p><a class="reference external" href="index.html">index.html</a></p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>index_ps</p></td>
+<td class="text-left"><p><a class="reference internal" href="index.html"><span class="doc std std-doc">index.cwl</span></a></p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>vacuum_ps</p></td>
-<td><p>vacuum.cwl</p></td>
-<td><p><a class="reference external" href="vacuum.html">vacuum.html</a></p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>vacuum_ps</p></td>
+<td class="text-left"><p><a class="reference internal" href="vacuum.html"><span class="doc std std-doc">vacuum.cwl</span></a></p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-even"><td><p>create_beneficiaries</p></td>
-<td><p>matview.cwl</p></td>
-<td><p><a class="reference external" href="matview.html">matview.html</a></p></td>
-<td><p>Creates `Beneficiaries` Table</p></td>
+<tr class="row-even"><td class="text-left"><p>create_beneficiaries</p></td>
+<td class="text-left"><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
+<td class="text-left"><p>Creates <code class="docutils literal notranslate"><span class="pre">Beneficiaries</span></code> Table</p></td>
 </tr>
-<tr class="row-odd"><td><p>create_monthly_view</p></td>
-<td><p>matview.cwl</p></td>
-<td><p><a class="reference external" href="matview.html">matview.html</a></p></td>
-<td><p>Creates internally used `Monthly View`</p></td>
+<tr class="row-odd"><td class="text-left"><p>create_monthly_view</p></td>
+<td class="text-left"><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
+<td class="text-left"><p>Creates internally used <code class="docutils literal notranslate"><span class="pre">Monthly</span> <span class="pre">View</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>create_enrollments</p></td>
-<td><p>matview.cwl</p></td>
-<td><p><a class="reference external" href="matview.html">matview.html</a></p></td>
-<td><p>Creates `Enrollment` Table</p></td>
+<tr class="row-even"><td class="text-left"><p>create_enrollments</p></td>
+<td class="text-left"><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
+<td class="text-left"><p>Creates <code class="docutils literal notranslate"><span class="pre">Enrollment</span></code> Table</p></td>
 </tr>
-<tr class="row-odd"><td><p>create_eligibility</p></td>
-<td><p>matview.cwl</p></td>
-<td><p><a class="reference external" href="matview.html">matview.html</a></p></td>
-<td><p>Creates `Eligibility` Table</p></td>
+<tr class="row-odd"><td class="text-left"><p>create_eligibility</p></td>
+<td class="text-left"><p><a class="reference internal" href="matview.html"><span class="doc std std-doc">matview.cwl</span></a></p></td>
+<td class="text-left"><p>Creates <code class="docutils literal notranslate"><span class="pre">Eligibility</span></code> Table</p></td>
 </tr>
 </tbody>
 </table>
-</p>
+</div>
 </div>
 
 

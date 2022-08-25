@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>verify.cwl &mdash; NSAPH Data Platform 0.0.2 documentation</title>
+  <title>Index Builder &mdash; NSAPH Data Platform 0.0.2 documentation</title>
       <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../../_static/sphinx_paramlinks.css" type="text/css" />
@@ -63,9 +63,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>verify.cwl</li>
+      <li>Index Builder</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/common/cms/doc/pipeline/verify.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/common/cms/doc/pipeline/verify.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -73,70 +73,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="verify-cwl">
-<h1>verify.cwl<a class="headerlink" href="#verify-cwl" title="Permalink to this heading"></a></h1>
-<p class="rubric">Tool [‘python’, ‘-m’, ‘cms.aggregates’]</p>
-<p class="rubric">Description<p>This tool verifies correct counts for a random selection of
-mediciad MAX data
-</p>
-</p>
-<p class="rubric">Inputs<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
+  <div class="section" id="index-builder">
+<h1>Index Builder<a class="headerlink" href="#index-builder" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#inputs" id="id2">Inputs</a></p></li>
+<li><p><a class="reference internal" href="#outputs" id="id3">Outputs</a></p></li>
+</ul>
+</div>
+<p><strong>Tool</strong> <a class="reference internal" href="../members/aggregates.html#module-cms.aggregates" title="cms.aggregates"><span class="xref myst py py-mod"></span></a></p>
+<div class="section" id="description">
+<h2><a class="toc-backref" href="#id1">Description</a><a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<p>This tool verifies correct counts for a random selection of
+mediciad MAX data</p>
+</div>
+<div class="section" id="inputs">
+<h2><a class="toc-backref" href="#id2">Inputs</a><a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Type</p></th>
+<th class="text-left head"><p>Default</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>database</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
-<td><p>Path to database connection file, usually database.ini</p></td>
+<tr class="row-even"><td class="text-left"><p>database</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>Path to database connection file, usually database.ini</p></td>
 </tr>
-<tr class="row-odd"><td><p>connection_name</p></td>
-<td><p>string</p></td>
-<td><p> </p></td>
-<td><p>The name of the section in the database.ini file</p></td>
+<tr class="row-odd"><td class="text-left"><p>connection_name</p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>The name of the section in the database.ini file</p></td>
 </tr>
-<tr class="row-even"><td><p>depends_on</p></td>
-<td><p>File?</p></td>
-<td><p> </p></td>
-<td><p>a special field used to enforce dependencies and execution order</p></td>
+<tr class="row-even"><td class="text-left"><p>depends_on</p></td>
+<td class="text-left"><p>File?</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>a special field used to enforce dependencies and execution order</p></td>
 </tr>
 </tbody>
 </table>
-</p>
-<p class="rubric">Outputs<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+</div>
+<div class="section" id="outputs">
+<h2><a class="toc-backref" href="#id3">Outputs</a><a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Type</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>errors</p></td>
-<td><p>stderr</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>errors</p></td>
+<td class="text-left"><p>stderr</p></td>
+<td class="text-left"><p></p></td>
 </tr>
 </tbody>
 </table>
-</p>
+</div>
 </div>
 
 

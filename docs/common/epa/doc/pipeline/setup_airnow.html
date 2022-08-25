@@ -87,7 +87,7 @@
           <li><a href="../cwl_tools.html">CWL Tools and Common Workflows</a> &raquo;</li>
       <li>Prepare environment for AirNow</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/common/epa/doc/pipeline/setup_airnow.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/common/epa/doc/pipeline/setup_airnow.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -97,64 +97,65 @@
              
   <div class="section" id="prepare-environment-for-airnow">
 <h1>Prepare environment for AirNow<a class="headerlink" href="#prepare-environment-for-airnow" title="Permalink to this heading"></a></h1>
-<p class="rubric">Tool [‘python’, ‘-m’, ‘epa.airnow_setup’]</p>
-<p class="rubric">Description<p>This tool prepares environemnt for AirNow download
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#inputs" id="id2">Inputs</a></p></li>
+<li><p><a class="reference internal" href="#outputs" id="id3">Outputs</a></p></li>
+</ul>
+</div>
+<p><strong>Tool</strong> <a class="reference internal" href="../members/airnow_setup.html#module-epa.airnow_setup" title="epa.airnow_setup"><span class="xref myst py py-mod"></span></a></p>
+<div class="section" id="description">
+<h2><a class="toc-backref" href="#id1">Description</a><a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<p>This tool prepares environemnt for AirNow download
 It checks that AirNow API key is provided and installs
-zip and county shape files if necessary
-</p>
-</p>
-<p class="rubric">Inputs<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
+zip and county shape files if necessary</p>
+</div>
+<div class="section" id="inputs">
+<h2><a class="toc-backref" href="#id2">Inputs</a><a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Type</p></th>
+<th class="text-left head"><p>Default</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>api-key</p></td>
-<td><p>string</p></td>
-<td><p> </p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>api-key</p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>shape_dir</p></td>
-<td><p>Directory?</p></td>
-<td><p> </p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>shape_dir</p></td>
+<td class="text-left"><p>Directory?</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p></p></td>
 </tr>
 </tbody>
 </table>
-</p>
-<p class="rubric">Outputs<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+</div>
+<div class="section" id="outputs">
+<h2><a class="toc-backref" href="#id3">Outputs</a><a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Type</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>shapes</p></td>
-<td><p>File[]</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>shapes</p></td>
+<td class="text-left"><p>File[]</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>log</p></td>
-<td><p>stdout</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>log</p></td>
+<td class="text-left"><p>stdout</p></td>
+<td class="text-left"><p></p></td>
 </tr>
 </tbody>
 </table>
-</p>
+</div>
 </div>
 
 
