@@ -20,7 +20,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Full EPA AirNow Processing Pipeline" href="pipeline/airnow.html" />
+    <link rel="next" title="Full EPA AirNow Processing Pipeline (including downloading shapefiles)" href="pipeline/airnow.html" />
     <link rel="prev" title="The registry Module" href="members/registry.html" /> 
 </head>
 
@@ -98,18 +98,81 @@
 <h1>CWL Tools and Common Workflows<a class="headerlink" href="#cwl-tools-and-common-workflows" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/airnow.html">Full EPA AirNow Processing Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/airnow_local_shapes.html">Full AirNowProcessing Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/aqs.html">Full EPA AQS Processing Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/download_airnow.html">Downloader of AirNow Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/download_aqs.html">Downloader of AQS Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/ensure_resource.html">Resource Loader</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/expand_aqs.html">Downloader of AQS Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/get_shapes.html">Tool retrieving shapes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/index.html">Index Builder</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/ingest.html">Uploader of the EPA Data to the database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/introspect.html">Introspector for downloaded data file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipeline/setup_airnow.html">Prepare environment for AirNow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/airnow.html">Full EPA AirNow Processing Pipeline (including downloading shapefiles)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/airnow.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/airnow.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/airnow.html#outputs">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/airnow.html#steps">Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/airnow_local_shapes.html">Full AirNowProcessing Pipeline (with shapefiles on local file system)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/airnow_local_shapes.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/airnow_local_shapes.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/airnow_local_shapes.html#outputs">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/airnow_local_shapes.html#steps">Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/aqs.html">Full EPA AQS Processing Pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/aqs.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/aqs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/aqs.html#outputs">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/aqs.html#steps">Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/download_airnow.html">Downloader of AirNow Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/download_airnow.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/download_airnow.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/download_airnow.html#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/download_aqs.html">Downloader of AQS Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/download_aqs.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/download_aqs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/download_aqs.html#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/ensure_resource.html">Resource Loader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/ensure_resource.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/ensure_resource.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/ensure_resource.html#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/expand_aqs.html">Downloader of AQS Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/expand_aqs.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/expand_aqs.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/expand_aqs.html#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/get_shapes.html">Tool retrieving county or zip shapefiles from Census website</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/get_shapes.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/get_shapes.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/get_shapes.html#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/index.html">Index Builder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/index.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/index.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/index.html#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/ingest.html">Uploader of the EPA Data to the database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/ingest.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/ingest.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/ingest.html#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/introspect.html">Introspector for downloaded data file</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/introspect.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/introspect.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/introspect.html#outputs">Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline/setup_airnow.html">Prepare environment for AirNow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/setup_airnow.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/setup_airnow.html#inputs">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline/setup_airnow.html#outputs">Outputs</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -119,7 +182,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="members/registry.html" class="btn btn-neutral float-left" title="The registry Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pipeline/airnow.html" class="btn btn-neutral float-right" title="Full EPA AirNow Processing Pipeline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pipeline/airnow.html" class="btn btn-neutral float-right" title="Full EPA AirNow Processing Pipeline (including downloading shapefiles)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

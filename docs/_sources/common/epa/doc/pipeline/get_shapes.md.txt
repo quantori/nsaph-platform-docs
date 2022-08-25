@@ -1,0 +1,30 @@
+# Tool retrieving county or zip shapefiles from Census website
+
+```{contents}
+---
+local:
+---
+```
+
+**Tool** [](epa.airnow_shapes)
+
+## Description
+
+This tool downloads AirNow data from EPA website
+
+
+## Inputs
+
+| Name           | Type    | Default | Description                                                                                                                                                    | 
+|:---------------|:--------|:--------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| proxy          | string? |         | HTTP/HTTPS Proxy if required                                                                                                                                   | 
+| parameter_code | string  |         | Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: [AQS Code List](https://www.epa.gov/aqs/aqs-code-list)  | 
+| from           | string  |         | Start date for downolading, in YYYY-MM-DD format                                                                                                               | 
+| to             | string  |         | End date for downolading, in YYYY-MM-DD format                                                                                                                 | 
+
+## Outputs
+
+| Name   | Type   | Description | 
+|:-------|:-------|:------------|
+| shapes | File[] |             | 
+

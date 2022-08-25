@@ -1,0 +1,29 @@
+# Downloader of AirNow Data
+
+```{contents}
+---
+local:
+---
+```
+
+**Tool** [](gridmet.shapes)
+
+## Description
+
+This tool downloads AirNow data from EPA website
+
+
+## Inputs
+
+| Name  | Type    | Default | Description                                            | 
+|:------|:--------|:--------|:-------------------------------------------------------|
+| proxy | string? |         | HTTP/HTTPS Proxy if required                           | 
+| year  | string  |         | Calendar year, for which we are downloading shape file | 
+| geo   | string  |         | geography type, zip or county                          | 
+
+## Outputs
+
+| Name        | Type   | Description | 
+|:------------|:-------|:------------|
+| shape_files | File[] |             | 
+

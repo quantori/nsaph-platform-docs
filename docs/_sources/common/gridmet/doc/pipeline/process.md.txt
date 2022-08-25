@@ -1,0 +1,38 @@
+# Downloader of gridMET Data
+
+```{contents}
+---
+local:
+---
+```
+
+**Tool** [](gridmet.launcher)
+
+## Description
+
+This tool preprocesses gridMET to aggregate over shapes
+(zip codes or counties) and time. It produces daily mean values
+
+
+## Inputs
+
+| Name        | Type       | Default     | Description                                                                        | 
+|:------------|:-----------|:------------|:-----------------------------------------------------------------------------------|
+| proxy       | string?    |             | HTTP/HTTPS Proxy if required                                                       | 
+| strategy    | string     | `downscale` | Rasterization strategy                                                             | 
+| shapes      | Directory? |             |                                                                                    | 
+| geography   | string     |             | Type of geography: zip codes or counties                                           | 
+| year        | string     |             | Year to process                                                                    | 
+| band        | string     |             | [Gridmet Band](https://gee.stac.cloud/WUtw2spmec7AM9rk6xMXUtStkMtbviDtHK?t=bands)  | 
+| dates       | string?    |             | dates restriction, for testing purposes only                                       | 
+| input       | File       |             | Downloaded file                                                                    | 
+| shape_files | File[]     |             | Paths to shape files                                                               | 
+
+## Outputs
+
+| Name   | Type   | Description                                                                                                                                                       | 
+|:-------|:-------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| log    | File   |                                                                                                                                                                   | 
+| data   | File   | The output CSV file, containing daily means of the given gridMET variable over given geographies. Each line contains date, geo id (zip or county FIPS) and value  | 
+| errors | stderr |                                                                                                                                                                   | 
+

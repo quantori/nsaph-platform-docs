@@ -20,7 +20,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="Tool retrieving shapes" href="get_shapes.html" />
+    <link rel="next" title="Tool retrieving county or zip shapefiles from Census website" href="get_shapes.html" />
     <link rel="prev" title="Resource Loader" href="ensure_resource.html" /> 
 </head>
 
@@ -87,7 +87,7 @@
           <li><a href="../cwl_tools.html">CWL Tools and Common Workflows</a> &raquo;</li>
       <li>Downloader of AQS Data</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../../_sources/common/epa/doc/pipeline/expand_aqs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/common/epa/doc/pipeline/expand_aqs.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -97,62 +97,63 @@
              
   <div class="section" id="downloader-of-aqs-data">
 <h1>Downloader of AQS Data<a class="headerlink" href="#downloader-of-aqs-data" title="Permalink to this heading"></a></h1>
-<p class="rubric">Tool [‘python’, ‘-m’, ‘epa.aqs_expand’]</p>
-<p class="rubric">Description<p>This tool downloads AQS data from EPA website
-</p>
-</p>
-<p class="rubric">Inputs<table class="docutils align-default">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#inputs" id="id2">Inputs</a></p></li>
+<li><p><a class="reference internal" href="#outputs" id="id3">Outputs</a></p></li>
+</ul>
+</div>
+<p><strong>Tool</strong> <a class="reference internal" href="../members/aqs_expand.html#module-epa.aqs_expand" title="epa.aqs_expand"><span class="xref myst py py-mod"></span></a></p>
+<div class="section" id="description">
+<h2><a class="toc-backref" href="#id1">Description</a><a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<p>This tool downloads AQS data from EPA website</p>
+</div>
+<div class="section" id="inputs">
+<h2><a class="toc-backref" href="#id2">Inputs</a><a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Default</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Type</p></th>
+<th class="text-left head"><p>Default</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>input</p></td>
-<td><p>File[]</p></td>
-<td><p> </p></td>
-<td><p>A path the downloaded data file </p></td>
+<tr class="row-even"><td class="text-left"><p>input</p></td>
+<td class="text-left"><p>File[]</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>A path the downloaded data file</p></td>
 </tr>
-<tr class="row-odd"><td><p>parameter_code</p></td>
-<td><p>string</p></td>
-<td><p> </p></td>
-<td><p>Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: [AQS Code List](https://www.epa.gov/aqs/aqs-code-list) </p></td>
+<tr class="row-odd"><td class="text-left"><p>parameter_code</p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>Parameter code. Either a numeric code (e.g. 88101, 44201) or symbolic name (e.g. PM25, NO2). See more: <a class="reference external" href="https://www.epa.gov/aqs/aqs-code-list">AQS Code List</a></p></td>
 </tr>
 </tbody>
 </table>
-</p>
-<p class="rubric">Outputs<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
+</div>
+<div class="section" id="outputs">
+<h2><a class="toc-backref" href="#id3">Outputs</a><a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<table class="colwidths-auto docutils align-default">
 <thead>
-<tr class="row-odd"><th class="head"><p>Name</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Type</p></th>
+<th class="text-left head"><p>Description</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>log</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-even"><td class="text-left"><p>log</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
-<tr class="row-odd"><td><p>data</p></td>
-<td><p>File</p></td>
-<td><p> </p></td>
+<tr class="row-odd"><td class="text-left"><p>data</p></td>
+<td class="text-left"><p>File</p></td>
+<td class="text-left"><p></p></td>
 </tr>
 </tbody>
 </table>
-</p>
+</div>
 </div>
 
 
@@ -160,7 +161,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ensure_resource.html" class="btn btn-neutral float-left" title="Resource Loader" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="get_shapes.html" class="btn btn-neutral float-right" title="Tool retrieving shapes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="get_shapes.html" class="btn btn-neutral float-right" title="Tool retrieving county or zip shapefiles from Census website" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
