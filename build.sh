@@ -68,7 +68,6 @@ copy_section doc/common/utils/README.md doc/home.md nsaph_utils
 copy_section doc/common/core-platform/README.md doc/home.md nsaph
 copy_section doc/common/gis/README.md doc/home.md gis
 
-
 # build documentation
 sphinx-build doc docs || exit
 touch docs/.nojekyll
