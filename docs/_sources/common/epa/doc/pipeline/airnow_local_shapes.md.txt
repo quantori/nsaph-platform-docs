@@ -1,6 +1,6 @@
 # Full AirNowProcessing Pipeline (with shapefiles on local file system)
 
-![](airnow_local_shapes_cwl.png)
+![](airnow_local_shapes.png)
 
 ```{contents}
 ---

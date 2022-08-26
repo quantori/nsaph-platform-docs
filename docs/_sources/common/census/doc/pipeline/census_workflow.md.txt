@@ -1,6 +1,6 @@
 # census_workflow.cwl
 
-![](census_workflow_cwl.png)
+![](census_workflow.png)
 
 ```{contents}
 ---

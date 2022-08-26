@@ -1,6 +1,6 @@
 # gridMET Pipeline
 
-![](gridmet_dwnl_only_cwl.png)
+![](gridmet_dwnl_only.png)
 
 ```{contents}
 ---
@@ -35,7 +35,7 @@ Downloads and processes gridMET data (no database ingestion)
 
 ## Steps
 
-| Name    | Runs    | Description | 
-|:--------|:--------|:------------|
-| process | command |             | 
+| Name    | Runs                                              | Description | 
+|:--------|:--------------------------------------------------|:------------|
+| process | [gridmet_dwnl_only_1.cwl](gridmet_dwnl_only_1.md) |             | 
 

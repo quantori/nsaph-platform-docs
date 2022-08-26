@@ -1,6 +1,6 @@
 # census_ingest.cwl
 
-![](census_ingest_cwl.png)
+![](census_ingest.png)
 
 ```{contents}
 ---
@@ -32,7 +32,7 @@ local:
 
 ## Steps
 
-| Name  | Runs    | Description | 
-|:------|:--------|:------------|
-| store | command |             | 
+| Name  | Runs                                      | Description | 
+|:------|:------------------------------------------|:------------|
+| store | [census_ingest_1.cwl](census_ingest_1.md) |             | 
 

@@ -1,6 +1,6 @@
 # Medicare Beneficiaries data in-database processing pipeline
 
-![](medicare_beneficiaries_cwl.png)
+![](medicare_beneficiaries.png)
 
 ```{contents}
 ---

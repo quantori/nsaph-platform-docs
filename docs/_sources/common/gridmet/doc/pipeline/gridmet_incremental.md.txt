@@ -1,6 +1,6 @@
 # gridMET Pipeline
 
-![](gridmet_incremental_cwl.png)
+![](gridmet_incremental.png)
 
 ```{contents}
 ---
@@ -49,8 +49,8 @@ for each given geography and ingests it into the database
 
 ## Steps
 
-| Name          | Runs                        | Description                                               | 
-|:--------------|:----------------------------|:----------------------------------------------------------|
-| make_registry | [registry.cwl](registry.md) | Writes down YAML file with the database model             | 
-| process       | command                     | Downloads raw data and aggregates it over shapes and time | 
+| Name          | Runs                                                  | Description                                               | 
+|:--------------|:------------------------------------------------------|:----------------------------------------------------------|
+| make_registry | [registry.cwl](registry.md)                           | Writes down YAML file with the database model             | 
+| process       | [gridmet_incremental_1.cwl](gridmet_incremental_1.md) | Downloads raw data and aggregates it over shapes and time | 
 

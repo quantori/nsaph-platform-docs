@@ -1,6 +1,6 @@
 # Full EPA AQS Processing Pipeline
 
-![](aqs_cwl.png)
+![](aqs.png)
 
 ```{contents}
 ---

@@ -1,6 +1,6 @@
 # Process Medicare inpatient admissions data inside the database
 
-![](medicare_admissions_cwl.png)
+![](medicare_admissions.png)
 
 ```{contents}
 ---
