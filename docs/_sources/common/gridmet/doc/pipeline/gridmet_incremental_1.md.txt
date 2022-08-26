@@ -1,0 +1,52 @@
+# gridmet_incremental_1.cwl
+
+![](gridmet_incremental_1.png)
+
+```{contents}
+---
+local:
+---
+```
+
+**Workflow**
+
+## Inputs
+
+| Name            | Type       | Default | Description | 
+|:----------------|:-----------|:--------|:------------|
+| band            | string     |         |             | 
+| connection_name | string     |         |             | 
+| database        | File       |         |             | 
+| dates           | string?    |         |             | 
+| depends_on      | Any?       |         |             | 
+| geography       | string     |         |             | 
+| model           | File       |         |             | 
+| proxy           | string?    |         |             | 
+| shapes          | Directory? |         |             | 
+| table           | string     |         |             | 
+| year            | string     |         |             | 
+
+## Outputs
+
+| Name           | Type | Description | 
+|:---------------|:-----|:------------|
+| aggregate_data | File |             | 
+| aggregate_err  | File |             | 
+| aggregate_log  | File |             | 
+| download_err   | File |             | 
+| download_log   | File |             | 
+| ingest_err     | File |             | 
+| ingest_log     | File |             | 
+| vacuum_err     | File |             | 
+| vacuum_log     | File |             | 
+
+## Steps
+
+| Name       | Runs                            | Description                    | 
+|:-----------|:--------------------------------|:-------------------------------|
+| aggregate  | [process.cwl](process.md)       | Processes data                 | 
+| download   | [download.cwl](download.md)     | Downloads data                 | 
+| get_shapes | [get_shapes.cwl](get_shapes.md) |                                | 
+| ingest     | [add_data.cwl](add_data.md)     | Uploads data into the database | 
+| vacuum     | [vacuum.cwl](vacuum.md)         |                                | 
+

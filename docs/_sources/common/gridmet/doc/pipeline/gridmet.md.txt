@@ -1,6 +1,6 @@
 # gridMET Pipeline
 
-![](gridmet_cwl.png)
+![](gridmet.png)
 
 ```{contents}
 ---
@@ -53,9 +53,9 @@ for each given geography and ingests it into the database
 
 ## Steps
 
-| Name          | Runs                        | Description                                               | 
-|:--------------|:----------------------------|:----------------------------------------------------------|
-| make_registry | [registry.cwl](registry.md) | Writes down YAML file with the database model             | 
-| init_tables   | command                     | creates or recreates database tables, one for each band   | 
-| process       | command                     | Downloads raw data and aggregates it over shapes and time | 
+| Name          | Runs                          | Description                                               | 
+|:--------------|:------------------------------|:----------------------------------------------------------|
+| make_registry | [registry.cwl](registry.md)   | Writes down YAML file with the database model             | 
+| init_tables   | [gridmet_1.cwl](gridmet_1.md) | creates or recreates database tables, one for each band   | 
+| process       | [gridmet_2.cwl](gridmet_2.md) | Downloads raw data and aggregates it over shapes and time | 
 

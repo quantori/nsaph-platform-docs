@@ -1,6 +1,6 @@
 # Full Medicaid Processing Pipeline
 
-![](medicaid_cwl.png)
+![](medicaid.png)
 
 ```{contents}
 ---

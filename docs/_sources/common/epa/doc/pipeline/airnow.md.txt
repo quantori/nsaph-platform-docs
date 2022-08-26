@@ -1,6 +1,6 @@
 # Full EPA AirNow Processing Pipeline (including downloading shapefiles)
 
-![](airnow_cwl.png)
+![](airnow.png)
 
 ```{contents}
 ---

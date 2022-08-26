@@ -1,6 +1,6 @@
 # Materialized View Creator
 
-![](matview_cwl.png)
+![](matview.png)
 
 ```{contents}
 ---

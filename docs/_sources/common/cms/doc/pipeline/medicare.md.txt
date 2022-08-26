@@ -1,6 +1,6 @@
 # Medicare in-database processing pipeline
 
-![](medicare_cwl.png)
+![](medicare.png)
 
 ```{contents}
 ---

@@ -1,0 +1,51 @@
+# gridmet_local_shapes_1.cwl
+
+![](gridmet_local_shapes_1.png)
+
+```{contents}
+---
+local:
+---
+```
+
+**Workflow**
+
+## Inputs
+
+| Name            | Type       | Default | Description | 
+|:----------------|:-----------|:--------|:------------|
+| band            | string     |         |             | 
+| connection_name | string     |         |             | 
+| database        | File       |         |             | 
+| dates           | string?    |         |             | 
+| geography       | string     |         |             | 
+| model           | File       |         |             | 
+| nc              | File       |         |             | 
+| proxy           | string?    |         |             | 
+| shape_files     | File[]     |         |             | 
+| shapes          | Directory? |         |             | 
+| table           | string     |         |             | 
+| years           | string[]   |         |             | 
+
+## Outputs
+
+| Name         | Type   | Description | 
+|:-------------|:-------|:------------|
+| index_err    | File   |             | 
+| index_log    | File   |             | 
+| ingest_err   | File   |             | 
+| ingest_log   | File   |             | 
+| process_data | File[] |             | 
+| process_log  | File[] |             | 
+| vacuum_err   | File   |             | 
+| vacuum_log   | File   |             | 
+
+## Steps
+
+| Name    | Runs                      | Description                    | 
+|:--------|:--------------------------|:-------------------------------|
+| index   | [index.cwl](index.md)     |                                | 
+| ingest  | [ingest.cwl](ingest.md)   | Uploads data into the database | 
+| process | [process.cwl](process.md) | Processes data                 | 
+| vacuum  | [vacuum.cwl](vacuum.md)   |                                | 
+
