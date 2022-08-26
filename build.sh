@@ -74,5 +74,5 @@ sphinx-build doc docs || exit
 touch docs/.nojekyll
 
 # remove copied repos
-# rm -rf doc/common
+rm -rf doc/common
 git add docs
